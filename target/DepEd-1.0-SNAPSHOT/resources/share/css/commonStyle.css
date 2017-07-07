@@ -1,0 +1,92 @@
+.bgcolorAcc {
+	background-color: white;
+}
+
+.styleME {
+	margin-left: 8px;
+}
+
+.footer a {
+	color: #DBE4EA;
+}
+
+.footer a:hover {
+	color: white;
+}
+
+.cont {
+	height: 20px auto;
+	position: absolute;
+	background-color: #040915;
+	color: white;
+}
+
+.footerPositioning {
+	bottom: 0;
+	width: 100%;
+}
+
+.menusMiddle .accordion-group {
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 0 4px 4px 0;
+	background-image: linear-gradient(to bottom, #FFFFFF, #F2F2F2);
+	background-color: #FAFAFA;
+	background-repeat: repeat-x;
+	margin-left: 10px;
+}
+
+.padding-accordion-group .accordion-group {
+	margin-bottom: 0;
+}
+
+.img-logo img {
+	margin: 0 10px 0 0;
+	width: 25px;
+	height: 25px;
+}
+
+.navOverwritter {
+	z-index: 1;
+	left: 0;
+	top: 0;
+	position: fixed;
+	width: 100%;
+}
+
+.navOverwritter .navbar-inner {
+	border-radius: 0;
+}
+
+.commentsCounter {
+	background-color: #E3F0FB;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	padding: 2px 2px 3px 2px;
+	text-decoration: underline;
+}
+
+.noTextDecorationNoBorder {
+	border: none;
+	text-decoration: none;
+}
+
+div.subitem a.list-group-item {
+	padding-left: 30px;
+}
+
+.test22 {
+	left: 0;
+}
+
+.border-top-less>.table>thead>tr>th,.table>tbody>tr>th,.table>tfoot>tr>th,.table>thead>tr>td,.table>tbody>tr>td,.table>tfoot>tr>td
+	{
+	border-top: none;
+}
+
+.tableAlignRight{
+	text-align:right;
+}
+
+.bulletStyle {
+	list-style-type:upper-roman;
+}
