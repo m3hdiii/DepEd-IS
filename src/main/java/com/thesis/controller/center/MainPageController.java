@@ -24,12 +24,6 @@ public class MainPageController {
 
     private static org.apache.logging.log4j.Logger logger = org.apache.logging.log4j.LogManager.getLogger(MainPageController.class.getName());
 
-
-    @RequestMapping(value = {"home", "", "main"}, method = RequestMethod.GET)
-    public String mainPageRender() {
-        return "redirect:/signup";
-    }
-
     @RequestMapping(value = {"/signup", "/home/signup"}, method = RequestMethod.GET)
     public String signupPage(@ModelAttribute("personnel") Personnel personnel, Model model) {
         model.addAttribute("signup", true);

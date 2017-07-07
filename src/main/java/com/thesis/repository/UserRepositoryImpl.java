@@ -1,6 +1,7 @@
 package com.thesis.repository;
 
 import com.thesis.model.Personnel;
+import com.thesis.model.User;
 import com.thesis.repository.coordinator.DaoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -42,5 +43,15 @@ public class UserRepositoryImpl implements UserRepository {
 //        return createdPersonnel;
 
         return daoFacade.save(personnel);
+    }
+
+    @Override
+    public User loginUser(User user) {
+        return null;
+    }
+
+    @Override
+    public User signUpUser(User user) {
+        return null;
     }
 }

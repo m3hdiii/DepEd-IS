@@ -2,6 +2,7 @@ package com.thesis.service;
 
 
 import com.thesis.model.Personnel;
+import com.thesis.model.User;
 import com.thesis.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,15 @@ public class UserServiceImpl implements UserService {
         }
 
         return createdPersonnel;
+    }
+
+    @Override
+    public User loginUser(User user) {
+        return null;
+    }
+
+    @Override
+    public User signUpUser(User user) {
+        return null;
     }
 }
