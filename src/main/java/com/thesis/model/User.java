@@ -32,6 +32,8 @@ public class User {
     private Role role;
     private User manager;
 
+    public User(){}
+
     public User(String username, String password, AccountStatus accountStatus, String firstName, String lastName, String middleName, String emailAddress, String phoneNo1, String phoneNo2, Gender gender, Date birthDate, String position, String address, String website, byte[] picture, String referrerName, String referrerAddress, String referrerPhoneNo1, String referrerPhoneNo2, Department department, Section section, Role role, User manager) {
         this.username = username;
         this.password = password;

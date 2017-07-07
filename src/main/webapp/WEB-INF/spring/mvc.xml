@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
 	<context:component-scan base-package="com.thesis" />
-	<mvc:resources mapping="/public/**" location="/resources/share/" />
+	<mvc:resources mapping="/public/**" location="/resources/assets/" />
 
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
