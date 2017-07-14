@@ -10,6 +10,8 @@ public class Section {
     private String description;
     private Department department;
 
+    public Section(){}
+
     public Section(String name, String description, Department department) {
         this.name = name;
         this.description = description;

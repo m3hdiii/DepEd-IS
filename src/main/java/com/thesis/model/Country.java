@@ -1,32 +1,31 @@
 package com.thesis.model;
 
 /**
- * Created by Mehdi on 6/8/2017.
+ * Created by mehdi on 7/10/17.
  */
-public class Role {
+public class Country {
 
-    private Long roleId;
+    private Long countryId;
     private String name;
     private String description;
-    public Role(){}
 
-    public Role(String name, String description) {
+    public Country(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    public Role(Long roleId, String name, String description) {
-        this.roleId = roleId;
+    public Country(Long countryId, String name, String description) {
+        this.countryId = countryId;
         this.name = name;
         this.description = description;
     }
 
-    public Long getRoleId() {
-        return roleId;
+    public Long getCountryId() {
+        return countryId;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setCountryId(Long countryId) {
+        this.countryId = countryId;
     }
 
     public String getName() {

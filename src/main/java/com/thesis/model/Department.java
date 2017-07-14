@@ -10,6 +10,8 @@ public class Department {
     private String description;
     private String departmentHead;
 
+    public Department(){}
+
     public Department(String name, String description, String departmentHead) {
         this.name = name;
         this.description = description;
@@ -53,5 +55,11 @@ public class Department {
 
     public void setDepartmentHead(String departmentHead) {
         this.departmentHead = departmentHead;
+    }
+
+
+    @Override
+    public String toString() {
+        return this.getName();
     }
 }

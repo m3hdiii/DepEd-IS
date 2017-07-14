@@ -39,6 +39,6 @@ public class Login {
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String renderLogin(@ModelAttribute("user") User user, Model model){
-        return "center/Login";
+        return "center/login";
     }
 }
