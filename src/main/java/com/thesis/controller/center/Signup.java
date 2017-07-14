@@ -4,6 +4,7 @@ import com.thesis.model.Department;
 import com.thesis.model.Gender;
 import com.thesis.model.User;
 import com.thesis.service.DepartmentService;
+import com.thesis.service.SectionService;
 import com.thesis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,9 @@ public class Signup {
     @Autowired
     private DepartmentService departmentService;
 
+    @Autowired
+    private SectionService sectionService;
+
     @RequestMapping(value="signup", method = RequestMethod.POST)
     public String signup(@Valid @ModelAttribute("user1") User user, BindingResult result, HttpSession sesison) {
 
@@ -43,6 +47,7 @@ public class Signup {
     public String renderSignup(@Valid @ModelAttribute("user1") User user, Model model) {
         model.addAttribute("genderList", Gender.values());
         model.addAttribute("departmentList", departmentService.fetchDepartments());
+        model.addAttribute("sectionList", sectionService.fetchSections());
         return "center/signup";
     }
 

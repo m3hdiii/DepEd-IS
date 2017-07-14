@@ -56,4 +56,9 @@ public class Section {
     public void setDepartment(Department department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
