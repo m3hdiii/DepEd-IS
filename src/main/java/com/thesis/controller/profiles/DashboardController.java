@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping(value="")
-public class Dashboard {
+public class DashboardController {
 
-    @RequestMapping(value = "dashboard", method = RequestMethod.GET)
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String renderDashboard(){
 
-        return "dashboard";
+        return "profile/dashboard";
     }
 }

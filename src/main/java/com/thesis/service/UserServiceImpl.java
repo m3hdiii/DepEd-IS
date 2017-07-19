@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User loginUser(User user) {
-        return null;
+        return userRepository.loginUser(user);
     }
 
     @Override

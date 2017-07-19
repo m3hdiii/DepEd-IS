@@ -18,26 +18,26 @@ import javax.validation.Valid;
  */
 
 @Controller
-@RequestMapping("/")
-public class Login {
+@RequestMapping("")
+public class LoginController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = {"login"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"","/home", "/index", "/main", "/login"}, method = RequestMethod.POST)
     public String login(@Valid @ModelAttribute("user") User user, BindingResult result, Model model, HttpSession session){
 
         User userInfo = userService.loginUser(user);
 
         if(userInfo == null){
-            //TODO redirect to login page with wrong credential
+            model.addAttribute("loginError", true);
+            return "center/login";
         }
 
-        //TODO redirect to dashboard page
-        return null;
+        return "redirect:dashboard";
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
+    @RequestMapping(value = {"","/home", "/index", "/main", "/login"}, method = RequestMethod.GET)
     public String renderLogin(@ModelAttribute("user") User user, Model model){
         return "center/login";
     }

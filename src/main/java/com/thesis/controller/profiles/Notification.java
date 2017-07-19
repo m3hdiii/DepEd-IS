@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "")
 public class Notification {
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/notification", method = RequestMethod.GET)
     public String renderNotification() {
         return null;
     }

@@ -1,17 +1,26 @@
 package com.thesis.service;
 
 import com.thesis.model.Item;
+import com.thesis.repository.ItemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by mehdi on 7/18/17.
  */
-public class ItemServiceImpl implements ItemService{
+
+@Service(value = "ItemService")
+public class ItemServiceImpl implements ItemService {
+
+    @Autowired
+    private ItemRepository itemRepository;
 
     @Override
     public List<Item> fetchItems() {
-        return null;
+        List<Item> itemList = itemRepository.fetchItems();
+        return itemList;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.thesis.model;
 
+import java.io.File;
+
 /**
  * Created by mehdi on 7/6/17.
  */
