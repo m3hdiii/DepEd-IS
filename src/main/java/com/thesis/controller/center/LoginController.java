@@ -34,6 +34,7 @@ public class LoginController {
             return "center/login";
         }
 
+        session.setAttribute("activePersonnel", userInfo);
         return "redirect:dashboard";
     }
 
