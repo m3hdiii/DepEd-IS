@@ -1,91 +1,45 @@
 package com.thesis.model;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by mehdi on 7/6/17.
  */
+
+@Entity
+@Table(name = "BRAND")
 public class Brand {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "BRAND_ID")
     private Long brandId;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "DESCRIPTION")
     private String description;
+
+    @Column(name = "CONTACT_NUMBER1")
     private String contactNumber;
+
+    @Column(name = "CONTACT_NUMBER2")
     private String contactNumber2;
+
+    @Column(name = "CENTRAL_OFFICE_ADDRESS")
     private String centralOfficeAddress;
+
+    @Column(name = "CENTRAL_SERVICE_ADDRESS")
     private String serviceCenterAddress;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "brand")
+    private List<Item> items = new ArrayList<>();
 
-    public Brand(String name, String description, String contactNumber, String contactNumber2, String centralOfficeAddress, String serviceCenterAddress) {
-        this.name = name;
-        this.description = description;
-        this.contactNumber = contactNumber;
-        this.contactNumber2 = contactNumber2;
-        this.centralOfficeAddress = centralOfficeAddress;
-        this.serviceCenterAddress = serviceCenterAddress;
+    public Brand() {
     }
 
-    public Brand(Long brandId, String name, String description, String contactNumber, String contactNumber2, String centralOfficeAddress, String serviceCenterAddress) {
-        this.brandId = brandId;
-        this.name = name;
-        this.description = description;
-        this.contactNumber = contactNumber;
-        this.contactNumber2 = contactNumber2;
-        this.centralOfficeAddress = centralOfficeAddress;
-        this.serviceCenterAddress = serviceCenterAddress;
-    }
 
-    public Long getBrandId() {
-        return brandId;
-    }
-
-    public void setBrandId(Long brandId) {
-        this.brandId = brandId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getContactNumber() {
-        return contactNumber;
-    }
-
-    public void setContactNumber(String contactNumber) {
-        this.contactNumber = contactNumber;
-    }
-
-    public String getContactNumber2() {
-        return contactNumber2;
-    }
-
-    public void setContactNumber2(String contactNumber2) {
-        this.contactNumber2 = contactNumber2;
-    }
-
-    public String getCentralOfficeAddress() {
-        return centralOfficeAddress;
-    }
-
-    public void setCentralOfficeAddress(String centralOfficeAddress) {
-        this.centralOfficeAddress = centralOfficeAddress;
-    }
-
-    public String getServiceCenterAddress() {
-        return serviceCenterAddress;
-    }
-
-    public void setServiceCenterAddress(String serviceCenterAddress) {
-        this.serviceCenterAddress = serviceCenterAddress;
-    }
 }

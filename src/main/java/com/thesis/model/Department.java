@@ -1,25 +1,37 @@
 package com.thesis.model;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by Mehdi on 6/8/2017.
  */
+
+@Entity
+@Table(name = "DEPARTMENT")
 public class Department {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "DEPARTMENT_ID")
     private Long departmentId;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "DESCRIPTION")
     private String description;
-    private String departmentHead;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
+    private Set<Section> sections = new HashSet<>();
+
+    @Column(name = "DEPARTMENT_HEAD")
+    private User departmentHead;
 
     public Department(){}
 
-    public Department(String name, String description, String departmentHead) {
-        this.name = name;
-        this.description = description;
-        this.departmentHead = departmentHead;
-    }
-
-    public Department(Long departmentId, String name, String description, String departmentHead) {
-        this.departmentId = departmentId;
+    public Department(String name, String description, User departmentHead) {
         this.name = name;
         this.description = description;
         this.departmentHead = departmentHead;
@@ -49,17 +61,19 @@ public class Department {
         this.description = description;
     }
 
-    public String getDepartmentHead() {
+    public User getDepartmentHead() {
         return departmentHead;
     }
 
-    public void setDepartmentHead(String departmentHead) {
+    public void setDepartmentHead(User departmentHead) {
         this.departmentHead = departmentHead;
     }
 
+    public Set<Section> getSections() {
+        return sections;
+    }
 
-    @Override
-    public String toString() {
-        return this.getName();
+    public void setSections(Set<Section> sections) {
+        this.sections = sections;
     }
 }
