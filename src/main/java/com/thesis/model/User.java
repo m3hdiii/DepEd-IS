@@ -83,6 +83,8 @@ public class User {
     private String referrerPhoneNo2;
 
     @Column(name = "SECTION")
+    @ManyToOne
+    @JoinColumn(name = "SECTION_ID")
     private Section section;
 
     @Column(name = "ROLE", nullable = false)

@@ -3,6 +3,7 @@ package com.thesis.model;
 
 import javax.persistence.*;
 import java.io.FileInputStream;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,6 +40,10 @@ public class Item {
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "items")
     private Set<Request> requests = new HashSet<>();
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "CREATION_DATE")
+    private Date creationDate;
 
     @ManyToOne
     @JoinColumn(name = "BRAND_ID")

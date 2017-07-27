@@ -1,5 +1,11 @@
 package com.thesis.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by mehdi on 7/6/17.
  */
@@ -13,6 +19,9 @@ public class EquipmentInfo {
     private EquipmentType equipmentType;
     //equipmentBrand
     private Short lifespan;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipmentInfo")
+    private List<Equipment> equipments = new ArrayList<>();
 
     public EquipmentInfo(String size, Material material, Integer weight, Integer quantity, EquipmentType equipmentType, Short lifespan) {
         this.size = size;
