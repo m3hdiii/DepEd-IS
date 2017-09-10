@@ -1,39 +1,41 @@
 package com.thesis.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.*;
 
-/**
- * Created by mehdi on 7/6/17.
- */
+@Entity
+@Table(name = "Equipment_info")
 public class EquipmentInfo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "equipment_info_id")
     private Long equipmentInfoId;
+
+    @Column(name = "size")
     private String size;
+
+    @Column(name = "material")
     private Material material;
+
+    @Column(name = "weight")
     private Integer weight;
+
+    @Column(name = "quantity")
     private Integer quantity;
+
+    @Column(name = "equipment_type")
+    @Enumerated(value = EnumType.STRING)
     private EquipmentType equipmentType;
     //equipmentBrand
+
+    @Column(name = "life_span")
     private Short lifespan;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipmentInfo")
-    private List<Equipment> equipments = new ArrayList<>();
 
-    public EquipmentInfo(String size, Material material, Integer weight, Integer quantity, EquipmentType equipmentType, Short lifespan) {
-        this.size = size;
-        this.material = material;
-        this.weight = weight;
-        this.quantity = quantity;
-        this.equipmentType = equipmentType;
-        this.lifespan = lifespan;
+    public EquipmentInfo() {
     }
 
-    public EquipmentInfo(Long equipmentInfoId, String size, Material material, Integer weight, Integer quantity, EquipmentType equipmentType, Short lifespan) {
-        this.equipmentInfoId = equipmentInfoId;
+    public EquipmentInfo(String size, Material material, Integer weight, Integer quantity, EquipmentType equipmentType, Short lifespan) {
         this.size = size;
         this.material = material;
         this.weight = weight;
