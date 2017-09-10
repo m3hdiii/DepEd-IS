@@ -1,7 +1,7 @@
 package com.thesis.service;
 
-import com.thesis.model.Personnel;
-import com.thesis.model.User;
+import com.thesis.model.account.Personnel;
+import com.thesis.model.account.User;
 
 public interface UserService {
 

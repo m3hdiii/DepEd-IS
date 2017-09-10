@@ -1,6 +1,6 @@
 package com.thesis.repository;
 
-import com.thesis.model.Department;
+import com.thesis.model.location.officeplace.Department;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ class SaveDepartments {
     public static List<Department> fetchDepartments(){
 
         return new ArrayList<Department>(){{
-            add(new Department(1L, "Education", "Educational Problems and new Announcement", "Sir. Loui"));
-            add(new Department(2L, "Natural Disaster", "School Disaster recovery", "Sir. Amoriyo"));
-            add(new Department(3L, "School Supply", "Measurement and Supply items into diffrent schools", "Sir. Gomborza"));
+//            add(new Department(1L, "Education", "Educational Problems and new Announcement", "Sir. Loui"));
+//            add(new Department(2L, "Natural Disaster", "School Disaster recovery", "Sir. Amoriyo"));
+//            add(new Department(3L, "School Supply", "Measurement and Supply items into diffrent schools", "Sir. Gomborza"));
         }};
     }
 }

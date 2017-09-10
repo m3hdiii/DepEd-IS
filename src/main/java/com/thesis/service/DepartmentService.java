@@ -1,6 +1,6 @@
 package com.thesis.service;
 
-import com.thesis.model.Department;
+import com.thesis.model.location.officeplace.Department;
 
 import java.util.List;
 

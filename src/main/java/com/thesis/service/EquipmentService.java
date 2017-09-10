@@ -1,6 +1,6 @@
 package com.thesis.service;
 
-import com.thesis.model.Equipment;
+import com.thesis.model.items.equipments.Equipment;
 
 import java.util.List;
 

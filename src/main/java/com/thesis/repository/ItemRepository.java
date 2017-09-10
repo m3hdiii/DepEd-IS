@@ -1,6 +1,6 @@
 package com.thesis.repository;
 
-import com.thesis.model.Item;
+import com.thesis.model.items.semigoods.Item;
 
 import java.util.List;
 

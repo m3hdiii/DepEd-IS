@@ -1,6 +1,6 @@
 package com.thesis.service;
 
-import com.thesis.model.Department;
+import com.thesis.model.location.officeplace.Department;
 import com.thesis.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

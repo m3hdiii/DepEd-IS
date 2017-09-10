@@ -1,7 +1,6 @@
 package com.thesis.repository;
 
-import com.thesis.model.Equipment;
-import com.thesis.model.Item;
+import com.thesis.model.items.equipments.Equipment;
 
 import java.util.List;
 

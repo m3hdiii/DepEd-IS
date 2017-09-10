@@ -1,6 +1,6 @@
 package com.thesis.controller.profiles;
 
-import com.thesis.model.Equipment;
+import com.thesis.model.items.equipments.Equipment;
 import com.thesis.service.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

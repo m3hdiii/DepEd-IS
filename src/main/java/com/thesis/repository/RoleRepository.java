@@ -1,7 +1,7 @@
 package com.thesis.repository;
 
 
-import com.thesis.model.Role;
+import com.thesis.model.security.Role;
 
 import java.util.List;
 

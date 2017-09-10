@@ -1,6 +1,12 @@
 package com.thesis.repository;
 
-import com.thesis.model.*;
+import com.thesis.model.account.AccountStatus;
+import com.thesis.model.account.Gender;
+import com.thesis.model.account.Personnel;
+import com.thesis.model.account.User;
+import com.thesis.model.location.officeplace.Department;
+import com.thesis.model.location.officeplace.Section;
+import com.thesis.model.security.Role;
 import com.thesis.repository.coordinator.DaoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -32,7 +38,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public Personnel isPersonnelAlreadyExist(Personnel personnel) {
-        return getPersonnelByUsername(personnel.getUsername());
+        return getPersonnelByUsername(null/*personnel.getUsername()*/);
     }
 
     @Override
@@ -49,7 +55,7 @@ public class UserRepositoryImpl implements UserRepository {
         User loginedUser = null;
         //FIXME pull from database
         if(user.getUsername().equals("mehdi") && user.getPassword().equals("123")){
-            loginedUser = new User("mehdi", "123", AccountStatus.ACTIVE, "Mehdi", "AfsariKashi", "", "mahdi.afsari@gmail.com", "09062658383", "", Gender.MALE, null, "Sr. Software Developer", "Engineers Hill", "kelid.ml", null, "Morteza AfsariKashi", "Tehran - Iran", "+989335787106", "", new Department("IT", "IT Department", "Sir. Harris"), new Section("Section 1", "Section 1 Description", null),new Role("Admin", "Description"), null);
+            //loginedUser = new User("mehdi", "123", AccountStatus.ACTIVE, "Mehdi", "AfsariKashi", "", "mahdi.afsari@gmail.com", "09062658383", "", Gender.MALE, null, "Sr. Software Developer", "Engineers Hill", "kelid.ml", null, "Morteza AfsariKashi", "Tehran - Iran", "+989335787106", "", new Department("IT", "IT Department", "Sir. Harris"), new Section("Section 1", "Section 1 Description", null),new Role("Admin", "Description"), null);
         }
         return loginedUser;
     }

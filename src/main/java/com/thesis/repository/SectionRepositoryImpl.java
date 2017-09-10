@@ -1,6 +1,6 @@
 package com.thesis.repository;
 
-import com.thesis.model.Section;
+import com.thesis.model.location.officeplace.Section;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -14,10 +14,10 @@ class SaveSection{
 
     public static List<Section> fetchSections(){
         return new ArrayList<Section>(){{
-            add(new Section(1L, "sec1", "sec1 Desc", null));
-            add(new Section(2L, "sec2", "sec2 Desc", null));
-            add(new Section(3L, "sec3", "sec3 Desc", null));
-            add(new Section(4L, "sec4", "sec4 Desc", null));
+//            add(new Section(1L, "sec1", "sec1 Desc", null));
+//            add(new Section(2L, "sec2", "sec2 Desc", null));
+//            add(new Section(3L, "sec3", "sec3 Desc", null));
+//            add(new Section(4L, "sec4", "sec4 Desc", null));
 
         }};
     }

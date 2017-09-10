@@ -1,6 +1,6 @@
 package com.thesis.repository;
 
-import com.thesis.model.Section;
+import com.thesis.model.location.officeplace.Section;
 
 import java.util.List;
 

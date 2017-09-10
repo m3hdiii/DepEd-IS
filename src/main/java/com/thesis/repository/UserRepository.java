@@ -1,7 +1,7 @@
 package com.thesis.repository;
 
-import com.thesis.model.Personnel;
-import com.thesis.model.User;
+import com.thesis.model.account.Personnel;
+import com.thesis.model.account.User;
 
 /**
  * Created by PlanetClick on 3/9/2017.

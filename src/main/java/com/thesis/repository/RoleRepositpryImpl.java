@@ -1,6 +1,6 @@
 package com.thesis.repository;
 
-import com.thesis.model.Role;
+import com.thesis.model.security.Role;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ class saveRole{
 
     public static List<Role> getRoles(){
         return new ArrayList<Role>(){{
-            add(new Role(1L, "Chief", "System Chief"));
-            add(new Role(2L, "Supply Officer", "Supply Office Manager"));
-            add(new Role(3L, "Personnel", "Normal Employee"));
+//            add(new Role(1L, "Chief", "System Chief"));
+//            add(new Role(2L, "Supply Officer", "Supply Office Manager"));
+//            add(new Role(3L, "Personnel", "Normal Employee"));
 
         }};
     }

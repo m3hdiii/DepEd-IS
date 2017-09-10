@@ -1,8 +1,8 @@
 package com.thesis.controller.center;
 
-import com.thesis.model.Department;
-import com.thesis.model.Gender;
-import com.thesis.model.User;
+import com.thesis.model.location.officeplace.Department;
+import com.thesis.model.account.Gender;
+import com.thesis.model.account.User;
 import com.thesis.service.DepartmentService;
 import com.thesis.service.SectionService;
 import com.thesis.service.UserService;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;

@@ -1,7 +1,6 @@
 package com.thesis.service;
 
-import com.thesis.model.Equipment;
-import com.thesis.model.Item;
+import com.thesis.model.items.equipments.Equipment;
 import com.thesis.repository.EquipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
