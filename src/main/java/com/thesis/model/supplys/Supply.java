@@ -12,15 +12,15 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "SUPPLY")
+@Table(name = "supply")
 public class Supply {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "SUPPLY_ID")
+    @Column(name = "supply_id")
     private Long supplyId;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 
     @Embedded

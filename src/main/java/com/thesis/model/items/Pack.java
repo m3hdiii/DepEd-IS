@@ -8,22 +8,22 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "PACK")
+@Table(name = "pack")
 public class Pack {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PACK_ID")
+    @Column(name = "pack_id")
     private Long packId;
 
-    @Column(name = "NAME")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "CREATION_DATE")
+    @Column(name = "creation_date")
     private Date creationDate;
 
     public Pack() {

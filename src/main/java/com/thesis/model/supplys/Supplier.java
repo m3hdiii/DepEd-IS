@@ -8,33 +8,33 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "SUPPLIER")
+@Table(name = "supplier")
 public class Supplier {
 //    supplier (supplier_id, name, description, contact_no1, contact_no2, address,
 //              remarks)
 
-    @Column(name = "SUPPLER_ID")
+    @Column(name = "supplier_id")
     private Long supplierId;
 
-    @Column(name = "NAME")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "SUPPLIER_CONTACT_NUMBER1")
-    private String supplierContactNumber;
+    @Column(name = "supplier_contact_nom1")
+    private String supplierContactNom1;
 
-    @Column(name = "SUPPLIER_CONTACT_NUMBER2")
-    private String supplierContactNumber2;
+    @Column(name = "supplier_contact_nom2")
+    private String supplierContactNom2;
 
-    @Column(name = "SUPPLIER_ADDRESS")
+    @Column(name = "supplier_address")
     private String supplierAddress;
 
-    @Column(name = "TEXT")
+    @Column(name = "text")
     private String text;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "CREATION_DATE")
+    @Column(name = "creation_date")
     private Date creationDate;
 }

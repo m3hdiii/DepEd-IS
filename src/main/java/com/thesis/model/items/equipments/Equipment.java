@@ -8,43 +8,44 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "EQUIPMENT")
+@Table(name = "equipment")
 public class Equipment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "equipment_id")
     private Long equipmentId;
 
-    @Column(name = "NAME")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "EQUIPMENT_STATUS")
+    @Column(name = "equipment_status")
+    @Enumerated(value = EnumType.STRING)
     private EquipmentStatus equipmentStatus;
 
-    @Column(name = "MODEL_NUMBER")
+    @Column(name = "model_number")
     private String modelNumber;
 
-    @Column(name = "PURCHASE_PRICE")
+    @Column(name = "purchase_price")
     private Double purchasePrice;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "CREATION_DTAE")
+    @Column(name = "creation_date")
     private Date creationDate;
 
     @ManyToOne
-    @JoinColumn(name = "EQUIPMENT_INFO")
+    @JoinColumn(name = "equipment_info")
     private EquipmentInfo equipmentInfo;
 
     @ManyToMany
-    @JoinTable(name = "SUPPLY_EQUIPMENT", joinColumns = @JoinColumn(name = "EQUIPMENT_ID"),
-            inverseJoinColumns = @JoinColumn(name = "SUPPLY_ID"))
+    @JoinTable(name = "supply_equipment", joinColumns = @JoinColumn(name = "equipment_id"),
+            inverseJoinColumns = @JoinColumn(name = "supply_id"))
     private Set<Supply> supplies = new HashSet<>();
 
     public Equipment() {
     }
-
 
 }

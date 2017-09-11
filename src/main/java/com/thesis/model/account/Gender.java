@@ -27,6 +27,4 @@ public enum Gender {
         this.gender = gender;
     }
 
-
-
 }

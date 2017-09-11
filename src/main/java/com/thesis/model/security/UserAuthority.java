@@ -11,13 +11,13 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "")
+@Table(name = "user_authority")
 public class UserAuthority {
 
-    @Column(name = "USER_ID")
+    @Column(name = "user_id")
     private Long userId;
 
-    @Column(name = "AUTHORITY")
+    @Column(name = "authority")
     private Authority authority;
 
 

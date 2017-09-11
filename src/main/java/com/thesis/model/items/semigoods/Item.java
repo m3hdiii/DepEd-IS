@@ -1,6 +1,7 @@
 package com.thesis.model.items.semigoods;
 
 
+import com.thesis.model.items.Material;
 import com.thesis.model.items.Visibility;
 import com.thesis.model.items.Brand;
 import com.thesis.model.requests.Request;
@@ -15,135 +16,48 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "ITEM")
+@Table(name = "item")
 public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ITEM_ID")
+    @Column(name = "item_id")
     private Long itemId;
 
-    @Column(name = "NAME")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "ITEM_TYPE")
+    @Column(name = "item_type")
+    @Enumerated(value = EnumType.STRING)
     private ItemType itemType;
 
-    @Column(name = "VISIBILITY")
+    @Column(name = "visibility")
     private Visibility visibility;
 
-    @Column(name = "THRESHHOLD")
-    private Integer threshhold;
+    @Column(name = "threshold")
+    private Integer threshold;
 
-    @Column(name = "QUANTITY")
+    @Column(name = "quantity")
     private Integer quantity;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "items")
     private Set<Request> requests = new HashSet<>();
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "CREATION_DATE")
+    @Column(name = "creation_date")
     private Date creationDate;
 
     @ManyToOne
-    @JoinColumn(name = "BRAND_ID")
+    @JoinColumn(name = "brand")
     private Brand brand;
 
-    public Item() {
-    }
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "material")
+    private Material material;
 
-    public Item(String name, String description, ItemType itemType, Visibility visibility, Integer threshhold, Integer quantity, Set<Request> requests, Date creationDate, Brand brand) {
-        this.name = name;
-        this.description = description;
-        this.itemType = itemType;
-        this.visibility = visibility;
-        this.threshhold = threshhold;
-        this.quantity = quantity;
-        this.requests = requests;
-        this.creationDate = creationDate;
-        this.brand = brand;
-    }
 
-    public Long getItemId() {
-        return itemId;
-    }
 
-    public void setItemId(Long itemId) {
-        this.itemId = itemId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public ItemType getItemType() {
-        return itemType;
-    }
-
-    public void setItemType(ItemType itemType) {
-        this.itemType = itemType;
-    }
-
-    public Visibility getVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(Visibility visibility) {
-        this.visibility = visibility;
-    }
-
-    public Integer getThreshhold() {
-        return threshhold;
-    }
-
-    public void setThreshhold(Integer threshhold) {
-        this.threshhold = threshhold;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public Set<Request> getRequests() {
-        return requests;
-    }
-
-    public void setRequests(Set<Request> requests) {
-        this.requests = requests;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Brand getBrand() {
-        return brand;
-    }
-
-    public void setBrand(Brand brand) {
-        this.brand = brand;
-    }
 }

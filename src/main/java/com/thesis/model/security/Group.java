@@ -8,61 +8,22 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "GROUP")
+@Table(name = "group")
 public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "GROUP_ID")
+    @Column(name = "group_id")
     private Long groupId;
 
-    @Column(name = "NAME")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "creation_date")
     private Date creationDate;
 
-    public Group() {
-    }
-
-    public Group(String name, String description, Date creationDate) {
-        this.name = name;
-        this.description = description;
-        this.creationDate = creationDate;
-    }
-
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
 }
 
