@@ -23,19 +23,28 @@
         </property>
 
         <!-- List of XML mapping files -->
+        <mapping class="com.thesis.model.account.User"/>
+        <mapping class="com.thesis.model.location.Continent"/>
+        <mapping class="com.thesis.model.location.Country"/>
+        <mapping class="com.thesis.model.location.City"/>
+        <mapping class="com.thesis.model.location.office.Department"/>
+        <mapping class="com.thesis.model.location.office.Section"/>
+        <mapping class="com.thesis.model.requests.Request"/>
+        <mapping class="com.thesis.model.requests.BorrowRequest"/>
+        <mapping class="com.thesis.model.security.Role"/>
+
+
         <mapping class="com.thesis.model.supplys.DeliveryInformation"/>
         <mapping class="com.thesis.model.items.equipments.Equipment"/>
         <mapping class="com.thesis.model.items.Category"/>
-        <mapping class="com.thesis.model.account.User"/>
         <mapping class="com.thesis.model.items.semigoods.Item"/>
         <mapping class="com.thesis.model.requests.Request"/>
         <mapping class="com.thesis.model.account.AccountStatus"/>
         <mapping class="com.thesis.model.items.equipments.EquipmentInfo"/>
         <mapping class="com.thesis.model.requests.BorrowRequest"/>
-        <mapping class="com.thesis.model.EquipmentCategory"/>
         <mapping class="com.thesis.model.supplys.Supplier"/>
         <mapping class="com.thesis.model.supplys.Supply"/>
-        <mapping class="com.thesis.model.location.officeplace.Department"/>
+        <mapping class="com.thesis.model.location.office.Department"/>
         <mapping class="com.thesis.model.location.Country"/>
         <mapping class="com.thesis.model.location.Continent"/>
         <mapping class="com.thesis.model.items.Pack"/>

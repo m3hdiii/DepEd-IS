@@ -1,4 +1,4 @@
-package com.thesis.model.location.officeplace;
+package com.thesis.model.location.office;
 
 import com.thesis.model.account.User;
 

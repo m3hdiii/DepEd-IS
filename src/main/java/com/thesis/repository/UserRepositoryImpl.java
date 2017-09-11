@@ -1,12 +1,7 @@
 package com.thesis.repository;
 
-import com.thesis.model.account.AccountStatus;
-import com.thesis.model.account.Gender;
 import com.thesis.model.account.Personnel;
 import com.thesis.model.account.User;
-import com.thesis.model.location.officeplace.Department;
-import com.thesis.model.location.officeplace.Section;
-import com.thesis.model.security.Role;
 import com.thesis.repository.coordinator.DaoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

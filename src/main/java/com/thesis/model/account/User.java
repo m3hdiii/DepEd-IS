@@ -1,10 +1,10 @@
 package com.thesis.model.account;
 
 import com.thesis.model.location.City;
-import com.thesis.model.location.Continent;
 import com.thesis.model.location.Country;
+import com.thesis.model.requests.BorrowRequest;
 import com.thesis.model.security.Role;
-import com.thesis.model.location.officeplace.Section;
+import com.thesis.model.location.office.Section;
 import com.thesis.model.requests.Request;
 import org.hibernate.annotations.Formula;
 import org.hibernate.validator.constraints.Length;
@@ -122,6 +122,8 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Set<Request> requests = new HashSet<>();
 
+    private Set<BorrowRequest> borrowRequests = new HashSet<>();
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "city_id")
     private City city;
@@ -130,4 +132,39 @@ public class User {
     @JoinColumn(name = "country_id")
     private Country county;
 
+    public User() {
+    }
+
+    public User(String username, String password, AccountStatus accountStatus, String firstName, String lastName, String middleName, String emailAddress, String phoneNo1, String phoneNo2, Gender gender, Date birthDate, Date employmentDate, Position position, String address, String website, byte[] picture, Date createdDate, String referrerName, String referrerAddress, String referrerPhoneNo1, String referrerPhoneNo2, Section section, Role role, User manager, Short yearsOfExperience, Integer age, Set<Request> requests, Set<BorrowRequest> borrowRequests, City city, Country county) {
+        this.username = username;
+        this.password = password;
+        this.accountStatus = accountStatus;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+        this.emailAddress = emailAddress;
+        this.phoneNo1 = phoneNo1;
+        this.phoneNo2 = phoneNo2;
+        this.gender = gender;
+        this.birthDate = birthDate;
+        this.employmentDate = employmentDate;
+        this.position = position;
+        this.address = address;
+        this.website = website;
+        this.picture = picture;
+        this.createdDate = createdDate;
+        this.referrerName = referrerName;
+        this.referrerAddress = referrerAddress;
+        this.referrerPhoneNo1 = referrerPhoneNo1;
+        this.referrerPhoneNo2 = referrerPhoneNo2;
+        this.section = section;
+        this.role = role;
+        this.manager = manager;
+        this.yearsOfExperience = yearsOfExperience;
+        this.age = age;
+        this.requests = requests;
+        this.borrowRequests = borrowRequests;
+        this.city = city;
+        this.county = county;
+    }
 }
