@@ -1,6 +1,5 @@
 package com.thesis.repository;
 
-import com.thesis.model.account.Personnel;
 import com.thesis.model.account.User;
 import com.thesis.repository.coordinator.DaoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -24,25 +22,19 @@ public class UserRepositoryImpl implements UserRepository {
     @Autowired
     private DaoFacade daoFacade;
 
-
-    private Personnel getPersonnelByUsername(String username){
-        Query q = entityManager.createNativeQuery(String.format("SELECT * FROM personnel WHERE username = '%s'", username), Personnel.class);
-        List<Personnel> result = q.getResultList();
-        return result != null && !result.isEmpty() ? result.get(0) : null;
+    @Override
+    public boolean isUserAlreadyExist(User user) {
+        return false;
     }
 
     @Override
-    public Personnel isPersonnelAlreadyExist(Personnel personnel) {
-        return getPersonnelByUsername(null/*personnel.getUsername()*/);
+    public User createUser(User user) {
+        return daoFacade.save(user);
     }
 
     @Override
-    public Personnel createPersonnel(Personnel personnel) throws Exception {
-//        Personnel createdPersonnel =  entityManager.merge(personnel);
-////        entityManager.flush();
-//        return createdPersonnel;
-
-        return daoFacade.save(personnel);
+    public User editUser(User user) {
+        return null;
     }
 
     @Override
@@ -57,6 +49,16 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User signUpUser(User user) {
+        return null;
+    }
+
+    @Override
+    public List<User> fetchAllUsers() {
+        return null;
+    }
+
+    @Override
+    public User fetchUserById(Long userId) {
         return null;
     }
 }

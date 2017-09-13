@@ -1,7 +1,8 @@
 package com.thesis.repository;
 
-import com.thesis.model.account.Personnel;
 import com.thesis.model.account.User;
+
+import java.util.List;
 
 /**
  * Created by PlanetClick on 3/9/2017.
@@ -9,11 +10,17 @@ import com.thesis.model.account.User;
 public interface UserRepository {
 
 
-    Personnel isPersonnelAlreadyExist(Personnel personnel);
-    Personnel createPersonnel(Personnel personnel) throws Exception;
+    boolean isUserAlreadyExist(User user);
+
+    User createUser(User user);
+
+    User editUser(User user);
 
     User loginUser(User user);
 
     User signUpUser(User user);
 
+    List<User> fetchAllUsers();
+
+    User fetchUserById(Long userId);
 }

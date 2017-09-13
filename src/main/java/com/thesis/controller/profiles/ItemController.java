@@ -1,7 +1,7 @@
 package com.thesis.controller.profiles;
 
 import com.thesis.model.items.semigoods.Item;
-import com.thesis.service.ItemService;
+import com.thesis.service.data.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

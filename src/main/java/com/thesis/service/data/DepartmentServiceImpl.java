@@ -1,4 +1,4 @@
-package com.thesis.service;
+package com.thesis.service.data;
 
 import com.thesis.model.location.office.Department;
 import com.thesis.repository.DepartmentRepository;
