@@ -43,7 +43,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public void edit(@RequestBody User user) {
+    public void addSample(@RequestBody User user) {
         System.out.println(user.getUsername());
         System.out.println(user.getPassword());
     }
