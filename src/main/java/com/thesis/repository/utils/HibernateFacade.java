@@ -1,5 +1,6 @@
 package com.thesis.repository.utils;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -33,6 +34,4 @@ public class HibernateFacade {
         }
         return sessionInstance;
     }
-
-
 }

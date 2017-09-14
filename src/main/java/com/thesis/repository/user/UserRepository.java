@@ -9,18 +9,17 @@ import java.util.List;
  */
 public interface UserRepository {
 
-
-    boolean isUserAlreadyExist(User user);
-
     User createUser(User user);
 
-    User editUser(User user);
+    User loginUserByUsername(User user);
 
-    User loginUser(User user);
+    User loginUserByEmail(User user);
 
-    User signUpUser(User user);
+    List<User> findAllUsers();
 
-    List<User> fetchAllUsers();
+    List<User> findUsers(Integer from, Integer to);
+
+    boolean editUser(User user);
 
     User fetchUserById(Long userId);
 }

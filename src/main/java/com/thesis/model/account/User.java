@@ -4,6 +4,7 @@ import com.thesis.model.location.office.Section;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -20,16 +21,28 @@ import java.util.Date;
                 query = "SELECT user From User user WHERE user.emailAddress=:emailAddress AND user.password=:password"
         ),
         @NamedQuery(
-                name = "findUsersByInfo",
-                query = "SELECT user From User user WHERE user.firstName LIKE :likeInfo"
+                name = "fetchAllByFilter",
+                query = "SELECT user From User user WHERE " +
+                        "(user.username LIKE :username OR :username IS NULL) AND " +
+                        "(user.accountStatus LIKE :accountStatus OR :accountStatus IS NULL) AND " +
+                        "(user.firstName LIKE :firstName OR :firstName IS NULL) AND " +
+                        "(user.lastName LIKE :lastName OR :lastName IS NULL) AND " +
+                        "(user.middle_name LIKE :middleName OR :middleName IS NULL) AND " +
+                        "(user.emailAddress LIKE :emailAddress OR :emailAddress IS NULL) AND " +
+                        "(user.gender LIKE :gender OR :gender IS NULL) AND " +
+                        "((user.employmentDate > :employmentFromDate AND user.employmentDate < :employmentToDate ) OR :employmentFromDate IS NULL OR :employmentToDate IS NULL) AND " +
+                        "(user.position = :position OR :position IS NULL) AND " +
+                        "(user.section = :section OR :section IS NULL)"
+        ),
+        @NamedQuery(
+                name = "findAllUsers",
+                query = "SELECT user FROM User user"
         )
-
-
 })
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -117,9 +130,6 @@ public class User {
 //    @Column(name = "manager_id")
 //    private User manager;
 
-    @Column(name = "years_of_experience")
-    private Short yearsOfExperience;
-
     @Formula("lower(datediff(curdate(), birth_date)/365)")
     private Integer age;
 
@@ -127,7 +137,7 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, AccountStatus accountStatus, String firstName, String lastName, String middleName, String emailAddress, String phoneNo1, String phoneNo2, Gender gender, Date birthDate, Date employmentDate, Position position, String address, String website, byte[] picture, Date createdDate, String referrerName, String referrerAddress, String referrerPhoneNo1, String referrerPhoneNo2, Section section, Short yearsOfExperience, Integer age) {
+    public User(String username, String password, AccountStatus accountStatus, String firstName, String lastName, String middleName, String emailAddress, String phoneNo1, String phoneNo2, Gender gender, Date birthDate, Date employmentDate, Position position, String address, String website, byte[] picture, Date createdDate, String referrerName, String referrerAddress, String referrerPhoneNo1, String referrerPhoneNo2, Section section, Integer age) {
         this.username = username;
         this.password = password;
         this.accountStatus = accountStatus;
@@ -150,7 +160,6 @@ public class User {
         this.referrerPhoneNo1 = referrerPhoneNo1;
         this.referrerPhoneNo2 = referrerPhoneNo2;
         this.section = section;
-        this.yearsOfExperience = yearsOfExperience;
         this.age = age;
     }
 
@@ -336,14 +345,6 @@ public class User {
 
     public void setSection(Section section) {
         this.section = section;
-    }
-
-    public Short getYearsOfExperience() {
-        return yearsOfExperience;
-    }
-
-    public void setYearsOfExperience(Short yearsOfExperience) {
-        this.yearsOfExperience = yearsOfExperience;
     }
 
     public Integer getAge() {
