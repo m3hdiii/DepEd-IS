@@ -1,7 +1,7 @@
-package com.thesis.controller.center;
+package com.thesis.controller.user;
 
 import com.thesis.model.account.User;
-import com.thesis.service.UserService;
+import com.thesis.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package com.thesis.repository;
+package com.thesis.repository.user;
 
 import com.thesis.model.account.User;
 

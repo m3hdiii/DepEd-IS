@@ -1,4 +1,4 @@
-package com.thesis.controller.center;
+package com.thesis.controller.user;
 
 /**
  * Created by mehdi on 7/7/17.

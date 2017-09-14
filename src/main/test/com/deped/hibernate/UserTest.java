@@ -8,12 +8,9 @@ import com.thesis.model.location.City;
 import com.thesis.model.location.Country;
 import com.thesis.model.location.office.Department;
 import com.thesis.model.location.office.Section;
-import com.thesis.repository.HibernateFacade;
+import com.thesis.repository.utils.HibernateFacade;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import java.util.Date;

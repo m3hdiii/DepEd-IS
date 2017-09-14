@@ -1,7 +1,7 @@
-package com.thesis.repository;
+package com.thesis.repository.user;
 
 import com.thesis.model.account.User;
-import com.thesis.repository.coordinator.DaoFacade;
+import com.thesis.repository.utils.DaoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

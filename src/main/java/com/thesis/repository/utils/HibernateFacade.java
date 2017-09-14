@@ -1,4 +1,4 @@
-package com.thesis.repository;
+package com.thesis.repository.utils;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;

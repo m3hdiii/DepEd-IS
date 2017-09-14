@@ -1,4 +1,4 @@
-package com.thesis.repository.coordinator;
+package com.thesis.repository.utils;
 
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;

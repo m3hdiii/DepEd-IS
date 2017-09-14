@@ -1,8 +1,8 @@
-package com.thesis.service;
+package com.thesis.service.user;
 
 
 import com.thesis.model.account.User;
-import com.thesis.repository.UserRepository;
+import com.thesis.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

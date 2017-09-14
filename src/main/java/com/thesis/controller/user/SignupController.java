@@ -1,11 +1,8 @@
-package com.thesis.controller.center;
+package com.thesis.controller.user;
 
-import com.thesis.model.location.office.Department;
 import com.thesis.model.account.Gender;
 import com.thesis.model.account.User;
-import com.thesis.service.data.DepartmentService;
-import com.thesis.service.data.SectionService;
-import com.thesis.service.UserService;
+import com.thesis.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.beans.PropertyEditorSupport;
-import java.util.List;
 
 /**
  * Created by mehdi on 7/7/17.
@@ -30,11 +26,6 @@ public class SignupController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private DepartmentService departmentService;
-
-    @Autowired
-    private SectionService sectionService;
 
     @RequestMapping(value="signup", method = RequestMethod.POST)
     public String signup(@Valid @ModelAttribute("user1") User user, BindingResult result, HttpSession sesison) {
@@ -45,8 +36,6 @@ public class SignupController {
     @RequestMapping(value="signup", method = RequestMethod.GET)
     public String renderSignup(@Valid @ModelAttribute("user1") User user, Model model) {
         model.addAttribute("genderList", Gender.values());
-        model.addAttribute("departmentList", departmentService.fetchDepartments());
-        model.addAttribute("sectionList", sectionService.fetchSections());
         return "center/signup";
     }
 
@@ -67,21 +56,6 @@ public class SignupController {
                 if(getValue() == null)
                     return "";
                 return ((Gender) getValue()).name();
-            }
-        });
-    }
-
-    public void departmentBinder(WebDataBinder dataBinder) {
-        dataBinder.registerCustomEditor(Department.class, new PropertyEditorSupport(){
-            @Override
-            public void setSource(Object source) {
-                List<Department> departments = departmentService.fetchDepartments();
-                super.setSource(departments);
-            }
-
-            @Override
-            public Object getSource() {
-                return super.getSource();
             }
         });
     }

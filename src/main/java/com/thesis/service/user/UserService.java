@@ -1,4 +1,4 @@
-package com.thesis.service;
+package com.thesis.service.user;
 
 import com.thesis.model.account.User;
 
