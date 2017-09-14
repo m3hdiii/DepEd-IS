@@ -448,18 +448,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Department</label>
-                        <div class="col-sm-7">
-
-                            <form:select path="department" class="form-control chosen-select" data-placeholder="Choose a Department">
-                                <form:options cssClass="form-control typeahead"  items="${departmentList}" tabindex="" />
-                            </form:select>
-
-                            <%--<form:input value="Management" path="department.name" class="form-control typeahead" placeholder="Management" />--%>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <label class="col-sm-2 control-label">Section</label>
                         <div class="col-sm-7">
                             <form:select path="section" class="form-control chosen-select" data-placeholder="Choose a Section" >

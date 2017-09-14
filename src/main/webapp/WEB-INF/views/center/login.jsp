@@ -20,15 +20,15 @@
             <h3 class="text-center">Department of Education Baguio City Division</h3>
             <p class="text-center">Inventory System Login</p>
             <hr class="clean">
-        <form:form commandName="user" method="post" role="form">
+            <form method="post" onsubmit="return loginUser();" role="form">
 
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <form:input path="username" type="text" class="form-control"  placeholder="Username" />
+                    <input id="login-username" type="text" class="form-control" placeholder="Username"/>
                 </div>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                    <form:input path="password" type="password" class="form-control"  placeholder="Password" />
+                    <input id="login-password" type="password" class="form-control" placeholder="Password"/>
                 </div>
                 <div class="form-group">
                     <label class="cr-styled">
@@ -38,7 +38,7 @@
                     Remember me?
                 </div>
                 <button type="submit" class="btn btn-purple btn-block">Login</button>
-            </form:form>
+            </form>
             <hr>
 
             <p class="text-center text-gray">Did you forget your password?</p>
@@ -47,5 +47,6 @@
     </div>
 </div>
 <c:import url="../includes/footer.jsp" />
+<script src="${resourceURL}/js/additional/login.js" type="text/javascript"></script>
 </body>
 </html>
