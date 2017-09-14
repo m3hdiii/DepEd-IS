@@ -5,7 +5,9 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.springframework.stereotype.Component;
 
+@Component
 public class HibernateFacade {
     private static volatile SessionFactory sessionInstance;
 

@@ -1,13 +1,15 @@
 package com.thesis.controller.user;
 
 import com.thesis.model.account.User;
-import com.thesis.model.account.User2;
 import com.thesis.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -44,7 +46,6 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public void addSample(@RequestBody User user) {
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
+        userService.loginUser(user);
     }
 }

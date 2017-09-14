@@ -4,7 +4,10 @@ import com.thesis.model.account.User;
 import com.thesis.repository.utils.HibernateFacade;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
 import org.junit.Test;
+
+import java.util.List;
 
 
 public class UserTest {
@@ -21,6 +24,18 @@ public class UserTest {
             e.printStackTrace();
             return;
         }
+
+        String username = "mehdi";
+        String password = null;
+        String firstName = "mehdi";
+        String lastName = null;
+
+
+        String queryStr = "SELCT * FROM user WHERE (username = :username OR :username IS NULL) AND (password = :password OR :password IS NULL) AND (firstName = :firstName OR :firstName IS NULL) AND (lastName = :lastName OR :lastName IS NULL)";
+        NativeQuery query = session.createNativeQuery(queryStr);
+
+
+        List s = query.list();
 
         User user = null;/*new User("mehdi", "123", AccountStatus.NOT_ACTIVE, "Mehdi", "Afsari",
                 null, "mahdi.afsari@gmail.com", "09062658383", "09206110990", Gender.MALE,

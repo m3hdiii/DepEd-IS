@@ -1,12 +1,14 @@
 package com.thesis.repository.user;
 
 import com.thesis.model.account.User;
-import com.thesis.repository.utils.DaoFacade;
+import com.thesis.repository.utils.HibernateFacade;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
@@ -16,11 +18,8 @@ import java.util.List;
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
     @Autowired
-    private DaoFacade daoFacade;
+    private HibernateFacade hibernateFacade;
 
     @Override
     public boolean isUserAlreadyExist(User user) {
@@ -29,7 +28,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User createUser(User user) {
-        return daoFacade.save(user);
+        return null;
     }
 
     @Override
@@ -39,12 +38,34 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User loginUser(User user) {
-        User loginedUser = null;
-        //FIXME pull from database
-        if(user.getUsername().equals("mehdi") && user.getPassword().equals("123")){
-            //loginedUser = new User("mehdi", "123", AccountStatus.ACTIVE, "Mehdi", "AfsariKashi", "", "mahdi.afsari@gmail.com", "09062658383", "", Gender.MALE, null, "Sr. Software Developer", "Engineers Hill", "kelid.ml", null, "Morteza AfsariKashi", "Tehran - Iran", "+989335787106", "", new Department("IT", "IT Department", "Sir. Harris"), new Section("Section 1", "Section 1 Description", null),new Role("Admin", "Description"), null);
+        SessionFactory sessionFactory;
+        Session hibernateSession = null;
+        try {
+            sessionFactory = hibernateFacade.getSessionFactory();
+            hibernateSession = sessionFactory.openSession();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        return loginedUser;
+
+        User result = null;
+        Transaction tx = null;
+        try {
+            tx = hibernateSession.beginTransaction();
+            Query<User> query = hibernateSession.createNamedQuery("findByUsernamePassword", User.class);
+            result = query.setParameter("username", "mehdi")
+                    .setParameter("password", "123")
+                    .getSingleResult();
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+        } finally {
+            if (hibernateSession != null)
+                hibernateSession.close();
+        }
+
+        return result;
     }
 
     @Override
