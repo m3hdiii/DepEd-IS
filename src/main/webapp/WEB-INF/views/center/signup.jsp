@@ -23,7 +23,7 @@
 
 <div class="page-headercol-lg-12 col-lg-offset-4"><h1>Employee Registration</h1></div>
 
-<form:form commandName="user1" class="form-horizontal" role="form">
+<form method="post" onsubmit="return signUp()" class="form-horizontal" role="form">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Username</label>
                         <div class="col-sm-7">
-                            <form:input value="username" path="username" type="text" class="form-control typeahead"
+                            <input value="username" id="username" type="text" class="form-control typeahead"
                                         placeholder="username"/>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">First Name</label>
                         <div class="col-sm-7">
-                            <form:input value="firstName" path="firstName" type="text" class="form-control typeahead"
+                            <input value="firstName" id="firstName" type="text" class="form-control typeahead"
                                         placeholder="First Name"/>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Last Name</label>
                         <div class="col-sm-7">
-                            <form:input value="lastName" path="lastName" type="text" class="form-control typeahead"
+                            <input value="lastName" id="lastName" type="text" class="form-control typeahead"
                                         placeholder="Last Name"/>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Middle Name</label>
                         <div class="col-sm-7">
-                            <form:input value="Middle Name" path="middleName" type="text" class="form-control typeahead"
+                            <input value="Middle Name" id="middleName" type="text" class="form-control typeahead"
                                         placeholder="Middle Name"/>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Email Address</label>
                         <div class="col-sm-7">
-                            <form:input value="mehdi@me.com" path="emailAddress" type="text" class="form-control typeahead"
+                            <input value="mehdi@me.com" id="emailAddress" type="text" class="form-control typeahead"
                                         placeholder="yourEmail@yourDomain.com"/>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Phone Number 1</label>
                         <div class="col-sm-7">
-                            <form:input value="(074) 2460975" path="phoneNo1" type="text" class="form-control typeahead"
+                            <input value="(074) 2460975" id="phoneNo1" type="text" class="form-control typeahead"
                                         placeholder="(074) 2460975"/>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Phone Number 2</label>
                         <div class="col-sm-7">
-                            <form:input value="(074) 2460975" path="phoneNo2" type="text" class="form-control typeahead"
+                            <input value="(074) 2460975" id="phoneNo2" type="text" class="form-control typeahead"
                                         placeholder="(074) 2460975"/>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Password</label>
                         <div class="col-sm-7">
-                            <form:password value="123" path="password" class="form-control tagsinput" />
+                            <input type="password" value="123" id="password" class="form-control tagsinput" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -371,7 +371,7 @@
                         <label class="col-sm-2 control-label">Birthday</label>
                         <div class="col-sm-3">
                             <div class='input-group date' id="datepicker">
-                                <form:input value="1986/07/29" path="birthDate" type='date' class="form-control"
+                                <input value="1986/07/29" id="birthDate" type='date' class="form-control"
                                             data-date-format="YYYY/MM/DD" placeholder="YYYY/MM/DD" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -383,7 +383,7 @@
                         <label class="col-sm-2 control-label">Gender</label>
                         <div class="col-sm-7">
                             <div class="switch-button showcase-switch-button">
-                                <form:radiobuttons path="gender" cssStyle="margin-left: 20px;" items="${genderList}"
+                                <input type="radio" id="gender" cssStyle="margin-left: 20px;" items="${genderList}"
                                                    id="switch-button-6" itemLabel="gender"/>
                             </div>
                         </div>
@@ -392,7 +392,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Home Address</label>
                         <div class="col-sm-7">
-                            <form:textarea value="Tehran - Iran" path="address" class="form-control typeahead"
+                            <input type="textarea" value="Tehran - Iran" id="address" class="form-control typeahead"
                                            placeholder="Tehran - Iran" />
                         </div>
                     </div>
@@ -400,7 +400,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Website</label>
                         <div class="col-sm-7">
-                            <form:input value="www.your-domain.com" path="website" class="form-control typeahead"
+                            <input type="text" value="www.your-domain.com" id="website" class="form-control typeahead"
                                            placeholder="www.your-domain.com"/>
                         </div>
                     </div>
@@ -408,67 +408,66 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Profile Picture</label>
                         <div class="col-sm-7">
-                            <input type="file" name="profilePicture" class="form-control file" />
+                            <input type="file" name="profilePicture" id="profilePicture" class="form-control file" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Position</label>
                         <div class="col-sm-7">
-                            <form:input value="Manager" path="position" name="profilePicture" class="form-control file"   placeholder="Normal Employee" />
+                            <input type="text" value="Manager" id="position" name="profilePicture" class="form-control file"   placeholder="Normal Employee" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Referrer Name</label>
                         <div class="col-sm-7">
-                            <form:input value="Morteza AfsariKashi" path="referrerName" class="form-control typeahead" />
+                            <input type="text" value="Morteza AfsariKashi" id="referrerName" class="form-control typeahead" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Referrer Address</label>
                         <div class="col-sm-7">
-                            <form:textarea value="Tehran Iran" path="referrerAddress" class="form-control typeahead" placeholder="Tehran Iran" />
+                            <input type="textarea" id="referrerAddress" cols="30" rows="10" value="Tehran Iran" class="form-control typeahead" placeholder="Tehran Iran" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Referrer Number</label>
                         <div class="col-sm-7">
-                            <form:input value="09335787555" path="referrerPhoneNo1" class="form-control typeahead" />
+                            <input type="text" value="09335787555" id="referrerPhoneNo1" class="form-control typeahead" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Referrer Number2</label>
                         <div class="col-sm-7">
-                            <form:input value="09335787777" path="referrerPhoneNo2" class="form-control typeahead" />
+                            <input type="text" value="09335787777" id="referrerPhoneNo2" class="form-control typeahead" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Section</label>
                         <div class="col-sm-7">
-                            <form:select path="section" class="form-control chosen-select" data-placeholder="Choose a Section" >
-                                <form:options cssClass="form-control typeahead"  items="${sectionList}" tabindex="" />
-
-                            </form:select>
-                            <%--<form:input value="IT Section" path="section.name" class="form-control typeahead" placeholder="IT Section"/>--%>
+                            <select id="section" class="form-control chosen-select" data-placeholder="Choose a Section" >
+                                <options id="section" cssClass="form-control typeahead" tabindex="" />
+                            </select>
+                            <%--<form:input value="IT Section" id="section.name" class="form-control typeahead" placeholder="IT Section"/>--%>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Role</label>
                         <div class="col-sm-7">
-                            <form:input value="Manager" path="role.name" class="form-control typeahead" />
+                            <input type="text" value="Manager" id="roleName" class="form-control typeahead" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Manager</label>
                         <div class="col-sm-7">
-                            <form:input value="Sir. Montenegro" path="manager.lastName" class="form-control typeahead" placeholder="Will be drop down later" />
+                            <input type="text" value="Sir. Montenegro" id="manager.lastName" class="form-control typeahead" placeholder="Will be drop down later" />
                         </div>
                     </div>
 
@@ -482,9 +481,9 @@
             </div>
         </div>
     </div>
-</form:form>
+</form>
 
 <c:import url="../includes/footer.jsp" />
-
+<script src="${resourceURL}/js/additional/signup.js" type="text/javascript"></script>
 </body>
 </html>
