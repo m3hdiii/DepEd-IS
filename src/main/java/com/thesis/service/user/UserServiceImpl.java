@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User loginUser(User user) {
-        return userRepository.loginUser(user);
+        return userRepository.loginUserByUsername(user);
     }
 
     @Override
@@ -48,5 +48,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User fetchUserById(Long userId) {
         return null;
+    }
+
+    @Override
+    public Boolean deleteGroupUser(List<User> users) {
+        return userRepository.deleteGroupUser(users);
     }
 }

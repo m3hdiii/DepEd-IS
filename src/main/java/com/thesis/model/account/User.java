@@ -20,24 +20,29 @@ import java.util.Date;
                 name = "findByEmailPassword",
                 query = "SELECT user From User user WHERE user.emailAddress=:emailAddress AND user.password=:password"
         ),
-        @NamedQuery(
-                name = "fetchAllByFilter",
-                query = "SELECT user From User user WHERE " +
-                        "(user.username LIKE :username OR :username IS NULL) AND " +
-                        "(user.accountStatus LIKE :accountStatus OR :accountStatus IS NULL) AND " +
-                        "(user.firstName LIKE :firstName OR :firstName IS NULL) AND " +
-                        "(user.lastName LIKE :lastName OR :lastName IS NULL) AND " +
-                        "(user.middle_name LIKE :middleName OR :middleName IS NULL) AND " +
-                        "(user.emailAddress LIKE :emailAddress OR :emailAddress IS NULL) AND " +
-                        "(user.gender LIKE :gender OR :gender IS NULL) AND " +
-                        "((user.employmentDate > :employmentFromDate AND user.employmentDate < :employmentToDate ) OR :employmentFromDate IS NULL OR :employmentToDate IS NULL) AND " +
-                        "(user.position = :position OR :position IS NULL) AND " +
-                        "(user.section = :section OR :section IS NULL)"
-        ),
+//        @NamedQuery(
+//                name = "fetchAllByFilter",
+//                query = "SELECT user From User user WHERE " +
+//                        "(user.username LIKE :username OR :username IS NULL) AND " +
+//                        "(user.accountStatus = :accountStatus OR :accountStatus IS NULL) AND " +
+//                        "(user.firstName LIKE :firstName OR :firstName IS NULL) AND " +
+//                        "(user.lastName LIKE :lastName OR :lastName IS NULL) AND " +
+//                        "(user.middle_name LIKE :middleName OR :middleName IS NULL) AND " +
+//                        "(user.emailAddress LIKE :emailAddress OR :emailAddress IS NULL) AND " +
+//                        "(user.gender = :gender OR :gender IS NULL) AND " +
+//                        "((user.employmentDate > :employmentFromDate AND user.employmentDate < :employmentToDate ) OR :employmentFromDate IS NULL OR :employmentToDate IS NULL) AND " +
+//                        "(user.position = :position OR :position IS NULL) AND " +
+//                        "(user.section = :section OR :section IS NULL)"
+//        ),
         @NamedQuery(
                 name = "findAllUsers",
                 query = "SELECT user FROM User user"
-        )
+        ),
+//        ),
+//        @NamedQuery(
+//                name="deleteUserById",
+//                query = "DELETE FROM User user WHERE user.getUserId = :userId"
+//        )
 })
 
 @Entity
@@ -135,6 +140,10 @@ public class User implements Serializable {
 
 
     public User() {
+    }
+
+    public User(Long userId) {
+        this.userId = userId;
     }
 
     public User(String username, String password, AccountStatus accountStatus, String firstName, String lastName, String middleName, String emailAddress, String phoneNo1, String phoneNo2, Gender gender, Date birthDate, Date employmentDate, Position position, String address, String website, byte[] picture, Date createdDate, String referrerName, String referrerAddress, String referrerPhoneNo1, String referrerPhoneNo2, Section section, Integer age) {

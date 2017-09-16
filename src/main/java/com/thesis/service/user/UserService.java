@@ -19,4 +19,6 @@ public interface UserService {
     List<User> fetchAllUsers();
 
     User fetchUserById(Long userId);
+
+    Boolean deleteGroupUser(List<User> users);
 }

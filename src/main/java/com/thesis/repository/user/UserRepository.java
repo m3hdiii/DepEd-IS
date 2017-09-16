@@ -22,4 +22,6 @@ public interface UserRepository {
     boolean editUser(User user);
 
     User fetchUserById(Long userId);
+
+    Boolean deleteGroupUser(List<User> users);
 }

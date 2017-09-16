@@ -21,7 +21,7 @@ public class HibernateFacade {
                 if (sessionInstance == null) {
                     try {
                         StandardServiceRegistry standardRegistry =
-                                new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+                                new StandardServiceRegistryBuilder().configure("hibernate.configs.xml").build();
                         Metadata metaData = new MetadataSources(standardRegistry).getMetadataBuilder().build();
                         sessionInstance = metaData.getSessionFactoryBuilder().build();
 
