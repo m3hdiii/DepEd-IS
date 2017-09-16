@@ -235,7 +235,7 @@ public class UserRepositoryImpl implements UserRepository {
             String nativeQueryStr = createDeleteQuery(users);
             NativeQuery query = hibernateSession.createNativeQuery(nativeQueryStr);
             for (int i = 0; i < users.size(); i++) {
-                query.setParameter(i, users.get(i).getUserId());
+                query.setParameter(i + 1, users.get(i).getUserId());
             }
 
             query.executeUpdate();
