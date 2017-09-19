@@ -8,10 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -28,8 +25,8 @@ public class SignupController {
     private UserService userService;
 
     @RequestMapping(value="signup", method = RequestMethod.POST)
-    public String signup(@Valid @ModelAttribute("user1") User user, BindingResult result, HttpSession sesison) {
-
+    public String signup(@RequestBody User user) {
+        System.out.println(user.getUsername());
         return null;
     }
 

@@ -39,7 +39,7 @@ function checkUser(username, firstName, lastName, middleName, emailAddress, phon
     };
 
     $.ajax({
-        url: "/signup/", type: "POST",
+        url: "/login/", type: "POST",
         data: JSON.stringify(formData),
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Accept", "application/json");
