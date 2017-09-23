@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean deleteGroupUser(List<User> users) {
-        return userRepository.deleteGroupUser(users);
+    public Boolean removeGroupUser(List<User> users) {
+        return userRepository.removeGroupUser(users);
     }
 }

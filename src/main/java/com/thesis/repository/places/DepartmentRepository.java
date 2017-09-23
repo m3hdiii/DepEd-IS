@@ -1,12 +1,12 @@
-package com.thesis.service.places;
+package com.thesis.repository.places;
 
 import com.thesis.model.location.office.Department;
 
 import java.util.List;
 
-public interface DepartmentService {
+public interface DepartmentRepository {
 
-    boolean createDepartment(Department department);
+    boolean addDepartment(Department department);
 
     boolean removeDepartment(Department department);
 

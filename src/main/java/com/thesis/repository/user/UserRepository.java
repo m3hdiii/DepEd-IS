@@ -23,5 +23,5 @@ public interface UserRepository {
 
     User fetchUserById(Long userId);
 
-    Boolean deleteGroupUser(List<User> users);
+    Boolean removeGroupUser(List<User> users);
 }

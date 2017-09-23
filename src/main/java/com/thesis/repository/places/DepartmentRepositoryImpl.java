@@ -1,18 +1,27 @@
-package com.thesis.service.places;
+package com.thesis.repository.places;
 
 import com.thesis.model.location.office.Department;
-import com.thesis.repository.places.DepartmentRepository;
-import org.springframework.stereotype.Service;
+import com.thesis.repository.utils.HibernateFacade;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Service("mainDepartmentService")
-public class DepartmentServiceImpl implements DepartmentService {
+@Repository
+public class DepartmentRepositoryImpl implements DepartmentRepository {
 
-    private DepartmentRepository departmentRepository;
+    @Autowired
+    private HibernateFacade hibernateFacade;
+    private SessionFactory sessionFactory = hibernateFacade.getSessionFactory();
 
     @Override
-    public boolean createDepartment(Department department) {
+    public boolean addDepartment(Department department) {
+
+        Session session = sessionFactory.openSession();
+
+
         return false;
     }
 

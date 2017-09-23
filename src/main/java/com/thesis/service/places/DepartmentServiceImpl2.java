@@ -1,16 +1,10 @@
 package com.thesis.service.places;
 
 import com.thesis.model.location.office.Department;
-import com.thesis.repository.places.DepartmentRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("mainDepartmentService")
-public class DepartmentServiceImpl implements DepartmentService {
-
-    private DepartmentRepository departmentRepository;
-
+public class DepartmentServiceImpl2 implements DepartmentService {
     @Override
     public boolean createDepartment(Department department) {
         return false;

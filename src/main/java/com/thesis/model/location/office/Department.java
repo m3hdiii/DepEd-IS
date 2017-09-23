@@ -4,6 +4,7 @@ import com.thesis.model.account.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,17 +29,22 @@ public class Department {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
     private List<Section> sections = new ArrayList<>();
 
-//    @Column(name = "department_head")
-//    private User departmentHead;
+    @Column(name = "creation-date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationDate;
+
+    @Column(name = "department_head")
+    private String departmentHead;
 
     public Department() {
     }
 
-    public Department(String name, String description, List<Section> sections) {
+    public Department(String name, String description, List<Section> sections, Date creationDate, String departmentHead) {
         this.name = name;
         this.description = description;
         this.sections = sections;
-
+        this.creationDate = creationDate;
+        this.departmentHead = departmentHead;
     }
 
     public Long getDepartmentId() {
@@ -71,5 +77,21 @@ public class Department {
 
     public void setSections(List<Section> sections) {
         this.sections = sections;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getDepartmentHead() {
+        return departmentHead;
+    }
+
+    public void setDepartmentHead(String departmentHead) {
+        this.departmentHead = departmentHead;
     }
 }
