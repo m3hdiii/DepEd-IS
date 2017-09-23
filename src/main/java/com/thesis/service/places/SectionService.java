@@ -10,8 +10,6 @@ public interface SectionService {
 
     Boolean updateSection(Section section);
 
-    Boolean removeSection(Section section);
-
     Boolean removeSection(Long sectionID);
 
     List<Section> fetchAllSections();

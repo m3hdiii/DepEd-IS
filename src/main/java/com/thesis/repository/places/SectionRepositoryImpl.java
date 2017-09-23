@@ -7,6 +7,7 @@ import com.thesis.repository.utils.HibernateFacade;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -55,14 +56,37 @@ public class SectionRepositoryImpl implements SectionRepository  {
     }
 
     @Override
-    public Boolean removeSection(Section section) {
-        return null;
+    public Boolean removeSection(Long sectionId) {
+        Session hibernateSession;
+        try {
+            hibernateSession = sessionFactory.openSession();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        Transaction tx = null;
+
+        try {
+            tx = hibernateSession.beginTransaction();
+            NativeQuery<Section> query = hibernateSession.createNativeQuery("DELETE FROM section WHERE section_id = :sectionId", Section.class);
+            query.setParameter("sectionId", sectionId);
+            int result = query.executeUpdate();
+
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (tx != null)
+                tx.rollback();
+            return null;
+        } finally {
+            if (hibernateSession != null)
+                hibernateSession.close();
+        }
+
+        return true;
     }
 
-    @Override
-    public Boolean removeSection(Long sectionID) {
-        return null;
-    }
 
     @Override
     public List<Section> fetchAllSections() {

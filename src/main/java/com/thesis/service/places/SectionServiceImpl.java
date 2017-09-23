@@ -23,13 +23,8 @@ public class SectionServiceImpl implements SectionService {
     }
 
     @Override
-    public Boolean removeSection(Section section) {
-        return null;
-    }
-
-    @Override
     public Boolean removeSection(Long sectionID) {
-        return null;
+        return sectionRepository.removeSection(sectionID);
     }
 
     @Override

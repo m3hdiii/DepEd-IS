@@ -10,7 +10,8 @@ import java.util.Date;
  */
 
 @NamedQueries({
-        @NamedQuery(name = "fetchAllSections", query = "SELECT sec FROM Section sec")
+        @NamedQuery(name = "fetchAllSections", query = "SELECT sec FROM Section sec"),
+        @NamedQuery(name = "deleteSectionById", query = "DELETE FROM Section sec WHERE sec.sectionId = :sectionId")
 })
 @Entity
 @Table(name = "section")

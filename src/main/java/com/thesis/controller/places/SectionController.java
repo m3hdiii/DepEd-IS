@@ -8,10 +8,7 @@ import com.thesis.model.location.office.Section;
 import com.thesis.service.places.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,5 +37,16 @@ public class SectionController {
     public @ResponseBody
     List<Section> fetchAllSections() {
         return sectionService.fetchAllSections();
+    }
+
+    @RequestMapping(value = "/remove-section/{section-id}", method = RequestMethod.POST)
+    public @ResponseBody
+    Response removeSection(@PathVariable("section-id") Long sectionId){
+        Boolean isRemoved = sectionService.removeSection(sectionId);
+
+        if(isRemoved == null || isRemoved == false){
+            return new Response(ResponseStatus.FAILED, "Failed to remove Section");
+        }
+        return new Response(ResponseStatus.SUCCESSFUL, "Section successfully removed");
     }
 }
