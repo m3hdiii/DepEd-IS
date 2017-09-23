@@ -1,12 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <header class="top-head container-fluid">
-    <button type="button" class="navbar-toggle pull-left">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
 
     <form role="search" class="navbar-left app-search pull-left hidden-xs">
         <input type="text" placeholder="Search" class="form-control form-control-circle">
@@ -14,8 +9,8 @@
 
     <nav class=" navbar-default hidden-xs" role="navigation">
         <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="UserProfile.html">Profile</a></li>
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">Search & Filter <span
                         class="caret"></span></a>
@@ -49,7 +44,7 @@
                     <a href="#" class="list-group-item">
                         <div class="media">
                             <div class="user-status busy pull-left">
-                                <img class="media-object img-circle pull-left" src="${resourceURL}/images/avtar/user2.png"
+                                <img class="media-object img-circle pull-left" src="assets/images/avtar/user2.png"
                                      alt="user#1" width="40">
                             </div>
                             <div class="media-body">
@@ -61,7 +56,7 @@
                     <a href="#" class="list-group-item">
                         <div class="media">
                             <div class="user-status offline pull-left">
-                                <img class="media-object img-circle pull-left" src="${resourceURL}/images/avtar/user3.png"
+                                <img class="media-object img-circle pull-left" src="assets/images/avtar/user3.png"
                                      alt="user#1" width="40">
                             </div>
                             <div class="media-body">
@@ -73,7 +68,7 @@
                     <a href="#" class="list-group-item">
                         <div class="media">
                             <div class="user-status invisibled pull-left">
-                                <img class="media-object img-circle pull-left" src="${resourceURL}/images/avtar/user4.png"
+                                <img class="media-object img-circle pull-left" src="assets/images/avtar/user4.png"
                                      alt="user#1" width="40">
                             </div>
                             <div class="media-body">
@@ -85,7 +80,7 @@
                     <a href="#" class="list-group-item">
                         <div class="media">
                             <div class="user-status online pull-left">
-                                <img class="media-object img-circle pull-left" src="${resourceURL}/images/avtar/user5.png"
+                                <img class="media-object img-circle pull-left" src="assets/images/avtar/user5.png"
                                      alt="user#1" width="40">
                             </div>
                             <div class="media-body">

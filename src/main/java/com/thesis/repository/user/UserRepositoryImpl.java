@@ -213,11 +213,11 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Boolean deleteGroupUser(List<User> users) {
-        return deleteGroupUserGeneral(users);
+    public Boolean removeGroupUser(List<User> users) {
+        return removeGroupUserGeneral(users);
     }
 
-    private Boolean deleteGroupUserGeneral(List<User> users) {
+    private Boolean removeGroupUserGeneral(List<User> users) {
         Session hibernateSession;
         try {
             hibernateSession = sessionFactory.openSession();

@@ -1,5 +1,7 @@
 package com.thesis.model.location.office;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -7,6 +9,10 @@ import java.util.Date;
  * Created by Mehdi on 6/8/2017.
  */
 
+@NamedQueries({
+        @NamedQuery(name = "fetchAllSections", query = "SELECT sec FROM Section sec"),
+        @NamedQuery(name = "deleteSectionById", query = "DELETE FROM Section sec WHERE sec.sectionId = :sectionId")
+})
 @Entity
 @Table(name = "section")
 public class Section {
@@ -24,6 +30,7 @@ public class Section {
 
     @ManyToOne
     @JoinColumn(name = "department_id")
+    @JsonBackReference
     private Department department;
 
     @Temporal(TemporalType.TIMESTAMP)

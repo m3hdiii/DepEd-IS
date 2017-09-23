@@ -1,18 +1,25 @@
 package com.thesis.model.location.office;
 
-import com.thesis.model.account.User;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
  * Created by Mehdi on 6/8/2017.
  */
 
+
+@NamedQueries({
+        @NamedQuery(name = "fetchAllDepartments", query = "SELECT dep FROM Department dep"),
+        @NamedQuery(name = "fetchDepartments", query = "SELECT dep FROM Department dep")
+})
 @Entity
 @Table(name = "department")
-public class Department {
+public class Department implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,19 +33,25 @@ public class Department {
     private String description;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
+    @JsonManagedReference
     private List<Section> sections = new ArrayList<>();
 
-//    @Column(name = "department_head")
-//    private User departmentHead;
+    @Column(name = "creation_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationDate;
+
+    @Column(name = "department_head")
+    private String departmentHead;
 
     public Department() {
     }
 
-    public Department(String name, String description, List<Section> sections) {
+    public Department(String name, String description, List<Section> sections, Date creationDate, String departmentHead) {
         this.name = name;
         this.description = description;
         this.sections = sections;
-
+        this.creationDate = creationDate;
+        this.departmentHead = departmentHead;
     }
 
     public Long getDepartmentId() {
@@ -71,5 +84,21 @@ public class Department {
 
     public void setSections(List<Section> sections) {
         this.sections = sections;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getDepartmentHead() {
+        return departmentHead;
+    }
+
+    public void setDepartmentHead(String departmentHead) {
+        this.departmentHead = departmentHead;
     }
 }

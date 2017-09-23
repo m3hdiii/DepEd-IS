@@ -1,10 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <aside class="left-panel">
 
     <div class="user text-center">
         <img src="${resourceURL}/images/avtar/user.png" class="img-circle" alt="...">
-        <h4 class="user-name">${activePersonnel.firstName}</h4>
+        <h4 class="user-name">Empoyee Name Here</h4>
 
         <div class="dropdown user-login">
             <button class="btn btn-xs dropdown-toggle btn-rounded" type="button" data-toggle="dropdown"
@@ -29,30 +30,37 @@
             <li class="has-submenu"><a href="#"><i class="fa fa-user"></i> <span
                     class="nav-label">Profile</span></a>
                 <ul class="list-unstyled">
-                    <li><a href="#">page #</a></li>
+                    <li><a href="UserProfile.html">User Profile</a></li>
+                    <li><a href="EditUserProfile.html">Update User Profile</a></li>
+                    <li><a href="UserSearch.html">Search a User</a></li>
                 </ul>
             </li>
             <li class="has-submenu"><a href="#"><i class="fa fa-file-text-o"></i> <span
-                    class="nav-label">Item Registration Forms</span></a>
+                    class="nav-label">Item</span></a>
                 <ul class="list-unstyled">
-                    <li><a href="#">page #</a></li>
+                    <li><a href="ItemRegistration.html">Item Registration</a></li>
+                    <li><a href="InventoryList.html">Item List</a></li>
+                    <li><a href="#"></a></li>
                 </ul>
             </li>
             <li class="has-submenu"><a href="#"><i class="fa fa-comment-o"></i> <span class="nav-label">Manage Notifications</span></a>
                 <ul class="list-unstyled">
-                    <li><a href="#">page #</a></li>
+                    <li><a href="UserNotifications.html">View Notifications</a></li>
+                    <li><a href="GenerateNotification.html">Send Notifications</a></li>
                 </ul>
             </li>
             <li class="has-submenu"><a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Request Management
                 </span></a>
                 <ul class="list-unstyled">
-                    <li><a href="#">page #</a></li>
+                    <li><a href="ItemRequest.html">Request for an Item</a></li>
+                    <li><a href="RequestHistory.html">View Request History</a></li>
                 </ul>
             </li>
             <li class="has-submenu"><a href="#"><i class="fa fa-book"></i> <span class="nav-label">User Reports &
                 Statistics</span></a>
                 <ul class="list-unstyled">
-                    <li><a href="#">page #</a></li>
+                    <li><a href="UserReports.html">View User Report</a></li>
+                    <li><a href="GenerateReports">Generate User Report</a></li>
                 </ul>
             </li>
             <li class="has-submenu"><a href="#"><i class="fa fa-sign-out"></i> <span class="nav-label">Logout</span></a>

@@ -1,0 +1,76 @@
+
+
+[
+  {
+    "sectionId": 1,
+    "name": "IT",
+    "description": "IT Section",
+    "creationDate": null
+  },
+  {
+    "sectionId": 2,
+    "name": "IT Section",
+    "description": "IT Section Description",
+    "creationDate": null
+  },
+  {
+    "sectionId": 3,
+    "name": "IT Section",
+    "description": "IT Section Description",
+    "creationDate": null
+  },
+  {
+    "sectionId": 4,
+    "name": "2 Section",
+    "description": "2 Section Description",
+    "creationDate": null
+  },
+  {
+    "sectionId": 5,
+    "name": "3 Section",
+    "description": "3 Section Description",
+    "creationDate": null
+  },
+  {
+    "sectionId": 6,
+    "name": "4 Section",
+    "description": "4 Section Description",
+    "creationDate": null
+  },
+  {
+    "sectionId": 7,
+    "name": "5 Section",
+    "description": "5 Section Description",
+    "creationDate": null
+  },
+  {
+    "sectionId": 8,
+    "name": "6 Section",
+    "description": "6 Section Description",
+    "creationDate": null
+  },
+  {
+    "sectionId": 9,
+    "name": "7 Section",
+    "description": "7 Section Description",
+    "creationDate": null
+  },
+  {
+    "sectionId": 10,
+    "name": "8 Section",
+    "description": "8 Section Description",
+    "creationDate": null
+  },
+  {
+    "sectionId": 11,
+    "name": "9 Section",
+    "description": "9 Section Description",
+    "creationDate": null
+  },
+  {
+    "sectionId": 12,
+    "name": "Cooper Section",
+    "description": "Cooper Section Desc",
+    "creationDate": 1506096000000
+  }
+]

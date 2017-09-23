@@ -33,7 +33,7 @@ public class UserController {
 
     @RequestMapping(value = "/delete-user", method = RequestMethod.POST)
     public void deleteGroupUser(@RequestBody List<User> users) {
-        userService.deleteGroupUser(users);
+        userService.removeGroupUser(users);
     }
 
     /*

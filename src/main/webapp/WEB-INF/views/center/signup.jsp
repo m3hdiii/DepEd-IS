@@ -372,7 +372,7 @@
                         <div class="col-sm-3">
                             <div class='input-group date' id="datepicker">
                                 <input value="1986/07/29" id="birthDate" type='date' class="form-control"
-                                            data-date-format="YYYY/MM/DD" placeholder="YYYY/MM/DD" />
+                                            data-date-format="YYYY-MM-DD" placeholder="YYYY-MM-DD" />
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                             </div>
