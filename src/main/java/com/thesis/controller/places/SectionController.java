@@ -36,16 +36,21 @@ public class SectionController {
         return sections;
     }
 
-    @RequestMapping(value = "add-section", method = RequestMethod.POST)
+    @RequestMapping(value = "/add-section", method = RequestMethod.POST)
     public @ResponseBody
     Response addSection(@RequestBody Section section) {
-        return new Response(ResponseStatus.SUCCESSFUL, "User successfully created");
+
+        Boolean isCreated = sectionService.createSection(section);
+
+        if(isCreated == null || isCreated == false) {
+            return new Response(ResponseStatus.FAILED, "section failed to create");
+        }
+
+        return new Response(ResponseStatus.SUCCESSFUL, "section successfully created");
     }
 
-
-    @RequestMapping(value = "/get-json", method = RequestMethod.GET)
-    public String showFetchJsonPage() {
-        return "center/fetch-json";
+    @RequestMapping(value = "/add-section2", method = RequestMethod.GET)
+    public void addSection2(){
+        System.out.println();
     }
-
 }

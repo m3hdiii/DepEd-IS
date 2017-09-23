@@ -2,16 +2,19 @@ package com.thesis.service.places;
 
 import com.thesis.model.location.office.Section;
 import com.thesis.repository.places.SectionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class SectionServiceImpl implements SectionService {
 
+    @Autowired
     private SectionRepository sectionRepository;
+
     @Override
     public Boolean createSection(Section section) {
-        return null;
+        return sectionRepository.createSection(section);
     }
 
     @Override
