@@ -7,10 +7,10 @@
         <h4 class="user-name">${activePersonnel.firstName}</h4>
 
         <div class="dropdown user-login">
-            <button class="btn btn-xs dropdown-toggle btn-rounded" type="button" data-toggle="dropdown"
+            <buntton class="btn btn-xs dropdown-toggle btn-rounded" type="button" data-toggle="dropdown"
                     aria-expanded="true">
                 <i class="fa fa-circle status-icon available"></i> Available <i class="fa fa-angle-down"></i>
-            </button>
+            </buntton>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <li role="presentation"><a role="menuitem" href="#"><i class="fa fa-circle status-icon busy"></i>
                     Busy</a></li>
