@@ -42,4 +42,23 @@ public class SectionController {
     }
 
 
+    @RequestMapping(value = "/get-json", method = RequestMethod.GET)
+    public String showFetchJsonPage() {
+        return "center/fetch-json";
+    }
+
+    @RequestMapping(value = "/section-list", method = RequestMethod.POST)
+    public @ResponseBody
+    List<Section> getSectionList() {
+        List<Section> sections = new ArrayList<Section>() {{
+            add(new Section("IT Section", "Sir Harris Description", null, new Date()));
+            add(new Section("Manager Section", "Manager Section Description", null, new Date()));
+            add(new Section("Accounting Section", "Accounting Section Description", null, new Date()));
+            add(new Section("CID Section", "CID Section Description", null, new Date()));
+            add(new Section("SGOD Section", "SGOD Section Description", null, new Date()));
+        }};
+
+        return sections;
+    }
+
 }

@@ -1,7 +1,5 @@
 package com.thesis.model.location.office;
 
-import com.thesis.model.account.User;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +9,11 @@ import java.util.List;
  * Created by Mehdi on 6/8/2017.
  */
 
+
+@NamedQueries({
+        @NamedQuery(name = "fetchAllDepartments", query = "SELECT dep FROM Department dep"),
+        @NamedQuery(name = "fetchDepartments", query = "SELECT dep FROM Department dep")
+})
 @Entity
 @Table(name = "department")
 public class Department {
