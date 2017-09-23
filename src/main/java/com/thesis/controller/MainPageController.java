@@ -22,4 +22,6 @@ public class MainPageController {
     public String InfoPageRender() {
         return "public/congrat";
     }
+
+
 }

@@ -11,4 +11,9 @@ public class DashboardController {
     public String profileGet(){
         return "center/profile";
     }
+
+    @RequestMapping(value = {"/dashboard"}, method = RequestMethod.GET)
+    public String showHome(){
+        return "center/dashboard";
+    }
 }
