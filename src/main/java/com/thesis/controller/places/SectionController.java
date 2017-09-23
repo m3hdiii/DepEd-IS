@@ -3,6 +3,7 @@ package com.thesis.controller.places;
 import com.thesis.model.Response;
 import com.thesis.model.ResponseStatus;
 import com.thesis.model.account.User;
+import com.thesis.model.location.office.Department;
 import com.thesis.model.location.office.Section;
 import com.thesis.service.places.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,20 +23,6 @@ public class SectionController {
     @Autowired
     private SectionService sectionService;
 
-    @RequestMapping(value = "sections", method = RequestMethod.GET)
-    public @ResponseBody
-    List<Section> showSections() {
-//        List<Section> sections = sectionService.fetchAllSections();
-        List<Section> sections = new ArrayList<Section>() {{
-            add(new Section("IT Section", "Description", null, new Date()));
-            add(new Section("CED Section", "Description", null, new Date()));
-            add(new Section("SGOD Section", "Description", null, new Date()));
-            add(new Section("HEAD Section", "Description", null, new Date()));
-        }};
-
-        return sections;
-    }
-
     @RequestMapping(value = "/add-section", method = RequestMethod.POST)
     public @ResponseBody
     Response addSection(@RequestBody Section section) {
@@ -49,8 +36,9 @@ public class SectionController {
         return new Response(ResponseStatus.SUCCESSFUL, "section successfully created");
     }
 
-    @RequestMapping(value = "/add-section2", method = RequestMethod.GET)
-    public void addSection2(){
-        System.out.println();
+    @RequestMapping(value = "/sections", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Section> fetchAllSections() {
+        return sectionService.fetchAllSections();
     }
 }

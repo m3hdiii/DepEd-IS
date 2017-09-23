@@ -34,7 +34,7 @@ public class SectionServiceImpl implements SectionService {
 
     @Override
     public List<Section> fetchAllSections() {
-        return null;
+        return sectionRepository.fetchAllSections();
     }
 
     @Override

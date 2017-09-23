@@ -9,6 +9,9 @@ import java.util.Date;
  * Created by Mehdi on 6/8/2017.
  */
 
+@NamedQueries({
+        @NamedQuery(name = "fetchAllSections", query = "SELECT sec FROM Section sec")
+})
 @Entity
 @Table(name = "section")
 public class Section {

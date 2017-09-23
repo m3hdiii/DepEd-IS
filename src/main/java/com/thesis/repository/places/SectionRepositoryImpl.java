@@ -1,11 +1,13 @@
 package com.thesis.repository.places;
 
 import com.thesis.model.account.User;
+import com.thesis.model.location.office.Department;
 import com.thesis.model.location.office.Section;
 import com.thesis.repository.utils.HibernateFacade;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -64,7 +66,17 @@ public class SectionRepositoryImpl implements SectionRepository  {
 
     @Override
     public List<Section> fetchAllSections() {
-        return null;
+        Session hibernateSession;
+        List<Section> sections = null;
+        try {
+            hibernateSession = sessionFactory.openSession();
+            Query<Section> query = hibernateSession.createNamedQuery("fetchAllSections", Section.class);
+            sections = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return sections;
     }
 
     @Override

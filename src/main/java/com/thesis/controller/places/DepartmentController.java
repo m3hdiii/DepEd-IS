@@ -38,7 +38,7 @@ public class DepartmentController {
         return new Response(ResponseStatus.FAILED, "The department successfully created");
     }
 
-    @RequestMapping(value = "/departments", method = RequestMethod.POST)
+    @RequestMapping(value = "/departments", method = RequestMethod.GET)
     public @ResponseBody
     List<Department> fetchDepartments() {
         return departmentService.fetchAllDepartments();
