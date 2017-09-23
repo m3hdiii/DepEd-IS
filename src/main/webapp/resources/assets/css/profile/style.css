@@ -33,6 +33,12 @@
     margin-left: 20%;
 }
 
+.profile-body hr{
+    margin-left: 0;
+    padding: 0;
+    width: 50%;
+}
+
 .profile-body .button-group{
     padding-top: 20px;
     padding-bottom: 40px;
@@ -43,3 +49,5 @@
     width: 50%;
     margin: 10px auto;
 }
+
+/* change password modal */
