@@ -1,3 +1,7 @@
+<footer class="container-fluid footer">
+    Copyright &copy; 2017 <a href="#" target="_blank">DepEd-IS Group</a>
+    <a href="#" class="pull-right scrollToTop"><i class="fa fa-chevron-up"></i></a>
+</footer>
 <script src="${resourceURL}/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="${resourceURL}/js/plugins/underscore/underscore-min.js"></script>
 <script src="${resourceURL}/js/bootstrap/bootstrap.min.js"></script>
