@@ -15,13 +15,11 @@
 <c:url value="/public" var="resourceURL" scope="request"/>
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../includes/head.jsp">
-    <c:param name="title" value="Request Items"/>
-    <c:param name="description" value="Item Request Page"/>
+    <c:param name="title" value="Item Registration"/>
+    <c:param name="description" value="Item Registration Page"/>
 </c:import>
 <html>
-<head>
-    <title>Title</title>
-</head>
+
 <body>
 <c:import url="../includes/left-nav.jsp" />
 <section class="content">

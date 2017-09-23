@@ -9,7 +9,7 @@ public class RequestItemController {
 
     @RequestMapping(value = "/request-item", method = RequestMethod.GET)
     public String itemRequest() {
-        return "requests/register-item";
+        return "processing/request-item";
     }
 
 }
