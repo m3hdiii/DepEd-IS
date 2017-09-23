@@ -15,4 +15,6 @@ public class IndexController {
         //take note that you do not need to put .jsp at the end because the suffix will be added using this formula ....
         return "center/index";
     }
+
+
 }
