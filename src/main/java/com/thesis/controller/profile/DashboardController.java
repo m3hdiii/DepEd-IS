@@ -12,6 +12,9 @@ public class DashboardController {
         return "center/profile";
     }
 
+    @RequestMapping (value = "/edituserprofile", method = RequestMethod.GET)
+    public String editUserProfile() { return "center/edituserprofile"; }
+
     @RequestMapping(value = {"/dashboard"}, method = RequestMethod.GET)
     public String showHome(){
         return "center/dashboard";

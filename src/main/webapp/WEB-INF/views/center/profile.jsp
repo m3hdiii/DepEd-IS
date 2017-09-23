@@ -18,10 +18,14 @@
     <c:param name="title" value="Profile"/>
     <c:param name="description" value="Profile page for personnel"/>
 </c:import>
+
 <body>
 
-<c:import url="../includes/left-nav.jsp"/>
-<c:import url="../includes/top-nav.jsp" />
+    <c:import url="../includes/left-nav.jsp"/>
+
+<section class="content">
+
+    <c:import url="../includes/top-nav.jsp" />
 
 
     <div class="warper container-fluid">
@@ -130,7 +134,8 @@
             </div>
         </div>
     </div>
-<c:import url="../includes/footer.jsp" />
-<script src="${resourceURL}/js/additional/login.js" type="text/javascript"></script>
+    <c:import url="../includes/footer.jsp" />
+</section>
+ <!-- <script src="${resourceURL}/js/additional/login.js" type="text/javascript"></script> -->
 </body>
 </html>
