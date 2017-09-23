@@ -25,13 +25,13 @@
 
     <nav class="navigation">
         <ul class="list-unstyled">
-            <li class="active"><a href="#"><i class="fa fa-bookmark-o"></i><span class="nav-label">Dashboard</span></a>
+            <li class="active"><a href="dashboard"><i class="fa fa-bookmark-o"></i><span class="nav-label">Dashboard</span></a>
             </li>
             <li class="has-submenu"><a href="#"><i class="fa fa-user"></i> <span
                     class="nav-label">Profile</span></a>
                 <ul class="list-unstyled">
-                    <li><a href="UserProfile.html">User Profile</a></li>
-                    <li><a href="EditUserProfile.html">Update User Profile</a></li>
+                    <li><a href="profile">User Profile</a></li>
+                    <li><a href="edituserprofile">Update User Profile</a></li>
                     <li><a href="UserSearch.html">Search a User</a></li>
                 </ul>
             </li>
