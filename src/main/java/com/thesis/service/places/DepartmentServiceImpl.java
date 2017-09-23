@@ -2,13 +2,15 @@ package com.thesis.service.places;
 
 import com.thesis.model.location.office.Department;
 import com.thesis.repository.places.DepartmentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("mainDepartmentService")
+@Service
 public class DepartmentServiceImpl implements DepartmentService {
 
+    @Autowired
     private DepartmentRepository departmentRepository;
 
     @Override
@@ -28,7 +30,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public List<Department> fetchAllDepartments() {
-        return null;
+        return departmentRepository.fetchAllDepartments();
     }
 
     @Override

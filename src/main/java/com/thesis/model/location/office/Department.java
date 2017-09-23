@@ -1,6 +1,9 @@
 package com.thesis.model.location.office;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,7 +19,7 @@ import java.util.List;
 })
 @Entity
 @Table(name = "department")
-public class Department {
+public class Department implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +33,10 @@ public class Department {
     private String description;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
+    @JsonManagedReference
     private List<Section> sections = new ArrayList<>();
 
-    @Column(name = "creation-date")
+    @Column(name = "creation_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
 

@@ -1,0 +1,65 @@
+[
+  {
+    "departmentId": 3,
+    "name": "Main",
+    "description": "Main Department",
+    "sections": [
+      {
+        "sectionId": 1,
+        "name": "IT",
+        "description": "IT Section",
+        "creationDate": null
+      }
+    ],
+    "creationDate": null,
+    "departmentHead": "1"
+  },
+  {
+    "departmentId": 4,
+    "name": "IT Department",
+    "description": "IT Department Description",
+    "sections": [],
+    "creationDate": 1506149850000,
+    "departmentHead": "cooper"
+  },
+  {
+    "departmentId": 5,
+    "name": "Science Department",
+    "description": "Science Department Description",
+    "sections": [],
+    "creationDate": 1506149850000,
+    "departmentHead": "Mehdi"
+  },
+  {
+    "departmentId": 6,
+    "name": "Math Department",
+    "description": "Math Department Description",
+    "sections": [],
+    "creationDate": 1506149850000,
+    "departmentHead": "Mehdi"
+  },
+  {
+    "departmentId": 7,
+    "name": "SCIS Department",
+    "description": "SCIS Department Description",
+    "sections": [],
+    "creationDate": 1506149850000,
+    "departmentHead": "Kevin"
+  },
+  {
+    "departmentId": 8,
+    "name": "SCIS Department",
+    "description": "SCIS Department Description",
+    "sections": [],
+    "creationDate": 1506149850000,
+    "departmentHead": "Kevin"
+  },
+  {
+    "departmentId": 9,
+    "name": "SCIS Department",
+    "description": "SCIS Department Description",
+    "sections": [],
+    "creationDate": 1506149850000,
+    "departmentHead": "Kevin"
+  }
+]
