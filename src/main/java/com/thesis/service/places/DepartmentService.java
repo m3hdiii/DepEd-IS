@@ -6,15 +6,16 @@ import java.util.List;
 
 public interface DepartmentService {
 
-    boolean createDepartment(Department department);
+    Boolean createDepartment(Department department);
 
-    boolean removeDepartment(Department department);
+    Boolean removeDepartment(Department department);
 
-    boolean removeDepartment(Long departmentId);
+    Boolean removeDepartment(Long departmentId);
 
     List<Department> fetchAllDepartments();
 
     List<Department> fetchDepartment(int from, int to);
 
     Department updateDepartment(Department department);
+
 }

@@ -12,17 +12,17 @@ public class DepartmentServiceImpl implements DepartmentService {
     private DepartmentRepository departmentRepository;
 
     @Override
-    public boolean createDepartment(Department department) {
+    public Boolean createDepartment(Department department) {
+        return departmentRepository.createDepartment(department);
+    }
+
+    @Override
+    public Boolean removeDepartment(Department department) {
         return false;
     }
 
     @Override
-    public boolean removeDepartment(Department department) {
-        return false;
-    }
-
-    @Override
-    public boolean removeDepartment(Long departmentId) {
+    public Boolean removeDepartment(Long departmentId) {
         return false;
     }
 
