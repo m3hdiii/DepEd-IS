@@ -21,7 +21,7 @@
 
 <body>
 
-<div class="page-headercol-lg-12 col-lg-offset-4"><h1>Employee Registration</h1></div>
+<div class="text-center"><h1>Employee Registration</h1></div>
 
 <form method="post" onsubmit="return signUp()" class="form-horizontal" role="form">
     <div class="row">
@@ -32,32 +32,32 @@
 
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Username</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Username</label>
+                        <div class="col-sm-5">
                             <input value="username" id="username" type="text" class="form-control typeahead"
                                         placeholder="username"/>
                         </div>
                     </div>
                     <hr class="dotted">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">First Name</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">First Name</label>
+                        <div class="col-sm-5">
                             <input value="firstName" id="firstName" type="text" class="form-control typeahead"
                                         placeholder="First Name"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Last Name</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Last Name</label>
+                        <div class="col-sm-5">
                             <input value="lastName" id="lastName" type="text" class="form-control typeahead"
                                         placeholder="Last Name"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Middle Name</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Middle Name</label>
+                        <div class="col-sm-5">
                             <input value="Middle Name" id="middleName" type="text" class="form-control typeahead"
                                         placeholder="Middle Name"/>
                         </div>
@@ -65,24 +65,24 @@
                     <hr class="dotted">
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Email Address</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Email Address</label>
+                        <div class="col-sm-5">
                             <input value="mehdi@me.com" id="emailAddress" type="text" class="form-control typeahead"
                                         placeholder="yourEmail@yourDomain.com"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Phone Number 1</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Phone Number 1</label>
+                        <div class="col-sm-5">
                             <input value="(074) 2460975" id="phoneNo1" type="text" class="form-control typeahead"
                                         placeholder="(074) 2460975"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Phone Number 2</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Phone Number 2</label>
+                        <div class="col-sm-5">
                             <input value="(074) 2460975" id="phoneNo2" type="text" class="form-control typeahead"
                                         placeholder="(074) 2460975"/>
                         </div>
@@ -90,20 +90,20 @@
 
                     <hr class="dotted">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Password</label>
+                        <div class="col-sm-5">
                             <input type="password" value="123" id="password" class="form-control tagsinput" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Confirm Password</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Confirm Password</label>
+                        <div class="col-sm-5">
                             <input value="123" type="password" class="form-control tagsinput" placeholder="* * * * * *"/>
                         </div>
                     </div>
                     <hr class="dotted">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Country</label>
+                        <label class="col-sm-4 control-label">Country</label>
                         <div class="col-sm-2">
                             <select class="form-control chosen-select" data-placeholder="Choose a Country">
                                 <option></option>
@@ -368,7 +368,7 @@
                     </div>
                     <hr class="dotted">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Birthday</label>
+                        <label class="col-sm-4 control-label">Birthday</label>
                         <div class="col-sm-3">
                             <div class='input-group date' id="datepicker">
                                 <input value="1986/07/29" id="birthDate" type='date' class="form-control"
@@ -380,76 +380,84 @@
                     </div>
                     <hr class="dotted">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Gender</label>
+                        <label class="col-sm-4 control-label">Gender</label>
                         <div class="col-sm-7">
                             <div class="switch-button showcase-switch-button">
-                                <input type="radio" id="gender" cssStyle="margin-left: 20px;" items="${genderList}"
-                                                   id="switch-button-6" itemLabel="gender"/>
+                                <label class="radio-inline">
+                                    <input class="switch-button-input" type="radio" name="genderRadio" id="genderMale" value="male" checked>
+                                    Male
+                                </label>
+                                <label class="radio-inline">
+                                    <input class="switch-button-input col-sm-offset-1" type="radio" name="genderRadio" id="genderfemale" value="female">
+                                    Female
+                                </label>
+                             <!--   <input type="radio" id="gender" cssStyle="margin-left: 20px;" items="${genderList}"
+                                                   id="switch-button-6" itemLabel="gender"/> -->
                             </div>
                         </div>
                     </div>
                     <hr class="dotted">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Home Address</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Home Address</label>
+                        <div class="col-sm-5">
                             <input type="textarea" value="Tehran - Iran" id="address" class="form-control typeahead"
                                            placeholder="Tehran - Iran" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Website</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Website</label>
+                        <div class="col-sm-5">
                             <input type="text" value="www.your-domain.com" id="website" class="form-control typeahead"
                                            placeholder="www.your-domain.com"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Profile Picture</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Profile Picture</label>
+                        <div class="col-sm-5">
                             <input type="file" name="profilePicture" id="profilePicture" class="form-control file" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Position</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Position</label>
+                        <div class="col-sm-5">
                             <input type="text" value="Manager" id="position" name="profilePicture" class="form-control file"   placeholder="Normal Employee" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Referrer Name</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Referrer Name</label>
+                        <div class="col-sm-5">
                             <input type="text" value="Morteza AfsariKashi" id="referrerName" class="form-control typeahead" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Referrer Address</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Referrer Address</label>
+                        <div class="col-sm-5">
                             <input type="textarea" id="referrerAddress" cols="30" rows="10" value="Tehran Iran" class="form-control typeahead" placeholder="Tehran Iran" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Referrer Number</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Referrer Number</label>
+                        <div class="col-sm-5">
                             <input type="text" value="09335787555" id="referrerPhoneNo1" class="form-control typeahead" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Referrer Number2</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Referrer Number2</label>
+                        <div class="col-sm-5">
                             <input type="text" value="09335787777" id="referrerPhoneNo2" class="form-control typeahead" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Section</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Section</label>
+                        <div class="col-sm-5">
                             <select id="section" class="form-control chosen-select" data-placeholder="Choose a Section" >
                                 <options id="section" cssClass="form-control typeahead" tabindex="" />
                             </select>
@@ -458,21 +466,21 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Role</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Role</label>
+                        <div class="col-sm-5">
                             <input type="text" value="Manager" id="roleName" class="form-control typeahead" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Manager</label>
-                        <div class="col-sm-7">
+                        <label class="col-sm-4 control-label">Manager</label>
+                        <div class="col-sm-5">
                             <input type="text" value="Sir. Montenegro" id="manager.lastName" class="form-control typeahead" placeholder="Will be drop down later" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-lg-4 col-lg-offset-4">
+                        <div class="col-lg-3 col-lg-offset-5">
                             <button type="submit" class="btn btn-purple btn-block">Register Employee</button>
                         </div>
                     </div>
