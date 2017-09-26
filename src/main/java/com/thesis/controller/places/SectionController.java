@@ -2,16 +2,12 @@ package com.thesis.controller.places;
 
 import com.thesis.model.Response;
 import com.thesis.model.ResponseStatus;
-import com.thesis.model.account.User;
-import com.thesis.model.location.office.Department;
 import com.thesis.model.location.office.Section;
 import com.thesis.service.places.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -26,7 +22,7 @@ public class SectionController {
 
         Boolean isCreated = sectionService.createSection(section);
 
-        if(isCreated == null || isCreated == false) {
+        if (isCreated == null || isCreated == false) {
             return new Response(ResponseStatus.FAILED, "section failed to create");
         }
 
@@ -41,12 +37,23 @@ public class SectionController {
 
     @RequestMapping(value = "/remove-section/{section-id}", method = RequestMethod.POST)
     public @ResponseBody
-    Response removeSection(@PathVariable("section-id") Long sectionId){
+    Response removeSection(@PathVariable("section-id") Long sectionId) {
         Boolean isRemoved = sectionService.removeSection(sectionId);
 
-        if(isRemoved == null || isRemoved == false){
+        if (isRemoved == null || isRemoved == false) {
             return new Response(ResponseStatus.FAILED, "Failed to remove Section");
         }
         return new Response(ResponseStatus.SUCCESSFUL, "Section successfully removed");
+    }
+
+    @RequestMapping(value = "edit-section", method = RequestMethod.POST)
+    public @ResponseBody
+    Response editSection(@RequestBody Section section) {
+        Boolean isUpdated = sectionService.updateSection(section);
+
+        if (isUpdated == null || !isUpdated) {
+            return new Response(ResponseStatus.FAILED, "failed to update the Section");
+        }
+        return new Response(ResponseStatus.SUCCESSFUL, "section information successfully updated");
     }
 }
