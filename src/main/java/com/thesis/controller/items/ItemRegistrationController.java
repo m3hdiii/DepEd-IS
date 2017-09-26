@@ -4,18 +4,19 @@ import com.thesis.model.Response;
 import com.thesis.model.ResponseStatus;
 import com.thesis.model.items.semigoods.Item;
 import com.thesis.service.items.ItemService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 public class ItemRegistrationController {
 
+    @Autowired
     private ItemService itemService;
 
     @RequestMapping(value = "/register-item", method = RequestMethod.GET)

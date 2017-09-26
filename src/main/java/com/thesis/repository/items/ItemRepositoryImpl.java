@@ -4,9 +4,11 @@ import com.thesis.model.items.semigoods.Item;
 import com.thesis.repository.utils.HibernateFacade;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class ItemRepositoryImpl implements ItemRepository {
 
     @Autowired

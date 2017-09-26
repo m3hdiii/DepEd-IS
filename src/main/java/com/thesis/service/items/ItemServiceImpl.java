@@ -2,6 +2,7 @@ package com.thesis.service.items;
 
 import com.thesis.model.items.semigoods.Item;
 import com.thesis.repository.items.ItemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class ItemServiceImpl implements ItemService {
 
+    @Autowired
     private ItemRepository itemRepository;
 
     @Override

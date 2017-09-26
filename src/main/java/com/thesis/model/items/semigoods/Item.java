@@ -58,5 +58,107 @@ public class Item {
     @Column(name = "material")
     private Material material;
 
+    public Item() {
+    }
 
+    public Item(String name, String description, ItemType itemType, Visibility visibility, Integer threshold, Integer quantity, Set<Request> requests, Date creationDate, Brand brand, Material material) {
+        this.name = name;
+        this.description = description;
+        this.itemType = itemType;
+        this.visibility = visibility;
+        this.threshold = threshold;
+        this.quantity = quantity;
+        this.requests = requests;
+        this.creationDate = creationDate;
+        this.brand = brand;
+        this.material = material;
+    }
+
+    public Long getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ItemType getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(ItemType itemType) {
+        this.itemType = itemType;
+    }
+
+    public Visibility getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(Visibility visibility) {
+        this.visibility = visibility;
+    }
+
+    public Integer getThreshold() {
+        return threshold;
+    }
+
+    public void setThreshold(Integer threshold) {
+        this.threshold = threshold;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Set<Request> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(Set<Request> requests) {
+        this.requests = requests;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public Material getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
+    }
 }
