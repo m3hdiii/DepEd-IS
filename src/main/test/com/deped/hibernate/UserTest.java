@@ -45,7 +45,7 @@ public class UserTest {
 
 
 //        assertTrue();
-//        assertTrue(editUser());
+//        assertTrue(updateUser());
 //        assertTrue(saveUser());
 //        assertTrue(saveUser());
 

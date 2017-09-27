@@ -6,10 +6,16 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.thesis.repository.utils.ConstantValues.*;
+
 /**
  * Created by mehdi on 7/6/17.
  */
 
+@NamedQueries({
+        @NamedQuery(name = FETCH_ALL_BRANDS, query = "SELECT b FROM Brand b"),
+        @NamedQuery(name = FETCH_ALL_BRAND_RANGES, query = "SELECT b FROM Brand b WHERE b.brandID between :from AND :to")
+})
 @Entity
 @Table(name = "brand")
 public class Brand {

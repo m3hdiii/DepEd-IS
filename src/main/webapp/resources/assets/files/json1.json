@@ -1,5 +1,3 @@
-
-
 [
   {
     "sectionId": 1,
@@ -74,3 +72,91 @@
     "creationDate": 1506096000000
   }
 ]
+
+//{
+//  "name": "SCIS Department",
+//  "description" : "SCIS Department Description",
+//  "departmentHead": "Kevin",
+//  "creationDate" : 1506149850002
+//}
+
+
+//[
+//
+//{
+//"userId": 1
+//},
+//{
+//"userId": 2
+//},
+//{
+//"userId": 3
+//},
+//{
+//"userId": 4
+//},
+//{
+//"userId": 5
+//},
+//{
+//"userId": 6
+//},
+//{
+//"userId": 7
+//},
+//{
+//"userId": 8
+//}
+//]
+
+//add user
+
+
+//{
+//  "username" : "mohammad",
+//  "password" : "123",
+//  "email" : "mohammad@gmail.com",
+//  "firstName" : "mohammad",
+//  "lastname" : "abedini"
+//}
+
+
+//user
+//{
+//  "userId": 1,
+//  "username": "mehdi",
+//  "password": "123",
+//  "accountStatus": "ACTIVE",
+//  "firstName": "Mehdi",
+//  "lastName": "Afsari",
+//  "middleName": null,
+//  "emailAddress": "ix56@yahoo.com",
+//  "phoneNo1": null,
+//  "phoneNo2": null,
+//  "gender": null,
+//  "birthDate": null,
+//  "employmentDate": null,
+//  "position": null,
+//  "address": null,
+//  "website": null,
+//  "picture": null,
+//  "createdDate": null,
+//  "referrerName": null,
+//  "referrerAddress": null,
+//  "referrerPhoneNo1": null,
+//  "referrerPhoneNo2": null,
+//  "section": null,
+//  "age": null
+//}
+
+
+//update user
+//{
+//  "userId": 1,
+//  "username": "mehdi33",
+//  "password": "123",
+//  "accountStatus": "ACTIVE",
+//  "firstName": "Mehdi",
+//  "lastName": "Afsari",
+//  "emailAddress": "ix56@yahoo.com"
+//}

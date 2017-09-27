@@ -11,10 +11,15 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.thesis.repository.utils.ConstantValues.*;
+
 /**
  * Created by mehdi on 7/6/17.
  */
 
+@NamedQueries({
+        @NamedQuery(name = FETCH_ALL_ITEMS, query = "SELECT i FROM Item i")
+})
 @Entity
 @Table(name = "item")
 public class Item {

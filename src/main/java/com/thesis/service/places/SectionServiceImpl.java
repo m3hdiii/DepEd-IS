@@ -2,6 +2,7 @@ package com.thesis.service.places;
 
 import com.thesis.model.location.office.Section;
 import com.thesis.repository.places.SectionRepository;
+import com.thesis.repository.utils.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,27 +14,32 @@ public class SectionServiceImpl implements SectionService {
     private SectionRepository sectionRepository;
 
     @Override
-    public Boolean createSection(Section section) {
-        return sectionRepository.createSection(section);
+    public Section create(Section entity) {
+        return sectionRepository.create(entity);
     }
 
     @Override
-    public Boolean updateSection(Section section) {
-        return null;
+    public Boolean update(Section entity) {
+        return sectionRepository.update(entity);
     }
 
     @Override
-    public Boolean removeSection(Long sectionID) {
-        return sectionRepository.removeSection(sectionID);
+    public List<Section> fetchAll() {
+        return sectionRepository.fetchAll();
     }
 
     @Override
-    public List<Section> fetchAllSections() {
-        return sectionRepository.fetchAllSections();
+    public List<Section> fetchByRange(Range range) {
+        return sectionRepository.fetchByRange(range);
     }
 
     @Override
-    public List<Section> fetchSections(int from, int to) {
-        return null;
+    public Section fetchById(Object id) {
+        return sectionRepository.fetchById(id);
+    }
+
+    @Override
+    public Boolean remove(Section... entities) {
+        return sectionRepository.remove(entities);
     }
 }
