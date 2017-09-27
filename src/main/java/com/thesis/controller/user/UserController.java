@@ -19,7 +19,6 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("")
 public class UserController extends AbstractMainController<User, Long> {
 
     @Autowired

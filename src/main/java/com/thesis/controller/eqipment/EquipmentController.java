@@ -67,19 +67,19 @@ public class EquipmentController extends AbstractMainController<Equipment, Long>
     }
 
     @Override
-    @RequestMapping(value = "create-equipment", method = RequestMethod.GET)
+    @RequestMapping(value = "create-equipment2", method = RequestMethod.GET)
     public String renderCreatePage(Equipment entity, Model model) {
         return "";
     }
 
     @Override
-    @RequestMapping(value = "all-equipments", method = RequestMethod.GET)
+    @RequestMapping(value = "all-equipments2", method = RequestMethod.GET)
     public String renderListPage(Model model) {
         return "";
     }
 
     @Override
-    @RequestMapping(value = "update-equipment", method = RequestMethod.GET)
+    @RequestMapping(value = "update-equipment2", method = RequestMethod.GET)
     public String renderUpdatePage() {
         return "";
     }

@@ -14,7 +14,7 @@ import static com.thesis.repository.utils.ConstantValues.*;
 
 @NamedQueries({
         @NamedQuery(name = FETCH_ALL_BRANDS, query = "SELECT b FROM Brand b"),
-        @NamedQuery(name = FETCH_ALL_BRAND_RANGES, query = "SELECT b FROM Brand b WHERE b.brandID between :from AND :to")
+        @NamedQuery(name = FETCH_ALL_BRAND_RANGES, query = "SELECT b FROM Brand b")
 })
 @Entity
 @Table(name = "brand")
