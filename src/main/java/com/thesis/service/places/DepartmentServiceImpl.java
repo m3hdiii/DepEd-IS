@@ -2,6 +2,7 @@ package com.thesis.service.places;
 
 import com.thesis.model.location.office.Department;
 import com.thesis.repository.places.DepartmentRepository;
+import com.thesis.repository.utils.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,33 +14,34 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Autowired
     private DepartmentRepository departmentRepository;
 
+
     @Override
-    public Boolean createDepartment(Department department) {
-        return departmentRepository.createDepartment(department);
+    public Department create(Department entity) {
+        return departmentRepository.create(entity);
     }
 
     @Override
-    public Boolean removeDepartment(Department department) {
-        return false;
+    public Boolean update(Department entity) {
+        return departmentRepository.update(entity);
     }
 
     @Override
-    public Boolean removeDepartment(Long departmentId) {
-        return false;
+    public List<Department> fetchAll() {
+        return departmentRepository.fetchAll();
     }
 
     @Override
-    public List<Department> fetchAllDepartments() {
-        return departmentRepository.fetchAllDepartments();
+    public List<Department> fetchByRange(Range range) {
+        return departmentRepository.fetchByRange(range);
     }
 
     @Override
-    public List<Department> fetchDepartment(int from, int to) {
-        return null;
+    public Department fetchById(Object id) {
+        return departmentRepository.fetchById(id);
     }
 
     @Override
-    public Department updateDepartment(Department department) {
-        return null;
+    public Boolean remove(Department... entities) {
+        return departmentRepository.remove(entities);
     }
 }

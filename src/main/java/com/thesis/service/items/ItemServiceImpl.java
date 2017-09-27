@@ -2,6 +2,7 @@ package com.thesis.service.items;
 
 import com.thesis.model.items.semigoods.Item;
 import com.thesis.repository.items.ItemRepository;
+import com.thesis.repository.utils.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,22 +15,32 @@ public class ItemServiceImpl implements ItemService {
     private ItemRepository itemRepository;
 
     @Override
-    public Boolean createItem(Item item) {
-        return null;
+    public Item create(Item entity) {
+        return itemRepository.create(entity);
     }
 
     @Override
-    public Boolean updateItem(Item item) {
-        return null;
+    public Boolean update(Item entity) {
+        return itemRepository.update(entity);
     }
 
     @Override
-    public List<Item> fetchAllItems() {
-        return null;
+    public List<Item> fetchAll() {
+        return itemRepository.fetchAll();
     }
 
     @Override
-    public List<Item> fetchItem(int from, int to) {
-        return null;
+    public List<Item> fetchByRange(Range range) {
+        return itemRepository.fetchByRange(range);
+    }
+
+    @Override
+    public Item fetchById(Object id) {
+        return itemRepository.fetchById(id);
+    }
+
+    @Override
+    public Boolean remove(Item... entities) {
+        return itemRepository.remove(entities);
     }
 }
