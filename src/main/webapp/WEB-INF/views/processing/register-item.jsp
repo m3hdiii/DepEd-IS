@@ -19,7 +19,6 @@
     <c:param name="description" value="Item Registration Page"/>
 </c:import>
 <html>
-
 <body>
 <c:import url="../includes/left-nav.jsp" />
 <section class="content">
