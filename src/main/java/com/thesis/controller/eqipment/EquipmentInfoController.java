@@ -72,7 +72,7 @@ public class EquipmentInfoController extends AbstractMainController<EquipmentInf
     }
 
     @Override
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "ssss", method = RequestMethod.GET)
     public String renderUpdatePage() {
         return null;
     }
