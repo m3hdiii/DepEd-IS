@@ -28,19 +28,19 @@ public class ItemRegistrationController {
     public Response registerItem(@RequestBody Item item) {
         Boolean isCreated = itemService.createItem(item);
         if (isCreated == null || !isCreated) {
-            return new Response(ResponseStatus.FAILED, "Item could not get created");
+            return new Response(ResponseStatus.FAILED, "Item could not be created");
         }
 
-        return new Response(ResponseStatus.SUCCESSFUL, "Item successfully Created");
+        return new Response(ResponseStatus.SUCCESSFUL, "Item is successfully Created");
     }
 
     @RequestMapping(value = "update-item", method = RequestMethod.POST)
     public Response updateItem(@RequestBody Item item) {
         Boolean isUpdated = itemService.updateItem(item);
         if (isUpdated == null || !isUpdated) {
-            return new Response(ResponseStatus.FAILED, "Item could not get updated");
+            return new Response(ResponseStatus.FAILED, "Item could not be updated");
         }
-        return new Response(ResponseStatus.SUCCESSFUL, "Item successfully updated");
+        return new Response(ResponseStatus.SUCCESSFUL, "Item is successfully updated");
     }
 
     @RequestMapping(value = "items", method = RequestMethod.POST)

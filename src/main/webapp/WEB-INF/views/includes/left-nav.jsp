@@ -39,8 +39,10 @@
                     class="nav-label">Item</span></a>
                 <ul class="list-unstyled">
                     <li><a href="">Item Registration</a></li>
-                    <li><a href="">Item List</a></li>
-                    <li><a href="#"></a></li>
+                    <li><a href="item-list">List of all Items</a></li>
+                    <li><a href="goods">Goods</a></li>
+                    <li><a href="semi-expendables">Semi-Expendables</a></li>
+                    <li><a href="equipment">Equipment</a></li>
                 </ul>
             </li>
             <li class="has-submenu"><a href="#"><i class="fa fa-comment-o"></i> <span class="nav-label">Manage Notifications</span></a>
