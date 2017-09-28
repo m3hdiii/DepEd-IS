@@ -100,10 +100,10 @@ public class HibernateFacade {
     }
 
     public <T> List<T> fetchAllEntity(String nameQuery, Class<T> entityClass) {
-        return fetchAllEntity(nameQuery, entityClass, null);
+        return fetchAllEntity(nameQuery, null, entityClass);
     }
 
-    public <T> List<T> fetchAllEntity(String nameQuery, Class<T> entityClass, Range range) {
+    public <T> List<T> fetchAllEntity(String nameQuery, Range range, Class<T> entityClass) {
         Session hibernateSession;
         try {
             hibernateSession = getSessionFactory().openSession();

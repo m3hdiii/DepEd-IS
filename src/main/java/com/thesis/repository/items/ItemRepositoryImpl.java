@@ -36,7 +36,7 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
     public List<Item> fetchByRange(Range range) {
-        List<Item> items = hibernateFacade.fetchAllEntity(FETCH_ALL_ITEMS, Item.class, range);
+        List<Item> items = hibernateFacade.fetchAllEntity(FETCH_ALL_ITEMS, range, Item.class);
         return items;
     }
 

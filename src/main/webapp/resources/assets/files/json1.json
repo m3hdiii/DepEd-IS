@@ -160,3 +160,74 @@
 //  "lastName": "Afsari",
 //  "emailAddress": "ix56@yahoo.com"
 //}
+
+
+
+//[
+//  {
+//    "itemId": null,
+//    "name": "paper",
+//    "description": "paper description",
+//    "itemType": "GOODS",
+//    "visibility": "EVERYONE",
+//    "threshold": 1000,
+//    "quantity": 100000,
+//    "requests": null,
+//    "creationDate": 1506397258288,
+//    "brand": {
+//      "brandId": null,
+//      "name": "amano",
+//      "description": "amano desc",
+//      "contactNumber": "09064403211",
+//      "contactNumber2": "09878787871",
+//      "centralOfficeAddress": "Manila makati",
+//      "serviceCenterAddress": "Baguio Bakakeng",
+//      "items": null
+//    },
+//    "material": "MONOBLOCK"
+//  },
+//  {
+//    "itemId": null,
+//    "name": "paper",
+//    "description": "paper description",
+//    "itemType": "GOODS",
+//    "visibility": "EVERYONE",
+//    "threshold": 1000,
+//    "quantity": 100000,
+//    "requests": null,
+//    "creationDate": 1506397258288,
+//    "brand": {
+//      "brandId": null,
+//      "name": "amano",
+//      "description": "amano desc",
+//      "contactNumber": "09064403211",
+//      "contactNumber2": "09878787871",
+//      "centralOfficeAddress": "Manila makati",
+//      "serviceCenterAddress": "Baguio Bakakeng",
+//      "items": null
+//    },
+//    "material": "MONOBLOCK"
+//  },
+//  {
+//    "itemId": null,
+//    "name": "paper",
+//    "description": "paper description",
+//    "itemType": "GOODS",
+//    "visibility": "EVERYONE",
+//    "threshold": 1000,
+//    "quantity": 100000,
+//    "requests": null,
+//    "creationDate": 1506397258288,
+//    "brand": {
+//      "brandId": null,
+//      "name": "amano",
+//      "description": "amano desc",
+//      "contactNumber": "09064403211",
+//      "contactNumber2": "09878787871",
+//      "centralOfficeAddress": "Manila makati",
+//      "serviceCenterAddress": "Baguio Bakakeng",
+//      "items": null
+//    },
+//    "material": "MONOBLOCK"
+//  }
+//]

@@ -34,7 +34,7 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 
     @Override
     public List<Department> fetchByRange(Range range) {
-        return hibernateFacade.fetchAllEntity(FETCH_ALL_DEPARTMENT_RANGES, Department.class, range);
+        return hibernateFacade.fetchAllEntity(FETCH_ALL_DEPARTMENT_RANGES, range, Department.class);
     }
 
     @Override

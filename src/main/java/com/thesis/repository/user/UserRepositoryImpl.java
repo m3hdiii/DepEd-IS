@@ -41,7 +41,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> fetchByRange(Range range) {
-        List<User> users = hibernateFacade.fetchAllEntity(FETCH_ALL_USERS, User.class, range);
+        List<User> users = hibernateFacade.fetchAllEntity(FETCH_ALL_USERS, range, User.class);
         return users;
     }
 
