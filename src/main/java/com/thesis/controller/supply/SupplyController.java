@@ -1,6 +1,7 @@
 package com.thesis.controller.supply;
 
 import com.thesis.controller.AbstractMainController;
+import com.thesis.controller.Operation;
 import com.thesis.model.Response;
 import com.thesis.model.location.office.Section;
 import com.thesis.model.supplys.Supply;
@@ -16,64 +17,74 @@ import java.util.List;
 @Controller
 public class SupplyController extends AbstractMainController <Supply, Long>{
 
+    private static final String BASE_NAME = "supply";
+    private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
+    private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
+    private static final String FETCH_MAPPING = BASE_NAME + FETCH_PATTERN;
+    private static final String FETCH_BY_RANGE_MAPPING = BASE_NAME + FETCH_PATTERN + RANGE_PATTERN;
+    private static final String FETCH_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
+    private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
+    private static final String SHOW_CREATE_MAPPING = CREATE_MAPPING;
+    private static final String SHOW_LIST_MAPPING = BASE_NAME + SHOW_PREFIX;
+    private static final String SHOW_UPDATE_MAPPING = UPDATE_MAPPING;
+
     @Autowired
     private SupplyService supplyService;
 
     @Override
-    @RequestMapping(value = "create-supply", method = RequestMethod.POST)
+    @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody Supply create(@RequestBody Supply entity) {
         Supply supply = supplyService.create(entity);
         return supply;
     }
 
     @Override
-    @RequestMapping(value = "update-supply", method = RequestMethod.POST)
+    @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody Response update(@RequestBody Supply entity) {
         Boolean isUpdated = supplyService.update(entity);
-        return makeResponse(isUpdated, "your supply successfully updated", "your supply failed to update");
+        return makeResponse(isUpdated, Operation.UPDATE, Supply.class);
     }
 
     @Override
-    @RequestMapping(value = "fetch-all-supplies", method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.GET)
     public @ResponseBody List<Supply> fetchAll() {
         return supplyService.fetchAll();
     }
 
     @Override
-    @RequestMapping(value = "fetch-by-range/{from}/{to}", method = RequestMethod.GET)
-    //localhost:8080/fetch-by-range/1/10
-    public List<Supply> fetchByRange(@PathVariable("from") int from,@PathVariable("to") int to) {
+    @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.GET)
+    public List<Supply> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         return supplyService.fetchByRange(new Range(from, to));
     }
 
     @Override
-    @RequestMapping(value = "fetch-by-id/{id}", method = RequestMethod.GET)
-    public Supply fetchById(@PathVariable("id") Long aLong) {
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
+    public Supply fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         return supplyService.fetchById(aLong);
     }
 
     @Override
-    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody Response remove(@RequestBody Supply... entities) {
         Boolean isRemoved =  supplyService.remove(entities);
-        return makeResponse(isRemoved, "your entities successfully removed", "something went wrong and it didn't remove");
+        return makeResponse(isRemoved, Operation.DELETE, Supply.class);
     }
 
     @Override
-    @RequestMapping(value = "render-create-page", method = RequestMethod.GET)
-    public String renderCreatePage(Supply entity, Model model) {
+    @RequestMapping(value = SHOW_CREATE_MAPPING, method = RequestMethod.GET)
+    public String showCreatePage(Supply entity, Model model) {
         return null;
     }
 
     @Override
-    @RequestMapping(value = "render-supply-list", method = RequestMethod.GET)
-    public String renderListPage(Model model) {
+    @RequestMapping(value = SHOW_LIST_MAPPING, method = RequestMethod.GET)
+    public String showListPage(Model model) {
         return null;
     }
 
     @Override
-    @RequestMapping(value = "update-page", method = RequestMethod.GET)
-    public String renderUpdatePage() {
+    @RequestMapping(value = SHOW_UPDATE_MAPPING, method = RequestMethod.GET)
+    public String showUpdatePage() {
         return null;
     }
 }
