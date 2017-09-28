@@ -1,11 +1,10 @@
-package com.thesis.controller.brand;
+package com.thesis.controller.pack;
 
 import com.thesis.controller.AbstractMainController;
 import com.thesis.controller.Operation;
 import com.thesis.model.Response;
-import com.thesis.model.items.Brand;
-import com.thesis.repository.utils.Range;
-import com.thesis.service.brand.BrandService;
+import com.thesis.model.items.Pack;
+import com.thesis.service.pack.PackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-public class BrandController extends AbstractMainController<Brand, Long> {
+public class PackController extends AbstractMainController<Pack, Long> {
 
-    private static final String BASE_NAME = "brand";
+    private static final String BASE_NAME = "pack";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
     private static final String FETCH_MAPPING = BASE_NAME + FETCH_PATTERN;
@@ -27,59 +26,58 @@ public class BrandController extends AbstractMainController<Brand, Long> {
     private static final String SHOW_LIST_MAPPING = BASE_NAME + SHOW_PREFIX;
     private static final String SHOW_UPDATE_MAPPING = UPDATE_MAPPING;
 
-
     @Autowired
-    private BrandService brandService;
+    private PackService packService;
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    Brand create(@RequestBody Brand entity) {
-        Brand savedBrand = brandService.create(entity);
-        return savedBrand;
+    Pack create(@RequestBody Pack entity) {
+        Pack savedPack = packService.create(entity);
+        return savedPack;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public Response update(@RequestBody Brand entity) {
-        Boolean isUpdated = brandService.update(entity);
-        return makeResponse(isUpdated, Operation.UPDATE, Brand.class);
+    public @ResponseBody
+    Response update(@RequestBody Pack entity) {
+        Boolean isUpdated = packService.update(entity);
+        return makeResponse(isUpdated, Operation.UPDATE, Pack.class);
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
-    List<Brand> fetchAll() {
-        List<Brand> brands = brandService.fetchAll();
-        return brands;
+    List<Pack> fetchAll() {
+        return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.GET)
-    public List<Brand> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
-        List<Brand> brands = brandService.fetchByRange(new Range(from, to));
-        return brands;
+    public @ResponseBody
+    List<Pack> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+        return null;
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
-    Brand fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        Brand brand = brandService.fetchById(aLong);
-        return brand;
+    Pack fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        Pack pack = packService.fetchById(aLong);
+        return pack;
     }
 
     @Override
-    public @ResponseBody
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    Response remove(@RequestBody Brand... entities) {
-        Boolean isRemoved = brandService.remove(entities);
-        return makeResponse(isRemoved, Operation.DELETE, Brand.class);
+    public @ResponseBody
+    Response remove(@RequestBody Pack... entities) {
+        Boolean isRemoved = packService.remove(entities);
+        return makeResponse(isRemoved, Operation.DELETE, Pack.class);
     }
 
     @Override
     @RequestMapping(value = SHOW_CREATE_MAPPING, method = RequestMethod.GET)
-    public String showCreatePage(Brand entity, Model model) {
+    public String showCreatePage(Pack entity, Model model) {
         return "";
     }
 

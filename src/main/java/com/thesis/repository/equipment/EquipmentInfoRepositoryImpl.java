@@ -33,7 +33,7 @@ public class EquipmentInfoRepositoryImpl implements EquipmentInfoRepository {
 
     @Override
     public List<EquipmentInfo> fetchByRange(Range range) {
-        return hibernateFacade.fetchAllEntity(FETCH_ALL_EQUIPMENT_INFO_RANGE, EquipmentInfo.class, range);
+        return hibernateFacade.fetchAllEntity(FETCH_ALL_EQUIPMENT_INFO_RANGE, range, EquipmentInfo.class);
     }
 
     @Override

@@ -35,7 +35,7 @@ public class BrandRepository implements BaseRepository<Brand> {
 
     @Override
     public List<Brand> fetchByRange(Range range) {
-        return hibernateFacade.fetchAllEntity(FETCH_ALL_BRANDS, Brand.class, range);
+        return hibernateFacade.fetchAllEntity(FETCH_ALL_BRANDS, range, Brand.class);
     }
 
     @Override

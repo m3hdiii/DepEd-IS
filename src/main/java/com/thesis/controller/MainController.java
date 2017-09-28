@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 
 import java.util.List;
 
-public interface MainController<T, ID> {
+public interface MainController<T, ID> extends ConstantController {
 
     T create(T entity);
 
@@ -20,9 +20,9 @@ public interface MainController<T, ID> {
 
     Response remove(T... entities);
 
-    String renderCreatePage(T entity, Model model);
+    String showCreatePage(T entity, Model model);
 
-    String renderListPage(Model model);
+    String showListPage(Model model);
 
-    String renderUpdatePage();
+    String showUpdatePage();
 }

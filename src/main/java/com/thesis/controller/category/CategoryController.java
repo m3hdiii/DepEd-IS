@@ -1,11 +1,9 @@
-package com.thesis.controller.brand;
+package com.thesis.controller.category;
 
 import com.thesis.controller.AbstractMainController;
-import com.thesis.controller.Operation;
 import com.thesis.model.Response;
-import com.thesis.model.items.Brand;
-import com.thesis.repository.utils.Range;
-import com.thesis.service.brand.BrandService;
+import com.thesis.model.items.Category;
+import com.thesis.service.category.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-public class BrandController extends AbstractMainController<Brand, Long> {
+public class CategoryController extends AbstractMainController<Category, Long> {
 
-    private static final String BASE_NAME = "brand";
+    private static final String BASE_NAME = "category";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
     private static final String FETCH_MAPPING = BASE_NAME + FETCH_PATTERN;
@@ -27,71 +25,67 @@ public class BrandController extends AbstractMainController<Brand, Long> {
     private static final String SHOW_LIST_MAPPING = BASE_NAME + SHOW_PREFIX;
     private static final String SHOW_UPDATE_MAPPING = UPDATE_MAPPING;
 
-
     @Autowired
-    private BrandService brandService;
+    private CategoryService categoryService;
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    Brand create(@RequestBody Brand entity) {
-        Brand savedBrand = brandService.create(entity);
-        return savedBrand;
+    Category create(@RequestBody Category entity) {
+        Category savedCategory = categoryService.create(entity);
+        return savedCategory;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public Response update(@RequestBody Brand entity) {
-        Boolean isUpdated = brandService.update(entity);
-        return makeResponse(isUpdated, Operation.UPDATE, Brand.class);
+    public @ResponseBody
+    Response update(@RequestBody Category entity) {
+        return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
-    List<Brand> fetchAll() {
-        List<Brand> brands = brandService.fetchAll();
-        return brands;
+    List<Category> fetchAll() {
+        return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.GET)
-    public List<Brand> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
-        List<Brand> brands = brandService.fetchByRange(new Range(from, to));
-        return brands;
+    public @ResponseBody
+    List<Category> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+        return null;
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
-    Brand fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        Brand brand = brandService.fetchById(aLong);
-        return brand;
+    Category fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        return null;
     }
 
     @Override
-    public @ResponseBody
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    Response remove(@RequestBody Brand... entities) {
-        Boolean isRemoved = brandService.remove(entities);
-        return makeResponse(isRemoved, Operation.DELETE, Brand.class);
+    public @ResponseBody
+    Response remove(@RequestBody Category... entities) {
+        return null;
     }
 
     @Override
     @RequestMapping(value = SHOW_CREATE_MAPPING, method = RequestMethod.GET)
-    public String showCreatePage(Brand entity, Model model) {
-        return "";
+    public String showCreatePage(Category entity, Model model) {
+        return null;
     }
 
     @Override
     @RequestMapping(value = SHOW_LIST_MAPPING, method = RequestMethod.GET)
     public String showListPage(Model model) {
-        return "";
+        return null;
     }
 
     @Override
     @RequestMapping(value = SHOW_UPDATE_MAPPING, method = RequestMethod.GET)
     public String showUpdatePage() {
-        return "";
+        return null;
     }
 }

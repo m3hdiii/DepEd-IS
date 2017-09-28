@@ -33,7 +33,7 @@ public class EquipmentRepositoryImpl implements EquipmentRepository {
 
     @Override
     public List<Equipment> fetchByRange(Range range) {
-        return hibernateFacade.fetchAllEntity(FETCH_ALL_EQUIPMENTS_RANGE, Equipment.class, range);
+        return hibernateFacade.fetchAllEntity(FETCH_ALL_EQUIPMENTS_RANGE, range, Equipment.class);
     }
 
     @Override

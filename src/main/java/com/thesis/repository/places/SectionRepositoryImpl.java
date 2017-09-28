@@ -37,7 +37,7 @@ public class SectionRepositoryImpl implements SectionRepository {
 
     @Override
     public List<Section> fetchByRange(Range range) {
-        List<Section> sections = hibernateFacade.fetchAllEntity("", Section.class, range);
+        List<Section> sections = hibernateFacade.fetchAllEntity("", range, Section.class);
         return sections;
     }
 

@@ -1,6 +1,7 @@
 package com.thesis.controller.user;
 
 import com.thesis.controller.AbstractMainController;
+import com.thesis.controller.Operation;
 import com.thesis.model.Response;
 import com.thesis.model.account.Gender;
 import com.thesis.model.account.User;
@@ -21,21 +22,22 @@ import java.util.List;
 @Controller
 public class UserController extends AbstractMainController<User, Long> {
 
+    private static final String BASE_NAME = "user";
+    private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
+    private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
+    private static final String FETCH_MAPPING = BASE_NAME + FETCH_PATTERN;
+    private static final String FETCH_BY_RANGE_MAPPING = BASE_NAME + FETCH_PATTERN + RANGE_PATTERN;
+    private static final String FETCH_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
+    private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
+    private static final String SHOW_CREATE_MAPPING = CREATE_MAPPING;
+    private static final String SHOW_LIST_MAPPING = BASE_NAME + SHOW_PREFIX;
+    private static final String SHOW_UPDATE_MAPPING = UPDATE_MAPPING;
+
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = {"", "/home", "/index", "/main", "/login"}, method = RequestMethod.GET)
-    public String renderLogin(@ModelAttribute("user") User user) {
-        return "center/login";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public void checkLogin(@RequestBody User user) {
-        userService.loginUser(user);
-    }
-
     @Override
-    @RequestMapping(value = "signup", method = RequestMethod.POST)
+    @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
     User create(User entity) {
         User savedUser = userService.create(entity);
@@ -44,15 +46,15 @@ public class UserController extends AbstractMainController<User, Long> {
 
 
     @Override
-    @RequestMapping(value = "update-user", method = RequestMethod.POST)
+    @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
     Response update(User entity) {
         Boolean isUpdated = userService.update(entity);
-        return makeResponse(isUpdated, "user successfully updated", "unable to update user");
+        return makeResponse(isUpdated, Operation.UPDATE, User.class);
     }
 
     @Override
-    @RequestMapping(value = "fetch-users")
+    @RequestMapping(value = FETCH_MAPPING)
     public @ResponseBody
     List<User> fetchAll() {
         List<User> users = userService.fetchAll();
@@ -61,42 +63,44 @@ public class UserController extends AbstractMainController<User, Long> {
 
 
     @Override
-    @RequestMapping(value = "fetch-users/{from}/{to}", method = RequestMethod.GET)
-    public List<User> fetchByRange(@PathVariable("from") int from, @PathVariable("to") int to) {
+    @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.GET)
+    public List<User> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         List<User> users = userService.fetchByRange(new Range(from, to));
         return users;
     }
 
     @Override
-    @RequestMapping(value = "fetch-user/{user-id}", method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
-    User fetchById(@PathVariable("user-id") Long aLong) {
+    User fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         User user = userService.fetchById(aLong);
         return user;
 
     }
 
-    @RequestMapping(value = "/remove-users", method = RequestMethod.POST)
+    @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
     @Override
     public Response remove(@RequestBody User... users) {
         Boolean isSuccessful = userService.remove(users);
-        return makeResponse(isSuccessful, "all users successfully removed", "removing users failed");
+        return makeResponse(isSuccessful, Operation.DELETE, User.class);
     }
 
     @Override
-    @RequestMapping(value = "signup", method = RequestMethod.GET)
-    public String renderCreatePage(@Valid @ModelAttribute("user1") User user, Model model) {
+    @RequestMapping(value = SHOW_CREATE_MAPPING, method = RequestMethod.GET)
+    public String showCreatePage(@Valid @ModelAttribute("user1") User user, Model model) {
         model.addAttribute("genderList", Gender.values());
         return "center/signup";
     }
 
     @Override
-    public String renderListPage(Model model) {
+    @RequestMapping(value = SHOW_LIST_MAPPING, method = RequestMethod.GET)
+    public String showListPage(Model model) {
         return null;
     }
 
     @Override
-    public String renderUpdatePage() {
-        return null;
+    @RequestMapping(value = SHOW_UPDATE_MAPPING, method = RequestMethod.GET)
+    public String showUpdatePage() {
+        return "center/edituserprofile";
     }
 }
