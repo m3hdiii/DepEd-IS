@@ -32,6 +32,12 @@
     </nav>
 
     <ul class="nav-toolbar">
+        <li class="sub-toolbar">
+            <div class="cart-menu">
+                <a href="#" data-toggle="modal" data-target="#item-cart-modal"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+                    <span class="badge bg-warning">3</span></a>
+            </div>
+        </li>
         <li class="dropdown"><a href="#" data-toggle="dropdown"><i class="fa fa-comments-o"></i> <span
                 class="badge bg-warning">7</span></a>
             <div class="dropdown-menu md arrow pull-right panel panel-default arrow-top-right messages-dropdown">
@@ -196,7 +202,8 @@
 
                         <div class="col-xs-6 col-sm-4"><a href="#" class="text-primary"><span class="h2"><i
                                 class="fa fa-sign-out"></i></span>
-                            <p class="text-gray">Logout</p></a></div>
+                            <p class="text-gray">Logout</p></a>
+                        </div>
                     </div>
                 </div>
             </div>
