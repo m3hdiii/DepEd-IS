@@ -29,7 +29,7 @@ public class ItemController extends AbstractMainController<Item, Long> {
     private static final String SHOW_LIST_MAPPING = BASE_NAME + SHOW_PREFIX;
     private static final String SHOW_UPDATE_MAPPING = UPDATE_MAPPING;
 
-    private static final String SHOW_SEMI_EXPENDABLES = BASE_NAME + URL_SEPARATOR + "semi-expendables";
+    private static final String SHOW_SEMI_EXPENDABLES = BASE_NAME + URL_SEPARATOR + "semi-expendable";
     private static final String SHOW_GOODS = BASE_NAME + URL_SEPARATOR + "goods";
 
     @Autowired
@@ -99,7 +99,7 @@ public class ItemController extends AbstractMainController<Item, Long> {
 
     @RequestMapping(value = SHOW_SEMI_EXPENDABLES, method = RequestMethod.GET)
     public String getSemiExpendables() {
-        return "items/semi-expendables";
+        return "items/semi-expendable";
     }
 
     @RequestMapping(value = SHOW_GOODS, method = RequestMethod.GET)
