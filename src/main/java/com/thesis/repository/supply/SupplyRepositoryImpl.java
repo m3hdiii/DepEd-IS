@@ -31,7 +31,7 @@ public class SupplyRepositoryImpl implements SupplyRepository {
 
     @Override
     public List<Supply> fetchByRange(Range range) {
-        return hibernateFacade.fetchAllEntity("", Supply.class, range);
+        return hibernateFacade.fetchAllEntity("", range, Supply.class);
     }
 
     @Override
@@ -41,6 +41,6 @@ public class SupplyRepositoryImpl implements SupplyRepository {
 
     @Override
     public Boolean remove(Supply... entities) {
-        return hibernateFacade.removeEntities("supply","supply_id", entities);
+        return hibernateFacade.removeEntities("supply", "supply_id", entities);
     }
 }
