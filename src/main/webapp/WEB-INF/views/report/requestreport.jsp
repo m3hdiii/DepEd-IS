@@ -54,7 +54,7 @@
                         <div class="form-group">
                             <div class="panel-heading"> Requested Items </div>
                             <div class="panel-body">
-                                <table class="table-body">
+                                <table class="table">
                                     <tr class="table-header">
                                         <th> Item </th>
                                         <th> Brand </th>
@@ -74,16 +74,16 @@
                                         <td> 20 </td>
                                     </tr>
                                     <tr class="item-data">
-                                        <td>  </td>
-                                        <td>  </td>
-                                        <td>  </td>
-                                        <td>  </td>
+                                        <td> Ball-point Pen </td>
+                                        <td> HBW </td>
+                                        <td> Semi-Expendable </td>
+                                        <td> 2 </td>
                                     </tr>
                                     <tr class="item-data">
-                                        <td>  </td>
-                                        <td>  </td>
-                                        <td>  </td>
-                                        <td>  </td>
+                                        <td> 4 GB Flash Drive </td>
+                                        <td> Transcend </td>
+                                        <td> Semi-Expendable </td>
+                                        <td> 1 </td>
                                     </tr>
                                 </table>
                             </div>
@@ -97,9 +97,7 @@
                                     <option value="Excel"> Excel </option>
                                 </select>
                             </div>
-                            <div class="col-sm-2">
-                                <button type="button"> Download File </button>
-                            </div>
+                            <button type="button"> Download File </button>
                         </div>
                         <div class="col-lg-4 col-lg-offset-4">
                             <button type="submit" class="btn btn-purple btn-block"> Confirm </button>
