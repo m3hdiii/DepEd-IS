@@ -1,12 +1,14 @@
 package com.thesis.repository.supply;
 
-import com.thesis.model.supplys.Supply;
+import com.thesis.model.supply.Supply;
 import com.thesis.repository.utils.HibernateFacade;
 import com.thesis.repository.utils.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
+import static com.thesis.repository.utils.ConstantValues.*;
 
 @Repository
 public class SupplyRepositoryImpl implements SupplyRepository {
@@ -26,12 +28,12 @@ public class SupplyRepositoryImpl implements SupplyRepository {
 
     @Override
     public List<Supply> fetchAll() {
-        return hibernateFacade.fetchAllEntity("", Supply.class);
+        return hibernateFacade.fetchAllEntity(FETCH_ALL_SUPPLY, Supply.class);
     }
 
     @Override
     public List<Supply> fetchByRange(Range range) {
-        return hibernateFacade.fetchAllEntity("", range, Supply.class);
+        return hibernateFacade.fetchAllEntity(FETCH_ALL_SUPPLY_RANGE, range, Supply.class);
     }
 
     @Override
@@ -41,6 +43,6 @@ public class SupplyRepositoryImpl implements SupplyRepository {
 
     @Override
     public Boolean remove(Supply... entities) {
-        return hibernateFacade.removeEntities("supply", "supply_id", entities);
+        return hibernateFacade.removeEntities(SUPPLY_TABLE, SUPPLY_TABLE_ID, entities);
     }
 }

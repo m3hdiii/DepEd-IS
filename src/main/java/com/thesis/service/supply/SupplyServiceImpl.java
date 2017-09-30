@@ -1,7 +1,6 @@
 package com.thesis.service.supply;
 
-import com.thesis.model.location.office.Section;
-import com.thesis.model.supplys.Supply;
+import com.thesis.model.supply.Supply;
 import com.thesis.repository.supply.SupplyRepository;
 import com.thesis.repository.utils.Range;
 import org.springframework.beans.factory.annotation.Autowired;

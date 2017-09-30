@@ -1,6 +1,6 @@
-package com.thesis.model.requests;
+package com.thesis.model.request;
 
-import com.thesis.model.items.equipments.Equipment;
+import com.thesis.model.items.equipment.Equipment;
 import com.thesis.model.account.User;
 
 import javax.persistence.*;
@@ -12,6 +12,10 @@ import java.util.Set;
  * Created by mehdi on 7/6/17.
  */
 
+
+@NamedQueries({
+        @NamedQuery(name = "fetchAll", query = "SELECT br FROM BorrowRequest br")
+})
 @Entity
 @Table(name = "borrow_request")
 public class BorrowRequest {

@@ -3,7 +3,7 @@ package com.thesis.controller.eqipment;
 import com.thesis.controller.AbstractMainController;
 import com.thesis.controller.Operation;
 import com.thesis.model.Response;
-import com.thesis.model.items.equipments.Equipment;
+import com.thesis.model.items.equipment.Equipment;
 import com.thesis.repository.utils.Range;
 import com.thesis.service.equipment.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;

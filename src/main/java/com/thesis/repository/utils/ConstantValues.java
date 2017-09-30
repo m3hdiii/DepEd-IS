@@ -1,6 +1,10 @@
 package com.thesis.repository.utils;
 
 public interface ConstantValues {
+    //Additional NamedQuery
+    String FIND_BY_USERNAME = "findByUsernamePassword";
+    String FIND_BY_EMAIL = "findByEmailPassword";
+
     //NamedQueries
     String FETCH_ALL_ITEMS = "fetchAllItems";
     String FETCH_ALL_USERS = "findAllUsers";
@@ -14,8 +18,13 @@ public interface ConstantValues {
     String FETCH_ALL_EQUIPMENT_INFO_RANGE = "fetchEquipmentInfoByRange";
     String FETCH_ALL_PACKS = "fetchPacks";
     String FETCH_ALL_PACKS_RANGE = "fetchPacksByRange";
-    String FETCH_ALL_CATEGORY = "fetchCategories";
+    String FETCH_ALL_CATEGORY = "fetchCategories1";
     String FETCH_ALL_CATEGORY_RANGE = "fetchCategoriesByRange";
+    String FETCH_ALL_SUPPLY = "fetchAllSupplies";
+    String FETCH_ALL_SUPPLY_RANGE = "fetchAllSuppliesByRange";
+    String FETCH_ALL_SECTION = "";
+    String FETCH_ALL_SECTION_RANGE = "";
+
 
 
     //Tables and TableId Name
@@ -33,4 +42,10 @@ public interface ConstantValues {
     String PACK_TABLE_ID = "pack_id";
     String CATEGORY_TABLE = "category";
     String CATEGORY_TABLE_ID = "category_id";
+    String SUPPLY_TABLE = "supply";
+    String SUPPLY_TABLE_ID = "supply_id";
+    String ITEM_TABLE = "item";
+    String ITEM_TABLE_ID = "item_id";
+    String SECTION_TABLE = "section";
+    String SECTION_TABLE_ID = "section";
 }

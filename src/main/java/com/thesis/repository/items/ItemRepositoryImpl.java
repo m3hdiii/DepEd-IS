@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 import static com.thesis.repository.utils.ConstantValues.FETCH_ALL_ITEMS;
+import static com.thesis.repository.utils.ConstantValues.ITEM_TABLE;
+import static com.thesis.repository.utils.ConstantValues.ITEM_TABLE_ID;
 
 @Repository
 public class ItemRepositoryImpl implements ItemRepository {
@@ -48,7 +50,7 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
     public Boolean remove(Item... entities) {
-        Boolean isItemDeleted = hibernateFacade.removeEntities("item", "item_id", entities);
+        Boolean isItemDeleted = hibernateFacade.removeEntities(ITEM_TABLE, ITEM_TABLE_ID, entities);
         return isItemDeleted;
     }
 }

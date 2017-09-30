@@ -1,16 +1,21 @@
-package com.thesis.model.supplys;
+package com.thesis.model.supply;
 
+import com.thesis.model.items.equipment.Equipment;
 import com.thesis.model.items.semigoods.Item;
-import com.thesis.model.items.equipments.Equipment;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.thesis.repository.utils.ConstantValues.FETCH_ALL_SUPPLY;
+
 /**
  * Created by mehdi on 7/6/17.
  */
 
+@NamedQueries({
+        @NamedQuery(name = FETCH_ALL_SUPPLY, query = "SELECT supply FROM Supply supply")
+})
 @Entity
 @Table(name = "supply")
 public class Supply {

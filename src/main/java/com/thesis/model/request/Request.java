@@ -1,4 +1,4 @@
-package com.thesis.model.requests;
+package com.thesis.model.request;
 
 
 import com.thesis.model.items.semigoods.Item;

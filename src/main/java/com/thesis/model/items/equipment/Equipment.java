@@ -1,6 +1,6 @@
-package com.thesis.model.items.equipments;
+package com.thesis.model.items.equipment;
 
-import com.thesis.model.supplys.Supply;
+import com.thesis.model.supply.Supply;
 
 import javax.persistence.*;
 import java.util.Date;

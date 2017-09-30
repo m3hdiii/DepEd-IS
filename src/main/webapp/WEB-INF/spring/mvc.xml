@@ -6,8 +6,15 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
-	<context:component-scan base-package="com.thesis" />
+	<context:component-scan base-package="com.thesis.*"/>
 	<mvc:resources mapping="/public/**" location="/resources/assets/" />
+
+	<bean id="sessionFactory"
+		  class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+		  p:dataSource-ref="dataSource"
+		  p:configLocation="resources/hibernate.configs.xml"
+		  p:packagesToScan="com.thesis.model.*"
+	/>
 
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

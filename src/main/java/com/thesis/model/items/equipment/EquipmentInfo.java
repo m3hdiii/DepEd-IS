@@ -1,4 +1,4 @@
-package com.thesis.model.items.equipments;
+package com.thesis.model.items.equipment;
 
 import com.thesis.model.items.Material;
 

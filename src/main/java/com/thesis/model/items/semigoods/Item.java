@@ -4,7 +4,7 @@ package com.thesis.model.items.semigoods;
 import com.thesis.model.items.Brand;
 import com.thesis.model.items.Material;
 import com.thesis.model.items.Visibility;
-import com.thesis.model.requests.Request;
+import com.thesis.model.request.Request;
 
 import javax.persistence.*;
 import java.util.Date;
