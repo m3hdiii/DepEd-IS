@@ -2,7 +2,7 @@ package com.thesis.controller.eqipment;
 
 import com.thesis.controller.AbstractMainController;
 import com.thesis.model.Response;
-import com.thesis.model.items.equipments.EquipmentInfo;
+import com.thesis.model.items.equipment.EquipmentInfo;
 import com.thesis.service.eqipment.EquipmentInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

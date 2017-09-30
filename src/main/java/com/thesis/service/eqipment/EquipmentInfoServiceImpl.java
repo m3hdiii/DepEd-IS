@@ -1,6 +1,6 @@
 package com.thesis.service.eqipment;
 
-import com.thesis.model.items.equipments.EquipmentInfo;
+import com.thesis.model.items.equipment.EquipmentInfo;
 import com.thesis.repository.equipment.EquipmentInfoRepository;
 import com.thesis.repository.utils.Range;
 import org.springframework.beans.factory.annotation.Autowired;

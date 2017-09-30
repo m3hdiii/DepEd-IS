@@ -1,13 +1,11 @@
 package com.thesis.repository.places;
 
 import com.thesis.model.location.office.Section;
+
+import static com.thesis.repository.utils.ConstantValues.*;
+
 import com.thesis.repository.utils.HibernateFacade;
 import com.thesis.repository.utils.Range;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -31,13 +29,13 @@ public class SectionRepositoryImpl implements SectionRepository {
 
     @Override
     public List<Section> fetchAll() {
-        List<Section> sections = hibernateFacade.fetchAllEntity("", Section.class);
+        List<Section> sections = hibernateFacade.fetchAllEntity(FETCH_ALL_SECTION, Section.class);
         return sections;
     }
 
     @Override
     public List<Section> fetchByRange(Range range) {
-        List<Section> sections = hibernateFacade.fetchAllEntity("", range, Section.class);
+        List<Section> sections = hibernateFacade.fetchAllEntity(FETCH_ALL_SECTION_RANGE, range, Section.class);
         return sections;
     }
 
@@ -49,7 +47,7 @@ public class SectionRepositoryImpl implements SectionRepository {
 
     @Override
     public Boolean remove(Section... entities) {
-        Boolean isDeleted = hibernateFacade.removeEntities("section", "section_id", entities);
+        Boolean isDeleted = hibernateFacade.removeEntities(SECTION_TABLE, SECTION_TABLE_ID, entities);
         return isDeleted;
     }
 }

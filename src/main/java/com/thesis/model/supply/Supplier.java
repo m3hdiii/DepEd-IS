@@ -1,4 +1,4 @@
-package com.thesis.model.supplys;
+package com.thesis.model.supply;
 
 import javax.persistence.*;
 import java.util.Date;

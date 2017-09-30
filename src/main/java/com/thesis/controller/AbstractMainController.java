@@ -2,7 +2,6 @@ package com.thesis.controller;
 
 import com.thesis.model.Response;
 import com.thesis.model.ResponseStatus;
-import com.thesis.model.items.Category;
 
 public abstract class AbstractMainController<T, ID> implements MainController<T, ID> {
 

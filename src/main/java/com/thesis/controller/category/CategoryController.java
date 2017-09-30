@@ -14,7 +14,7 @@ import java.util.List;
 @Controller
 public class CategoryController extends AbstractMainController<Category, Long> {
 
-    private static final String BASE_NAME = "category";
+    private static final String BASE_NAME = "/category";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
     private static final String FETCH_MAPPING = BASE_NAME + FETCH_PATTERN;
@@ -47,7 +47,7 @@ public class CategoryController extends AbstractMainController<Category, Long> {
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
     List<Category> fetchAll() {
-        return null;
+        return categoryService.fetchAll();
     }
 
     @Override

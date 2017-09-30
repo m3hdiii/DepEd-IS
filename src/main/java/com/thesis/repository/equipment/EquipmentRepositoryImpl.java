@@ -1,6 +1,6 @@
 package com.thesis.repository.equipment;
 
-import com.thesis.model.items.equipments.Equipment;
+import com.thesis.model.items.equipment.Equipment;
 import com.thesis.repository.utils.HibernateFacade;
 import com.thesis.repository.utils.Range;
 import org.springframework.beans.factory.annotation.Autowired;

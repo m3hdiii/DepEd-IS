@@ -1,15 +1,24 @@
 package com.thesis.model.items;
 
 import javax.persistence.*;
-import java.util.List;
+
+import java.io.Serializable;
+
+import static com.thesis.repository.utils.ConstantValues.FETCH_ALL_CATEGORY;
 
 /**
  * Created by mehdi on 7/6/17.
  */
 
+@NamedQueries({
+        @NamedQuery(
+                name = FETCH_ALL_CATEGORY,
+                query = "SELECT c FROM Category c"
+        ),
+})
 @Entity
 @Table(name = "category")
-public class Category {
+public class Category implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,22 +31,9 @@ public class Category {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parent_category_id")
     private Category parentCategory;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parentCategory")
-    private List<Category> subCategories;
-
-    public Category() {
-    }
-
-    public Category(String name, String description, Category parentCategory, List<Category> subCategories) {
-        this.name = name;
-        this.description = description;
-        this.parentCategory = parentCategory;
-        this.subCategories = subCategories;
-    }
 
     public Long getCategoryId() {
         return categoryId;
@@ -69,13 +65,5 @@ public class Category {
 
     public void setParentCategory(Category parentCategory) {
         this.parentCategory = parentCategory;
-    }
-
-    public List<Category> getSubCategories() {
-        return subCategories;
-    }
-
-    public void setSubCategories(List<Category> subCategories) {
-        this.subCategories = subCategories;
     }
 }

@@ -172,7 +172,7 @@
 //    "visibility": "EVERYONE",
 //    "threshold": 1000,
 //    "quantity": 100000,
-//    "requests": null,
+//    "request": null,
 //    "creationDate": 1506397258288,
 //    "brand": {
 //      "brandId": null,
@@ -194,7 +194,7 @@
 //    "visibility": "EVERYONE",
 //    "threshold": 1000,
 //    "quantity": 100000,
-//    "requests": null,
+//    "request": null,
 //    "creationDate": 1506397258288,
 //    "brand": {
 //      "brandId": null,
@@ -216,7 +216,7 @@
 //    "visibility": "EVERYONE",
 //    "threshold": 1000,
 //    "quantity": 100000,
-//    "requests": null,
+//    "request": null,
 //    "creationDate": 1506397258288,
 //    "brand": {
 //      "brandId": null,

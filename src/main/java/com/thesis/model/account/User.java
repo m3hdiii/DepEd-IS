@@ -1,6 +1,8 @@
 package com.thesis.model.account;
 
 import com.thesis.model.location.office.Section;
+
+import static com.thesis.repository.utils.ConstantValues.*;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
@@ -13,13 +15,17 @@ import java.util.Date;
 
 @NamedQueries({
         @NamedQuery(
-                name = "findByUsernamePassword",
+                name = FIND_BY_USERNAME,
                 query = "SELECT user From User user WHERE user.username=:username AND user.password=:password"
         ),
         @NamedQuery(
-                name = "findByEmailPassword",
+                name = FIND_BY_EMAIL,
                 query = "SELECT user From User user WHERE user.emailAddress=:emailAddress AND user.password=:password"
-        ),
+        ), @NamedQuery(
+        name = FETCH_ALL_USERS,
+        query = "SELECT user FROM User user"
+),
+
 //        @NamedQuery(
 //                name = "fetchAllByFilter",
 //                query = "SELECT user From User user WHERE " +
@@ -34,10 +40,7 @@ import java.util.Date;
 //                        "(user.position = :position OR :position IS NULL) AND " +
 //                        "(user.section = :section OR :section IS NULL)"
 //        ),
-        @NamedQuery(
-                name = "findAllUsers",
-                query = "SELECT user FROM User user"
-        ),
+
 //        ),
 //        @NamedQuery(
 //                name="deleteUserById",

@@ -1,6 +1,6 @@
 package com.thesis.service.equipment;
 
-import com.thesis.model.items.equipments.Equipment;
+import com.thesis.model.items.equipment.Equipment;
 import com.thesis.repository.equipment.EquipmentRepository;
 import com.thesis.repository.utils.Range;
 import org.springframework.stereotype.Service;
