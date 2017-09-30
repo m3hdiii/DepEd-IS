@@ -1,12 +1,20 @@
 package com.thesis.model.items.equipment;
 
 import com.thesis.model.supply.Supply;
+import static com.thesis.repository.utils.ConstantValues.*;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+
+@NamedQueries({
+        @NamedQuery(
+                name = FETCH_ALL_EQUIPMENTS,
+                query = "SELECT eq FROM Equipment eq"
+        )
+})
 @Entity
 @Table(name = "equipment")
 public class Equipment {

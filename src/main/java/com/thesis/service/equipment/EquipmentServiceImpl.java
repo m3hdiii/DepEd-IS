@@ -3,6 +3,7 @@ package com.thesis.service.equipment;
 import com.thesis.model.items.equipment.Equipment;
 import com.thesis.repository.equipment.EquipmentRepository;
 import com.thesis.repository.utils.Range;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Service
 public class EquipmentServiceImpl implements EquipmentService {
 
+    @Autowired
     private EquipmentRepository equipmentRepository;
 
     @Override

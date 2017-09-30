@@ -41,7 +41,10 @@ public class SectionRepositoryImpl implements SectionRepository {
 
     @Override
     public Section fetchById(Object id) {
-        Section section = hibernateFacade.fetchEntityById(Section.class, id);
+        Section section
+
+
+                = hibernateFacade.fetchEntityById(Section.class, id);
         return section;
     }
 
