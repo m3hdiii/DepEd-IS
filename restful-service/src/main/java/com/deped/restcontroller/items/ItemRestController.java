@@ -1,6 +1,6 @@
 package com.deped.restcontroller.items;
 
-import com.deped.restcontroller.AbstractMainController;
+import com.deped.restcontroller.AbstractMainRestController;
 import com.deped.restcontroller.Operation;
 import com.deped.model.Response;
 import com.deped.model.items.semigoods.Item;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class ItemController extends AbstractMainController<Item, Long> {
+public class ItemRestController extends AbstractMainRestController<Item, Long> {
 
     private static final String BASE_NAME = "item";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;

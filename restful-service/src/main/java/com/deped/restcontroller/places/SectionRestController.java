@@ -1,6 +1,6 @@
 package com.deped.restcontroller.places;
 
-import com.deped.restcontroller.AbstractMainController;
+import com.deped.restcontroller.AbstractMainRestController;
 import com.deped.restcontroller.Operation;
 import com.deped.model.Response;
 import com.deped.model.location.office.Section;
@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-public class SectionController extends AbstractMainController<Section, Long> {
+public class SectionRestController extends AbstractMainRestController<Section, Long> {
 
     private static final String BASE_NAME = "section";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;

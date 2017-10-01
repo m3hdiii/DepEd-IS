@@ -3,7 +3,7 @@ package com.deped.restcontroller;
 import com.deped.model.Response;
 import com.deped.model.ResponseStatus;
 
-public abstract class AbstractMainController<T, ID> implements MainController<T, ID> {
+public abstract class AbstractMainRestController<T, ID> implements MainRestController<T, ID> {
 
     public final Response makeResponse(Boolean isSuccessful, Operation operation, Class<T> entity) {
         String successMessage = "", failureMessage = "";

@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 
 import java.util.List;
 
-public interface MainController<T, ID> extends ConstantController {
+public interface MainRestController<T, ID> extends ConstantController {
 
     T create(T entity);
 

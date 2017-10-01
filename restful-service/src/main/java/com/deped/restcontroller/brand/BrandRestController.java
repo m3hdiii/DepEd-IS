@@ -1,11 +1,11 @@
-package com.deped.restcontroller.eqipment;
+package com.deped.restcontroller.brand;
 
-import com.deped.restcontroller.AbstractMainController;
+import com.deped.restcontroller.AbstractMainRestController;
 import com.deped.restcontroller.Operation;
 import com.deped.model.Response;
-import com.deped.model.items.equipment.Equipment;
+import com.deped.model.items.Brand;
 import com.deped.repository.utils.Range;
-import com.deped.service.equipment.EquipmentService;
+import com.deped.service.brand.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class EquipmentController extends AbstractMainController<Equipment, Long> {
+public class BrandRestController extends AbstractMainRestController<Brand, Long> {
 
-    private static final String BASE_NAME = "equipment";
+    private static final String BASE_NAME = "brand";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
     private static final String FETCH_MAPPING = BASE_NAME + FETCH_PATTERN;
@@ -28,58 +28,57 @@ public class EquipmentController extends AbstractMainController<Equipment, Long>
 
 
     @Autowired
-    private EquipmentService equipmentService;
+    private BrandService brandService;
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    Equipment create(@RequestBody Equipment entity) {
-        return equipmentService.create(entity);
+    Brand create(@RequestBody Brand entity) {
+        Brand savedBrand = brandService.create(entity);
+        return savedBrand;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response update(@RequestBody Equipment entity) {
-        Boolean isUpdated = equipmentService.update(entity);
-        return makeResponse(isUpdated, Operation.UPDATE, Equipment.class);
+    public Response update(@RequestBody Brand entity) {
+        Boolean isUpdated = brandService.update(entity);
+        return makeResponse(isUpdated, Operation.UPDATE, Brand.class);
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
-    List<Equipment> fetchAll() {
-        List<Equipment> equipments = equipmentService.fetchAll();
-        return equipments;
+    List<Brand> fetchAll() {
+        List<Brand> brands = brandService.fetchAll();
+        return brands;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.GET)
-    public @ResponseBody
-    List<Equipment> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
-        List<Equipment> equipments = equipmentService.fetchByRange(new Range(from, to));
-        return equipments;
+    public List<Brand> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+        List<Brand> brands = brandService.fetchByRange(new Range(from, to));
+        return brands;
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING)
     public @ResponseBody
-    Equipment fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        Equipment equipment = equipmentService.fetchById(aLong);
-        return equipment;
+    Brand fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        Brand brand = brandService.fetchById(aLong);
+        return brand;
     }
 
     @Override
+    public @ResponseBody
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response remove(@RequestBody Equipment... entities) {
-        Boolean isRemoved = equipmentService.remove(entities);
-        return makeResponse(isRemoved, Operation.DELETE, Equipment.class);
+    Response remove(@RequestBody Brand... entities) {
+        Boolean isRemoved = brandService.remove(entities);
+        return makeResponse(isRemoved, Operation.DELETE, Brand.class);
     }
 
     @Override
     @RequestMapping(value = SHOW_CREATE_MAPPING, method = RequestMethod.GET)
-    public String showCreatePage(Equipment entity, Model model) {
+    public String showCreatePage(Brand entity, Model model) {
         return "";
     }
 

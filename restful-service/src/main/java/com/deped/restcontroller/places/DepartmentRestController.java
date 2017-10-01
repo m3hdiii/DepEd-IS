@@ -1,6 +1,6 @@
 package com.deped.restcontroller.places;
 
-import com.deped.restcontroller.AbstractMainController;
+import com.deped.restcontroller.AbstractMainRestController;
 import com.deped.restcontroller.Operation;
 import com.deped.model.Response;
 import com.deped.model.location.office.Department;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class DepartmentController extends AbstractMainController<Department, Long> {
+public class DepartmentRestController extends AbstractMainRestController<Department, Long> {
 
     private static final String BASE_NAME = "department";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;

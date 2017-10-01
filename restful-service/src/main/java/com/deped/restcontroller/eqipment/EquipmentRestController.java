@@ -1,9 +1,11 @@
-package com.deped.restcontroller.category;
+package com.deped.restcontroller.eqipment;
 
-import com.deped.restcontroller.AbstractMainController;
+import com.deped.restcontroller.AbstractMainRestController;
+import com.deped.restcontroller.Operation;
 import com.deped.model.Response;
-import com.deped.model.items.Category;
-import com.deped.service.category.CategoryService;
+import com.deped.model.items.equipment.Equipment;
+import com.deped.repository.utils.Range;
+import com.deped.service.equipment.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class CategoryController extends AbstractMainController<Category, Long> {
+public class EquipmentRestController extends AbstractMainRestController<Equipment, Long> {
 
-    private static final String BASE_NAME = "/category";
+    private static final String BASE_NAME = "equipment";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
     private static final String FETCH_MAPPING = BASE_NAME + FETCH_PATTERN;
@@ -24,67 +26,72 @@ public class CategoryController extends AbstractMainController<Category, Long> {
     private static final String SHOW_LIST_MAPPING = BASE_NAME + SHOW_PREFIX;
     private static final String SHOW_UPDATE_MAPPING = UPDATE_MAPPING;
 
+
     @Autowired
-    private CategoryService categoryService;
+    private EquipmentService equipmentService;
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    Category create(@RequestBody Category entity) {
-        Category savedCategory = categoryService.create(entity);
-        return savedCategory;
+    Equipment create(@RequestBody Equipment entity) {
+        return equipmentService.create(entity);
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    Response update(@RequestBody Category entity) {
-        return null;
+    Response update(@RequestBody Equipment entity) {
+        Boolean isUpdated = equipmentService.update(entity);
+        return makeResponse(isUpdated, Operation.UPDATE, Equipment.class);
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
-    List<Category> fetchAll() {
-        return categoryService.fetchAll();
+    List<Equipment> fetchAll() {
+        List<Equipment> equipments = equipmentService.fetchAll();
+        return equipments;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
-    List<Category> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
-        return null;
+    List<Equipment> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+        List<Equipment> equipments = equipmentService.fetchByRange(new Range(from, to));
+        return equipments;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
-    Category fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        return null;
+    Equipment fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        Equipment equipment = equipmentService.fetchById(aLong);
+        return equipment;
     }
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    Response remove(@RequestBody Category... entities) {
-        return null;
+    Response remove(@RequestBody Equipment... entities) {
+        Boolean isRemoved = equipmentService.remove(entities);
+        return makeResponse(isRemoved, Operation.DELETE, Equipment.class);
     }
 
     @Override
     @RequestMapping(value = SHOW_CREATE_MAPPING, method = RequestMethod.GET)
-    public String showCreatePage(Category entity, Model model) {
-        return null;
+    public String showCreatePage(Equipment entity, Model model) {
+        return "";
     }
 
     @Override
     @RequestMapping(value = SHOW_LIST_MAPPING, method = RequestMethod.GET)
     public String showListPage(Model model) {
-        return null;
+        return "";
     }
 
     @Override
     @RequestMapping(value = SHOW_UPDATE_MAPPING, method = RequestMethod.GET)
     public String showUpdatePage() {
-        return null;
+        return "";
     }
 }

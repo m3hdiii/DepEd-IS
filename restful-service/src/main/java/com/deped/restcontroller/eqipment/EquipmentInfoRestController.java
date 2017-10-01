@@ -1,11 +1,9 @@
-package com.deped.restcontroller.supply;
+package com.deped.restcontroller.eqipment;
 
-import com.deped.restcontroller.AbstractMainController;
-import com.deped.restcontroller.Operation;
+import com.deped.restcontroller.AbstractMainRestController;
 import com.deped.model.Response;
-import com.deped.model.supply.Supply;
-import com.deped.repository.utils.Range;
-import com.deped.service.supply.SupplyService;
+import com.deped.model.items.equipment.EquipmentInfo;
+import com.deped.service.eqipment.EquipmentInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class SupplyController extends AbstractMainController<Supply, Long> {
+public class EquipmentInfoRestController extends AbstractMainRestController<EquipmentInfo, Long> {
 
-    private static final String BASE_NAME = "supply";
+    private static final String BASE_NAME = "equipment-brand";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
     private static final String FETCH_MAPPING = BASE_NAME + FETCH_PATTERN;
@@ -27,54 +25,53 @@ public class SupplyController extends AbstractMainController<Supply, Long> {
     private static final String SHOW_UPDATE_MAPPING = UPDATE_MAPPING;
 
     @Autowired
-    private SupplyService supplyService;
+    private EquipmentInfoService equipmentInfoService;
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    Supply create(@RequestBody Supply entity) {
-        Supply supply = supplyService.create(entity);
-        return supply;
+    EquipmentInfo create(@RequestBody EquipmentInfo entity) {
+        return null;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    Response update(@RequestBody Supply entity) {
-        Boolean isUpdated = supplyService.update(entity);
-        return makeResponse(isUpdated, Operation.UPDATE, Supply.class);
+    Response update(@RequestBody EquipmentInfo entity) {
+        return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.GET)
     public @ResponseBody
-    List<Supply> fetchAll() {
-        return supplyService.fetchAll();
+    List<EquipmentInfo> fetchAll() {
+        return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.GET)
-    public List<Supply> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
-        return supplyService.fetchByRange(new Range(from, to));
+    public @ResponseBody
+    List<EquipmentInfo> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+        return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
-    public Supply fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        return supplyService.fetchById(aLong);
+    public @ResponseBody
+    EquipmentInfo fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        return null;
     }
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    Response remove(@RequestBody Supply... entities) {
-        Boolean isRemoved = supplyService.remove(entities);
-        return makeResponse(isRemoved, Operation.DELETE, Supply.class);
+    Response remove(@RequestBody EquipmentInfo... entities) {
+        return null;
     }
 
     @Override
     @RequestMapping(value = SHOW_CREATE_MAPPING, method = RequestMethod.GET)
-    public String showCreatePage(Supply entity, Model model) {
+    public String showCreatePage(EquipmentInfo entity, Model model) {
         return null;
     }
 
