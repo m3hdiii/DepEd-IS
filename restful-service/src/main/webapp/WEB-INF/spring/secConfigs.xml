@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.springframework.org/schema/security"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/security
+	 http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+    <http use-expressions="true" auto-config="true" disable-url-rewriting="true" create-session="never">
+        <csrf/>
+        <intercept-url pattern="/" access="permitAll()"/>
+        <!--<intercept-url pattern="/login" access="permitAll()"/>-->
+        <!--<intercept-url pattern="/user/**" access="hasRole('ROLE_ADMIN')"/>-->
+        <!--<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>-->
+
+        <form-login
+                login-page="/login"
+                default-target-url="/dashboard"
+                authentication-failure-handler-ref="myFailureHandler"
+                login-processing-url="/form-login"
+                username-parameter="username"
+                password-parameter="password"
+        />
+        <!--authentication-failure-url="/login?error=true"-->
+
+        <logout
+                delete-cookies="true"
+                invalidate-session="true"
+                logout-success-url="/"
+                logout-url="/logout"
+        />
+        <!--
+        <port-mappings>
+            <port-mapping http="8493" https="8443"/>
+            <port-mapping http="80" https="443"  />
+        </port-mappings>
+        -->
+        <headers>
+            <!--<content-type-options />-->
+
+            <xss-protection/>
+            <frame-options/>
+
+            <!--<header name="X-Content-Security-Policy" value="default-src 'self'" />-->
+            <!--<header name="X-WebKit-CSP" value="default-src 'self'"/>-->
+            <!--<header name="X-Content-Type-Options" value="nosniff" />-->
+            <!--<hsts/>-->
+        </headers>
+    </http>
+
+    <beans:bean id="myFailureHandler" class="com.deped.security.CustomFailureHandler" autowire="byType">
+        <beans:property name="targetUrl" value="login"/>
+    </beans:bean>
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="userDetailsService">
+            <password-encoder ref="encoder"/>
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean id="userDetailsService" class="com.deped.service.security.UserDetailsServiceImpl"/>
+
+    <beans:bean id="encoder"
+                class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+
+    <beans:bean
+            class="org.springframework.security.web.access.expression.WebExpressionVoter">
+        <beans:property name="expressionHandler">
+            <beans:bean
+                    class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler">
+                <beans:property name="roleHierarchy" ref="roleHierarchy"/>
+            </beans:bean>
+        </beans:property>
+    </beans:bean>
+
+
+    <beans:bean id="roleHierarchy"
+                class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
+        <beans:property name="hierarchy">
+            <beans:value>
+                ROLE_SUPER_ADMIN > ROLE_ADMIN
+                ROLE_ADMIN > ROLE_MODERATOR
+                ROLE_MODERATOR > ROLE_SUPER_USER
+                ROLE_SUPER_USER > ROLE_CREATOR
+                ROLE_CREATOR > ROLE_REPORTER
+                ROLE_REPORTER > ROLE_USER
+                ROLE_USER > ROLE_GUEST
+                ROLE_GUEST > ROLE_ANONYMOUSE
+            </beans:value>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="roleVoter"
+                class="org.springframework.security.access.vote.RoleHierarchyVoter">
+        <beans:constructor-arg ref="roleHierarchy"/>
+    </beans:bean>
+
+
+</beans:beans>

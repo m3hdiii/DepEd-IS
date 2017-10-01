@@ -13,32 +13,8 @@
         <module>service</module>
     </modules>
     <name>Department Of Education Inventory System</name>
-    <url>http://maven.apache.org</url>
-    <repositories>
+    <url>http://depedpines.com/</url>
 
-        <repository>
-            <id>eap</id>
-            <url>http://maven.repository.redhat.com/techpreview/all</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>eap</id>
-            <url>http://maven.repository.redhat.com/techpreview/all</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -110,16 +86,11 @@
             <version>${hibernate.version}</version>
         </dependency>
 
-
-        <!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
-
-
-        <!-- optional -->
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -230,7 +201,6 @@
             <version>${javax.jstl.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -250,38 +220,4 @@
             </exclusions>
         </dependency>
     </dependencies>
-    <profiles>
-        <profile>
-            <!-- When built in OpenShift the 'openshift' profile will be used when
-                invoking mvn. -->
-            <!-- Use this profile for any OpenShift specific customization your app
-                will need. -->
-            <!-- By default that is to put the resulting archive into the 'webapps'
-                folder. -->
-            <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
-            <id>openshift</id>
-            <build>
-                <finalName>promotion</finalName>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>2.1.1</version>
-                        <configuration>
-                            <outputDirectory>webapps</outputDirectory>
-                            <warName>ROOT</warName>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
-    <build>
-        <resources>
-            <resource>
-                <filtering>true</filtering>
-                <directory>src/main/webapp/resources</directory>
-            </resource>
-        </resources>
-    </build>
 </project>
