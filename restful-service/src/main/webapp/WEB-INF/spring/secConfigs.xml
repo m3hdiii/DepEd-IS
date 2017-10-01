@@ -8,9 +8,9 @@
 	 http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-    <http use-expressions="true" auto-config="true" disable-url-rewriting="true" create-session="never">
+    <http use-expressions="true" auto-config="true" disable-url-rewriting="true">
         <csrf/>
-        <intercept-url pattern="/" access="permitAll()"/>
+        <intercept-url pattern="/rest/**" access="permitAll()"/>
         <!--<intercept-url pattern="/login" access="permitAll()"/>-->
         <!--<intercept-url pattern="/user/**" access="hasRole('ROLE_ADMIN')"/>-->
         <!--<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>-->
@@ -18,12 +18,12 @@
         <form-login
                 login-page="/login"
                 default-target-url="/dashboard"
-                authentication-failure-handler-ref="myFailureHandler"
+                authentication-failure-url="/login?error=true"
                 login-processing-url="/form-login"
                 username-parameter="username"
                 password-parameter="password"
         />
-        <!--authentication-failure-url="/login?error=true"-->
+
 
         <logout
                 delete-cookies="true"
@@ -50,9 +50,9 @@
         </headers>
     </http>
 
-    <beans:bean id="myFailureHandler" class="com.deped.security.CustomFailureHandler" autowire="byType">
-        <beans:property name="targetUrl" value="login"/>
-    </beans:bean>
+    <!--<beans:bean id="myFailureHandler" class="com.deped.security.CustomFailureHandler" autowire="byType">-->
+    <!--<beans:property name="targetUrl" value="login"/>-->
+    <!--</beans:bean>-->
 
     <authentication-manager>
         <authentication-provider user-service-ref="userDetailsService">

@@ -39,7 +39,7 @@ public class UserController extends AbstractMainController<User, Long> {
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    User create(User entity) {
+    User create(@RequestBody User entity) {
         User savedUser = userService.create(entity);
         return savedUser;
     }
@@ -48,7 +48,7 @@ public class UserController extends AbstractMainController<User, Long> {
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
-    Response update(User entity) {
+    Response update(@RequestBody User entity) {
         Boolean isUpdated = userService.update(entity);
         return makeResponse(isUpdated, Operation.UPDATE, User.class);
     }
