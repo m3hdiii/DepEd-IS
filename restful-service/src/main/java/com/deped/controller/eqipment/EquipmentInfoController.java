@@ -5,13 +5,12 @@ import com.deped.model.Response;
 import com.deped.model.items.equipment.EquipmentInfo;
 import com.deped.service.eqipment.EquipmentInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class EquipmentInfoController extends AbstractMainController<EquipmentInfo, Long> {
 
     private static final String BASE_NAME = "equipment-brand";

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class EquipmentController extends AbstractMainController<Equipment, Long> {
 
     private static final String BASE_NAME = "equipment";

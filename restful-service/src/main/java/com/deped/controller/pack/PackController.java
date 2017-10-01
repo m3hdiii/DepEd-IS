@@ -6,13 +6,12 @@ import com.deped.model.Response;
 import com.deped.model.items.Pack;
 import com.deped.service.pack.PackService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class PackController extends AbstractMainController<Pack, Long> {
 
     private static final String BASE_NAME = "pack";

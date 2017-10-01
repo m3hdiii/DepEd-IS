@@ -3,13 +3,12 @@ package com.deped.controller.requests;
 import com.deped.controller.AbstractMainController;
 import com.deped.model.Response;
 import com.deped.model.request.BorrowRequest;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class BorrowEquipmentController extends AbstractMainController<BorrowRequest, Long> {
 
     private static final String BASE_NAME = "borrow-request";

@@ -8,7 +8,6 @@ import com.deped.model.account.User;
 import com.deped.repository.utils.Range;
 import com.deped.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +18,7 @@ import java.util.List;
  * Created by mehdi on 7/7/17.
  */
 
-@Controller
+@RestController
 public class UserController extends AbstractMainController<User, Long> {
 
     private static final String BASE_NAME = "user";
