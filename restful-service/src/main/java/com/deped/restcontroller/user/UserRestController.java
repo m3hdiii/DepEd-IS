@@ -4,7 +4,7 @@ import com.deped.model.Response;
 import com.deped.model.account.User;
 import com.deped.repository.utils.Range;
 import com.deped.restcontroller.AbstractMainRestController;
-import com.deped.restcontroller.Operation;
+import com.deped.model.Operation;
 import com.deped.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,58 +32,46 @@ public class UserRestController extends AbstractMainRestController<User, Long> {
     private UserService userService;
 
 
-    @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public ResponseEntity<User> create2(@RequestBody User entity) {
-        User savedUser = userService.create(entity);
-        return new ResponseEntity<>(savedUser, HttpStatus.OK);
-    }
-
-
     @Override
-    public User create(User entity) {
-        return null;
+    @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
+    public ResponseEntity<User> create(User entity) {
+        ResponseEntity<User> response = userService.create(entity);
+        return response;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public Response update(@RequestBody User entity) {
-        Boolean isUpdated = userService.update(entity);
-        return makeResponse(isUpdated, Operation.UPDATE, User.class);
+    public ResponseEntity<Response> update(@RequestBody User entity) {
+        ResponseEntity<Response> response = userService.update(entity);
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING)
-    public List<User> fetchAll() {
-        List<User> users = userService.fetchAll();
-        new ResponseEntity<>(users, HttpStatus.OK);
-        return users;
+    public ResponseEntity<List<User>> fetchAll() {
+        ResponseEntity<List<User>> response = userService.fetchAll();
+        return response;
     }
 
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
-    public List<User> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
-        List<User> users = userService.fetchByRange(new Range(from, to));
-        return users;
+    public ResponseEntity<List<User>> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+        ResponseEntity<List<User>> response = userService.fetchByRange(new Range(from, to));
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
-    public User fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        User user = userService.fetchById(aLong);
-        return user;
+    public ResponseEntity<User> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        ResponseEntity<User> response = userService.fetchById(aLong);
+        return response;
     }
 
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
     @Override
-    public Response remove(@RequestBody User... users) {
-        Boolean isSuccessful = userService.remove(users);
-        return makeResponse(isSuccessful, Operation.DELETE, User.class);
-    }
-
-    @RequestMapping(value = REMOVE_MAPPING + "2", method = RequestMethod.POST)
-    public Response remove2(@RequestBody List<User> users) {
-        Boolean isSuccessful = userService.remove(users.toArray(new User[users.size()]));
-        return makeResponse(isSuccessful, Operation.DELETE, User.class);
+    public ResponseEntity<Response> remove(@RequestBody User... users) {
+        ResponseEntity<Response> response = userService.remove(users);
+        return response;
     }
 }

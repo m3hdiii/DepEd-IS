@@ -2,10 +2,12 @@ package com.deped.restcontroller.pack;
 
 import com.deped.model.Response;
 import com.deped.model.items.Pack;
+import com.deped.repository.utils.Range;
 import com.deped.restcontroller.AbstractMainRestController;
-import com.deped.restcontroller.Operation;
+import com.deped.model.Operation;
 import com.deped.service.pack.PackService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,41 +28,43 @@ public class PackRestController extends AbstractMainRestController<Pack, Long> {
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public Pack create(@RequestBody Pack entity) {
-        Pack savedPack = packService.create(entity);
-        return savedPack;
+    public ResponseEntity<Pack> create(@RequestBody Pack entity) {
+        ResponseEntity<Pack> response = packService.create(entity);
+        return response;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public Response update(@RequestBody Pack entity) {
-        Boolean isUpdated = packService.update(entity);
-        return makeResponse(isUpdated, Operation.UPDATE, Pack.class);
+    public ResponseEntity<Response> update(@RequestBody Pack entity) {
+        ResponseEntity<Response> response = packService.update(entity);
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public List<Pack> fetchAll() {
-        return null;
+    public ResponseEntity<List<Pack>> fetchAll() {
+        ResponseEntity<List<Pack>> response = packService.fetchAll();
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
-    public List<Pack> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
-        return null;
+    public ResponseEntity<List<Pack>> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+        ResponseEntity<List<Pack>> response = packService.fetchByRange(new Range(from, to));
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
-    public Pack fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        Pack pack = packService.fetchById(aLong);
-        return pack;
+    public ResponseEntity<Pack> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        ResponseEntity<Pack> response = packService.fetchById(aLong);
+        return response;
     }
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public Response remove(@RequestBody Pack... entities) {
-        Boolean isRemoved = packService.remove(entities);
-        return makeResponse(isRemoved, Operation.DELETE, Pack.class);
+    public ResponseEntity<Response> remove(@RequestBody Pack... entities) {
+        ResponseEntity<Response> response = packService.remove(entities);
+        return response;
     }
 }

@@ -1,6 +1,7 @@
 package com.deped.restcontroller;
 
 import com.deped.model.Response;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 
 
@@ -8,15 +9,15 @@ import java.util.List;
 
 public interface MainRestController<T, ID> extends ConstantController {
 
-    T create(T entity);
+    ResponseEntity<T> create(T entity);
 
-    Response update(T entity);
+    ResponseEntity<Response> update(T entity);
 
-    List<T> fetchAll();
+    ResponseEntity<List<T>> fetchAll();
 
-    List<T> fetchByRange(int from, int to);
+    ResponseEntity<List<T>> fetchByRange(int from, int to);
 
-    T fetchById(ID id);
+    ResponseEntity<T> fetchById(ID id);
 
-    Response remove(T... entities);
+    ResponseEntity<Response> remove(T... entities);
 }

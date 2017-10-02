@@ -4,9 +4,10 @@ import com.deped.model.Response;
 import com.deped.model.supply.Supply;
 import com.deped.repository.utils.Range;
 import com.deped.restcontroller.AbstractMainRestController;
-import com.deped.restcontroller.Operation;
+import com.deped.model.Operation;
 import com.deped.service.supply.SupplyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,40 +28,44 @@ public class SupplyRestController extends AbstractMainRestController<Supply, Lon
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public Supply create(@RequestBody Supply entity) {
-        Supply supply = supplyService.create(entity);
-        return supply;
+    public ResponseEntity<Supply> create(@RequestBody Supply entity) {
+        ResponseEntity<Supply> response = supplyService.create(entity);
+        return response;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public Response update(@RequestBody Supply entity) {
-        Boolean isUpdated = supplyService.update(entity);
-        return makeResponse(isUpdated, Operation.UPDATE, Supply.class);
+    public ResponseEntity<Response> update(@RequestBody Supply entity) {
+        ResponseEntity<Response> response = supplyService.update(entity);
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public List<Supply> fetchAll() {
-        return supplyService.fetchAll();
+    public ResponseEntity<List<Supply>> fetchAll() {
+        ResponseEntity<List<Supply>> response = supplyService.fetchAll();
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
-    public List<Supply> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
-        return supplyService.fetchByRange(new Range(from, to));
+    public ResponseEntity<List<Supply>> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+        ResponseEntity<List<Supply>> response = supplyService.fetchByRange(new Range(from, to));
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
-    public Supply fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        return supplyService.fetchById(aLong);
+    public ResponseEntity<Supply> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        ResponseEntity<Supply> response = supplyService.fetchById(aLong);
+        return response;
     }
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public Response remove(@RequestBody Supply... entities) {
-        Boolean isRemoved = supplyService.remove(entities);
-        return makeResponse(isRemoved, Operation.DELETE, Supply.class);
+    public ResponseEntity<Response> remove(@RequestBody Supply... entities) {
+        ResponseEntity<Response> response = supplyService.remove(entities);
+        return response;
+
     }
 }

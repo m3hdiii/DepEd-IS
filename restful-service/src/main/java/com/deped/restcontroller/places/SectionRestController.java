@@ -4,9 +4,10 @@ import com.deped.model.Response;
 import com.deped.model.location.office.Section;
 import com.deped.repository.utils.Range;
 import com.deped.restcontroller.AbstractMainRestController;
-import com.deped.restcontroller.Operation;
+import com.deped.model.Operation;
 import com.deped.service.places.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,43 +28,43 @@ public class SectionRestController extends AbstractMainRestController<Section, L
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public Section create(@RequestBody Section entity) {
-        Section savedSection = sectionService.create(entity);
-        return savedSection;
+    public ResponseEntity<Section> create(@RequestBody Section entity) {
+        ResponseEntity<Section> response = sectionService.create(entity);
+        return response;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public Response update(@RequestBody Section entity) {
-        Boolean isUpdated = sectionService.update(entity);
-        return makeResponse(isUpdated, Operation.UPDATE, Section.class);
+    public ResponseEntity<Response> update(@RequestBody Section entity) {
+        ResponseEntity<Response> response = sectionService.update(entity);
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public List<Section> fetchAll() {
-        List<Section> sections = sectionService.fetchAll();
-        return sections;
+    public ResponseEntity<List<Section>> fetchAll() {
+        ResponseEntity<List<Section>> response = sectionService.fetchAll();
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
-    public List<Section> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
-        List<Section> sections = sectionService.fetchByRange(new Range(from, to));
-        return sections;
+    public ResponseEntity<List<Section>> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+        ResponseEntity<List<Section>> response = sectionService.fetchByRange(new Range(from, to));
+        return response;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
-    public Section fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        Section section = sectionService.fetchById(aLong);
-        return section;
+    public ResponseEntity<Section> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        ResponseEntity<Section> response = sectionService.fetchById(aLong);
+        return response;
     }
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public Response remove(@RequestBody Section... entities) {
-        Boolean isRemoved = sectionService.remove(entities);
-        return makeResponse(isRemoved, Operation.DELETE, Section.class);
+    public ResponseEntity<Response> remove(@RequestBody Section... entities) {
+        ResponseEntity<Response> response = sectionService.remove(entities);
+        return response;
     }
 }

@@ -1,9 +1,13 @@
 package com.deped.service.category;
 
+import com.deped.model.Operation;
+import com.deped.model.Response;
 import com.deped.model.items.Category;
 import com.deped.repository.category.CategoryRepository;
 import com.deped.repository.utils.Range;
+import com.deped.service.ServiceUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,32 +19,46 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryRepository categoryRepository;
 
     @Override
-    public Category create(Category entity) {
-        return categoryRepository.create(entity);
+    public ResponseEntity<Category> create(Category entity) {
+        Category savedEntity = categoryRepository.create(entity);
+        ResponseEntity<Category> responseEntity = new ResponseEntity<>(savedEntity, OK);
+        return responseEntity;
     }
 
     @Override
-    public Boolean update(Category entity) {
-        return categoryRepository.update(entity);
+    public ResponseEntity<Response> update(Category entity) {
+        Boolean isUpdated = categoryRepository.update(entity);
+        Response response = ServiceUtils.makeResponse(isUpdated, Operation.UPDATE, Category.class);
+        ResponseEntity<Response> responseEntity = new ResponseEntity<>(response, OK);
+        return responseEntity;
     }
 
     @Override
-    public List<Category> fetchAll() {
-        return categoryRepository.fetchAll();
+    public ResponseEntity<List<Category>> fetchAll() {
+        List<Category> categories = categoryRepository.fetchAll();
+        ResponseEntity<List<Category>> responseEntity = new ResponseEntity<>(categories, OK);
+        return responseEntity;
     }
 
     @Override
-    public List<Category> fetchByRange(Range range) {
-        return categoryRepository.fetchByRange(range);
+    public ResponseEntity<List<Category>> fetchByRange(Range range) {
+        List<Category> categories = categoryRepository.fetchByRange(range);
+        ResponseEntity<List<Category>> responseEntity = new ResponseEntity<>(categories, OK);
+        return responseEntity;
     }
 
     @Override
-    public Category fetchById(Object id) {
-        return categoryRepository.fetchById(id);
+    public ResponseEntity<Category> fetchById(Object id) {
+        Category category = categoryRepository.fetchById(id);
+        ResponseEntity<Category> responseEntity = new ResponseEntity<>(category, OK);
+        return responseEntity;
     }
 
     @Override
-    public Boolean remove(Category... entities) {
-        return categoryRepository.remove(entities);
+    public ResponseEntity<Response> remove(Category... entities) {
+        Boolean isRemoved = categoryRepository.remove(entities);
+        Response response = ServiceUtils.makeResponse(isRemoved, Operation.DELETE, Category.class);
+        ResponseEntity<Response> responseEntity = new ResponseEntity<>(response, OK);
+        return responseEntity;
     }
 }

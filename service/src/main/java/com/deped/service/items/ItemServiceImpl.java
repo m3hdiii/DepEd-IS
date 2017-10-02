@@ -1,9 +1,13 @@
 package com.deped.service.items;
 
+import com.deped.model.Operation;
+import com.deped.model.Response;
 import com.deped.model.items.semigoods.Item;
 import com.deped.repository.items.ItemRepository;
 import com.deped.repository.utils.Range;
+import com.deped.service.ServiceUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,32 +19,46 @@ public class ItemServiceImpl implements ItemService {
     private ItemRepository itemRepository;
 
     @Override
-    public Item create(Item entity) {
-        return itemRepository.create(entity);
+    public ResponseEntity<Item> create(Item entity) {
+        Item savedEntity = itemRepository.create(entity);
+        ResponseEntity<Item> responseEntity = new ResponseEntity<>(savedEntity, OK);
+        return responseEntity;
     }
 
     @Override
-    public Boolean update(Item entity) {
-        return itemRepository.update(entity);
+    public ResponseEntity<Response> update(Item entity) {
+        Boolean isUpdated = itemRepository.update(entity);
+        Response response = ServiceUtils.makeResponse(isUpdated, Operation.DELETE, Item.class);
+        ResponseEntity<Response> responseEntity = new ResponseEntity<>(response, OK);
+        return responseEntity;
     }
 
     @Override
-    public List<Item> fetchAll() {
-        return itemRepository.fetchAll();
+    public ResponseEntity<List<Item>> fetchAll() {
+        List<Item> items = itemRepository.fetchAll();
+        ResponseEntity<List<Item>> responseEntity = new ResponseEntity<>(items, OK);
+        return responseEntity;
     }
 
     @Override
-    public List<Item> fetchByRange(Range range) {
-        return itemRepository.fetchByRange(range);
+    public ResponseEntity<List<Item>> fetchByRange(Range range) {
+        List<Item> items = itemRepository.fetchByRange(range);
+        ResponseEntity<List<Item>> responseEntity = new ResponseEntity<>(items, OK);
+        return responseEntity;
     }
 
     @Override
-    public Item fetchById(Object id) {
-        return itemRepository.fetchById(id);
+    public ResponseEntity<Item> fetchById(Object id) {
+        Item item = itemRepository.fetchById(id);
+        ResponseEntity<Item> responseEntity = new ResponseEntity<>(item, OK);
+        return responseEntity;
     }
 
     @Override
-    public Boolean remove(Item... entities) {
-        return itemRepository.remove(entities);
+    public ResponseEntity<Response> remove(Item... entities) {
+        Boolean isRemoved = itemRepository.remove(entities);
+        Response response = ServiceUtils.makeResponse(isRemoved, Operation.DELETE, Item.class);
+        ResponseEntity<Response> responseEntity = new ResponseEntity<>(response, OK);
+        return responseEntity;
     }
 }
