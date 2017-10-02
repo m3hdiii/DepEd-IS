@@ -18,9 +18,6 @@ public class BorrowEquipmentRestController extends AbstractMainRestController<Bo
     private static final String FETCH_BY_RANGE_MAPPING = BASE_NAME + FETCH_PATTERN + RANGE_PATTERN;
     private static final String FETCH_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
     private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
-    private static final String SHOW_CREATE_MAPPING = CREATE_MAPPING;
-    private static final String SHOW_LIST_MAPPING = BASE_NAME + SHOW_PREFIX;
-    private static final String SHOW_UPDATE_MAPPING = UPDATE_MAPPING;
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
@@ -37,14 +34,14 @@ public class BorrowEquipmentRestController extends AbstractMainRestController<Bo
     }
 
     @Override
-    @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
     List<BorrowRequest> fetchAll() {
         return null;
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
     List<BorrowRequest> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         return null;
@@ -61,24 +58,6 @@ public class BorrowEquipmentRestController extends AbstractMainRestController<Bo
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
     Response remove(@RequestBody BorrowRequest... entities) {
-        return null;
-    }
-
-    @Override
-    @RequestMapping(value = SHOW_CREATE_MAPPING, method = RequestMethod.GET)
-    public String showCreatePage(BorrowRequest entity, Model model) {
-        return null;
-    }
-
-    @Override
-    @RequestMapping(value = SHOW_LIST_MAPPING, method = RequestMethod.GET)
-    public String showListPage(Model model) {
-        return null;
-    }
-
-    @Override
-    @RequestMapping(value = SHOW_UPDATE_MAPPING, method = RequestMethod.GET)
-    public String showUpdatePage() {
         return null;
     }
 }

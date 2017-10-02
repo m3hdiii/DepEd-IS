@@ -19,10 +19,4 @@ public interface MainRestController<T, ID> extends ConstantController {
     T fetchById(ID id);
 
     Response remove(T... entities);
-
-    String showCreatePage(T entity, Model model);
-
-    String showListPage(Model model);
-
-    String showUpdatePage();
 }

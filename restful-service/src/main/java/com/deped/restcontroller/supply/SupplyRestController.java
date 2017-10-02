@@ -22,9 +22,6 @@ public class SupplyRestController extends AbstractMainRestController<Supply, Lon
     private static final String FETCH_BY_RANGE_MAPPING = BASE_NAME + FETCH_PATTERN + RANGE_PATTERN;
     private static final String FETCH_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
     private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
-    private static final String SHOW_CREATE_MAPPING = CREATE_MAPPING;
-    private static final String SHOW_LIST_MAPPING = BASE_NAME + SHOW_PREFIX;
-    private static final String SHOW_UPDATE_MAPPING = UPDATE_MAPPING;
 
     @Autowired
     private SupplyService supplyService;
@@ -46,20 +43,20 @@ public class SupplyRestController extends AbstractMainRestController<Supply, Lon
     }
 
     @Override
-    @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
     List<Supply> fetchAll() {
         return supplyService.fetchAll();
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
     public List<Supply> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         return supplyService.fetchByRange(new Range(from, to));
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
     public Supply fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         return supplyService.fetchById(aLong);
     }
@@ -70,23 +67,5 @@ public class SupplyRestController extends AbstractMainRestController<Supply, Lon
     Response remove(@RequestBody Supply... entities) {
         Boolean isRemoved = supplyService.remove(entities);
         return makeResponse(isRemoved, Operation.DELETE, Supply.class);
-    }
-
-    @Override
-    @RequestMapping(value = SHOW_CREATE_MAPPING, method = RequestMethod.GET)
-    public String showCreatePage(Supply entity, Model model) {
-        return null;
-    }
-
-    @Override
-    @RequestMapping(value = SHOW_LIST_MAPPING, method = RequestMethod.GET)
-    public String showListPage(Model model) {
-        return null;
-    }
-
-    @Override
-    @RequestMapping(value = SHOW_UPDATE_MAPPING, method = RequestMethod.GET)
-    public String showUpdatePage() {
-        return null;
     }
 }

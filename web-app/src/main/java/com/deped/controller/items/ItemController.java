@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.JstlView;
 
 import javax.validation.Valid;
 
@@ -32,7 +33,7 @@ public class ItemController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid Item entity) {
-        return null;
+        return new ModelAndView(new JstlView("processing/register-item"));
     }
 
     @Override
@@ -50,7 +51,7 @@ public class ItemController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        return null;
+        return new ModelAndView(new JstlView("processing/register-item"));
     }
 
     @Override
@@ -62,7 +63,7 @@ public class ItemController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        return null;
+        return new ModelAndView(new JstlView("items/item-list"));
     }
 
     @Override

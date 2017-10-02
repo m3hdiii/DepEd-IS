@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.JstlView;
 
 import javax.validation.Valid;
 
@@ -31,7 +32,8 @@ public class UserController extends AbstractMainController<User, Long> {
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid User entity) {
-        return null;
+        //model.addAttribute("genderList", Gender.values());
+        return new ModelAndView(new JstlView("center/signup"));
     }
 
     @Override
@@ -49,7 +51,7 @@ public class UserController extends AbstractMainController<User, Long> {
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        return null;
+        return new ModelAndView(new JstlView("center/edituserprofile"));
     }
 
     @Override

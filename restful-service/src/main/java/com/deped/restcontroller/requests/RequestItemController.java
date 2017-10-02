@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RequestItemController {
 
-    @RequestMapping(value = "/request-item", method = RequestMethod.GET)
+    @RequestMapping(value = "/request-item", method = RequestMethod.POST)
     public String itemRequest() {
         return "processing/request-item";
     }

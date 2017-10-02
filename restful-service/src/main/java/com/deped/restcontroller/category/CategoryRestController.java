@@ -1,11 +1,10 @@
 package com.deped.restcontroller.category;
 
-import com.deped.restcontroller.AbstractMainRestController;
 import com.deped.model.Response;
 import com.deped.model.items.Category;
+import com.deped.restcontroller.AbstractMainRestController;
 import com.deped.service.category.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,9 +19,6 @@ public class CategoryRestController extends AbstractMainRestController<Category,
     private static final String FETCH_BY_RANGE_MAPPING = BASE_NAME + FETCH_PATTERN + RANGE_PATTERN;
     private static final String FETCH_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
     private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
-    private static final String SHOW_CREATE_MAPPING = CREATE_MAPPING;
-    private static final String SHOW_LIST_MAPPING = BASE_NAME + SHOW_PREFIX;
-    private static final String SHOW_UPDATE_MAPPING = UPDATE_MAPPING;
 
     @Autowired
     private CategoryService categoryService;
@@ -43,21 +39,21 @@ public class CategoryRestController extends AbstractMainRestController<Category,
     }
 
     @Override
-    @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
     List<Category> fetchAll() {
         return categoryService.fetchAll();
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
     List<Category> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         return null;
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
     Category fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         return null;
@@ -67,24 +63,6 @@ public class CategoryRestController extends AbstractMainRestController<Category,
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
     public @ResponseBody
     Response remove(@RequestBody Category... entities) {
-        return null;
-    }
-
-    @Override
-    @RequestMapping(value = SHOW_CREATE_MAPPING, method = RequestMethod.GET)
-    public String showCreatePage(Category entity, Model model) {
-        return null;
-    }
-
-    @Override
-    @RequestMapping(value = SHOW_LIST_MAPPING, method = RequestMethod.GET)
-    public String showListPage(Model model) {
-        return null;
-    }
-
-    @Override
-    @RequestMapping(value = SHOW_UPDATE_MAPPING, method = RequestMethod.GET)
-    public String showUpdatePage() {
         return null;
     }
 }

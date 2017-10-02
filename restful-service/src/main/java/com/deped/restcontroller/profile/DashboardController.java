@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DashboardController {
 
-    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    @RequestMapping(value = "/profile", method = RequestMethod.POST)
     public String profileGet() {
         return "center/profile";
     }
 
-    @RequestMapping(value = "/edituserprofile", method = RequestMethod.GET)
+    @RequestMapping(value = "/edituserprofile", method = RequestMethod.POST)
     public String editUserProfile() {
         return "center/edituserprofile";
     }
 
-    @RequestMapping(value = {"/dashboard"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/dashboard"}, method = RequestMethod.POST)
     public String showHome() {
         return "center/dashboard";
     }

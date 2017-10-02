@@ -16,7 +16,7 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = {"", HOME, INDEX, MAIN, LOGIN}, method = RequestMethod.GET)
+    @RequestMapping(value = {"", HOME, INDEX, MAIN, LOGIN}, method = RequestMethod.POST)
     public String renderLogin(@ModelAttribute("user") User user) {
         return "center/login";
     }
