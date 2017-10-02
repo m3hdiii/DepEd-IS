@@ -7,17 +7,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class DashboardController {
 
-    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    private static final String PROFILE = "profile";
+    private static final String DASHBOARD = "dashboard";
+
+    @RequestMapping(value = PROFILE, method = RequestMethod.GET)
     public String profileGet() {
         return "center/profile";
     }
 
-    @RequestMapping(value = "/edituserprofile", method = RequestMethod.GET)
-    public String editUserProfile() {
-        return "center/edituserprofile";
-    }
-
-    @RequestMapping(value = {"/dashboard"}, method = RequestMethod.GET)
+    @RequestMapping(value = DASHBOARD, method = RequestMethod.GET)
     public String showHome() {
         return "center/dashboard";
     }

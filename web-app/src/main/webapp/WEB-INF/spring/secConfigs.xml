@@ -60,7 +60,7 @@
         </authentication-provider>
     </authentication-manager>
 
-    <beans:bean id="userDetailsService" class="com.deped.service.security.UserDetailsServiceImpl"/>
+    <beans:bean id="userDetailsService" class="com.deped.security.UserDetailsServiceImpl"/>
 
     <beans:bean id="encoder"
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>

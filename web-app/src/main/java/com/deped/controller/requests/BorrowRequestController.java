@@ -13,9 +13,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
-public class BorrowEquipmentController extends AbstractMainController<BorrowRequest, Long> {
+public class BorrowRequestController extends AbstractMainController<BorrowRequest, Long> {
 
-    private static final String BASE_NAME = "borrow-request";
+    private static final String BASE_NAME = "borrow-equipment";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
     private static final String RENDER_UPDATE_MAPPING = BASE_NAME + RENDER_UPDATE_PATTERN;

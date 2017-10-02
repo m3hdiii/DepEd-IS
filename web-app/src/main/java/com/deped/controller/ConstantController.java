@@ -17,4 +17,6 @@ public interface ConstantController {
     String REMOVE_PATTERN = URL_SEPARATOR + "remove";
     String SHOW_PREFIX = URL_SEPARATOR + "show-all";
 
+    String JSP_PAGES = "pages";
+
 }

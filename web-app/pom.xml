@@ -20,6 +20,11 @@
     </dependencies>
 
     <build>
-        <finalName>web-app</finalName>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/webapp/resources</directory>
+            </resource>
+        </resources>
     </build>
 </project>

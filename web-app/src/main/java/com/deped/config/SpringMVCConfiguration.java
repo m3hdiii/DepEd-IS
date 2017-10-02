@@ -1,4 +1,4 @@
-package com.deped.controller.config;
+package com.deped.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,11 +11,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
-@ComponentScan(basePackages = {"com.deped"})
+@ComponentScan(basePackages = {"com.deped.controller"})
 @EnableWebMvc
-public class SpringConfiguration extends WebMvcConfigurerAdapter {
+public class SpringMVCConfiguration extends WebMvcConfigurerAdapter {
 
-    private static final String RESOURCES_URI = "/resources/**";
+    private static final String RESOURCES_URI = "/public/**";
     private static final String RESOURCES_MAPPING = "/resources/assets/";
 
     @Override

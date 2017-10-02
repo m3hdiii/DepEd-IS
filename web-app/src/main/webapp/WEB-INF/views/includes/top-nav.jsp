@@ -50,7 +50,8 @@
                     <a href="#" class="list-group-item">
                         <div class="media">
                             <div class="user-status busy pull-left">
-                                <img class="media-object img-circle pull-left" src="assets/images/avtar/user2.png"
+                                <img class="media-object img-circle pull-left"
+                                     src="${resourceURL}/images/avtar/user2.png"
                                      alt="user#1" width="40">
                             </div>
                             <div class="media-body">
@@ -62,7 +63,8 @@
                     <a href="#" class="list-group-item">
                         <div class="media">
                             <div class="user-status offline pull-left">
-                                <img class="media-object img-circle pull-left" src="assets/images/avtar/user3.png"
+                                <img class="media-object img-circle pull-left"
+                                     src="${resourceURL}/images/avtar/user3.png"
                                      alt="user#1" width="40">
                             </div>
                             <div class="media-body">
@@ -74,7 +76,8 @@
                     <a href="#" class="list-group-item">
                         <div class="media">
                             <div class="user-status invisibled pull-left">
-                                <img class="media-object img-circle pull-left" src="assets/images/avtar/user4.png"
+                                <img class="media-object img-circle pull-left"
+                                     src="${resourceURL}/images/avtar/user4.png"
                                      alt="user#1" width="40">
                             </div>
                             <div class="media-body">
@@ -86,7 +89,8 @@
                     <a href="#" class="list-group-item">
                         <div class="media">
                             <div class="user-status online pull-left">
-                                <img class="media-object img-circle pull-left" src="assets/images/avtar/user5.png"
+                                <img class="media-object img-circle pull-left"
+                                     src="${resourceURL}/images/avtar/user5.png"
                                      alt="user#1" width="40">
                             </div>
                             <div class="media-body">
