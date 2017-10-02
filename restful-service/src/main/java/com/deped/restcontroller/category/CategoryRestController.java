@@ -25,44 +25,38 @@ public class CategoryRestController extends AbstractMainRestController<Category,
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Category create(@RequestBody Category entity) {
+    public Category create(@RequestBody Category entity) {
         Category savedCategory = categoryService.create(entity);
         return savedCategory;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response update(@RequestBody Category entity) {
+    public Response update(@RequestBody Category entity) {
         return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<Category> fetchAll() {
+    public List<Category> fetchAll() {
         return categoryService.fetchAll();
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<Category> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+    public List<Category> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Category fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+    public Category fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         return null;
     }
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response remove(@RequestBody Category... entities) {
+    public Response remove(@RequestBody Category... entities) {
         return null;
     }
 }

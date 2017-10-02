@@ -28,8 +28,7 @@ public class BrandRestController extends AbstractMainRestController<Brand, Long>
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Brand create(@RequestBody Brand entity) {
+    public Brand create(@RequestBody Brand entity) {
         Brand savedBrand = brandService.create(entity);
         return savedBrand;
     }
@@ -43,8 +42,7 @@ public class BrandRestController extends AbstractMainRestController<Brand, Long>
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<Brand> fetchAll() {
+    public List<Brand> fetchAll() {
         List<Brand> brands = brandService.fetchAll();
         return brands;
     }
@@ -58,15 +56,13 @@ public class BrandRestController extends AbstractMainRestController<Brand, Long>
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Brand fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+    public Brand fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         Brand brand = brandService.fetchById(aLong);
         return brand;
     }
 
     @Override
-    public @ResponseBody
-    @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
+    public @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
     Response remove(@RequestBody Brand... entities) {
         Boolean isRemoved = brandService.remove(entities);
         return makeResponse(isRemoved, Operation.DELETE, Brand.class);

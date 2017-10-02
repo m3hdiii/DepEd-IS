@@ -1,16 +1,14 @@
 package com.deped.restcontroller.places;
 
-import com.deped.restcontroller.AbstractMainRestController;
-import com.deped.restcontroller.Operation;
 import com.deped.model.Response;
 import com.deped.model.location.office.Section;
 import com.deped.repository.utils.Range;
+import com.deped.restcontroller.AbstractMainRestController;
+import com.deped.restcontroller.Operation;
 import com.deped.service.places.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,35 +25,30 @@ public class SectionRestController extends AbstractMainRestController<Section, L
     @Autowired
     private SectionService sectionService;
 
-
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Section create(@RequestBody Section entity) {
+    public Section create(@RequestBody Section entity) {
         Section savedSection = sectionService.create(entity);
         return savedSection;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response update(@RequestBody Section entity) {
+    public Response update(@RequestBody Section entity) {
         Boolean isUpdated = sectionService.update(entity);
         return makeResponse(isUpdated, Operation.UPDATE, Section.class);
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<Section> fetchAll() {
+    public List<Section> fetchAll() {
         List<Section> sections = sectionService.fetchAll();
         return sections;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<Section> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+    public List<Section> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         List<Section> sections = sectionService.fetchByRange(new Range(from, to));
         return sections;
     }
@@ -69,8 +62,7 @@ public class SectionRestController extends AbstractMainRestController<Section, L
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response remove(@RequestBody Section... entities) {
+    public Response remove(@RequestBody Section... entities) {
         Boolean isRemoved = sectionService.remove(entities);
         return makeResponse(isRemoved, Operation.DELETE, Section.class);
     }

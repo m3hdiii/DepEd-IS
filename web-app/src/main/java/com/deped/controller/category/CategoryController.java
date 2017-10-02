@@ -9,8 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @Controller
 public class CategoryController extends AbstractMainController<Category, Long> {

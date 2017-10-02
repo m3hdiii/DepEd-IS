@@ -1,11 +1,10 @@
 package com.deped.restcontroller.eqipment;
 
-import com.deped.restcontroller.AbstractMainRestController;
 import com.deped.model.Response;
 import com.deped.model.items.equipment.EquipmentInfo;
+import com.deped.restcontroller.AbstractMainRestController;
 import com.deped.service.eqipment.EquipmentInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,43 +25,37 @@ public class EquipmentInfoRestController extends AbstractMainRestController<Equi
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    EquipmentInfo create(@RequestBody EquipmentInfo entity) {
+    public EquipmentInfo create(@RequestBody EquipmentInfo entity) {
         return null;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response update(@RequestBody EquipmentInfo entity) {
+    public Response update(@RequestBody EquipmentInfo entity) {
         return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<EquipmentInfo> fetchAll() {
+    public List<EquipmentInfo> fetchAll() {
         return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<EquipmentInfo> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+    public List<EquipmentInfo> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    EquipmentInfo fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+    public EquipmentInfo fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         return null;
     }
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response remove(@RequestBody EquipmentInfo... entities) {
+    public Response remove(@RequestBody EquipmentInfo... entities) {
         return null;
     }
 }

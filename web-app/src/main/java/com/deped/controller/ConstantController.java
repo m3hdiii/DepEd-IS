@@ -3,6 +3,7 @@ package com.deped.controller;
 public interface ConstantController {
 
     String URL_SEPARATOR = "/";
+    String REST_CONTEXT_NAME = "rest";
     String ID_PATTERN = "{id}";
     String ID_STRING_LITERAL = "id";
     String FROM_STRING_LITERAL = "from";

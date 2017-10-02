@@ -24,7 +24,6 @@ public class SectionController extends AbstractMainController<Section, Long> {
     private static final String RENDER_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
     private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
 
-
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid Section entity) {

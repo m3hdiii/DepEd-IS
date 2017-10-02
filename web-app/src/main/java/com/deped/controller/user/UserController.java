@@ -2,6 +2,7 @@ package com.deped.controller.user;
 
 import com.deped.controller.AbstractMainController;
 import com.deped.model.account.User;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +40,7 @@ public class UserController extends AbstractMainController<User, Long> {
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
     public ModelAndView createAction(@Valid User entity) {
+        makeCreateRestRequest(entity, REST_CONTEXT_NAME + CREATE_MAPPING, HttpMethod.POST, User.class);
         return null;
     }
 
@@ -57,6 +59,7 @@ public class UserController extends AbstractMainController<User, Long> {
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
     public ModelAndView updateAction(@Valid User entity) {
+        makeCreateRestRequest(entity, REST_CONTEXT_NAME + CREATE_MAPPING, HttpMethod.POST, User.class);
         return null;
     }
 

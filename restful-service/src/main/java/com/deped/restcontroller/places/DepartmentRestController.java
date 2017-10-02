@@ -1,12 +1,11 @@
 package com.deped.restcontroller.places;
 
-import com.deped.restcontroller.AbstractMainRestController;
-import com.deped.restcontroller.Operation;
 import com.deped.model.Response;
 import com.deped.model.location.office.Department;
+import com.deped.restcontroller.AbstractMainRestController;
+import com.deped.restcontroller.Operation;
 import com.deped.service.places.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,44 +27,38 @@ public class DepartmentRestController extends AbstractMainRestController<Departm
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Department create(@RequestBody Department entity) {
+    public Department create(@RequestBody Department entity) {
         Department savedDepartment = departmentService.create(entity);
         return savedDepartment;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response update(@RequestBody Department entity) {
+    public Response update(@RequestBody Department entity) {
         return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<Department> fetchAll() {
+    public List<Department> fetchAll() {
         return departmentService.fetchAll();
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<Department> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+    public List<Department> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Department fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+    public Department fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         return null;
     }
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response remove(@RequestBody Department... entities) {
+    public Response remove(@RequestBody Department... entities) {
         Boolean isRemoved = departmentService.remove(entities);
         return makeResponse(isRemoved, Operation.DELETE, Department.class);
     }

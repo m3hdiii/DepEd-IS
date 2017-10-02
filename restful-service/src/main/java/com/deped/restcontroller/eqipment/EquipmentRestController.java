@@ -1,13 +1,12 @@
 package com.deped.restcontroller.eqipment;
 
-import com.deped.restcontroller.AbstractMainRestController;
-import com.deped.restcontroller.Operation;
 import com.deped.model.Response;
 import com.deped.model.items.equipment.Equipment;
 import com.deped.repository.utils.Range;
+import com.deped.restcontroller.AbstractMainRestController;
+import com.deped.restcontroller.Operation;
 import com.deped.service.equipment.EquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,47 +27,41 @@ public class EquipmentRestController extends AbstractMainRestController<Equipmen
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Equipment create(@RequestBody Equipment entity) {
+    public Equipment create(@RequestBody Equipment entity) {
         return equipmentService.create(entity);
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response update(@RequestBody Equipment entity) {
+    public Response update(@RequestBody Equipment entity) {
         Boolean isUpdated = equipmentService.update(entity);
         return makeResponse(isUpdated, Operation.UPDATE, Equipment.class);
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<Equipment> fetchAll() {
+    public List<Equipment> fetchAll() {
         List<Equipment> equipments = equipmentService.fetchAll();
         return equipments;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<Equipment> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+    public List<Equipment> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         List<Equipment> equipments = equipmentService.fetchByRange(new Range(from, to));
         return equipments;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Equipment fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+    public Equipment fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         Equipment equipment = equipmentService.fetchById(aLong);
         return equipment;
     }
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response remove(@RequestBody Equipment... entities) {
+    public Response remove(@RequestBody Equipment... entities) {
         Boolean isRemoved = equipmentService.remove(entities);
         return makeResponse(isRemoved, Operation.DELETE, Equipment.class);
     }

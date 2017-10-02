@@ -1,9 +1,8 @@
 package com.deped.restcontroller.requests;
 
-import com.deped.restcontroller.AbstractMainRestController;
 import com.deped.model.Response;
 import com.deped.model.request.BorrowRequest;
-import org.springframework.ui.Model;
+import com.deped.restcontroller.AbstractMainRestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,43 +20,37 @@ public class BorrowEquipmentRestController extends AbstractMainRestController<Bo
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    BorrowRequest create(@RequestBody BorrowRequest entity) {
+    public BorrowRequest create(@RequestBody BorrowRequest entity) {
         return null;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response update(@RequestBody BorrowRequest entity) {
+    public Response update(@RequestBody BorrowRequest entity) {
         return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<BorrowRequest> fetchAll() {
+    public List<BorrowRequest> fetchAll() {
         return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_RANGE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<BorrowRequest> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
+    public List<BorrowRequest> fetchByRange(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
         return null;
     }
 
     @Override
     @RequestMapping(value = FETCH_BY_ID_MAPPING)
-    public @ResponseBody
-    BorrowRequest fetchById(Long aLong) {
+    public BorrowRequest fetchById(Long aLong) {
         return null;
     }
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response remove(@RequestBody BorrowRequest... entities) {
+    public Response remove(@RequestBody BorrowRequest... entities) {
         return null;
     }
 }

@@ -1,13 +1,12 @@
 package com.deped.restcontroller.supply;
 
-import com.deped.restcontroller.AbstractMainRestController;
-import com.deped.restcontroller.Operation;
 import com.deped.model.Response;
 import com.deped.model.supply.Supply;
 import com.deped.repository.utils.Range;
+import com.deped.restcontroller.AbstractMainRestController;
+import com.deped.restcontroller.Operation;
 import com.deped.service.supply.SupplyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,24 +27,21 @@ public class SupplyRestController extends AbstractMainRestController<Supply, Lon
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Supply create(@RequestBody Supply entity) {
+    public Supply create(@RequestBody Supply entity) {
         Supply supply = supplyService.create(entity);
         return supply;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response update(@RequestBody Supply entity) {
+    public Response update(@RequestBody Supply entity) {
         Boolean isUpdated = supplyService.update(entity);
         return makeResponse(isUpdated, Operation.UPDATE, Supply.class);
     }
 
     @Override
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    List<Supply> fetchAll() {
+    public List<Supply> fetchAll() {
         return supplyService.fetchAll();
     }
 
@@ -63,8 +59,7 @@ public class SupplyRestController extends AbstractMainRestController<Supply, Lon
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public @ResponseBody
-    Response remove(@RequestBody Supply... entities) {
+    public Response remove(@RequestBody Supply... entities) {
         Boolean isRemoved = supplyService.remove(entities);
         return makeResponse(isRemoved, Operation.DELETE, Supply.class);
     }

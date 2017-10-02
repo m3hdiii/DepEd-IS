@@ -112,13 +112,13 @@
 //add user
 
 
-//{
-//  "username" : "mohammad",
-//  "password" : "123",
-//  "emailAddress" : "mohammad@gmail.com",
-//  "firstName" : "mohammad",
-//  "lastName" : "abedini"
-//}
+{
+  "username": "mohammad",
+  "password": "123",
+  "emailAddress": "mohammad@gmail.com",
+  "firstName": "mohammad",
+  "lastName": "abedini"
+}
 
 
 //user
