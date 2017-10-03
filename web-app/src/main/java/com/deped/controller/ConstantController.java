@@ -19,8 +19,8 @@ public interface ConstantController {
     String DASH_SEPARATOR = "-";
     String JSP_PAGES = "pages";
     String CREATE_PAGE = DASH_SEPARATOR + "create";
-    String UPDATE_PAGE = DASH_SEPARATOR + "edit";
+    String UPDATE_PAGE = DASH_SEPARATOR + "update";
     String INFO_PAGE = DASH_SEPARATOR + "info";
-    String SHOW_PAGE = DASH_SEPARATOR + "show";
+    String LIST_PAGE = DASH_SEPARATOR + "list";
 
 }

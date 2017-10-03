@@ -26,17 +26,16 @@ public class BrandController extends AbstractMainController<Brand, Long> {
     private static final String RENDER_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
     private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
 
-    private static final String BASE_SHOW_PAGE = JSP_PAGES + URL_SEPARATOR + BASE_NAME;
+    private static final String BASE_SHOW_PAGE = JSP_PAGES + URL_SEPARATOR + BASE_NAME + URL_SEPARATOR + BASE_NAME;
     private static final String CREATE_VIEW_PAGE = BASE_SHOW_PAGE + CREATE_PAGE;
-    private static final String INFO_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE;
+    private static final String INFO_VIEW_PAGE = BASE_SHOW_PAGE + INFO_PAGE;
     private static final String UPDATE_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE;
-    private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + SHOW_PAGE;
+    private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + LIST_PAGE;
 
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid Brand entity) {
-        //return new ModelAndView(new JstlView());
         return new ModelAndView(new JstlView(CREATE_VIEW_PAGE));
 
     }

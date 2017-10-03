@@ -1,7 +1,7 @@
-package com.deped.controller.eqipment;
+package com.deped.controller.request;
 
 import com.deped.controller.AbstractMainController;
-import com.deped.model.items.equipment.Equipment;
+import com.deped.model.request.BorrowRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +14,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
-public class EquipmentController extends AbstractMainController<Equipment, Long> {
+public class BorrowRequestController extends AbstractMainController<BorrowRequest, Long> {
 
-    private static final String BASE_NAME = "equipment";
+    private static final String BASE_NAME = "borrow-request";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
     private static final String RENDER_UPDATE_MAPPING = BASE_NAME + RENDER_UPDATE_PATTERN;
@@ -25,21 +25,21 @@ public class EquipmentController extends AbstractMainController<Equipment, Long>
     private static final String RENDER_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
     private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
 
-    private static final String BASE_SHOW_PAGE = JSP_PAGES + URL_SEPARATOR + BASE_NAME;
+    private static final String BASE_SHOW_PAGE = JSP_PAGES + URL_SEPARATOR + BASE_NAME + URL_SEPARATOR + BASE_NAME;
     private static final String CREATE_VIEW_PAGE = BASE_SHOW_PAGE + CREATE_PAGE;
     private static final String INFO_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE;
     private static final String UPDATE_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE;
-    private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + SHOW_PAGE;
+    private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + LIST_PAGE;
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
-    public ModelAndView renderCreatePage(@Valid Equipment entity) {
+    public ModelAndView renderCreatePage(@Valid BorrowRequest entity) {
         return new ModelAndView(new JstlView(CREATE_VIEW_PAGE));
     }
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
-    public ModelAndView createAction(@Valid Equipment entity) {
+    public ModelAndView createAction(@Valid BorrowRequest entity) {
         return null;
     }
 
@@ -57,7 +57,7 @@ public class EquipmentController extends AbstractMainController<Equipment, Long>
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(Equipment entity) {
+    public ModelAndView updateAction(@Valid BorrowRequest entity) {
         return null;
     }
 
@@ -75,7 +75,7 @@ public class EquipmentController extends AbstractMainController<Equipment, Long>
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = POST)
-    public ModelAndView removeAction(@Valid Equipment... entity) {
+    public ModelAndView removeAction(@Valid BorrowRequest... entity) {
         return null;
     }
 }
