@@ -22,6 +22,12 @@ public class RequestItemController extends AbstractMainController<Item, Long> {
     private static final String RENDER_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
     private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
 
+    private static final String BASE_SHOW_PAGE = JSP_PAGES + URL_SEPARATOR + BASE_NAME;
+    private static final String CREATE_VIEW_PAGE = BASE_SHOW_PAGE + CREATE_PAGE;
+    private static final String INFO_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE;
+    private static final String UPDATE_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE;
+    private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + SHOW_PAGE;
+
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(Item entity) {
@@ -37,13 +43,13 @@ public class RequestItemController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
     public ModelAndView renderInfo(Long aLong) {
-        return null;
+        return new ModelAndView(new JstlView(INFO_VIEW_PAGE));
     }
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(Long aLong) {
-        return null;
+        return new ModelAndView(new JstlView(UPDATE_VIEW_PAGE));
     }
 
     @Override
@@ -55,13 +61,13 @@ public class RequestItemController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        return null;
+        return new ModelAndView(new JstlView(LIST_VIEW_PAGE));
     }
 
     @Override
     @RequestMapping(value = RENDER_LIST_BY_RANGE_MAPPING, method = GET)
     public ModelAndView renderListPage(int from, int to) {
-        return null;
+        return new ModelAndView(new JstlView(LIST_VIEW_PAGE));
     }
 
     @Override

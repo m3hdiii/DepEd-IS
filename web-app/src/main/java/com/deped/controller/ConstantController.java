@@ -15,8 +15,12 @@ public interface ConstantController {
     String RANGE_PATTERN = URL_SEPARATOR + "{from}" + URL_SEPARATOR + "{to}";
     String FETCH_BY_ID_PATTERN = URL_SEPARATOR + ID_PATTERN;
     String REMOVE_PATTERN = URL_SEPARATOR + "remove";
-    String SHOW_PREFIX = URL_SEPARATOR + "show-all";
 
+    String DASH_SEPARATOR = "-";
     String JSP_PAGES = "pages";
+    String CREATE_PAGE = DASH_SEPARATOR + "create";
+    String UPDATE_PAGE = DASH_SEPARATOR + "edit";
+    String INFO_PAGE = DASH_SEPARATOR + "info";
+    String SHOW_PAGE = DASH_SEPARATOR + "show";
 
 }
