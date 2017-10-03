@@ -35,7 +35,7 @@ public class EquipmentInfoController extends AbstractMainController<EquipmentInf
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid EquipmentInfo entity) {
-        return new ModelAndView(new JstlView(CREATE_VIEW_PAGE));
+        return new ModelAndView(CREATE_VIEW_PAGE);
     }
 
     @Override
@@ -47,13 +47,13 @@ public class EquipmentInfoController extends AbstractMainController<EquipmentInf
     @Override
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
     public ModelAndView renderInfo(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        return new ModelAndView(new JstlView(INFO_VIEW_PAGE));
+        return new ModelAndView(INFO_VIEW_PAGE);
     }
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        return new ModelAndView(new JstlView(UPDATE_MAPPING));
+        return new ModelAndView(UPDATE_MAPPING);
     }
 
     @Override
@@ -65,13 +65,13 @@ public class EquipmentInfoController extends AbstractMainController<EquipmentInf
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        return new ModelAndView(new JstlView(LIST_VIEW_PAGE));
+        return new ModelAndView(LIST_VIEW_PAGE);
     }
 
     @Override
     @RequestMapping(value = RENDER_LIST_BY_RANGE_MAPPING, method = GET)
     public ModelAndView renderListPage(@PathVariable(FROM_STRING_LITERAL) int from, @PathVariable(TO_STRING_LITERAL) int to) {
-        return new ModelAndView(new JstlView(LIST_VIEW_PAGE));
+        return new ModelAndView(LIST_VIEW_PAGE);
     }
 
     @Override

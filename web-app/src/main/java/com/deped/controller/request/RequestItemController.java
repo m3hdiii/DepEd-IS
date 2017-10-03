@@ -31,7 +31,7 @@ public class RequestItemController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(Item entity) {
-        return new ModelAndView(new JstlView("processing/request-item"));
+        return new ModelAndView("processing/request-item");
     }
 
     @Override
@@ -43,13 +43,13 @@ public class RequestItemController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
     public ModelAndView renderInfo(Long aLong) {
-        return new ModelAndView(new JstlView(INFO_VIEW_PAGE));
+        return new ModelAndView(INFO_VIEW_PAGE);
     }
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(Long aLong) {
-        return new ModelAndView(new JstlView(UPDATE_VIEW_PAGE));
+        return new ModelAndView(UPDATE_VIEW_PAGE);
     }
 
     @Override
@@ -61,13 +61,13 @@ public class RequestItemController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        return new ModelAndView(new JstlView(LIST_VIEW_PAGE));
+        return new ModelAndView(LIST_VIEW_PAGE);
     }
 
     @Override
     @RequestMapping(value = RENDER_LIST_BY_RANGE_MAPPING, method = GET)
     public ModelAndView renderListPage(int from, int to) {
-        return new ModelAndView(new JstlView(LIST_VIEW_PAGE));
+        return new ModelAndView(LIST_VIEW_PAGE);
     }
 
     @Override

@@ -10,7 +10,7 @@
 
     <http use-expressions="true" auto-config="true" disable-url-rewriting="true" create-session="never">
         <csrf/>
-        <intercept-url pattern="/" access="permitAll()"/>
+        <intercept-url pattern="/**" access="permitAll()"/>
         <!--<intercept-url pattern="/login" access="permitAll()"/>-->
         <!--<intercept-url pattern="/user/**" access="hasRole('ROLE_ADMIN')"/>-->
         <!--<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>-->
