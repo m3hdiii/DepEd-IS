@@ -22,7 +22,7 @@
     </filter-mapping>
 
     <listener>
-        <listener-class>com.deped.config.Log4JContextListener</listener-class>
+        <listener-class>com.deped.config.Log4JWebAppContextListener</listener-class>
     </listener>
 
     <listener>

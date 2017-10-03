@@ -6,7 +6,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-public class Log4jRestAppContextListener implements ServletContextListener {
+public class Log4JWebAppContextListener implements ServletContextListener {
 
     private static final String LOG4J_PATH_ENV = "rootPath";
 
