@@ -1,27 +1,21 @@
-package com.deped.controller.brand;
+package com.deped.controller.item.goods;
 
 import com.deped.controller.AbstractMainController;
-import com.deped.model.items.Brand;
+import com.deped.model.items.semigoods.Item;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
-public class BrandController extends AbstractMainController<Brand, Long> {
+public class GoodsController extends AbstractMainController<Item, Long> {
 
-    private static final String BASE_NAME = "brand";
-
+    private static final String BASE_NAME = "goods";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
     private static final String RENDER_UPDATE_MAPPING = BASE_NAME + RENDER_UPDATE_PATTERN;
@@ -36,18 +30,15 @@ public class BrandController extends AbstractMainController<Brand, Long> {
     private static final String UPDATE_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE + BASE_NAME;
     private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + BASE_NAME + LIST_PAGE;
 
-
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
-    public ModelAndView renderCreatePage(@Valid Brand entity) {
-        ModelAndView mv = makeHintPage(CREATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        return mv;
-
+    public ModelAndView renderCreatePage(@Valid Item entity) {
+        return new ModelAndView(CREATE_VIEW_PAGE);
     }
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
-    public ModelAndView createAction(@Valid Brand entity) {
+    public ModelAndView createAction(@Valid Item entity) {
         return null;
     }
 
@@ -61,21 +52,19 @@ public class BrandController extends AbstractMainController<Brand, Long> {
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        ModelAndView mv = makeHintPage(UPDATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        return mv;
+        return new ModelAndView(UPDATE_VIEW_PAGE);
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@Valid Brand entity) {
+    public ModelAndView updateAction(@Valid Item entity) {
         return null;
     }
 
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        ModelAndView mv = makeHintPage(LIST_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        return mv;
+        return new ModelAndView(LIST_VIEW_PAGE);
     }
 
     @Override
@@ -86,7 +75,7 @@ public class BrandController extends AbstractMainController<Brand, Long> {
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = POST)
-    public ModelAndView removeAction(@Valid Brand... entity) {
+    public ModelAndView removeAction(Item... entity) {
         return null;
     }
 }

@@ -48,9 +48,22 @@
         ${methodName}
     </p>
 
+    <%--<c:forEach items="${equipmentList}" var="equipment">--%>
+    <%--<ul>--%>
+    <%--<li>${equipment.name}</li>--%>
+    <%--<li>${equipment.description}</li>--%>
+    <%--<li>${equipment.modelNumber}</li>--%>
+    <%--</ul>--%>
 
+    <%--</c:forEach>--%>
 </section>
 <c:import url="../../includes/footer.jsp"/>
 
 </body>
 </html>
+
+
+
+
+
+

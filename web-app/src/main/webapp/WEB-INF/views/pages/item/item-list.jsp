@@ -48,7 +48,16 @@
         ${methodName}
     </p>
 
+    <c:forEach items="${itemList}" var="item">
+        <ul>
+            <li>${item.name}</li>
+            <li>${item.description}</li>
+            <li>${item.itemType}</li>
+            <li>${item.visibility}</li>
+            <li>${item.quantity}</li>
+        </ul>
 
+    </c:forEach>
 </section>
 <c:import url="../../includes/footer.jsp"/>
 

@@ -4,8 +4,11 @@ import com.deped.model.Response;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class AbstractMainController<T, ID> implements MainController<T, ID> {
 
@@ -48,6 +51,14 @@ public abstract class AbstractMainController<T, ID> implements MainController<T,
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<T> httpEntity = new HttpEntity<>(entity, headers);
         return httpEntity;
+    }
+
+    protected ModelAndView makeHintPage(String jspLocation, String className, String methodName) {
+        Map<String, String> map = new HashMap<>();
+        map.put("jspLocation", jspLocation);
+        map.put("controllerClazz", className);
+        map.put("methodName", methodName);
+        return new ModelAndView(jspLocation, map);
     }
 
 

@@ -16,7 +16,7 @@ public class LoginController {
     private static final String MAIN = "main";
 
 
-    @RequestMapping(value = {LOGIN}, method = RequestMethod.GET)
+    @RequestMapping(value = {"", HOME, INDEX, MAIN, LOGIN}, method = RequestMethod.GET)
     public String renderLogin(@ModelAttribute("user") User user) {
         return "center/login";
     }
@@ -24,10 +24,5 @@ public class LoginController {
     @RequestMapping(value = LOGIN, method = RequestMethod.POST)
     public void checkLogin(@RequestBody User user) {
 
-    }
-
-    @RequestMapping(value = {"", HOME, INDEX, MAIN}, method = RequestMethod.GET)
-    public String indexPage() {
-        return "pages";
     }
 }
