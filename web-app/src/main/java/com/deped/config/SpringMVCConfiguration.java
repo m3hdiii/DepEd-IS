@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
-@ComponentScan(basePackages = {"com.deped.controller"})
+@ComponentScan(basePackages = {"com.deped.controller", "com.deped.log"})
 @EnableWebMvc
 public class SpringMVCConfiguration extends WebMvcConfigurerAdapter {
 
@@ -32,4 +32,5 @@ public class SpringMVCConfiguration extends WebMvcConfigurerAdapter {
 
         return viewResolver;
     }
+
 }

@@ -11,6 +11,7 @@
         <module>service</module>
         <module>restful-service</module>
         <module>web-app</module>
+        <module>cross-utility</module>
     </modules>
     <name>Department Of Education Inventory System</name>
     <url>http://depedpines.com/</url>
@@ -25,7 +26,6 @@
         <hibernate.validator.version>5.1.1.Final</hibernate.validator.version>
         <validator.api.version>1.1.0.Final</validator.api.version>
         <apache.common.collection4.version>4.0</apache.common.collection4.version>
-        <log4j2.version>2.0-rc1</log4j2.version>
         <google.captcha.version>0.0.8</google.captcha.version>
         <apache.common.fileupload.version>1.3.1</apache.common.fileupload.version>
         <postgresql.driver.version>9.2-1003-jdbc4</postgresql.driver.version>
@@ -141,11 +141,6 @@
             <version>${apache.common.collection4.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j2.version}</version>
-        </dependency>
         <!--<dependency>-->
         <!--<groupId>google.recaptcha</groupId>-->
         <!--<artifactId>recaptcha</artifactId>-->

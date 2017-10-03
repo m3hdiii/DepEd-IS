@@ -1,7 +1,10 @@
 package com.deped.controller.user;
 
 import com.deped.controller.AbstractMainController;
+import com.deped.log.injector.FancyLogger;
 import com.deped.model.account.User;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +24,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Controller
 public class UserController extends AbstractMainController<User, Long> {
 
+    @FancyLogger
+    private Logger log;
+
     private static final String BASE_NAME = "user";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
@@ -34,6 +40,8 @@ public class UserController extends AbstractMainController<User, Long> {
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid User entity) {
         //model.addAttribute("genderList", Gender.values());
+        log.log(Level.ERROR, "ERROR");
+        log.log(Level.FATAL, "ERROR");
         return new ModelAndView(new JstlView("center/signup"));
     }
 

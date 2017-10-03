@@ -1,4 +1,4 @@
-package com.deped.restcontroller.config;
+package com.deped.config;
 
 //@Configuration
 //@ComponentScan(basePackages = {"com.deped"})
