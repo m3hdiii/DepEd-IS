@@ -1,6 +1,9 @@
 package com.deped.service.items;
 
-public interface RequestItemService {
+import com.deped.model.items.semigoods.Item;
+import com.deped.service.BaseService;
+
+public interface RequestItemService extends BaseService<Item>{
 
 
 }
