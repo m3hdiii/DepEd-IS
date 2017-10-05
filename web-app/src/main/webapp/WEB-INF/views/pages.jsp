@@ -43,7 +43,9 @@
             <p class="col col-lg-3"><a href="/brand/1">Brand 1 Info</a></p>
             <p class="col col-lg-3"><a href="/category/1">Category 1 Info</a></p>
             <p class="col col-lg-3"><a href="/equipment/1">Equipment 1 Info</a></p>
-            <p class="col col-lg-3"><a href="/goods/1">Goods 1 Info</a></p>
+            <p class="col col-lg-3"><a href="/goods/1">Goods 1 Info</a>&nbsp;<img width="20" height="20"
+                                                                                  src="${resourceURL}/images/check.png"/>
+            </p>
 
         </div>
         <div class="row">

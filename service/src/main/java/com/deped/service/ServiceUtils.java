@@ -9,7 +9,7 @@ public class ServiceUtils {
     private final static String CREATE_FAILURE_MESSAGE = "%s failed to creat";
 
     private final static String UPDATE_SUCCESSFUL_MESSAGE = "%s successfully updated";
-    private final static String UPDATE_FAILURE_MESSAGE = "% failed to update";
+    private final static String UPDATE_FAILURE_MESSAGE = "%s failed to update";
 
     private final static String DELETE_SUCCESSFUL_MESSAGE = "%s/s successfully removed";
     private final static String DELETE_FAILURE_MESSAGE = "%s/s failed to removed";

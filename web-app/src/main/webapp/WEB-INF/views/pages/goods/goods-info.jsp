@@ -12,7 +12,7 @@
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
     <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="description" value="Goods Information"/>
 </c:import>
 
 <body>
@@ -24,31 +24,28 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Edit </h3>
+        <h3>&nbsp;&nbsp;Information&nbsp;<small>&nbsp;for Goods</small>
+        </h3>
+    </div>
+    <div class="row">
+        <p>Name: ${goodsInfo.name}</p>
+    </div>
+    <div class="row">
+        <p>Description: ${goodsInfo.description}</p>
+    </div>
+    <div class="row">
+        <p>Item Type: ${goodsInfo.itemType}</p>
+    </div>
+    <div class="row">
+        <p>Threshold: ${goodsInfo.threshold}</p>
     </div>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
-
-
+    <div class="row">
+        <p>Quantity: ${goodsInfo.quantity}</p>
+    </div>
+    <div>
+        <a href="/goods/update/${goodsId}">update this item</a>
+    </div>
 </section>
 <c:import url="../../includes/footer.jsp"/>
 

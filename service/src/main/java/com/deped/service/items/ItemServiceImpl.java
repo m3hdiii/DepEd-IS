@@ -28,7 +28,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public ResponseEntity<Response> update(Item entity) {
         Boolean isUpdated = itemRepository.update(entity);
-        Response response = ServiceUtils.makeResponse(isUpdated, Operation.DELETE, Item.class);
+        Response response = ServiceUtils.makeResponse(isUpdated, Operation.UPDATE, Item.class);
         ResponseEntity<Response> responseEntity = new ResponseEntity<>(response, OK);
         return responseEntity;
     }

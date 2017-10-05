@@ -1,7 +1,9 @@
 package com.deped.model;
 
 
-public class Response {
+import java.io.Serializable;
+
+public class Response implements Serializable {
 
     private ResponseStatus responseStatus;
     private String responseMessage;
@@ -15,6 +17,9 @@ public class Response {
         this.responseStatus = responseStatus;
         this.responseMessage = responseMessage;
         this.responseCause = responseCause;
+    }
+
+    public Response() {
     }
 
     public ResponseStatus getResponseStatus() {

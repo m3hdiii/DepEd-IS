@@ -54,7 +54,7 @@ public class ItemRestController extends AbstractMainRestController<Item, Long> {
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
     public ResponseEntity<Item> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<Item> response = itemService.fetchById(aLong);
         return response;

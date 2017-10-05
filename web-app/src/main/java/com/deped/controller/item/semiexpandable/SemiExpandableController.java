@@ -1,9 +1,7 @@
 package com.deped.controller.item.semiexpandable;
 
 import com.deped.controller.AbstractMainController;
-import com.deped.log.injector.FancyLogger;
 import com.deped.model.items.semigoods.Item;
-import org.apache.log4j.Logger;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,8 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -51,7 +47,7 @@ public class SemiExpandableController extends AbstractMainController<Item, Long>
     public ModelAndView createAction(@Valid @ModelAttribute("semiExpandable") Item entity) {
         entity.setCreationDate(new Date());
         ResponseEntity<Item> response = makeCreateRestRequest(entity, "item", HttpMethod.POST, Item.class);
-        ModelAndView mv = creatingProcessing(response, CREATE_VIEW_PAGE);
+        ModelAndView mv = createProcessing(response, CREATE_VIEW_PAGE);
         return mv;
     }
 

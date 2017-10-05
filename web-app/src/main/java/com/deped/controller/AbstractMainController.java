@@ -52,7 +52,6 @@ public abstract class AbstractMainController<T, ID> implements MainController<T,
         RestTemplate restTemplate = new RestTemplate();
         String restUrl = String.format(FETCH_BY_ID_URL, baseName, id);
         ResponseEntity<T> response = restTemplate.getForEntity(restUrl, entityClass);
-        ;
         return response;
     }
 
@@ -81,7 +80,7 @@ public abstract class AbstractMainController<T, ID> implements MainController<T,
         return new ModelAndView(jspLocation, map);
     }
 
-    public ModelAndView creatingProcessing(ResponseEntity response, String createViewPage) {
+    public ModelAndView createProcessing(ResponseEntity response, String createViewPage) {
         Map<String, String> responseMap = new HashMap<>();
         ModelAndView mv = new ModelAndView();
 
@@ -96,6 +95,31 @@ public abstract class AbstractMainController<T, ID> implements MainController<T,
         return mv;
     }
 
+
+    public ModelAndView updateProcessing(ResponseEntity<Response> response, String createViewPage) {
+        Map<String, String> responseMap = new HashMap<>();
+
+        ModelAndView mv = new ModelAndView();
+        Response responseResult;
+        if (response == null || response.getBody() == null) {
+            responseMap.put(NOT_UPDATED_KEY, FAILURE_MESSAGE);
+        } else {
+            responseResult = response.getBody();
+            switch (responseResult.getResponseStatus()) {
+                case SUCCESSFUL:
+                    responseMap.put(SUCCESSFULLY_UPDATED_KEY, responseResult.getResponseMessage());
+                    break;
+                case FAILED:
+                    responseMap.put(NOT_UPDATED_KEY, responseResult.getResponseMessage());
+                    break;
+            }
+
+        }
+
+        mv.addAllObjects(responseMap);
+        mv.setViewName(createViewPage);
+        return mv;
+    }
 
 
 }
