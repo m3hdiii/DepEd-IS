@@ -18,8 +18,8 @@
 <c:url value="/public" var="resourceURL" scope="request"/>
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="Item Registration"/>
-    <c:param name="description" value="Item Registration Page"/>
+    <c:param name="title" value="Semi Expandable Registration"/>
+    <c:param name="description" value="Semi Expandable Registration Page"/>
 </c:import>
 <html>
 <body>
@@ -28,7 +28,7 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3>&nbsp;&nbsp;&nbspItem Registration&nbsp;<small>&nbsp;for Goods, Semi-Expendable, and Equipments</small>
+        <h3>&nbsp;&nbsp;&nbspItem Registration&nbsp;<small>&nbsp;for Goods and Semi-Expendable</small>
         </h3>
     </div>
 
@@ -43,6 +43,7 @@
 
             <c:when test="${not empty successfullyCreated}">
                 <p style="color: green;">${successfullyCreated}</p>
+                &nbsp;&nbsp;<a href="/semi-expandable/create">Create New Semi-Expandable</a>
             </c:when>
 
         </c:choose>
@@ -52,7 +53,7 @@
 
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Item Information</div>
+                <div class="panel-heading">Semi-Expandable Information</div>
                 <div class="panel-body">
                     <form:form commandName="semiExpandable" method="post" class="form-horizontal" role="form">
                         <div class="form-group">
@@ -82,32 +83,32 @@
                             </div>
                         </div>
                         <hr class="style13">
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Visibility</label>
-                        </div>
-
                         <%--
                                                 <div class="form-group">
-                                                    <label class="col-sm-4 control-label">Supply Officer</label>
-                                                    <div class="col-sm-1">
-                                                        <form:checkbox path="visibility" class="form-control"/>
-                                                    </div>
+                                                    <label class="col-sm-2 control-label">Visibility</label>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label class="col-sm-4 control-label">Chief</label>
-                                                    <div class="col-sm-1">
-                                                        <form:checkbox path="visibility" class="form-control"/>
-                                                    </div>
-                                                </div>
 
-                                                <div class="form-group">
-                                                    <label class="col-sm-4 control-label">Personnel</label>
-                                                    <div class="col-sm-1">
-                                                        <form:checkbox path="visibility"  class="form-control"/>
-                                                    </div>
-                                                </div> --%>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-4 control-label">Supply Officer</label>
+                                                                            <div class="col-sm-1">
+                                                                                <form:checkbox path="visibility" class="form-control"/>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-4 control-label">Chief</label>
+                                                                            <div class="col-sm-1">
+                                                                                <form:checkbox path="visibility" class="form-control"/>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-4 control-label">Personnel</label>
+                                                                            <div class="col-sm-1">
+                                                                                <form:checkbox path="visibility"  class="form-control"/>
+                                                                            </div>
+                                                                        </div> --%>
 
                         <hr class="style13">
 

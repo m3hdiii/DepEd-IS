@@ -1,7 +1,9 @@
 package com.deped.controller.item.semiexpandable;
 
 import com.deped.controller.AbstractMainController;
+import com.deped.model.Response;
 import com.deped.model.items.semigoods.Item;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -35,6 +38,7 @@ public class SemiExpandableController extends AbstractMainController<Item, Long>
     private static final String UPDATE_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE + BASE_NAME;
     private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + BASE_NAME + LIST_PAGE;
 
+    private static final String BASE_ENTITY_URL_NAME = "item";
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@ModelAttribute("semiExpandable") Item entity) {
@@ -54,29 +58,37 @@ public class SemiExpandableController extends AbstractMainController<Item, Long>
     @Override
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
     public ModelAndView renderInfo(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        ResponseEntity<Item> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Item.class);
-        ModelAndView mv = renderProcessing(response, aLong, BASE_NAME, INFO_VIEW_PAGE);
+        ResponseEntity<Item> response = makeFetchByIdRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, aLong, Item.class);
+        ModelAndView mv = renderProcessing(response, aLong, "semiExpandable", INFO_VIEW_PAGE);
         return mv;
     }
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        ResponseEntity<Item> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Item.class);
+        ResponseEntity<Item> response = makeFetchByIdRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, aLong, Item.class);
         Item item = response.getBody();
-        return new ModelAndView(UPDATE_VIEW_PAGE, BASE_NAME, item);
+        return new ModelAndView(UPDATE_VIEW_PAGE, "updateSemiExpandable", item);
     }
 
     @Override
-    @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(Long aLong, Item entity) {
-        return null;
+    @RequestMapping(value = RENDER_UPDATE_MAPPING, method = POST)
+    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @Valid @ModelAttribute("updateSemiExpandable") Item entity) {
+        entity.setItemId(aLong);
+        //This is actually the update date
+        entity.setCreationDate(new Date());
+        ResponseEntity<Response> response = makeUpdateRestRequest(entity, BASE_ENTITY_URL_NAME, HttpMethod.POST);
+        ModelAndView mv = updateProcessing(response, UPDATE_VIEW_PAGE);
+        return mv;
     }
 
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        return new ModelAndView(LIST_VIEW_PAGE);
+        ResponseEntity<List<Item>> response = makeFetchAllRestRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Item>>() {
+        });
+        ModelAndView mv = listProcessing(response, "semiExpandables", LIST_VIEW_PAGE);
+        return mv;
     }
 
     @Override

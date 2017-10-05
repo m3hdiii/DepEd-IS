@@ -3,10 +3,11 @@ package com.deped.controller.category;
 import com.deped.controller.AbstractMainController;
 import com.deped.model.Response;
 import com.deped.model.items.Category;
-import com.deped.model.items.semigoods.Item;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -39,14 +41,14 @@ public class CategoryController extends AbstractMainController<Category, Long> {
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
-    public ModelAndView renderCreatePage(@Valid Category entity) {
+    public ModelAndView renderCreatePage(@Valid @ModelAttribute(BASE_NAME) Category entity) {
         ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE);
         return mv;
     }
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
-    public ModelAndView createAction(@Valid Category entity) {
+    public ModelAndView createAction(@Valid @ModelAttribute(BASE_NAME) Category entity) {
         entity.setCreationDate(new Date());
         ResponseEntity<Category> response = makeCreateRestRequest(entity, BASE_NAME, HttpMethod.POST, Category.class);
         ModelAndView mv = createProcessing(response, CREATE_VIEW_PAGE);
@@ -70,7 +72,8 @@ public class CategoryController extends AbstractMainController<Category, Long> {
     }
 
     @Override
-    public ModelAndView updateAction(Long aLong, Category entity) {
+    @RequestMapping(value = RENDER_UPDATE_MAPPING, method = POST)
+    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @Valid @ModelAttribute(BASE_NAME) Category entity) {
         entity.setCategoryId(aLong);
         //This is actually the update date
         entity.setCreationDate(new Date());
@@ -82,7 +85,9 @@ public class CategoryController extends AbstractMainController<Category, Long> {
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        ModelAndView mv = makeHintPage(LIST_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        ResponseEntity<List<Category>> response = makeFetchAllRestRequest(BASE_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Category>>() {
+        });
+        ModelAndView mv = listProcessing(response, "categories", LIST_VIEW_PAGE);
         return mv;
     }
 

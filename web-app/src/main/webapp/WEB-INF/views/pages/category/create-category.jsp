@@ -24,29 +24,27 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Edit </h3>
+        <h3> Create Category </h3>
     </div>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+    <c:choose>
+        <c:when test="${not empty notCreated}">
+            <p style="color: red;">${notCreated}</p>
+        </c:when>
+
+
+        <c:when test="${not empty successfullyCreated}">
+            <p style="color: green;">${successfullyCreated}</p>
+            &nbsp;&nbsp;<a href="/category/create">Create New Category</a>
+        </c:when>
+
+    </c:choose>
+    <form:form commandName="category" method="post">
+        <p><span>name: </span><form:input path="name"/></p>
+        <p><span>description: </span><form:textarea path="description"/></p>
+        <button type="submit">Create Brand</button>
+    </form:form>
+
 
 
 </section>

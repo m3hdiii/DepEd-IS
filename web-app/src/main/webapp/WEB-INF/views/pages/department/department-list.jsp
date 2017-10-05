@@ -24,29 +24,37 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Edit </h3>
+        <h3>Department List</h3>
     </div>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+    <div class="row">
+        <div class="col col-lg-3"/>
+        <div class="col col-lg-3">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Parent Category</th>
+                    <th>Creation Date</th>
+                    <th>Department Head</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${departments}" var="department">
+                    <tr>
+                        <td>${department.name}</td>
+                        <td>${department.description}</td>
+                        <td>${department.parentCategory.name}</td>
+                        <td>${department.creationDate}</td>
+                        <td>${department.departmentHead}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 </section>

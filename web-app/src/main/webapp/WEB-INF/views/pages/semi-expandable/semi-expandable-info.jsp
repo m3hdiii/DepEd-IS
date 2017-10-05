@@ -24,29 +24,28 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Edit </h3>
+        <h3>&nbsp;&nbsp;Information&nbsp;<small>&nbsp;for Semi Expandable</small>
+        </h3>
+    </div>
+    <div class="row">
+        <p>Name: ${semiExpandableInfo.name}</p>
+    </div>
+    <div class="row">
+        <p>Description: ${semiExpandableInfo.description}</p>
+    </div>
+    <div class="row">
+        <p>Item Type: ${semiExpandableInfo.itemType}</p>
+    </div>
+    <div class="row">
+        <p>Threshold: ${semiExpandableInfo.threshold}</p>
     </div>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+    <div class="row">
+        <p>Quantity: ${semiExpandableInfo.quantity}</p>
+    </div>
+    <div>
+        <a href="/semi-expandable/update/${semiExpandableId}">update this item</a>
+    </div>
 
 
 </section>
