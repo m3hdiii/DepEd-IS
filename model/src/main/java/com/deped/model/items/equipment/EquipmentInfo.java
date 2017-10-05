@@ -4,6 +4,7 @@ import com.deped.model.items.Material;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "equipment_info")
@@ -34,6 +35,9 @@ public class EquipmentInfo {
 
     @Column(name = "life_span")
     private Short lifespan;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "equipmentInfo")
+    private List<Equipment> equipments;
 
     private Date creationDate;
 

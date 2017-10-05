@@ -1,8 +1,10 @@
 package com.deped.controller.brand;
 
 import com.deped.controller.AbstractMainController;
+import com.deped.log.injector.FancyLogger;
 import com.deped.model.Response;
 import com.deped.model.items.Brand;
+import org.apache.log4j.Logger;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -40,9 +42,13 @@ public class BrandController extends AbstractMainController<Brand, Long> {
     private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + BASE_NAME + LIST_PAGE;
 
 
+    @FancyLogger
+    private Logger log;
+
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@ModelAttribute("brand") Brand entity) {
+        log.trace("something");
         ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE);
         return mv;
 

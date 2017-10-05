@@ -46,13 +46,17 @@ public class Equipment {
     private Date creationDate;
 
     @ManyToOne
-    @JoinColumn(name = "equipment_info")
+    @JoinColumn(name = "equipment_info_id")
     private EquipmentInfo equipmentInfo;
 
     @ManyToMany
     @JoinTable(name = "supply_equipment", joinColumns = @JoinColumn(name = "equipment_id"),
             inverseJoinColumns = @JoinColumn(name = "supply_id"))
     private Set<Supply> supplies = new HashSet<>();
+
+    @Column(name = "color")
+    @Enumerated(EnumType.STRING)
+    private Color color;
 
     public Equipment() {
     }
@@ -138,5 +142,13 @@ public class Equipment {
 
     public void setSupplies(Set<Supply> supplies) {
         this.supplies = supplies;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

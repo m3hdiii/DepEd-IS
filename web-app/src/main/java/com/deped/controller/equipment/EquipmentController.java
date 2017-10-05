@@ -6,6 +6,7 @@ import com.deped.model.items.equipment.Equipment;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,14 +38,14 @@ public class EquipmentController extends AbstractMainController<Equipment, Long>
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
-    public ModelAndView renderCreatePage(@Valid Equipment entity) {
+    public ModelAndView renderCreatePage(@Valid @ModelAttribute(BASE_NAME) Equipment entity) {
         ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE);
         return mv;
     }
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
-    public ModelAndView createAction(@Valid Equipment entity) {
+    public ModelAndView createAction(@Valid @ModelAttribute(BASE_NAME) Equipment entity) {
         entity.setCreationDate(new Date());
         ResponseEntity<Equipment> response = makeCreateRestRequest(entity, BASE_NAME, HttpMethod.POST, Equipment.class);
         ModelAndView mv = createProcessing(response, CREATE_VIEW_PAGE);
@@ -68,7 +69,8 @@ public class EquipmentController extends AbstractMainController<Equipment, Long>
     }
 
     @Override
-    public ModelAndView updateAction(Long aLong, Equipment entity) {
+    @RequestMapping(value = RENDER_UPDATE_MAPPING, method = POST)
+    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @ModelAttribute(BASE_NAME) Equipment entity) {
         entity.setEquipmentId(aLong);
         //This is actually the update date
         entity.setCreationDate(new Date());
