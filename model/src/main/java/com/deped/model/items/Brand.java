@@ -31,16 +31,16 @@ public class Brand {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "contact_number1")
+    @Column(name = "contact_no1")
     private String contactNumber;
 
-    @Column(name = "contact_number2")
+    @Column(name = "contact_no2")
     private String contactNumber2;
 
     @Column(name = "central_office_address")
     private String centralOfficeAddress;
 
-    @Column(name = "central_service_address")
+    @Column(name = "service_center_address")
     private String serviceCenterAddress;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "brand")

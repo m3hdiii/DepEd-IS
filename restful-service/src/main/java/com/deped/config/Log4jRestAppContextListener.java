@@ -16,6 +16,7 @@ public class Log4jRestAppContextListener implements ServletContextListener {
         System.setProperty(LOG4J_PATH_ENV, context.getRealPath("/"));
         String contextName = context.getServletContextName();
         Log4jBootstrap.loader(contextName);
+        System.out.println();
     }
 
     @Override

@@ -8,10 +8,7 @@ import com.deped.model.Operation;
 import com.deped.service.items.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,14 +27,14 @@ public class ItemRestController extends AbstractMainRestController<Item, Long> {
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = RequestMethod.POST)
-    public ResponseEntity<Item> create(Item entity) {
+    public ResponseEntity<Item> create(@RequestBody Item entity) {
         ResponseEntity<Item> response = itemService.create(entity);
         return response;
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = RequestMethod.POST)
-    public ResponseEntity<Response> update(Item entity) {
+    public ResponseEntity<Response> update(@RequestBody Item entity) {
         ResponseEntity<Response> response = itemService.update(entity);
         return response;
     }
@@ -65,7 +62,7 @@ public class ItemRestController extends AbstractMainRestController<Item, Long> {
 
     @Override
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
-    public ResponseEntity<Response> remove(Item... entities) {
+    public ResponseEntity<Response> remove(@RequestBody Item... entities) {
         ResponseEntity<Response> response = itemService.remove(entities);
         return response;
     }

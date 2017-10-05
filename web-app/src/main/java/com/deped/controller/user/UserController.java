@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.JstlView;
 
 import javax.validation.Valid;
 
@@ -35,16 +34,16 @@ public class UserController extends AbstractMainController<User, Long> {
     private static final String RENDER_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
     private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
 
-    private static final String BASE_SHOW_PAGE = JSP_PAGES + URL_SEPARATOR + BASE_NAME + URL_SEPARATOR + BASE_NAME;
-    private static final String CREATE_VIEW_PAGE = BASE_SHOW_PAGE + CREATE_PAGE;
-    private static final String UPDATE_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE;
-    private static final String INFO_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE;
-    private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + LIST_PAGE;
+    private static final String BASE_SHOW_PAGE = JSP_PAGES + URL_SEPARATOR + BASE_NAME + URL_SEPARATOR;
+    private static final String CREATE_VIEW_PAGE = BASE_SHOW_PAGE + CREATE_PAGE + BASE_NAME;
+    private static final String INFO_VIEW_PAGE = BASE_SHOW_PAGE + BASE_NAME + INFO_PAGE;
+    private static final String UPDATE_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE + BASE_NAME;
+    private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + BASE_NAME + LIST_PAGE;
 
     @Override
-    @RequestMapping(value = CREATE_MAPPING, method = GET)
+    @RequestMapping(value = {CREATE_MAPPING}, method = GET)
     public ModelAndView renderCreatePage(@Valid User entity) {
-        return new ModelAndView("center/signup");
+        return new ModelAndView(CREATE_VIEW_PAGE);
     }
 
     @Override
@@ -63,7 +62,7 @@ public class UserController extends AbstractMainController<User, Long> {
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        return new ModelAndView("center/edituserprofile");
+        return new ModelAndView(UPDATE_VIEW_PAGE);
     }
 
     @Override
@@ -76,7 +75,8 @@ public class UserController extends AbstractMainController<User, Long> {
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        return new ModelAndView(LIST_VIEW_PAGE);
+        ModelAndView mv = makeHintPage(LIST_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        return mv;
     }
 
     @Override
