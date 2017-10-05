@@ -55,7 +55,7 @@ public class PackRestController extends AbstractMainRestController<Pack, Long> {
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
     public ResponseEntity<Pack> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<Pack> response = packService.fetchById(aLong);
         return response;

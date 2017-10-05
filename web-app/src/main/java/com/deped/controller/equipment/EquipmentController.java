@@ -1,13 +1,18 @@
 package com.deped.controller.equipment;
 
 import com.deped.controller.AbstractMainController;
+import com.deped.model.Response;
 import com.deped.model.items.equipment.Equipment;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+
+import java.util.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -33,33 +38,43 @@ public class EquipmentController extends AbstractMainController<Equipment, Long>
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid Equipment entity) {
-        ModelAndView mv = makeHintPage(CREATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE);
         return mv;
     }
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
     public ModelAndView createAction(@Valid Equipment entity) {
-        return null;
+        entity.setCreationDate(new Date());
+        ResponseEntity<Equipment> response = makeCreateRestRequest(entity, BASE_NAME, HttpMethod.POST, Equipment.class);
+        ModelAndView mv = createProcessing(response, CREATE_VIEW_PAGE);
+        return mv;
     }
 
     @Override
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
     public ModelAndView renderInfo(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        ModelAndView mv = makeHintPage(INFO_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        ResponseEntity<Equipment> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Equipment.class);
+        ModelAndView mv = renderProcessing(response, aLong, BASE_NAME, INFO_VIEW_PAGE);
         return mv;
     }
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        ModelAndView mv = makeHintPage(UPDATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        return mv;
+        ResponseEntity<Equipment> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Equipment.class);
+        Equipment item = response.getBody();
+        return new ModelAndView(UPDATE_VIEW_PAGE, BASE_NAME, item);
     }
 
     @Override
     public ModelAndView updateAction(Long aLong, Equipment entity) {
-        return null;
+        entity.setEquipmentId(aLong);
+        //This is actually the update date
+        entity.setCreationDate(new Date());
+        ResponseEntity<Response> response = makeUpdateRestRequest(entity, BASE_NAME, HttpMethod.POST);
+        ModelAndView mv = updateProcessing(response, UPDATE_VIEW_PAGE);
+        return mv;
     }
 
     @Override

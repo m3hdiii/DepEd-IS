@@ -2,15 +2,19 @@ package com.deped.controller.user;
 
 import com.deped.controller.AbstractMainController;
 import com.deped.log.injector.FancyLogger;
+import com.deped.model.Response;
 import com.deped.model.account.User;
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+
+import java.util.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -56,20 +60,28 @@ public class UserController extends AbstractMainController<User, Long> {
     @Override
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
     public ModelAndView renderInfo(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        return new ModelAndView(INFO_VIEW_PAGE);
+        ResponseEntity<User> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, User.class);
+        ModelAndView mv = renderProcessing(response, aLong, BASE_NAME, INFO_VIEW_PAGE);
+        return mv;
     }
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        return new ModelAndView(UPDATE_VIEW_PAGE);
+        ResponseEntity<User> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, User.class);
+        User item = response.getBody();
+        return new ModelAndView(UPDATE_VIEW_PAGE, BASE_NAME, item);
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
     public ModelAndView updateAction(Long aLong, User entity) {
-        makeCreateRestRequest(entity, REST_CONTEXT_NAME + CREATE_MAPPING, HttpMethod.POST, User.class);
-        return null;
+        entity.setUserId(aLong);
+        //This is actually the update date
+        entity.setCreationDate(new Date());
+        ResponseEntity<Response> response = makeUpdateRestRequest(entity, BASE_NAME, HttpMethod.POST);
+        ModelAndView mv = updateProcessing(response, UPDATE_VIEW_PAGE);
+        return mv;
     }
 
     @Override

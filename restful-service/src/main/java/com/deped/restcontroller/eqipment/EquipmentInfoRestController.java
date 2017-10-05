@@ -54,7 +54,7 @@ public class EquipmentInfoRestController extends AbstractMainRestController<Equi
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
     public ResponseEntity<EquipmentInfo> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<EquipmentInfo> equipmentInfo = equipmentInfoService.fetchById(aLong);
         return equipmentInfo;

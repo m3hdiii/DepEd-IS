@@ -55,7 +55,7 @@ public class BrandRestController extends AbstractMainRestController<Brand, Long>
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
     public ResponseEntity<Brand> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<Brand> response = brandService.fetchById(aLong);
         return response;

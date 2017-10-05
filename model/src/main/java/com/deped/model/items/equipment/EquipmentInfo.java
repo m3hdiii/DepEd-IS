@@ -3,6 +3,7 @@ package com.deped.model.items.equipment;
 import com.deped.model.items.Material;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "equipment_info")
@@ -33,6 +34,8 @@ public class EquipmentInfo {
 
     @Column(name = "life_span")
     private Short lifespan;
+
+    private Date creationDate;
 
     public EquipmentInfo() {
     }
@@ -100,5 +103,13 @@ public class EquipmentInfo {
 
     public void setLifespan(Short lifespan) {
         this.lifespan = lifespan;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }

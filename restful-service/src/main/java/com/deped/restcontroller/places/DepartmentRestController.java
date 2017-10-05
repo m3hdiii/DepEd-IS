@@ -56,7 +56,7 @@ public class DepartmentRestController extends AbstractMainRestController<Departm
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
     public ResponseEntity<Department> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<Department> response = departmentService.fetchById(aLong);
         return response;

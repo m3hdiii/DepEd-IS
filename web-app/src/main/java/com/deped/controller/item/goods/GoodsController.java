@@ -90,18 +90,10 @@ public class GoodsController extends AbstractMainController<Item, Long> {
     public ModelAndView renderListPage() {
         ResponseEntity<List<Item>> response = makeFetchAllRestRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Item>>() {
         });
-        List<Item> list = response.getBody();
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("goods", list);
-        return new ModelAndView(LIST_VIEW_PAGE, map);
+        ModelAndView mv = listProcessing(response, "goods", LIST_VIEW_PAGE);
+        return mv;
     }
 
-
-    @RequestMapping(value = RENDER_LIST_MAPPING + 2, method = GET)
-    public ModelAndView renderListPages() {
-
-        return null;
-    }
 
     @Override
     @RequestMapping(value = RENDER_LIST_BY_RANGE_MAPPING, method = GET)

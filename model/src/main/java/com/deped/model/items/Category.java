@@ -3,6 +3,7 @@ package com.deped.model.items;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import static com.deped.repository.utils.ConstantValues.FETCH_ALL_CATEGORY;
 
@@ -35,6 +36,9 @@ public class Category implements Serializable {
     @JoinColumn(name = "parent_category_id")
     private Category parentCategory;
 
+    @Column(name = "creation_date")
+    private Date creationDate;
+
     public Long getCategoryId() {
         return categoryId;
     }
@@ -65,5 +69,13 @@ public class Category implements Serializable {
 
     public void setParentCategory(Category parentCategory) {
         this.parentCategory = parentCategory;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }

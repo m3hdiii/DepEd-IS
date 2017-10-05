@@ -62,7 +62,7 @@ public class UserRestController extends AbstractMainRestController<User, Long> {
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.POST)
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
     public ResponseEntity<User> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<User> response = userService.fetchById(aLong);
         return response;

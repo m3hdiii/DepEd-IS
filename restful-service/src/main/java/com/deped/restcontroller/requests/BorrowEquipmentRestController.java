@@ -54,8 +54,8 @@ public class BorrowEquipmentRestController extends AbstractMainRestController<Bo
     }
 
     @Override
-    @RequestMapping(value = FETCH_BY_ID_MAPPING)
-    public ResponseEntity<BorrowRequest> fetchById(Long aLong) {
+    @RequestMapping(value = FETCH_BY_ID_MAPPING, method = RequestMethod.GET)
+    public ResponseEntity<BorrowRequest> fetchById(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<BorrowRequest> response = borrowRequestService.fetchById(aLong);
         return response;
     }

@@ -23,7 +23,7 @@ public class BorrowRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "borrow_id")
-    private Long borrowId;
+    private Long borrowRequestId;
 
     @Column(name = "description")
     private String description;
@@ -51,6 +51,8 @@ public class BorrowRequest {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "")
     private Set<Equipment> equipments = new HashSet<>();
 
+    private Date creationDate;
+
     public BorrowRequest() {
     }
 
@@ -65,12 +67,12 @@ public class BorrowRequest {
         this.equipments = equipments;
     }
 
-    public Long getBorrowId() {
-        return borrowId;
+    public Long getBorrowRequestId() {
+        return borrowRequestId;
     }
 
-    public void setBorrowId(Long borrowId) {
-        this.borrowId = borrowId;
+    public void setBorrowRequestId(Long borrowRequestId) {
+        this.borrowRequestId = borrowRequestId;
     }
 
     public String getDescription() {
@@ -135,5 +137,13 @@ public class BorrowRequest {
 
     public void setEquipments(Set<Equipment> equipments) {
         this.equipments = equipments;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }

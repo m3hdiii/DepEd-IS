@@ -3,7 +3,9 @@ package com.deped.model.items;
 import com.deped.model.items.semigoods.Item;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static com.deped.repository.utils.ConstantValues.*;
@@ -18,7 +20,7 @@ import static com.deped.repository.utils.ConstantValues.*;
 })
 @Entity
 @Table(name = "brand")
-public class Brand {
+public class Brand implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,20 +45,24 @@ public class Brand {
     @Column(name = "service_center_address")
     private String serviceCenterAddress;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "brand")
-    private List<Item> items = new ArrayList<>();
+    @Column(name = "creation_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationDate;
+
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "brand")
+//    private List<Item> items = new ArrayList<>();
 
     public Brand() {
     }
 
-    public Brand(String name, String description, String contactNumber, String contactNumber2, String centralOfficeAddress, String serviceCenterAddress, List<Item> items) {
+    public Brand(String name, String description, String contactNumber, String contactNumber2, String centralOfficeAddress, String serviceCenterAddress/*, List<Item> items*/) {
         this.name = name;
         this.description = description;
         this.contactNumber = contactNumber;
         this.contactNumber2 = contactNumber2;
         this.centralOfficeAddress = centralOfficeAddress;
         this.serviceCenterAddress = serviceCenterAddress;
-        this.items = items;
+//        this.items = items;
     }
 
     public Long getBrandId() {
@@ -114,12 +120,21 @@ public class Brand {
     public void setServiceCenterAddress(String serviceCenterAddress) {
         this.serviceCenterAddress = serviceCenterAddress;
     }
-
+/*
     public List<Item> getItems() {
         return items;
     }
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+    */
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }

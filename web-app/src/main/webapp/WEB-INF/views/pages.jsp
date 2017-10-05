@@ -24,7 +24,9 @@
     <div class="container">
 
         <div class="row">
-            <p class="col col-lg-3"><a href="/brand/create">Create Brand</a></p>
+            <p class="col col-lg-3"><a href="/brand/create">Create Brand</a>&nbsp;<img width="20" height="20"
+                                                                                       src="${resourceURL}/images/check.png"/>
+            </p>
             <p class="col col-lg-3"><a href="/category/create">Create Category</a></p>
             <p class="col col-lg-3"><a href="/equipment/create">Create Equipment</a></p>
             <p class="col col-lg-3"><a href="/goods/create">Create Goods</a>&nbsp;<img width="20" height="20"
@@ -32,7 +34,9 @@
             </p>
         </div>
         <div class="row">
-            <p class="col col-lg-3"><a href="/brand/update/1">Update Brand 1</a></p>
+            <p class="col col-lg-3"><a href="/brand/update/1">Update Brand 1</a>&nbsp;<img width="20" height="20"
+                                                                                           src="${resourceURL}/images/check.png"/>
+            </p>
             <p class="col col-lg-3"><a href="/category/update/1">Update Category 1</a></p>
             <p class="col col-lg-3"><a href="/equipment/update/1">Update Equipment 1</a></p>
             <p class="col col-lg-3"><a href="/goods/update/1">Update Goods 1</a>&nbsp;<img width="20" height="20"
@@ -40,7 +44,9 @@
             </p>
         </div>
         <div class="row">
-            <p class="col col-lg-3"><a href="/brand/1">Brand 1 Info</a></p>
+            <p class="col col-lg-3"><a href="/brand/1">Brand 1 Info</a>&nbsp;<img width="20" height="20"
+                                                                                  src="${resourceURL}/images/check.png"/>
+            </p>
             <p class="col col-lg-3"><a href="/category/1">Category 1 Info</a></p>
             <p class="col col-lg-3"><a href="/equipment/1">Equipment 1 Info</a></p>
             <p class="col col-lg-3"><a href="/goods/1">Goods 1 Info</a>&nbsp;<img width="20" height="20"
@@ -49,7 +55,9 @@
 
         </div>
         <div class="row">
-            <p class="col col-lg-3"><a href="/brand/list">Brand List</a></p>
+            <p class="col col-lg-3"><a href="/brand/list">Brand List</a>&nbsp;<img width="20" height="20"
+                                                                                   src="${resourceURL}/images/check.png"/>
+            </p>
             <p class="col col-lg-3"><a href="/category/list">Category List</a></p>
             <p class="col col-lg-3"><a href="/equipment/list">Equipment List</a></p>
             <p class="col col-lg-3"><a href="/goods/list">Goods List</a>&nbsp;<img width="20" height="20"

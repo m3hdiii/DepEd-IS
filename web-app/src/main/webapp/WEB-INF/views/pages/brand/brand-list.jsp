@@ -24,29 +24,42 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Edit </h3>
+        <h3> Brand List </h3>
     </div>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+    <div class="row">
+        <div class="col col-lg-3"/>
+        <div class="col col-lg-9">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Contact Number</th>
+                    <th>Contact Number 2</th>
+                    <th>Contact Office Address</th>
+                    <th>Service Center Address</th>
+                    <th>Creation Date</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${brands}" var="brand">
+                    <tr>
+                        <td>${brand.name}</td>
+                        <td>${brand.description}</td>
+                        <td>${brand.contactNumber}</td>
+                        <td>${brand.contactNumber2}</td>
+                        <td>${brand.centralOfficeAddress}</td>
+                        <td>${brand.serviceCenterAddress}</td>
+                        <td>${brand.creationDate}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 </section>

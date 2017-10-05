@@ -24,30 +24,34 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Edit </h3>
+        <h3> Brand Info </h3>
     </div>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+    <div class="row">
+        <p>Name: ${brandInfo.name}</p>
+    </div>
+    <div class="row">
+        <p>Description: ${brandInfo.description}</p>
+    </div>
+    <div class="row">
+        <p>Contact Number: ${brandInfo.contactNumber}</p>
+    </div>
+    <div class="row">
+        <p>Contact Number 2: ${brandInfo.contactNumber2}</p>
+    </div>
 
+    <div class="row">
+        <p>Central Office Address: ${brandInfo.centralOfficeAddress}</p>
+    </div>
+
+    <div class="row">
+        <p>Service Center Address: ${brandInfo.serviceCenterAddress}</p>
+    </div>
+
+
+    <div>
+        <a href="/brand/update/${brandId}">update the Brand</a>
+    </div>
 
 </section>
 <c:import url="../../includes/footer.jsp"/>

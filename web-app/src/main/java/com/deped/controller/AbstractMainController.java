@@ -129,14 +129,22 @@ public abstract class AbstractMainController<T, ID> implements MainController<T,
         if (response == null || response.getBody() == null) {
             modelMap.put(NOT_UPDATED_KEY, FAILURE_MESSAGE);
         } else {
-            T department = response.getBody();
+            T entity = response.getBody();
 
-            modelMap.put(baseJSPPageName + "Info", department);
+            modelMap.put(baseJSPPageName + "Info", entity);
             modelMap.put(baseJSPPageName + "Id", entityId);
 
         }
         mv.addAllObjects(modelMap);
         mv.setViewName(createViewPage);
         return mv;
+    }
+
+
+    public ModelAndView listProcessing(ResponseEntity<List<T>> response, String baseJSPPageName, String createViewPage) {
+        List<T> list = response.getBody();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put(baseJSPPageName, list);
+        return new ModelAndView(createViewPage, map);
     }
 }
