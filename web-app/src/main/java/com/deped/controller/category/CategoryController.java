@@ -59,8 +59,7 @@ public class CategoryController extends AbstractMainController<Category, Long> {
     }
 
     @Override
-    @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@Valid Category entity) {
+    public ModelAndView updateAction(Long aLong, Category entity) {
         return null;
     }
 

@@ -60,7 +60,7 @@ public class PackController extends AbstractMainController<Pack, Long> {
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@Valid Pack entity) {
+    public ModelAndView updateAction(Long aLong, Pack entity) {
         return null;
     }
 

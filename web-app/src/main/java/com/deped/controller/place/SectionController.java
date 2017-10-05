@@ -60,9 +60,10 @@ public class SectionController extends AbstractMainController<Section, Long> {
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@Valid Section entity) {
+    public ModelAndView updateAction(Long aLong, Section entity) {
         return null;
     }
+
 
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)

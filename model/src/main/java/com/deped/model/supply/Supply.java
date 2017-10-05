@@ -4,6 +4,7 @@ import com.deped.model.items.equipment.Equipment;
 import com.deped.model.items.semigoods.Item;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,6 +37,8 @@ public class Supply {
 
     @OneToMany
     private Set<Item> items = new HashSet<>();
+
+    private Date creationDate;
 
     public Long getSupplyId() {
         return supplyId;
@@ -75,5 +78,13 @@ public class Supply {
 
     public void setItems(Set<Item> items) {
         this.items = items;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }

@@ -59,8 +59,7 @@ public class EquipmentInfoController extends AbstractMainController<EquipmentInf
     }
 
     @Override
-    @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@Valid EquipmentInfo entity) {
+    public ModelAndView updateAction(Long aLong, EquipmentInfo entity) {
         return null;
     }
 

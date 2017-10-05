@@ -12,7 +12,7 @@ public interface MainController<T, ID> extends ConstantController {
 
     ModelAndView renderUpdatePage(ID id);
 
-    ModelAndView updateAction(T entity);
+    ModelAndView updateAction(ID id, T entity);
 
     ModelAndView renderListPage();
 

@@ -62,7 +62,7 @@ public class BrandController extends AbstractMainController<Brand, Long> {
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@Valid Brand entity) {
+    public ModelAndView updateAction(Long aLong, Brand entity) {
         return null;
     }
 

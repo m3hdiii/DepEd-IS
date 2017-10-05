@@ -1,14 +1,22 @@
 package com.deped.controller.place;
 
 import com.deped.controller.AbstractMainController;
+import com.deped.model.Response;
 import com.deped.model.location.office.Department;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.JstlView;
 
 import javax.validation.Valid;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -34,41 +42,58 @@ public class DepartmentController extends AbstractMainController<Department, Lon
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid Department entity) {
-        ModelAndView mv = makeHintPage(CREATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE);
         return mv;
     }
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
     public ModelAndView createAction(@Valid Department entity) {
-        return null;
+        entity.setCreationDate(new Date());
+        ResponseEntity<Department> response = makeCreateRestRequest(entity, BASE_NAME, HttpMethod.POST, Department.class);
+        ModelAndView mv = createProcessing(response, CREATE_VIEW_PAGE);
+        return mv;
     }
 
     @Override
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
     public ModelAndView renderInfo(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        ModelAndView mv = makeHintPage(INFO_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        return mv;
+        ResponseEntity<Department> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Department.class);
+        Department department = response.getBody();
+        Map<String, Object> modelMap = new HashMap<>();
+        modelMap.put("departmentInfo", department);
+        modelMap.put("departmentId", aLong);
+        return new ModelAndView(INFO_VIEW_PAGE, modelMap);
     }
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        ModelAndView mv = makeHintPage(UPDATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        return mv;
+        ResponseEntity<Department> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Department.class);
+        Department department = response.getBody();
+        return new ModelAndView(UPDATE_VIEW_PAGE, "updateDepartment", department);
     }
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@Valid Department entity) {
-        return null;
+    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @Valid @ModelAttribute("updateDepartment") Department entity) {
+        entity.setDepartmentId(aLong);
+        //This is actually the update date
+        entity.setCreationDate(new Date());
+        ResponseEntity<Response> response = makeUpdateRestRequest(entity, BASE_NAME, HttpMethod.POST);
+        ModelAndView mv = updateProcessing(response, UPDATE_VIEW_PAGE);
+        return mv;
     }
 
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        ModelAndView mv = makeHintPage(LIST_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        return mv;
+        ResponseEntity<List<Department>> response = makeFetchAllRestRequest(BASE_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Department>>() {
+        });
+        List<Department> list = response.getBody();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("departments", list);
+        return new ModelAndView(LIST_VIEW_PAGE, map);
     }
 
     @Override

@@ -57,7 +57,7 @@ public class RequestItemController extends AbstractMainController<Item, Long> {
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(Item entity) {
+    public ModelAndView updateAction(Long aLong, Item entity) {
         return null;
     }
 

@@ -122,4 +122,21 @@ public abstract class AbstractMainController<T, ID> implements MainController<T,
     }
 
 
+    public ModelAndView renderProcessing(ResponseEntity<T> response, Long entityId, String baseJSPPageName, String createViewPage) {
+        Map<String, Object> modelMap = new HashMap<>();
+        ModelAndView mv = new ModelAndView();
+
+        if (response == null || response.getBody() == null) {
+            modelMap.put(NOT_UPDATED_KEY, FAILURE_MESSAGE);
+        } else {
+            T department = response.getBody();
+
+            modelMap.put(baseJSPPageName + "Info", department);
+            modelMap.put(baseJSPPageName + "Id", entityId);
+
+        }
+        mv.addAllObjects(modelMap);
+        mv.setViewName(createViewPage);
+        return mv;
+    }
 }

@@ -67,7 +67,7 @@ public class UserController extends AbstractMainController<User, Long> {
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@Valid User entity) {
+    public ModelAndView updateAction(Long aLong, User entity) {
         makeCreateRestRequest(entity, REST_CONTEXT_NAME + CREATE_MAPPING, HttpMethod.POST, User.class);
         return null;
     }

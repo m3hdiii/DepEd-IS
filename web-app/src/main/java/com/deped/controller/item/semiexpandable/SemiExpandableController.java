@@ -66,7 +66,7 @@ public class SemiExpandableController extends AbstractMainController<Item, Long>
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@Valid Item entity) {
+    public ModelAndView updateAction(Long aLong, Item entity) {
         return null;
     }
 

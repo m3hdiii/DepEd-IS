@@ -59,7 +59,7 @@ public class BorrowRequestController extends AbstractMainController<BorrowReques
 
     @Override
     @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@Valid BorrowRequest entity) {
+    public ModelAndView updateAction(Long aLong, BorrowRequest entity) {
         return null;
     }
 

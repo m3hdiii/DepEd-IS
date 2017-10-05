@@ -44,7 +44,8 @@ public class GoodsController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@ModelAttribute("goods") Item entity) {
-        return new ModelAndView(CREATE_VIEW_PAGE);
+        ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE);
+        return mv;
     }
 
     @Override
@@ -60,11 +61,8 @@ public class GoodsController extends AbstractMainController<Item, Long> {
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
     public ModelAndView renderInfo(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<Item> response = makeFetchByIdRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, aLong, Item.class);
-        Item item = response.getBody();
-        Map<String, Object> modelMap = new HashMap<>();
-        modelMap.put("goodsInfo", item);
-        modelMap.put("goodsId", aLong);
-        return new ModelAndView(INFO_VIEW_PAGE, modelMap);
+        ModelAndView mv = renderProcessing(response, aLong, "goods", INFO_VIEW_PAGE);
+        return mv;
     }
 
     @Override
@@ -75,6 +73,7 @@ public class GoodsController extends AbstractMainController<Item, Long> {
         return new ModelAndView(UPDATE_VIEW_PAGE, "updateGoods", item);
     }
 
+    @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = POST)
     public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @Valid @ModelAttribute("updateGoods") Item entity) {
         entity.setItemId(aLong);
@@ -85,11 +84,6 @@ public class GoodsController extends AbstractMainController<Item, Long> {
         return mv;
     }
 
-    @Override
-    @RequestMapping(value = RENDER_UPDATE_MAPPING + 2, method = POST)
-    public ModelAndView updateAction(@Valid Item entity) {
-        return null;
-    }
 
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
