@@ -1,13 +1,22 @@
 package com.deped.controller.item.semiexpandable;
 
 import com.deped.controller.AbstractMainController;
+import com.deped.log.injector.FancyLogger;
 import com.deped.model.items.semigoods.Item;
+import org.apache.log4j.Logger;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -32,14 +41,18 @@ public class SemiExpandableController extends AbstractMainController<Item, Long>
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
-    public ModelAndView renderCreatePage(@Valid Item entity) {
+    public ModelAndView renderCreatePage(@ModelAttribute("semiExpandable") Item entity) {
         return new ModelAndView(CREATE_VIEW_PAGE);
     }
 
+
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
-    public ModelAndView createAction(@Valid Item entity) {
-        return null;
+    public ModelAndView createAction(@Valid @ModelAttribute("semiExpandable") Item entity) {
+        entity.setCreationDate(new Date());
+        ResponseEntity<Item> response = makeCreateRestRequest(entity, "item", HttpMethod.POST, Item.class);
+        ModelAndView mv = creatingProcessing(response, CREATE_VIEW_PAGE);
+        return mv;
     }
 
     @Override

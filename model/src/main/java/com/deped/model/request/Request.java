@@ -38,6 +38,7 @@ public class Request {
     private Date releaseDate;
 
     @Column(name = "request_status")
+    @Enumerated(EnumType.STRING)
     private RequestStatus requestStatus;
 
     @Column(name = "disapproval_message")

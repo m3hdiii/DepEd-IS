@@ -1,8 +1,10 @@
 package com.deped;
 
+import static com.deped.controller.ConstantController.*;
 import com.deped.controller.user.UserController;
 import com.deped.model.Response;
 import com.deped.model.account.User;
+import com.deped.repository.utils.Range;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +14,7 @@ import java.util.List;
 
 public class Client {
 
-    private static final String BASE_URL = "http://localhost:8074/rest/";
-    private static final String CREATE_URL = BASE_URL + "user/create";
-    private static final String UPDATE_URL = BASE_URL + "user/update";
-    private static final String FETCH_URL = BASE_URL + "user/fetch-all";
-    private static final String FETCH_RANGE_URL = BASE_URL + "user/fetch-all/%d/%d";
-
+    String BASE_NAME = "user";
     private static final List<User> USERS = new ArrayList<>();
 
     static {
@@ -43,31 +40,31 @@ public class Client {
     }
 
     public static void main(String[] args) {
-        //makeCreateRestRequest(CREATE_URL, USERS);
-        //makeUpdateRestRequest(UPDATE_URL, USERS);
+        makeCreateRestRequest(BASE_URL, USERS);
+        makeUpdateRestRequest(BASE_URL, USERS);
         makeFetchAllRestRequest(FETCH_URL);
-        makeFetchAllByRangeRestRequest(String.format(FETCH_RANGE_URL, 1, 10));
+        makeFetchAllByRangeRestRequest(BASE_URL, new Range(1, 10));
     }
 
-    private static void makeCreateRestRequest(String createUrl, List<User> users) {
+    private static void makeCreateRestRequest(String baseName, List<User> users) {
         for (User user : users) {
-            ResponseEntity<User> result = new UserController().makeCreateRestRequest(user, createUrl, HttpMethod.POST, User.class);
+            ResponseEntity<User> result = new UserController().makeCreateRestRequest(user, baseName, HttpMethod.POST, User.class);
             System.out.println(result.getStatusCode().toString());
             System.out.println(String.format("user-id: %d and username: %s", result.getBody().getUserId(), result.getBody().getUsername()));
         }
     }
 
-    private static void makeUpdateRestRequest(String createUrl, List<User> users) {
+    private static void makeUpdateRestRequest(String baseName, List<User> users) {
         for (User user : users) {
-            ResponseEntity<Response> result = new UserController().makeUpdateRestRequest(user, createUrl, HttpMethod.POST);
+            ResponseEntity<Response> result = new UserController().makeUpdateRestRequest(user, baseName, HttpMethod.POST);
             System.out.println(result.getStatusCode().toString());
             System.out.println(result.getBody().getResponseStatus().toString());
         }
     }
 
-    private static void makeFetchAllRestRequest(String createUrl) {
+    private static void makeFetchAllRestRequest(String baseNam) {
 
-        ResponseEntity<List<User>> result = new UserController().makeFetchAllRestRequest(createUrl, HttpMethod.POST, new ParameterizedTypeReference<List<User>>() {
+        ResponseEntity<List<User>> result = new UserController().makeFetchAllRestRequest(baseNam, HttpMethod.POST, new ParameterizedTypeReference<List<User>>() {
         });
         System.out.println(result.getStatusCode());
         for (User user : result.getBody()) {
@@ -76,8 +73,8 @@ public class Client {
         }
     }
 
-    private static void makeFetchAllByRangeRestRequest(String createUrl) {
-        ResponseEntity<List<User>> result = new UserController().makeFetchByRangeRestRequest(createUrl, HttpMethod.POST, new ParameterizedTypeReference<List<User>>() {
+    private static void makeFetchAllByRangeRestRequest(String baseName, Range range) {
+        ResponseEntity<List<User>> result = new UserController().makeFetchByRangeRestRequest(baseName, HttpMethod.POST, range, new ParameterizedTypeReference<List<User>>() {
         });
         System.out.println(result.getStatusCode());
         for (User user : result.getBody()) {

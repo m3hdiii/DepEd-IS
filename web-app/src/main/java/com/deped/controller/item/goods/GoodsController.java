@@ -2,12 +2,17 @@ package com.deped.controller.item.goods;
 
 import com.deped.controller.AbstractMainController;
 import com.deped.model.items.semigoods.Item;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+
+import java.util.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -30,16 +35,21 @@ public class GoodsController extends AbstractMainController<Item, Long> {
     private static final String UPDATE_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE + BASE_NAME;
     private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + BASE_NAME + LIST_PAGE;
 
+    private static final String BASE_ENTITY_URL_NAME = "item";
+
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
-    public ModelAndView renderCreatePage(@Valid Item entity) {
+    public ModelAndView renderCreatePage(@ModelAttribute("goods") Item entity) {
         return new ModelAndView(CREATE_VIEW_PAGE);
     }
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
-    public ModelAndView createAction(@Valid Item entity) {
-        return null;
+    public ModelAndView createAction(@Valid @ModelAttribute("goods") Item entity) {
+        entity.setCreationDate(new Date());
+        ResponseEntity<Item> response = makeCreateRestRequest(entity, BASE_ENTITY_URL_NAME, HttpMethod.POST, Item.class);
+        ModelAndView mv = creatingProcessing(response, CREATE_VIEW_PAGE);
+        return mv;
     }
 
     @Override
@@ -52,6 +62,7 @@ public class GoodsController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        //ResponseEntity<Item> response = makeFetchByIdRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, aLong, Item.class);
         return new ModelAndView(UPDATE_VIEW_PAGE);
     }
 

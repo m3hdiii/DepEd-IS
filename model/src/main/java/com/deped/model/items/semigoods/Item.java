@@ -5,8 +5,10 @@ import com.deped.model.items.Brand;
 import com.deped.model.items.Material;
 import com.deped.model.items.Visibility;
 import com.deped.model.request.Request;
+import com.deped.model.security.Role;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,7 +24,7 @@ import static com.deped.repository.utils.ConstantValues.*;
 })
 @Entity
 @Table(name = "item")
-public class Item {
+public class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,24 +41,22 @@ public class Item {
     @Enumerated(value = EnumType.STRING)
     private ItemType itemType;
 
-    @Column(name = "visibility")
-    private Visibility visibility;
-
     @Column(name = "threshold")
     private Integer threshold;
 
     @Column(name = "quantity")
     private Integer quantity;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "items")
-    private Set<Request> requests = new HashSet<>();
+//    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "items", fetch = FetchType.LAZY)
+//    private Set<Request> requests
+// = new HashSet<>();
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date")
     private Date creationDate;
 
     @ManyToOne
-    @JoinColumn(name = "brand")
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
     @Enumerated(value = EnumType.STRING)
@@ -66,18 +66,17 @@ public class Item {
     public Item() {
     }
 
-    public Item(String name, String description, ItemType itemType, Visibility visibility, Integer threshold, Integer quantity, Set<Request> requests, Date creationDate, Brand brand, Material material) {
-        this.name = name;
-        this.description = description;
-        this.itemType = itemType;
-        this.visibility = visibility;
-        this.threshold = threshold;
-        this.quantity = quantity;
-        this.requests = requests;
-        this.creationDate = creationDate;
-        this.brand = brand;
-        this.material = material;
-    }
+//    public Item(String name, String description, ItemType itemType, Integer threshold, Integer quantity, Set<Request> requests, Date creationDate, Brand brand, Material material) {
+//        this.name = name;
+//        this.description = description;
+//        this.itemType = itemType;
+//        this.threshold = threshold;
+//        this.quantity = quantity;
+//        this.requests = requests;
+//        this.creationDate = creationDate;
+//        this.brand = brand;
+//        this.material = material;
+//    }
 
     public Long getItemId() {
         return itemId;
@@ -111,14 +110,6 @@ public class Item {
         this.itemType = itemType;
     }
 
-    public Visibility getVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(Visibility visibility) {
-        this.visibility = visibility;
-    }
-
     public Integer getThreshold() {
         return threshold;
     }
@@ -135,13 +126,13 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public Set<Request> getRequests() {
-        return requests;
-    }
-
-    public void setRequests(Set<Request> requests) {
-        this.requests = requests;
-    }
+//    public Set<Request> getRequests() {
+//        return requests;
+//    }
+//
+//    public void setRequests(Set<Request> requests) {
+//        this.requests = requests;
+//    }
 
     public Date getCreationDate() {
         return creationDate;
@@ -166,4 +157,6 @@ public class Item {
     public void setMaterial(Material material) {
         this.material = material;
     }
+
+
 }
