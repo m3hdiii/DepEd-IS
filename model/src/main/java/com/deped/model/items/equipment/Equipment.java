@@ -45,7 +45,7 @@ public class Equipment {
     @Column(name = "creation_date")
     private Date creationDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "equipment_info_id")
     private EquipmentInfo equipmentInfo;
 
@@ -151,4 +151,6 @@ public class Equipment {
     public void setColor(Color color) {
         this.color = color;
     }
+
+
 }

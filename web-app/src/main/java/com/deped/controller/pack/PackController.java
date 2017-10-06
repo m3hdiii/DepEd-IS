@@ -37,6 +37,8 @@ public class PackController extends AbstractMainController<Pack, Long> {
     public ModelAndView renderCreatePage(@Valid @ModelAttribute("pack") Pack entity) {
         ModelAndView mv = makeHintPage(CREATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         return mv;
+
+
     }
 
     @Override

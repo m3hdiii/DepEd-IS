@@ -10,6 +10,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Id;
 import java.lang.reflect.Field;
@@ -103,6 +104,7 @@ public class HibernateFacade {
         return fetchAllEntity(nameQuery, null, entityClass);
     }
 
+
     public <T> List<T> fetchAllEntity(String nameQuery, Range range, Class<T> entityClass) {
         Session hibernateSession;
         try {
@@ -144,8 +146,8 @@ public class HibernateFacade {
                 tx.rollback();
             return null;
         } finally {
-            if (hibernateSession != null)
-                hibernateSession.close();
+//            if (hibernateSession != null)
+//                hibernateSession.close();
         }
         return rows;
     }
@@ -206,8 +208,8 @@ public class HibernateFacade {
                 tx.rollback();
             return null;
         } finally {
-            if (hibernateSession != null)
-                hibernateSession.close();
+//            if (hibernateSession != null)
+//                hibernateSession.close();
         }
         return entity;
     }

@@ -65,7 +65,7 @@ public abstract class AbstractMainController<T, ID> implements MainController<T,
         return response;
     }
 
-    private HttpEntity makeHttpEntity(T entity) {
+    protected HttpEntity makeHttpEntity(T entity) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<T> httpEntity = new HttpEntity<>(entity, headers);
