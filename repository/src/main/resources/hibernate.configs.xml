@@ -18,7 +18,7 @@
         <property name="hibernate.connection.username">
             root
         </property>
-        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.password">mysqlmysql</property>
 
         <!-- List of XML mapping files -->
         <mapping class="com.deped.model.account.User"/>

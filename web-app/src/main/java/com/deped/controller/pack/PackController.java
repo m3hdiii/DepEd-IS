@@ -3,6 +3,7 @@ package com.deped.controller.pack;
 import com.deped.controller.AbstractMainController;
 import com.deped.model.items.Pack;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,14 +34,14 @@ public class PackController extends AbstractMainController<Pack, Long> {
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
-    public ModelAndView renderCreatePage(@Valid Pack entity) {
+    public ModelAndView renderCreatePage(@Valid @ModelAttribute("pack") Pack entity) {
         ModelAndView mv = makeHintPage(CREATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         return mv;
     }
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
-    public ModelAndView createAction(@Valid Pack entity) {
+    public ModelAndView createAction(@Valid @ModelAttribute("pack") Pack entity) {
         return null;
     }
 
