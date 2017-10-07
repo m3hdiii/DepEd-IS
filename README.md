@@ -38,3 +38,5 @@ This README would normally document whatever steps are necessary to get your app
 * In Case you have any problem, just ask within our group inside facebook
 * follow the related task in our JIRA application 
 * each person have to mention the JIRA url in his/her commit into bitbucket (There should not be any other commit comment, just JIRA issue URL must use for commit comment)
+
+CHANGE SMI EXPANDABLE AND GOODS QUERY

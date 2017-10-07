@@ -42,7 +42,7 @@
     <form:form commandName="category" method="post">
         <p><span>name: </span><form:input path="name"/></p>
         <p><span>description: </span><form:textarea path="description"/></p>
-        <button type="submit">Create Brand</button>
+        <button type="submit">Create Category</button>
     </form:form>
 
 

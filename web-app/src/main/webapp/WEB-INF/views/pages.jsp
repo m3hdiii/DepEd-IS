@@ -88,7 +88,7 @@
             </p>
         </div>
         <div class="row">
-            <p class="col col-lg-3"><a href="/semi-expandable/update/1">Update Semi Expandable 1</a>&nbsp;<img
+            <p class="col col-lg-3"><a href="/semi-expandable/update/3">Update Semi Expandable 3</a>&nbsp;<img
                     width="20" height="20" src="${resourceURL}/images/check.png"/></p>
             <p class="col col-lg-3"><a href="/pack/update/1">Update Pack 1</a></p>
             <p class="col col-lg-3"><a href="/department/update/1">Update Department 1</a></p>
@@ -97,7 +97,7 @@
             </p>
         </div>
         <div class="row">
-            <p class="col col-lg-3"><a href="/semi-expandable/1">Semi Expandable 1 Info</a>&nbsp;<img width="20"
+            <p class="col col-lg-3"><a href="/semi-expandable/1">Semi Expandable 3 Info</a>&nbsp;<img width="20"
                                                                                                       height="20"
                                                                                                       src="${resourceURL}/images/check.png"/>
             </p>
