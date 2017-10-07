@@ -9,19 +9,19 @@
 
     <nav class=" navbar-default hidden-xs" role="navigation">
         <ul class="nav navbar-nav">
-            <li><a href="dashboard">Home</a></li>
-            <li><a href="profile">Profile</a></li>
+            <li><a href="/dashboard">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">Search & Filter <span
                         class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu">
-                    <li><a href="#">Goods</a></li>
-                    <li><a href="#">Semi-Expendables</a></li>
+                    <li><a href="/goods/list">Goods</a></li>
+                    <li><a href="/semi-expandable/list">Semi-Expendables</a></li>
                     <li class="divider">
                     <li><a href="#">Computer Peripehrals</a></li>
                     <li><a href="#">Data Storage</a></li>
                     </li>
-                    <li><a href="#">Equipment</a></li>
+                    <li><a href="/equipment/list">Equipment</a></li>
                     <li class="divider">
                     <li><a href="#">Electrionics</a></li>
                     <li><a href="#">Non-Electronics</a></li>

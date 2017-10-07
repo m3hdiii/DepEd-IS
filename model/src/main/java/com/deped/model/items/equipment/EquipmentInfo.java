@@ -116,12 +116,4 @@ public class EquipmentInfo {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
-
-    public List<Equipment> getEquipments() {
-        return equipments;
-    }
-
-    public void setEquipments(List<Equipment> equipments) {
-        this.equipments = equipments;
-    }
 }
