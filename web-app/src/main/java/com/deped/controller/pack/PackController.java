@@ -35,7 +35,7 @@ public class PackController extends AbstractMainController<Pack, Long> {
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid @ModelAttribute("pack") Pack entity) {
-        ModelAndView mv = makeHintPage(CREATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE);
         return mv;
     }
 
