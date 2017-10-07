@@ -1,8 +1,9 @@
 package com.deped.model.location.office;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -15,7 +16,10 @@ import java.util.Date;
 })
 @Entity
 @Table(name = "section")
-public class Section {
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "sectionId", scope = Section.class)
+public class Section implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +34,7 @@ public class Section {
 
     @ManyToOne
     @JoinColumn(name = "department_id")
-    @JsonBackReference
+//    @JsonManagedReference("department-binding")
     private Department department;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -86,4 +90,6 @@ public class Section {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
+
+
 }

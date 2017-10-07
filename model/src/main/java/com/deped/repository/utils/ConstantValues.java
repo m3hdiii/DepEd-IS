@@ -22,7 +22,7 @@ public interface ConstantValues {
     String FETCH_ALL_CATEGORY_RANGE = "fetchCategoriesByRange";
     String FETCH_ALL_SUPPLY = "fetchAllSupplies";
     String FETCH_ALL_SUPPLY_RANGE = "fetchAllSuppliesByRange";
-    String FETCH_ALL_SECTION = "";
+    String FETCH_ALL_SECTION = "fetchAllSections";
     String FETCH_ALL_SECTION_RANGE = "";
 
 

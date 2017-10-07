@@ -1,6 +1,6 @@
 package com.deped.model.location.office;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.deped.repository.utils.ConstantValues.*;
+import static com.deped.repository.utils.ConstantValues.FETCH_ALL_DEPARTMENTS;
 
 
 /**
@@ -22,6 +22,9 @@ import static com.deped.repository.utils.ConstantValues.*;
 })
 @Entity
 @Table(name = "department")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "departmentId", scope = Department.class)
 public class Department implements Serializable {
 
     @Id
@@ -36,7 +39,7 @@ public class Department implements Serializable {
     private String description;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
-    @JsonManagedReference
+    @JsonBackReference("department-binding")
     private List<Section> sections = new ArrayList<>();
 
     @Column(name = "creation_date")
@@ -104,4 +107,6 @@ public class Department implements Serializable {
     public void setDepartmentHead(String departmentHead) {
         this.departmentHead = departmentHead;
     }
+
+
 }

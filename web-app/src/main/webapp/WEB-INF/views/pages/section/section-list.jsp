@@ -24,29 +24,38 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Edit </h3>
+        <h3> Section List </h3>
     </div>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+    <div class="row">
+        <div class="col col-lg-3"/>
+        <div class="col col-lg-9">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Department</th>
+                    <th>Edit Section</th>
+                    <th>Remove Section</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${sections}" var="section">
+                    <tr>
+                        <td>${section.name}</td>
+                        <td>${section.description}</td>
+                        <td>${section.department.name}</td>
+                        <td><a href="/section/update/${section.sectionId}"><img src="${resourceURL}/images/edit.png"
+                                                                                width="16"/></a></td>
+                        <td><img src="${resourceURL}/images/delete.png" width="16"/></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 </section>

@@ -23,31 +23,27 @@
 
     <c:import url="../../includes/top-nav.jsp"/>
 
-    <div class="page-header">
-        <h3> Edit </h3>
-    </div>
+    <c:choose>
+        <c:when test="${not empty notUpdated}">
+            <p style="color: red;">${notUpdated}</p>
+        </c:when>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+        <c:when test="${not empty successfullyUpdated}">
+            <p style="color: green;">${successfullyUpdated}</p>
+            &nbsp;&nbsp;<a href="/brand/create">Create New Brand</a>
+        </c:when>
+    </c:choose>
 
+
+    <form:form commandName="section" method="post">
+        <p><span>name: </span><form:input path="name"/></p>
+        <p><span>description: </span><form:textarea path="description"/></p>
+        <p><span>department: </span>
+            <form:select path="department.departmentId" items="${departments}" itemValue="departmentId"
+                         itemLabel="name"/>
+        </p>
+        <button type="submit">Update Section</button>
+    </form:form>
 
 </section>
 <c:import url="../../includes/footer.jsp"/>
