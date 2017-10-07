@@ -37,6 +37,8 @@ public class PackController extends AbstractMainController<Pack, Long> {
     public ModelAndView renderCreatePage(@Valid @ModelAttribute("pack") Pack entity) {
         ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE);
         return mv;
+
+
     }
 
     @Override
