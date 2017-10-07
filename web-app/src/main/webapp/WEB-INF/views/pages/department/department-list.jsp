@@ -35,8 +35,6 @@
                 <tr>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Parent Category</th>
-                    <th>Creation Date</th>
                     <th>Department Head</th>
 
                 </tr>
@@ -46,8 +44,6 @@
                     <tr>
                         <td>${department.name}</td>
                         <td>${department.description}</td>
-                        <td>${department.parentCategory.name}</td>
-                        <td>${department.creationDate}</td>
                         <td>${department.departmentHead}</td>
                     </tr>
                 </c:forEach>

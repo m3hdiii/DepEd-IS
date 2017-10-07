@@ -144,8 +144,8 @@ public class HibernateFacade {
                 tx.rollback();
             return null;
         } finally {
-            if (hibernateSession != null)
-                hibernateSession.close();
+//            if (hibernateSession != null)
+//                hibernateSession.close();
         }
         return rows;
     }
@@ -206,8 +206,8 @@ public class HibernateFacade {
                 tx.rollback();
             return null;
         } finally {
-            if (hibernateSession != null)
-                hibernateSession.close();
+//            if (hibernateSession != null)
+//                hibernateSession.close();
         }
         return entity;
     }

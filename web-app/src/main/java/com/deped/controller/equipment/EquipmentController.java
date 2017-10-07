@@ -69,7 +69,8 @@ public class EquipmentController extends AbstractMainController<Equipment, Long>
     }
 
     @Override
-    public ModelAndView updateAction(Long aLong, Equipment entity) {
+    @RequestMapping(value = RENDER_UPDATE_MAPPING, method = POST)
+    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @ModelAttribute(BASE_NAME) Equipment entity) {
         entity.setEquipmentId(aLong);
         //This is actually the update date
         entity.setCreationDate(new Date());
