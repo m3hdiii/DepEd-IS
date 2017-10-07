@@ -2,14 +2,17 @@ package com.deped.controller.pack;
 
 import com.deped.controller.AbstractMainController;
 import com.deped.model.items.Pack;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.JstlView;
 
 import javax.validation.Valid;
+
+import java.util.Date;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -44,12 +47,16 @@ public class PackController extends AbstractMainController<Pack, Long> {
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
     public ModelAndView createAction(@Valid @ModelAttribute("pack") Pack entity) {
-        return null;
+        entity.setCreationDate(new Date());
+        ResponseEntity<Pack> response = makeCreateRestRequest(entity, BASE_NAME, HttpMethod.POST, Pack.class);
+        ModelAndView mv = createProcessing(response, CREATE_VIEW_PAGE);
+        return mv;
     }
 
     @Override
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
-    public ModelAndView renderInfo(@PathVariable() Long aLong) {
+    public ModelAndView renderInfo(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        ResponseEntity<Pack> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Pack.class);
         ModelAndView mv = makeHintPage(INFO_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
         return mv;
     }

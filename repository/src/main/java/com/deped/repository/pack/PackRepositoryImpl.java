@@ -10,6 +10,10 @@ import static com.deped.repository.utils.ConstantValues.*;
 
 import java.util.List;
 
+import static com.deped.repository.utils.ConstantValues.PACK_TABLE;
+import static com.deped.repository.utils.ConstantValues.PACK_TABLE_ID;
+import static com.deped.repository.utils.ConstantValues.FETCH_ALL_PACKS;
+
 @Repository
 public class PackRepositoryImpl implements PackRepository {
 
@@ -18,37 +22,31 @@ public class PackRepositoryImpl implements PackRepository {
 
     @Override
     public Pack create(Pack entity) {
-        Pack pack = hibernateFacade.saveEntity(Pack.class, entity);
-        return pack;
+        return hibernateFacade.saveEntity(Pack.class, entity);
     }
 
     @Override
     public Boolean update(Pack entity) {
-        Boolean isUpdated = hibernateFacade.updateEntity(entity);
-        return isUpdated;
+        return hibernateFacade.updateEntity(entity);
     }
 
     @Override
     public List<Pack> fetchAll() {
-        List<Pack> packs = hibernateFacade.fetchAllEntity(FETCH_ALL_PACKS, Pack.class);
-        return packs;
+        return hibernateFacade.fetchAllEntity(FETCH_ALL_PACKS, Pack.class);
     }
 
     @Override
     public List<Pack> fetchByRange(Range range) {
-        List<Pack> packs = hibernateFacade.fetchAllEntity(FETCH_ALL_PACKS_RANGE, range, Pack.class);
-        return packs;
+        return hibernateFacade.fetchAllEntity(FETCH_ALL_PACKS, range, Pack.class);
     }
 
     @Override
     public Pack fetchById(Object id) {
-        Pack pack = hibernateFacade.fetchEntityById(Pack.class, id);
-        return pack;
+        return hibernateFacade.fetchEntityById(Pack.class, id);
     }
 
     @Override
     public Boolean remove(Pack... entities) {
-        Boolean isRemoved = hibernateFacade.removeEntities(PACK_TABLE, PACK_TABLE_ID, entities);
-        return isRemoved;
+        return hibernateFacade.removeEntities(PACK_TABLE, PACK_TABLE_ID, entities);
     }
 }
