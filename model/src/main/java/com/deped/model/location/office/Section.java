@@ -18,7 +18,7 @@ import java.util.Date;
 @Table(name = "section")
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "sectionId   ")
+        property = "sectionId", scope = Section.class)
 public class Section implements Serializable {
 
     @Id

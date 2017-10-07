@@ -24,29 +24,25 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Edit </h3>
+        <h3> Edit Section </h3>
     </div>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+    <div class="page-header">
+        <h3> Brand Info </h3>
+    </div>
+
+    <div class="row">
+        <p>Name: ${sectionInfo.name}</p>
+    </div>
+    <div class="row">
+        <p>Description: ${sectionInfo.description}</p>
+    </div>
+    <div class="row">
+        <p>Department: ${sectionInfo.department.name}</p>
+    </div>
+    <div>
+        <a href="/section/update/${sectionId}">update the Section</a>
+    </div>
 
 
 </section>

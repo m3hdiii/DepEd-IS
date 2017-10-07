@@ -24,7 +24,7 @@ import static com.deped.repository.utils.ConstantValues.FETCH_ALL_DEPARTMENTS;
 @Table(name = "department")
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "departmentId")
+        property = "departmentId", scope = Department.class)
 public class Department implements Serializable {
 
     @Id
@@ -39,7 +39,7 @@ public class Department implements Serializable {
     private String description;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
-//    @JsonBackReference("department-binding")
+    @JsonBackReference("department-binding")
     private List<Section> sections = new ArrayList<>();
 
     @Column(name = "creation_date")

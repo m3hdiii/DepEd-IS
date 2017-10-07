@@ -31,18 +31,15 @@
 
         <c:when test="${not empty successfullyCreated}">
             <p style="color: green;">${successfullyCreated}</p>
-            &nbsp;&nbsp;<a href="/brand/create">Create New Brand</a>
+            &nbsp;&nbsp;<a href="/department/create">Create New Department</a>
         </c:when>
 
     </c:choose>
-    <form:form commandName="brand" method="post">
+    <form:form commandName="department" method="post">
         <p><span>name: </span><form:input path="name"/></p>
         <p><span>description: </span><form:textarea path="description"/></p>
-        <p><span>contact number: </span><form:input path="contactNumber"/></p>
-        <p><span>contact number2: </span><form:input path="contactNumber2"/></p>
-        <p><span>central office address: </span><form:input path="centralOfficeAddress"/></p>
-        <p><span>service center address: </span><form:input path="serviceCenterAddress"/></p>
-        <button type="submit">Create Brand</button>
+        <p><span>Department Head: </span><form:input path="departmentHead"/></p>
+        <button type="submit">Create Department</button>
     </form:form>
 
 

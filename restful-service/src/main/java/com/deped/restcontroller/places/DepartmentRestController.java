@@ -45,6 +45,7 @@ public class DepartmentRestController extends AbstractMainRestController<Departm
     @RequestMapping(value = FETCH_MAPPING, method = RequestMethod.POST)
     public ResponseEntity<List<Department>> fetchAll() {
         ResponseEntity<List<Department>> response = departmentService.fetchAll();
+
         return response;
     }
 

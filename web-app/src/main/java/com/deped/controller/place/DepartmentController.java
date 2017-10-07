@@ -71,12 +71,12 @@ public class DepartmentController extends AbstractMainController<Department, Lon
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<Department> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Department.class);
         Department department = response.getBody();
-        return new ModelAndView(UPDATE_VIEW_PAGE, "updateDepartment", department);
+        return new ModelAndView(UPDATE_VIEW_PAGE, BASE_NAME, department);
     }
 
     @Override
-    @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @Valid @ModelAttribute("updateDepartment") Department entity) {
+    @RequestMapping(value = RENDER_UPDATE_MAPPING, method = POST)
+    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @Valid @ModelAttribute(BASE_NAME) Department entity) {
         entity.setDepartmentId(aLong);
         //This is actually the update date
         entity.setCreationDate(new Date());

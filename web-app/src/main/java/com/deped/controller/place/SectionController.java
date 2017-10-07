@@ -1,6 +1,7 @@
 package com.deped.controller.place;
 
 import com.deped.controller.AbstractMainController;
+import com.deped.model.Response;
 import com.deped.model.location.office.Department;
 import com.deped.model.location.office.Section;
 import org.springframework.core.ParameterizedTypeReference;
@@ -50,7 +51,7 @@ public class SectionController extends AbstractMainController<Section, Long> {
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid @ModelAttribute(BASE_NAME) Section entity) {
         List<Department> departments = fetchAllDepartment();
-        HashMap<String, Object> modelMap = new HashMap<String, Object>();
+        HashMap<String, Object> modelMap = new HashMap<>();
         modelMap.put(BASE_NAME, entity);
         modelMap.put("departments", departments);
         ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE, modelMap);
@@ -78,21 +79,32 @@ public class SectionController extends AbstractMainController<Section, Long> {
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<Section> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Section.class);
-        Section item = response.getBody();
-        return new ModelAndView(UPDATE_VIEW_PAGE, BASE_NAME, item);
+        Section section = response.getBody();
+        HashMap<String, Object> modelMap = new HashMap<>();
+        modelMap.put(BASE_NAME, section);
+        List<Department> departments = fetchAllDepartment();
+        modelMap.put("departments", departments);
+        return new ModelAndView(UPDATE_VIEW_PAGE, modelMap);
     }
 
     @Override
-    @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(Long aLong, Section entity) {
-        return null;
+    @RequestMapping(value = RENDER_UPDATE_MAPPING, method = POST)
+    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @ModelAttribute(BASE_NAME) Section entity) {
+        entity.setSectionId(aLong);
+        //This is actually the update date
+        entity.setCreationDate(new Date());
+        ResponseEntity<Response> response = makeUpdateRestRequest(entity, BASE_NAME, HttpMethod.POST);
+        ModelAndView mv = updateProcessing(response, UPDATE_VIEW_PAGE);
+        return mv;
     }
 
 
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        ModelAndView mv = makeHintPage(LIST_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        ResponseEntity<List<Section>> response = makeFetchAllRestRequest(BASE_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Section>>() {
+        });
+        ModelAndView mv = listProcessing(response, "sections", LIST_VIEW_PAGE);
         return mv;
     }
 
@@ -110,10 +122,9 @@ public class SectionController extends AbstractMainController<Section, Long> {
 
     private List<Department> fetchAllDepartment() {
         RestTemplate restTemplate = new RestTemplate();
-        HttpEntity httpEntity = makeHttpEntity(null);
         String restUrl;
         restUrl = String.format(FETCH_URL, "department");
-        ResponseEntity<List<Department>> response = restTemplate.exchange(restUrl, HttpMethod.POST, httpEntity, new ParameterizedTypeReference<List<Department>>() {
+        ResponseEntity<List<Department>> response = restTemplate.exchange(restUrl, HttpMethod.POST, null, new ParameterizedTypeReference<List<Department>>() {
         });
         return response.getBody();
     }
