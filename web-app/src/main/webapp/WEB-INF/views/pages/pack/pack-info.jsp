@@ -34,6 +34,10 @@
         <p>Description: ${packInfo.description}</p>
     </div>
 
+    <div class="row">
+        <p>Pack for the Item: ${packInfo.item.name}</p>
+    </div>
+
     <div>
         <a href="/pack/update/${packId}">update the Pack</a>
     </div>

@@ -35,6 +35,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Associated Item</th>
                     <th>Edit Section</th>
                     <th>Remove Section</th>
 
@@ -45,6 +46,7 @@
                     <tr>
                         <td>${pack.name}</td>
                         <td>${pack.description}</td>
+                        <td>${pack.item.name}</td>
                         <td><a href="/pack/update/${pack.packId}"><img src="${resourceURL}/images/edit.png"
                                                                        width="16"/></a></td>
                         <td><img src="${resourceURL}/images/delete.png" width="16"/></td>

@@ -25,20 +25,22 @@
 
 
     <div class="page-header">
-        <h3>&nbsp;&nbsp;&nbspItem Registration&nbsp;<small>&nbsp;for Pack</small>
+        <h3>&nbsp;&nbsp;&nbspPackage Registration&nbsp;<small>&nbsp;for an Item</small>
         </h3>
     </div>
 
     <div>
+
+
         <c:choose>
-            <c:when test="${not empty notUpdated}">
-                <p style="color: red;">${notUpdated}</p>
+            <c:when test="${not empty notCreated}">
+                <p style="color: red;">${notCreated}</p>
             </c:when>
 
 
-            <c:when test="${not empty successfullyUpdated}">
-                <p style="color: green;">${successfullyUpdated}</p>
-                &nbsp;&nbsp;<a href="/brand/create">Create New Brand</a>
+            <c:when test="${not empty successfullyCreated}">
+                <p style="color: green;">${successfullyCreated}</p>
+                &nbsp;&nbsp;<a href="/pack/create">Create New Pack</a>
             </c:when>
 
         </c:choose>
@@ -58,12 +60,28 @@
                             </div>
                         </div>
 
-                        <hr class="style13">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Description</label>
                             <div class="col-lg-7">
                                 <form:textarea path="description" class="col-sm-7 form-control typeahead"
                                                placeholder="enter description here..." rows="7"></form:textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Capacity:</label>
+                            <div class="col-lg-7">
+                                <form:input type="number" path="capacity" class="col-sm-7 form-control typeahead"
+                                            placeholder="enter description here..." rows="7"/>
+                            </div>
+                        </div>
+
+                        <hr class="style13">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">This Package is for Item</label>
+                            <div class="col-lg-7">
+                                <form:select path="item.itemId" items="${items}" itemValue="itemId"
+                                             itemLabel="name"/>
                             </div>
                         </div>
 
@@ -85,6 +103,7 @@
         </div>
 
     </div>
+
 
 </section>
 <c:import url="../../includes/footer.jsp"/>

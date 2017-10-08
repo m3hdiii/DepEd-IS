@@ -3,9 +3,13 @@ package com.deped.model.items.semigoods;
 
 import com.deped.model.items.Brand;
 import com.deped.model.items.Material;
+import com.deped.model.items.Pack;
 import com.deped.model.items.Visibility;
 import com.deped.model.request.Request;
 import com.deped.model.security.Role;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,6 +28,9 @@ import static com.deped.repository.utils.ConstantValues.*;
 })
 @Entity
 @Table(name = "item")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "itemId", scope = Item.class)
 public class Item implements Serializable {
 
     @Id
@@ -50,6 +57,10 @@ public class Item implements Serializable {
 //    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "items", fetch = FetchType.LAZY)
 //    private Set<Request> requests
 // = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
+    @JsonBackReference("item-binding")
+    private Set<Pack> packs;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date")
@@ -158,5 +169,11 @@ public class Item implements Serializable {
         this.material = material;
     }
 
+    public Set<Pack> getPacks() {
+        return packs;
+    }
 
+    public void setPacks(Set<Pack> packs) {
+        this.packs = packs;
+    }
 }

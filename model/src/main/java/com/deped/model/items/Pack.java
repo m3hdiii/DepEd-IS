@@ -1,5 +1,9 @@
 package com.deped.model.items;
 
+import com.deped.model.items.semigoods.Item;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import static com.deped.repository.utils.ConstantValues.*;
 
 import javax.persistence.*;
@@ -17,6 +21,9 @@ import java.util.Date;
 })
 @Entity
 @Table(name = "pack")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "packId", scope = Pack.class)
 public class Pack {
 
     @Id
@@ -33,6 +40,13 @@ public class Pack {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date")
     private Date creationDate;
+
+    @Column(name = "capacity")
+    private Integer capacity;
+
+    @JoinColumn(name = "item_id")
+    @ManyToOne
+    private Item item;
 
     public Pack() {
     }
@@ -73,5 +87,21 @@ public class Pack {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 }
