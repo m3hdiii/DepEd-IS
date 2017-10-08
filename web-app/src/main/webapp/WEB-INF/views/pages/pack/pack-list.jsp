@@ -24,30 +24,36 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Edit </h3>
+        <h3> Pack List </h3>
     </div>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+    <div class="row">
+        <div class="col col-lg-3"/>
+        <div class="col col-lg-9">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Edit Section</th>
+                    <th>Remove Section</th>
 
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${packs}" var="pack">
+                    <tr>
+                        <td>${pack.name}</td>
+                        <td>${pack.description}</td>
+                        <td><a href="/pack/update/${pack.packId}"><img src="${resourceURL}/images/edit.png"
+                                                                       width="16"/></a></td>
+                        <td><img src="${resourceURL}/images/delete.png" width="16"/></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 </section>
 <c:import url="../../includes/footer.jsp"/>

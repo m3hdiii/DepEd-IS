@@ -1,5 +1,7 @@
 package com.deped.model.items;
 
+import static com.deped.repository.utils.ConstantValues.*;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -7,6 +9,12 @@ import java.util.Date;
  * Created by mehdi on 7/6/17.
  */
 
+@NamedQueries({
+        @NamedQuery(
+                name = FETCH_ALL_PACKS,
+                query = "SELECT p FROM Pack p"
+        )
+})
 @Entity
 @Table(name = "pack")
 public class Pack {
