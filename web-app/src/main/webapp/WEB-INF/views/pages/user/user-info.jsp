@@ -49,7 +49,7 @@
                         </div>
                         <section class="user-information">
                             <div class="text-center">
-                                <h4 class="user-name">${userInfo.firstName}</h4>
+                                <h4 class="user-name">${userInfo.firstName} ${userInfo.middleName} ${userInfo.lastName}</h4>
                                 <a class="email-address text-center col-md-12" href="#"><u>${userInfo.emailAddress}</u></a>
                             </div>
                             <div class="container user-information-container">
