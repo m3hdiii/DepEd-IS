@@ -48,6 +48,6 @@
     </div>
 
 </section>
-<c:import url="../../includes/footer.jsp"/>
+    <c:import url="../../includes/footer.jsp"/>
 </body>
 </html>

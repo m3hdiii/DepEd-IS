@@ -134,8 +134,9 @@
             </div>
         </div>
     </div>
-    <c:import url="../../includes/footer.jsp"/>
+
 </section>
+    <c:import url="../../includes/footer.jsp"/>
  <!-- <script src="${resourceURL}/js/additional/login.js" type="text/javascript"></script> -->
 </body>
 </html>
