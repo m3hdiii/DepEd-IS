@@ -61,4 +61,18 @@ public class ItemServiceImpl implements ItemService {
         ResponseEntity<Response> responseEntity = new ResponseEntity<>(response, OK);
         return responseEntity;
     }
+
+    @Override
+    public ResponseEntity<List<Item>> fetchAllGoods() {
+        List<Item> items = itemRepository.fetchAllGoods();
+        ResponseEntity<List<Item>> responseEntity = new ResponseEntity<>(items, OK);
+        return responseEntity;
+    }
+
+    @Override
+    public ResponseEntity<List<Item>> fetchAllSemiExpendable() {
+        List<Item> items = itemRepository.fetchAllSemiExpendable();
+        ResponseEntity<List<Item>> responseEntity = new ResponseEntity<>(items, OK);
+        return responseEntity;
+    }
 }

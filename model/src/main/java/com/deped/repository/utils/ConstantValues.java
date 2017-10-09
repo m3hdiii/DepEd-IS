@@ -7,6 +7,7 @@ public interface ConstantValues {
 
     //NamedQueries
     String FETCH_ALL_ITEMS = "fetchAllItems";
+    String FETCH_ALL_ITEMS_BY_TYPE = "fetchAllItemsByType";
     String FETCH_ALL_USERS = "findAllUsers";
     String FETCH_ALL_DEPARTMENTS = "fetchAllDepartments";
     String FETCH_ALL_DEPARTMENT_RANGES = "fetchDepartments";

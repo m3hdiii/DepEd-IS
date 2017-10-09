@@ -41,7 +41,7 @@
                     <li><a href="">Item Registration</a></li>
                     <li><a href="/item-list">List of all Items</a></li>
                     <li><a href="/goods/list">Goods</a></li>
-                    <li><a href="/semi-expandable/lists">Semi-Expendables</a></li>
+                    <li><a href="/semi-expendable/lists">Semi-Expendables</a></li>
                     <li><a href="/equipment/list">Equipment</a></li>
                 </ul>
             </li>

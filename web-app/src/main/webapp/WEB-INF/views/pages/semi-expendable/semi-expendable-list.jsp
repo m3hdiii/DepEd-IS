@@ -36,13 +36,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${semiExpandables}" var="semiExpandable">
+                <c:forEach items="${semiExpendables}" var="semiExpendable">
                     <tr>
-                        <td>${semiExpandable.name}</td>
-                        <td>${semiExpandable.description}</td>
-                        <td>${semiExpandable.itemType}</td>
-                        <td>${semiExpandable.threshold}</td>
-                        <td>${semiExpandable.quantity}</td>
+                        <td>${semiExpendable.name}</td>
+                        <td>${semiExpendable.description}</td>
+                        <td>${semiExpendable.itemType}</td>
+                        <td>${semiExpendable.threshold}</td>
+                        <td>${semiExpendable.quantity}</td>
                     </tr>
                 </c:forEach>
                 </tbody>

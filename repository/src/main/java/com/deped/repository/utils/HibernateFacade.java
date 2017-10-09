@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import java.lang.reflect.Field;
 import java.lang.reflect.MalformedParametersException;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class HibernateFacade {
@@ -99,6 +100,41 @@ public class HibernateFacade {
         return object;
     }
 
+    public <T> List<T> fetchAllByParameterMap(String nameQuery, Class<T> entityClass, Map<String, Object> parameterMap) {
+        Session hibernateSession;
+        try {
+            hibernateSession = getSessionFactory().openSession();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        Transaction tx = null;
+
+        List<T> rows;
+
+        try {
+            tx = hibernateSession.beginTransaction();
+            Query<T> namedQuery = hibernateSession.createNamedQuery(nameQuery, entityClass);
+
+            for (Map.Entry<String, Object> entry : parameterMap.entrySet()) {
+                namedQuery.setParameter(entry.getKey(), entry.getValue());
+            }
+
+            rows = namedQuery.list();
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (tx != null)
+                tx.rollback();
+            return null;
+        } finally {
+//            if (hibernateSession != null)
+//                hibernateSession.close();
+        }
+        return rows;
+    }
+
     public <T> List<T> fetchAllEntity(String nameQuery, Class<T> entityClass) {
         return fetchAllEntity(nameQuery, null, entityClass);
     }
@@ -120,21 +156,7 @@ public class HibernateFacade {
             tx = hibernateSession.beginTransaction();
             Query<T> namedQuery = hibernateSession.createNamedQuery(nameQuery, entityClass);
 
-            if (range != null) {
-                int from = range.getFrom();
-                int to = range.getTo();
-                if (from >= 0 && to >= 0 && to > from) {
-                    namedQuery.setParameter("from", range.getFrom());
-                    namedQuery.setParameter("to", range.getTo());
-                } else {
-                    try {
-                        throw new MalformedParametersException();
-                    } catch (MalformedParametersException e) {
-                        e.printStackTrace();
-                    }
-                    return null;
-                }
-            }
+            setRange(range, namedQuery);
 
             rows = namedQuery.list();
             tx.commit();
@@ -235,5 +257,23 @@ public class HibernateFacade {
             }
         }
         return -1L;
+    }
+
+    private <T> void setRange(Range range, Query<T> namedQuery) {
+        if (range != null) {
+            int from = range.getFrom();
+            int to = range.getTo();
+            if (from >= 0 && to >= 0 && to > from) {
+                namedQuery.setParameter("from", range.getFrom());
+                namedQuery.setParameter("to", range.getTo());
+            } else {
+                try {
+                    throw new MalformedParametersException();
+                } catch (MalformedParametersException e) {
+                    e.printStackTrace();
+                }
+                return;
+            }
+        }
     }
 }

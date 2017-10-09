@@ -18,8 +18,8 @@
 <c:url value="/public" var="resourceURL" scope="request"/>
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="Semi Expandable Registration"/>
-    <c:param name="description" value="Semi Expandable Registration Page"/>
+    <c:param name="title" value="Semi Expendable Registration"/>
+    <c:param name="description" value="Semi Expendable Registration Page"/>
 </c:import>
 <html>
 <body>
@@ -43,7 +43,7 @@
 
             <c:when test="${not empty successfullyCreated}">
                 <p style="color: green;">${successfullyCreated}</p>
-                &nbsp;&nbsp;<a href="/semi-expandable/create">Create New Semi-Expandable</a>
+                &nbsp;&nbsp;<a href="/semi-expendable/create">Create New Semi-Expendable</a>
             </c:when>
 
         </c:choose>
@@ -53,9 +53,9 @@
 
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Semi-Expandable Information</div>
+                <div class="panel-heading">Semi-Expendable Information</div>
                 <div class="panel-body">
-                    <form:form commandName="semiExpandable" method="post" class="form-horizontal" role="form">
+                    <form:form commandName="semiExpendable" method="post" class="form-horizontal" role="form">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-7">

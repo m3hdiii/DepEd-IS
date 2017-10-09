@@ -52,7 +52,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Item Information</div>
                 <div class="panel-body">
-                    <form:form commandName="updateSemiExpandable" method="post" class="form-horizontal" role="form">
+                    <form:form commandName="updateSemiExpendable" method="post" class="form-horizontal" role="form">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-7">
