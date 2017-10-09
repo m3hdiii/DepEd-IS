@@ -21,43 +21,31 @@
 <section class="content">
     <c:import url="../../includes/top-nav.jsp"/>
 
-    <%--<div class="warper container-fluid">--%>
-    <%--<div class="page-header">--%>
-    <%--<h1>Goods--%>
-    <%--<small>DepEd-Baguio City Division Office</small>--%>
-    <%--</h1>--%>
-    <%--</div>--%>
-    <%--</div>--%>
+    <div class="warper container-fluid">
+        <div class="page-header">
+            <h1>Goods
+                <small>DepEd-Baguio City Division Office</small>
+            </h1>
 
-    <div class="row">
-        <div class="col col-lg-3"/>
-        <div class="col col-lg-3">
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Item Type</th>
-                    <th>Threshold</th>
-                    <th>Quantity</th>
+        </div>
 
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${goods}" var="good">
-                    <tr>
-                        <td>${good.name}</td>
-                        <td>${good.description}</td>
-                        <td>${good.itemType}</td>
-                        <td>${good.threshold}</td>
-                        <td>${good.quantity}</td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
+        <div class="row item-body">
+
+            <c:forEach items="${goods}" var="good">
+                    <div class='col-xs-3 thumbnail item-content-thumbnail'>
+                        <img src="${resourceURL}/images/carousel/1.jpg" alt="1-jpg" width="304px" height="236px">
+                        <div class="item-infomation text-center">
+                            <h4>${good.name}</h4>
+                            <label>Description:</label><p>${good.description}</p>
+                            <label>Item Type:</label><p>${good.itemType}</p>
+                            <label>Quantity:</label><p>${good.quantity}</p>
+                            <button class="btn btn-md btn-purple">Add to cart</button>
+                            <button class="btn btn-md btn-danger">Check out</button>
+                        </div>
+                    </div>
+            </c:forEach>
         </div>
     </div>
-
 
 </section>
 <c:import url="../../includes/footer.jsp"/>

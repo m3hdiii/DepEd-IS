@@ -49,37 +49,37 @@
                         </div>
                         <section class="user-information">
                             <div class="text-center">
-                                <h4 class="user-name">Employee Name Here</h4>
-                                <a class="email-address text-center col-md-12" href="#"><u>Email_Address@Here.com</u></a>
+                                <h4 class="user-name">${userInfo.firstName}</h4>
+                                <a class="email-address text-center col-md-12" href="#"><u>${userInfo.emailAddress}</u></a>
                             </div>
                             <div class="container user-information-container">
                                 <div id="prof-birthday">
                                     <label>Birthday:</label>
-                                    September 07 1994
+                                    ${userInfo.birthDate}
                                 </div>
                                 <hr class="dotted">
 
                                 <div id="prof-gender">
                                     <label>Gender:</label>
-                                    Male
+                                    ${userInfo.gender}
                                 </div>
                                 <hr class="dotted">
 
                                 <div id="prof-phon1">
                                     <label>Phone Number 1:</label>
-                                    123418727
+                                    ${userInfo.phoneNo1}
                                 </div>
                                 <hr class="dotted">
 
                                 <div id="prof-phon2">
                                     <label>Phone Number 2:</label>
-                                    1238718471
+                                    ${userInfo.phoneNo2}
                                 </div>
                                 <hr class="dotted">
 
                                 <div id="prof-Address">
                                     <label>address:</label>
-                                    hajsdjh 1273
+                                    ${userInfo.address}
                                 </div>
                                 <hr class="dotted">
                             </div>
@@ -87,7 +87,7 @@
 
                         <div class="button-group col-md-12 text-center">
                             <button class="btn btn-primary btn-md btn-purple" data-toggle="modal" data-target="#change-pass-modal" type="button">Change Password</button>
-                            <button class="btn btn-primary btn-md btn-purple" type="button">Update Information</button>
+                            <a class="btn btn-primary btn-md btn-purple" href="/user/update/${userId}">Update Information</a>
                         </div>
 
                     </div>
