@@ -21,32 +21,29 @@
 <section class="content">
     <c:import url="../../includes/top-nav.jsp"/>
 
-    <div class="row">
-        <div class="col col-lg-3"/>
-        <div class="col col-lg-3">
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Item Type</th>
-                    <th>Threshold</th>
-                    <th>Quantity</th>
+    <div class="warper container-fluid">
+        <div class="page-header">
+            <h1>Semi-Expendable
+                <small>DepEd-Baguio City Division Office</small>
+            </h1>
 
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${semiExpendables}" var="semiExpendable">
-                    <tr>
-                        <td>${semiExpendable.name}</td>
-                        <td>${semiExpendable.description}</td>
-                        <td>${semiExpendable.itemType}</td>
-                        <td>${semiExpendable.threshold}</td>
-                        <td>${semiExpendable.quantity}</td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
+        </div>
+
+        <div class="row item-body">
+
+            <c:forEach items="${semiExpendable}" var="semiExpendable">
+                <div class='col-xs-3 thumbnail item-content-thumbnail'>
+                    <img src="${resourceURL}/images/carousel/1.jpg" alt="1-jpg" width="304px" height="236px">
+                    <div class="item-infomation text-center">
+                        <h4>${semiExpendable.name}</h4>
+                        <label>Description:</label><p>${semiExpendable.description}</p>
+                        <label>Item Type:</label><p>${semiExpendable.itemType}</p>
+                        <label>Quantity:</label><p>${semiExpendable.quantity}</p>
+                        <button class="btn btn-md btn-purple">Add to cart</button>
+                        <button class="btn btn-md btn-danger">Check out</button>
+                    </div>
+                </div>
+            </c:forEach>
         </div>
     </div>
 
