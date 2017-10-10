@@ -1,6 +1,7 @@
 package com.deped.controller.pack;
 
 import com.deped.controller.AbstractMainController;
+import com.deped.model.Response;
 import com.deped.model.items.Pack;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -40,8 +41,6 @@ public class PackController extends AbstractMainController<Pack, Long> {
     public ModelAndView renderCreatePage(@Valid @ModelAttribute("pack") Pack entity) {
         ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE);
         return mv;
-
-
     }
 
     @Override
@@ -63,16 +62,22 @@ public class PackController extends AbstractMainController<Pack, Long> {
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
-    public ModelAndView renderUpdatePage(@PathVariable() Long aLong) {
-        ModelAndView mv = makeHintPage(UPDATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-        return mv;
+    public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
+        ResponseEntity<Pack> response = makeFetchByIdRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, aLong, Pack.class);
+        Pack pack = response.getBody();
+         return new ModelAndView(UPDATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+
     }
 
     @Override
-    @RequestMapping(value = UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(Long aLong, Pack entity) {
-        return null;
-    }
+    @RequestMapping(value = RENDER_UPDATE_MAPPING, method = POST)
+    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @Valid @ModelAttribute(value = "updatePack") Pack entity) {
+        entity.setPackId(aLong);
+        entity.setCreationDate(new Date());
+        ResponseEntity<Response> response = makeUpdateRestRequest(entity, BASE_ENTITY_URL_NAME, HttpMethod.POST);
+        ModelAndView mv = updateProcessing(response, UPDATE_VIEW_PAGE);
+        return mv;
+        }
 
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
