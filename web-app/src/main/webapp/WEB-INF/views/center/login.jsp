@@ -47,7 +47,9 @@
     </div>
 </div>
 
-<c:import url="../includes/footer.jsp" />
+<section class="navbar-fixed-bottom">
+    <c:import url="../includes/footer.jsp" />
+</section>
 <script src="${resourceURL}/js/additional/login.js" type="text/javascript"></script>
 </body>
 </html>

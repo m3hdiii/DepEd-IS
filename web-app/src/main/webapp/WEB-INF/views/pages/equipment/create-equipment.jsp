@@ -90,6 +90,26 @@
                                 <form:input path="modelNumber" type="number" class="form-control"/>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Equipment Color</label>
+                            <div class="col-sm-7">
+                                <form:select path="color" class="form-control chosen-select"
+                                             data-placeholder="Select a Category">
+                                    <!-- <option>Select a Category</option> -->
+                                    <form:option value="RED" cssClass="bg-red">Red</form:option>
+                                    <form:option value="BLUE" cssClass="bg-blue">Blue</form:option>
+                                    <form:option value="BLACK" cssClass="bg-black">Black</form:option>
+                                    <form:option value="WHITE">White</form:option>
+                                    <form:option value="GRAY" cssClass="bg-gray">Gray</form:option>
+                                    <form:option value="SILVER" cssClass="bg-silver">Silver</form:option>
+                                    <form:option value="PINK" cssClass="bg-pink">Pink</form:option>
+                                    <form:option value="YELLOW" cssClass="bg-yellow">Yellow</form:option>
+                                    <form:option value="BROWN" cssClass="bg-brown">Brown</form:option>
+                                    <form:option value="CREAM" cssClass="bg-cream">Cream</form:option>
+                                    <form:option value="ORANGE" cssClass="bg-orange">Orange</form:option>
+                                </form:select>
+                            </div>
+                        </div>
 
                         <hr class="style13">
                         <div class="form-group">
@@ -118,9 +138,10 @@
 
     </div>
 
-
+    <c:import url="../../modals/cart.jsp"/>
 </section>
-<c:import url="../../includes/footer.jsp"/>
-
+<section class="content">
+    <c:import url="../../includes/footer.jsp"/>
+</section>
 </body>
 </html>
