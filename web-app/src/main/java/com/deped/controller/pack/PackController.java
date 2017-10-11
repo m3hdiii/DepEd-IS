@@ -36,6 +36,8 @@ public class PackController extends AbstractMainController<Pack, Long> {
     private static final String UPDATE_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE + BASE_NAME;
     private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + BASE_NAME + LIST_PAGE;
 
+    private static final String BASE_ENTITY_URL_NAME = "pack";
+
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid @ModelAttribute("pack") Pack entity) {
