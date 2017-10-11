@@ -140,10 +140,6 @@ public class SectionController extends AbstractMainController<Section, Long> {
                 }
 
                 Long departmentId = Long.parseLong(text);
-
-//                Department department = new Department();
-//                department.setDepartmentId(departmentId);
-//                setValue(department);
                 RestTemplate restTemplate = new RestTemplate();
                 String restUrl = String.format(FETCH_BY_ID_URL, "department", departmentId);
                 ResponseEntity<Department> response = restTemplate.getForEntity(restUrl, Department.class);

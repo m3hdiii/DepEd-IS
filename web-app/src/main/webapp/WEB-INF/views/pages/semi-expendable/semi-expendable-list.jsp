@@ -12,8 +12,8 @@
 <c:url value="/public" var="resourceURL" scope="request"/>
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="Goods"/>
-    <c:param name="description" value="List of Goods"/>
+    <c:param name="title" value="Semi-Expendable Items"/>
+    <c:param name="description" value="List of Semi-Expendables"/>
 </c:import>
 <html>
 <body>
@@ -23,7 +23,7 @@
 
     <div class="warper container-fluid">
         <div class="page-header">
-            <h1>Goods
+            <h1>Semi-Expendable
                 <small>DepEd-Baguio City Division Office</small>
             </h1>
 
@@ -31,18 +31,18 @@
 
         <div class="row item-body">
 
-            <c:forEach items="${goods}" var="good">
-                    <div class='col-xs-3 thumbnail item-content-thumbnail'>
-                        <img src="${resourceURL}/images/carousel/1.jpg" alt="1-jpg" width="304px" height="236px">
-                        <div class="item-infomation text-center">
-                            <h4>${good.name}</h4>
-                            <label>Description:</label><p>${good.description}</p>
-                            <label>Item Type:</label><p>${good.itemType}</p>
-                            <label>Quantity:</label><p>${good.quantity}</p>
-                            <button class="btn btn-md btn-purple">Add to cart</button>
-                            <button class="btn btn-md btn-danger">Check out</button>
-                        </div>
+            <c:forEach items="${semiExpendable}" var="semiExpendable">
+                <div class='col-xs-3 thumbnail item-content-thumbnail'>
+                    <img src="${resourceURL}/images/carousel/1.jpg" alt="1-jpg" width="304px" height="236px">
+                    <div class="item-infomation text-center">
+                        <h4>${semiExpendable.name}</h4>
+                        <label>Description:</label><p>${semiExpendable.description}</p>
+                        <label>Item Type:</label><p>${semiExpendable.itemType}</p>
+                        <label>Quantity:</label><p>${semiExpendable.quantity}</p>
+                        <button class="btn btn-md btn-purple">Add to cart</button>
+                        <button class="btn btn-md btn-danger">Check out</button>
                     </div>
+                </div>
             </c:forEach>
         </div>
     </div>

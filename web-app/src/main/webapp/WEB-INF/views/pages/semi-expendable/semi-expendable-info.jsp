@@ -24,32 +24,33 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3>&nbsp;&nbsp;Information&nbsp;<small>&nbsp;for Semi Expandable</small>
+        <h3>&nbsp;&nbsp;Information&nbsp;<small>&nbsp;for Semi Expendable</small>
         </h3>
     </div>
     <div class="row">
-        <p>Name: ${semiExpandableInfo.name}</p>
+        <p>Name: ${semiExpendableInfo.name}</p>
     </div>
     <div class="row">
-        <p>Description: ${semiExpandableInfo.description}</p>
+        <p>Description: ${semiExpendableInfo.description}</p>
     </div>
     <div class="row">
-        <p>Item Type: ${semiExpandableInfo.itemType}</p>
+        <p>Item Type: ${semiExpendableInfo.itemType}</p>
     </div>
     <div class="row">
-        <p>Threshold: ${semiExpandableInfo.threshold}</p>
+        <p>Threshold: ${semiExpendableInfo.threshold}</p>
     </div>
 
     <div class="row">
-        <p>Quantity: ${semiExpandableInfo.quantity}</p>
+        <p>Quantity: ${semiExpendableInfo.quantity}</p>
     </div>
     <div>
-        <a href="/semi-expandable/update/${semiExpandableId}">update this item</a>
+        <a href="/semi-expendable/update/${semiExpendableId}">update this item</a>
     </div>
 
-
+    <c:import url="../../modals/cart.jsp"/>
 </section>
-<c:import url="../../includes/footer.jsp"/>
-
+<section class="content">
+    <c:import url="../../includes/footer.jsp"/>
+</section>
 </body>
 </html>

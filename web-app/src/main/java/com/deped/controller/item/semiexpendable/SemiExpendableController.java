@@ -1,4 +1,4 @@
-package com.deped.controller.item.semiexpandable;
+package com.deped.controller.item.semiexpendable;
 
 import com.deped.controller.AbstractMainController;
 import com.deped.model.Response;
@@ -21,9 +21,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
-public class SemiExpandableController extends AbstractMainController<Item, Long> {
+public class SemiExpendableController extends AbstractMainController<Item, Long> {
 
-    private static final String BASE_NAME = "semi-expandable";
+    private static final String BASE_NAME = "semi-expendable";
     private static final String CREATE_MAPPING = BASE_NAME + CREATE_PATTERN;
     private static final String UPDATE_MAPPING = BASE_NAME + UPDATE_PATTERN;
     private static final String RENDER_UPDATE_MAPPING = BASE_NAME + RENDER_UPDATE_PATTERN;
@@ -41,14 +41,14 @@ public class SemiExpandableController extends AbstractMainController<Item, Long>
     private static final String BASE_ENTITY_URL_NAME = "item";
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
-    public ModelAndView renderCreatePage(@ModelAttribute("semiExpandable") Item entity) {
+    public ModelAndView renderCreatePage(@ModelAttribute("semiExpendable") Item entity) {
         return new ModelAndView(CREATE_VIEW_PAGE);
     }
 
 
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = POST)
-    public ModelAndView createAction(@Valid @ModelAttribute("semiExpandable") Item entity) {
+    public ModelAndView createAction(@Valid @ModelAttribute("semiExpendable") Item entity) {
         entity.setCreationDate(new Date());
         ResponseEntity<Item> response = makeCreateRestRequest(entity, "item", HttpMethod.POST, Item.class);
         ModelAndView mv = createProcessing(response, CREATE_VIEW_PAGE);
@@ -59,7 +59,7 @@ public class SemiExpandableController extends AbstractMainController<Item, Long>
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
     public ModelAndView renderInfo(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<Item> response = makeFetchByIdRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, aLong, Item.class);
-        ModelAndView mv = renderProcessing(response, aLong, "semiExpandable", INFO_VIEW_PAGE);
+        ModelAndView mv = renderProcessing(response, aLong, "semiExpendable", INFO_VIEW_PAGE);
         return mv;
     }
 
@@ -68,12 +68,12 @@ public class SemiExpandableController extends AbstractMainController<Item, Long>
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<Item> response = makeFetchByIdRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, aLong, Item.class);
         Item item = response.getBody();
-        return new ModelAndView(UPDATE_VIEW_PAGE, "updateSemiExpandable", item);
+        return new ModelAndView(UPDATE_VIEW_PAGE, "updateSemiExpendable", item);
     }
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @Valid @ModelAttribute("updateSemiExpandable") Item entity) {
+    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @Valid @ModelAttribute("updateSemiExpendable") Item entity) {
         entity.setItemId(aLong);
         //This is actually the update date
         entity.setCreationDate(new Date());
@@ -85,9 +85,9 @@ public class SemiExpandableController extends AbstractMainController<Item, Long>
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        ResponseEntity<List<Item>> response = makeFetchAllRestRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Item>>() {
+        ResponseEntity<List<Item>> response = makeFetchAllRestRequest(BASE_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Item>>() {
         });
-        ModelAndView mv = listProcessing(response, "semiExpandables", LIST_VIEW_PAGE);
+        ModelAndView mv = listProcessing(response, "semiExpendables", LIST_VIEW_PAGE);
         return mv;
     }
 

@@ -118,12 +118,15 @@
                                 <form:input path="threshold" type="number" class="form-control"/>
                             </div>
                         </div>
+
+                        <%--
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Quantity</label>
                             <div class="col-sm-2">
                                 <form:input path="quantity" type="number" class="form-control"/>
                             </div>
                         </div>
+                        --%>
 
                         <hr class="style13">
 
@@ -144,8 +147,11 @@
         </div>
 
     </div>
+
+    <c:import url="../../modals/cart.jsp"/>
+</section>
+<section class="content">
     <c:import url="../../includes/footer.jsp"/>
 </section>
-
 </body>
 </html>

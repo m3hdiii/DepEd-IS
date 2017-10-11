@@ -23,33 +23,42 @@
 
     <c:import url="../../includes/top-nav.jsp"/>
 
-    <div class="page-header">
-        <h3> Edit </h3>
+    <div class="row">
+        <div class="col col-lg-3"/>
+        <div class="col col-lg-3">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Equipment Status</th>
+                    <th>Model Number</th>
+                    <th>Color</th>
+                    <th>Purchase Price</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${equipment}" var="equipment">
+                    <tr>
+                        <td>${equipment.name}</td>
+                        <td>${equipment.description}</td>
+                        <td>${equipment.equipmentStatus}</td>
+                        <td>${equipment.modelNumber}</td>
+                        <td>${equipment.color}</td>
+                        <td>${equipment.purchasePrice}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+    <c:import url="../../modals/cart.jsp"/>
 </section>
-<c:import url="../../includes/footer.jsp"/>
-
+<section class="content">
+    <c:import url="../../includes/footer.jsp"/>
+</section>
 </body>
 </html>
 

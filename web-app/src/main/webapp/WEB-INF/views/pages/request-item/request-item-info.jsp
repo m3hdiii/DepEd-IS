@@ -49,8 +49,10 @@
     </p>
 
 
+    <c:import url="../../modals/cart.jsp"/>
 </section>
-<c:import url="../../includes/footer.jsp"/>
-
+<section class="content">
+    <c:import url="../../includes/footer.jsp"/>
+</section>
 </body>
 </html>

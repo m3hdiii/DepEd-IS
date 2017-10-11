@@ -16,7 +16,7 @@
                         class="caret"></span></a>
                 <ul role="menu" class="dropdown-menu">
                     <li><a href="/goods/list">Goods</a></li>
-                    <li><a href="/semi-expandable/list">Semi-Expendables</a></li>
+                    <li><a href="/semi-expendable/list">Semi-Expendables</a></li>
                     <li class="divider">
                     <li><a href="#">Computer Peripehrals</a></li>
                     <li><a href="#">Data Storage</a></li>

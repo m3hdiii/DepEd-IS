@@ -25,52 +25,79 @@
 
     <nav class="navigation">
         <ul class="list-unstyled">
-            <li class="active"><a href="dashboard"><i class="fa fa-bookmark-o"></i><span class="nav-label">Dashboard</span></a>
+            <li class="active"><a href="/dashboard"><span
+                    class="nav-label">Dashboard</span></a>
             </li>
-            <li class="has-submenu"><a href="#"><i class="fa fa-user"></i> <span
-                    class="nav-label">Profile</span></a>
+            <li class="has-submenu"><a href="#"><span class="nav-label">Profile</span></a>
                 <ul class="list-unstyled">
-                    <li><a href="/profile">User Profile</a></li>
-                    <li><a href="/edituserprofile">Update User Profile</a></li>
-                    <li><a href="/UserSearch.html">Search a User</a></li>
+                    <li><a href="/user/1">User Profile</a></li>
+                    <li><a href="/user/update/1">Update User Profile</a></li>
+                    <li><a href="/user/list">Search a User</a></li>
                 </ul>
             </li>
-            <li class="has-submenu"><a href="#"><i class="fa fa-file-text-o"></i> <span
-                    class="nav-label">Item</span></a>
+            <!--
+            <li class="has-submenu"><a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">Item</span></a>
                 <ul class="list-unstyled">
                     <li><a href="">Item Registration</a></li>
                     <li><a href="/item-list">List of all Items</a></li>
                     <li><a href="/goods/list">Goods</a></li>
-                    <li><a href="/semi-expandable/lists">Semi-Expendables</a></li>
+                    <li><a href="/semi-expendable/lists">Semi-Expendables</a></li>
                     <li><a href="/equipment/list">Equipment</a></li>
                 </ul>
             </li>
+            -->
+            <!--
             <li class="has-submenu"><a href="#"><i class="fa fa-comment-o"></i> <span class="nav-label">Manage Notifications</span></a>
                 <ul class="list-unstyled">
                     <li><a href="UserNotifications.html">View Notifications</a></li>
                     <li><a href="GenerateNotification.html">Send Notifications</a></li>
                 </ul>
             </li>
-            <li class="has-submenu"><a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Request Management
-                </span></a>
+            -->
+            <li class="has-submenu"><a href="#"></i><span
+                    class="nav-label">User Management</span></a>
                 <ul class="list-unstyled">
-                    <li><a href="">Request for an Item</a></li>
-                    <li><a href="">View Request History</a></li>
+                    <li><a href="/user/create">Create User</a></li>
+                    <li><a href="/user/update/1">Update User Information</a></li>
+                    <li><a href="/user/1">View User</a></li>
+                    <li><a href="/user/list">List of Users</a></li>
                 </ul>
             </li>
-            <li class="has-submenu"><a href="#"><i class="fa fa-book"></i> <span class="nav-label">User Reports &
-                Statistics</span></a>
+            <li class="has-submenu"><a href="#"> <span class="nav-label">Request Management</span></a>
                 <ul class="list-unstyled">
-                    <li><a href="UserReports.html">View User Report</a></li>
-                    <li><a href="GenerateReports">Generate User Report</a></li>
+                    <li><a href="/borrow-request/create">Request for an Equipment</a></li>
+                    <li><a href="/request-item/create">Request for Goods</a></li>
+                    <li><a href="/request-item/create">Request for Semi-Expendables</a></li>
+                    <li><a href="/request-item/update">Manage an Item Request</a></li>
+                    <li><a href="/request-item/1">View Item Request Info</a></li>
+                    <li><a href="/request-item/list">List of all Item Requests</a></li>
+                </ul>
+            </li>
+            <!--
+            <li class="has-submenu"><a href="#"><i class="fa fa-book"></i><span class="nav-label">Item Management</span></a>
+             -->
+            <li class="has-submenu"><a href="#"><span class="nav-label">Item Information</span></a>
+                <ul class="list-unstyled">
+                    <li><a href="/equipment-info/update/1">Update Equipment Info</a></li>
+                    <li><a href="/goods/update/1">Update Goods Info</a></li>
+                    <li><a href="/semi-expendable/update/3">Update Semi-Expendable Info</a></li>
+                    <li><a href="/brand/update/1">Update Item Brand Info</a></li>
+                    <li><a href="/category/update/1">Update Item Category</a></li>
+                    <li><a href="/pack/update/1">Update Item Package</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu"><a href="#"><span class="nav-label">Item Creation</span></a>
+                <ul class="list-unstyled">
+                    <li><a href="/brand/create">Create Equipment</a></li>
+                    <li><a href="/goods/create">Create Goods</a></li>
+                    <li><a href="/semi-expendable/create">Create Semi-Expendables</a></li>
+                    <li><a href="/brand/create">Create an Item Brand</a></li>
+                    <li><a href="/category/create">Create an Item Category</a></li>
+                    <li><a href="/pack/create">Create Item Package</a></li>
                 </ul>
             </li>
             <li class="has-submenu"><a href="#"><i class="fa fa-sign-out"></i> <span class="nav-label">Logout</span></a>
-                <ul class="list-unstyled">
-                    <!-- sub pages must be added here -->
-                </ul>
             </li>
         </ul>
     </nav>
-
 </aside>

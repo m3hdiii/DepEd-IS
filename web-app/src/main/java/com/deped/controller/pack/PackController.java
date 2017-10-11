@@ -3,17 +3,27 @@ package com.deped.controller.pack;
 import com.deped.controller.AbstractMainController;
 import com.deped.model.Response;
 import com.deped.model.items.Pack;
+import com.deped.model.items.semigoods.Item;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.JstlView;
 
 import javax.validation.Valid;
 
+import java.beans.PropertyEditorSupport;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -36,12 +46,14 @@ public class PackController extends AbstractMainController<Pack, Long> {
     private static final String UPDATE_VIEW_PAGE = BASE_SHOW_PAGE + UPDATE_PAGE + BASE_NAME;
     private static final String LIST_VIEW_PAGE = BASE_SHOW_PAGE + BASE_NAME + LIST_PAGE;
 
-    private static final String BASE_ENTITY_URL_NAME = "pack";
-
     @Override
     @RequestMapping(value = CREATE_MAPPING, method = GET)
     public ModelAndView renderCreatePage(@Valid @ModelAttribute("pack") Pack entity) {
-        ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE);
+        List<Item> items = fetchAllItems();
+        HashMap<String, Object> modelMap = new HashMap<>();
+        modelMap.put(BASE_NAME, entity);
+        modelMap.put("items", items);
+        ModelAndView mv = new ModelAndView(CREATE_VIEW_PAGE, modelMap);
         return mv;
     }
 
@@ -58,33 +70,39 @@ public class PackController extends AbstractMainController<Pack, Long> {
     @RequestMapping(value = RENDER_BY_ID_MAPPING, method = GET)
     public ModelAndView renderInfo(@PathVariable(ID_STRING_LITERAL) Long aLong) {
         ResponseEntity<Pack> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Pack.class);
-        ModelAndView mv = makeHintPage(INFO_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        ModelAndView mv = renderProcessing(response, aLong, BASE_NAME, INFO_VIEW_PAGE);
         return mv;
     }
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = GET)
     public ModelAndView renderUpdatePage(@PathVariable(ID_STRING_LITERAL) Long aLong) {
-        ResponseEntity<Pack> response = makeFetchByIdRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, aLong, Pack.class);
+        ResponseEntity<Pack> response = makeFetchByIdRequest(BASE_NAME, HttpMethod.POST, aLong, Pack.class);
         Pack pack = response.getBody();
-         return new ModelAndView(UPDATE_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
-
+        HashMap<String, Object> modelMap = new HashMap<>();
+        modelMap.put(BASE_NAME, pack);
+        List<Item> items = fetchAllItems();
+        modelMap.put("items", items);
+        return new ModelAndView(UPDATE_VIEW_PAGE, modelMap);
     }
 
     @Override
     @RequestMapping(value = RENDER_UPDATE_MAPPING, method = POST)
-    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @Valid @ModelAttribute(value = "updatePack") Pack entity) {
+    public ModelAndView updateAction(@PathVariable(ID_STRING_LITERAL) Long aLong, @ModelAttribute(BASE_NAME) Pack entity) {
         entity.setPackId(aLong);
+        //This is actually the update date
         entity.setCreationDate(new Date());
-        ResponseEntity<Response> response = makeUpdateRestRequest(entity, BASE_ENTITY_URL_NAME, HttpMethod.POST);
+        ResponseEntity<Response> response = makeUpdateRestRequest(entity, BASE_NAME, HttpMethod.POST);
         ModelAndView mv = updateProcessing(response, UPDATE_VIEW_PAGE);
         return mv;
-        }
+    }
 
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        ModelAndView mv = makeHintPage(LIST_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        ResponseEntity<List<Pack>> response = makeFetchAllRestRequest(BASE_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Pack>>() {
+        });
+        ModelAndView mv = listProcessing(response, "packs", LIST_VIEW_PAGE);
         return mv;
     }
 
@@ -99,4 +117,34 @@ public class PackController extends AbstractMainController<Pack, Long> {
     public ModelAndView removeAction(@Valid Pack... entity) {
         return null;
     }
+
+    private List<Item> fetchAllItems() {
+        RestTemplate restTemplate = new RestTemplate();
+        String restUrl;
+        restUrl = String.format(FETCH_URL, "item");
+        ResponseEntity<List<Item>> response = restTemplate.exchange(restUrl, HttpMethod.POST, null, new ParameterizedTypeReference<List<Item>>() {
+        });
+        return response.getBody();
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder, WebRequest request) {
+
+        binder.registerCustomEditor(Item.class, "item", new PropertyEditorSupport() {
+            @Override
+            public void setAsText(String text) {
+                if (text == null || text.length() == 0) {
+                    return;
+                }
+
+                Long departmentId = Long.parseLong(text);
+                RestTemplate restTemplate = new RestTemplate();
+                String restUrl = String.format(FETCH_BY_ID_URL, "item", departmentId);
+                ResponseEntity<Item> response = restTemplate.getForEntity(restUrl, Item.class);
+                Item department = response.getBody();
+                setValue((text.equals("")) ? null : department);
+            }
+        });
+    }
+
 }

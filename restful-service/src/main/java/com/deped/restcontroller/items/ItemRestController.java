@@ -4,7 +4,6 @@ import com.deped.model.Response;
 import com.deped.model.items.semigoods.Item;
 import com.deped.repository.utils.Range;
 import com.deped.restcontroller.AbstractMainRestController;
-import com.deped.model.Operation;
 import com.deped.service.items.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +21,10 @@ public class ItemRestController extends AbstractMainRestController<Item, Long> {
     private static final String FETCH_BY_RANGE_MAPPING = BASE_NAME + FETCH_PATTERN + RANGE_PATTERN;
     private static final String FETCH_BY_ID_MAPPING = BASE_NAME + FETCH_BY_ID_PATTERN;
     private static final String REMOVE_MAPPING = BASE_NAME + REMOVE_PATTERN;
+
+    private static final String FETCH_GOODS_MAPPING = "goods" + FETCH_PATTERN;
+    private static final String FETCH_SEMI_EXPENDABLE_MAPPING = "semi-expendable" + FETCH_PATTERN;
+
     @Autowired
     private ItemService itemService;
 
@@ -64,6 +67,19 @@ public class ItemRestController extends AbstractMainRestController<Item, Long> {
     @RequestMapping(value = REMOVE_MAPPING, method = RequestMethod.POST)
     public ResponseEntity<Response> remove(@RequestBody Item... entities) {
         ResponseEntity<Response> response = itemService.remove(entities);
+        return response;
+    }
+
+    @RequestMapping(value = FETCH_GOODS_MAPPING, method = RequestMethod.POST)
+    public ResponseEntity<List<Item>> fetchAllGoods() {
+        ResponseEntity<List<Item>> response = itemService.fetchAllGoods();
+        return response;
+    }
+
+
+    @RequestMapping(value = FETCH_SEMI_EXPENDABLE_MAPPING, method = RequestMethod.POST)
+    public ResponseEntity<List<Item>> fetchAllSemiExpendable() {
+        ResponseEntity<List<Item>> response = itemService.fetchAllSemiExpendable();
         return response;
     }
 }

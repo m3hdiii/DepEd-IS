@@ -1,16 +1,17 @@
 package com.deped.repository.items;
 
 import com.deped.model.items.semigoods.Item;
+import com.deped.model.items.semigoods.ItemType;
 import com.deped.repository.utils.HibernateFacade;
 import com.deped.repository.utils.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import static com.deped.repository.utils.ConstantValues.FETCH_ALL_ITEMS;
-import static com.deped.repository.utils.ConstantValues.ITEM_TABLE;
-import static com.deped.repository.utils.ConstantValues.ITEM_TABLE_ID;
+import static com.deped.repository.utils.ConstantValues.*;
 
 @Repository
 public class ItemRepositoryImpl implements ItemRepository {
@@ -52,5 +53,21 @@ public class ItemRepositoryImpl implements ItemRepository {
     public Boolean remove(Item... entities) {
         Boolean isItemDeleted = hibernateFacade.removeEntities(ITEM_TABLE, ITEM_TABLE_ID, entities);
         return isItemDeleted;
+    }
+
+    @Override
+    public List<Item> fetchAllGoods() {
+        Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("itemType", ItemType.GOODS);
+        List<Item> items = hibernateFacade.fetchAllByParameterMap(FETCH_ALL_ITEMS_BY_TYPE, Item.class, parameterMap);
+        return items;
+    }
+
+    @Override
+    public List<Item> fetchAllSemiExpendable() {
+        Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("itemType", ItemType.SEMI_EXPENDABLE);
+        List<Item> items = hibernateFacade.fetchAllByParameterMap(FETCH_ALL_ITEMS_BY_TYPE, Item.class, parameterMap);
+        return items;
     }
 }

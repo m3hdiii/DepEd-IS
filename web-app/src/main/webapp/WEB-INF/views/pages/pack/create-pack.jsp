@@ -24,7 +24,7 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3>&nbsp;&nbsp;&nbspItem Registration&nbsp;<small>&nbsp;for Pack</small>
+        <h3>&nbsp;&nbsp;&nbspPackage Registration&nbsp;<small>&nbsp;for an Item</small>
         </h3>
     </div>
 
@@ -59,12 +59,29 @@
                             </div>
                         </div>
 
-                        <hr class="style13">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Description</label>
                             <div class="col-lg-7">
                                 <form:textarea path="description" class="col-sm-7 form-control typeahead"
                                                placeholder="enter description here..." rows="7"></form:textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Capacity:</label>
+                            <div class="col-lg-7">
+                                <form:input type="number" path="capacity" class="col-sm-7 form-control typeahead"
+                                            placeholder="enter description here..." rows="7"/>
+                            </div>
+                        </div>
+
+                        <hr class="style13">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">This Package is for Item</label>
+                            <div class="col-lg-7">
+                                <form:select path="item">
+                                    <form:options items="${items}" itemValue="itemId" itemLabel="name"/>
+                                </form:select>
                             </div>
                         </div>
 
@@ -87,10 +104,10 @@
 
     </div>
 
-
-
+    <c:import url="../../modals/cart.jsp"/>
 </section>
-<c:import url="../../includes/footer.jsp"/>
-
+<section class="content">
+    <c:import url="../../includes/footer.jsp"/>
+</section>
 </body>
 </html>

@@ -77,11 +77,13 @@
         <!-- NEXT ROW -->
 
         <div class="row">
-            <p class="col col-lg-3"><a href="/semi-expandable/create">Create Semi Expandable</a>&nbsp;<img width="20"
+            <p class="col col-lg-3"><a href="/semi-expendable/create">Create Semi Expendable</a>&nbsp;<img width="20"
                                                                                                            height="20"
                                                                                                            src="${resourceURL}/images/check.png"/>
             </p>
-            <p class="col col-lg-3"><a href="/pack/create">Create Pack</a></p>
+            <p class="col col-lg-3"><a href="/pack/create">Create Pack</a>&nbsp;<img width="20" height="20"
+                                                                                     src="${resourceURL}/images/check.png"/>
+            </p>
             <p class="col col-lg-3"><a href="/department/create">Create Department</a>&nbsp;<img width="20" height="20"
                                                                                                  src="${resourceURL}/images/check.png"/>
             </p>
@@ -90,9 +92,11 @@
             </p>
         </div>
         <div class="row">
-            <p class="col col-lg-3"><a href="/semi-expandable/update/3">Update Semi Expandable 3</a>&nbsp;<img
+            <p class="col col-lg-3"><a href="/semi-expendable/update/3">Update Semi Expendable 3</a>&nbsp;<img
                     width="20" height="20" src="${resourceURL}/images/check.png"/></p>
-            <p class="col col-lg-3"><a href="/pack/update/1">Update Pack 1</a></p>
+            <p class="col col-lg-3"><a href="/pack/update/1">Update Pack 1</a>&nbsp;<img width="20" height="20"
+                                                                                         src="${resourceURL}/images/check.png"/>
+            </p>
             <p class="col col-lg-3"><a href="/department/update/1">Update Department 1</a>&nbsp;<img width="20"
                                                                                                      height="20"
                                                                                                      src="${resourceURL}/images/check.png"/>
@@ -102,11 +106,13 @@
             </p>
         </div>
         <div class="row">
-            <p class="col col-lg-3"><a href="/semi-expandable/1">Semi Expandable 3 Info</a>&nbsp;<img width="20"
+            <p class="col col-lg-3"><a href="/semi-expendable/3">Semi Expendable 3 Info</a>&nbsp;<img width="20"
                                                                                                       height="20"
                                                                                                       src="${resourceURL}/images/check.png"/>
             </p>
-            <p class="col col-lg-3"><a href="/pack/1">Pack 1 Info</a></p>
+            <p class="col col-lg-3"><a href="/pack/1">Pack 1 Info</a>&nbsp;<img width="20" height="20"
+                                                                                src="${resourceURL}/images/check.png"/>
+            </p>
             <p class="col col-lg-3"><a href="/department/1">Department 1 Info</a>&nbsp;<img width="20" height="20"
                                                                                             src="${resourceURL}/images/check.png"/>
             </p>
@@ -115,11 +121,13 @@
             </p>
         </div>
         <div class="row">
-            <p class="col col-lg-3"><a href="/semi-expandable/list">Semi Expandable List</a>&nbsp;<img width="20"
+            <p class="col col-lg-3"><a href="/semi-expendable/list">Semi Expendable List</a>&nbsp;<img width="20"
                                                                                                        height="20"
                                                                                                        src="${resourceURL}/images/check.png"/>
             </p>
-            <p class="col col-lg-3"><a href="/pack/list">Pack List</a></p>
+            <p class="col col-lg-3"><a href="/pack/list">Pack List</a>&nbsp;<img width="20" height="20"
+                                                                                 src="${resourceURL}/images/check.png"/>
+            </p>
             <p class="col col-lg-3"><a href="/department/list">Department List</a>&nbsp;<img width="20" height="20"
                                                                                              src="${resourceURL}/images/check.png"/>
             </p>

@@ -118,7 +118,7 @@ public class User implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creation_date", updatable = false)
-    private Date createdDate;
+    private Date creationDate;
 
     @Column(name = "referrer_name")
     private String referrerName;
@@ -142,8 +142,6 @@ public class User implements Serializable {
     @Formula("lower(datediff(curdate(), birth_date)/365)")
     private Integer age;
 
-    private Date creationDate;
-
 
     public User() {
     }
@@ -152,7 +150,7 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
-    public User(String username, String password, AccountStatus accountStatus, String firstName, String lastName, String middleName, String emailAddress, String phoneNo1, String phoneNo2, Gender gender, Date birthDate, Date employmentDate, Position position, String address, String website, byte[] picture, Date createdDate, String referrerName, String referrerAddress, String referrerPhoneNo1, String referrerPhoneNo2, Section section, Integer age) {
+    public User(String username, String password, AccountStatus accountStatus, String firstName, String lastName, String middleName, String emailAddress, String phoneNo1, String phoneNo2, Gender gender, Date birthDate, Date employmentDate, Position position, String address, String website, byte[] picture, Date creationDate, String referrerName, String referrerAddress, String referrerPhoneNo1, String referrerPhoneNo2, Section section, Integer age) {
         this.username = username;
         this.password = password;
         this.accountStatus = accountStatus;
@@ -169,7 +167,7 @@ public class User implements Serializable {
         this.address = address;
         this.website = website;
         this.picture = picture;
-        this.createdDate = createdDate;
+        this.creationDate = creationDate;
         this.referrerName = referrerName;
         this.referrerAddress = referrerAddress;
         this.referrerPhoneNo1 = referrerPhoneNo1;
@@ -314,14 +312,6 @@ public class User implements Serializable {
         this.picture = picture;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
     public String getReferrerName() {
         return referrerName;
     }
@@ -377,4 +367,5 @@ public class User implements Serializable {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
+
 }

@@ -88,9 +88,9 @@ public class GoodsController extends AbstractMainController<Item, Long> {
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        ResponseEntity<List<Item>> response = makeFetchAllRestRequest(BASE_ENTITY_URL_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Item>>() {
+        ResponseEntity<List<Item>> response = makeFetchAllRestRequest(BASE_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Item>>() {
         });
-        ModelAndView mv = listProcessing(response, "goods", LIST_VIEW_PAGE);
+        ModelAndView mv = listProcessing(response, BASE_NAME, LIST_VIEW_PAGE);
         return mv;
     }
 
