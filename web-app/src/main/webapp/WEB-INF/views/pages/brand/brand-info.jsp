@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Brand Info"/>
+    <c:param name="description" value="Brand Info Page"/>
 </c:import>
 
 <body>
@@ -24,33 +24,37 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Brand Info </h3>
+        <h3> &nbsp; Brand Info </h3>
     </div>
 
     <div class="row">
-        <p>Name: ${brandInfo.name}</p>
-    </div>
-    <div class="row">
-        <p>Description: ${brandInfo.description}</p>
-    </div>
-    <div class="row">
-        <p>Contact Number: ${brandInfo.contactNumber}</p>
-    </div>
-    <div class="row">
-        <p>Contact Number 2: ${brandInfo.contactNumber2}</p>
-    </div>
-
-    <div class="row">
-        <p>Central Office Address: ${brandInfo.centralOfficeAddress}</p>
-    </div>
-
-    <div class="row">
-        <p>Service Center Address: ${brandInfo.serviceCenterAddress}</p>
-    </div>
-
-
-    <div>
-        <a href="/brand/update/${brandId}">update the Brand</a>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-11">
+                        <p>Name: ${brandInfo.name}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p>Description: ${brandInfo.description}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p>Contact Number: ${brandInfo.contactNumber}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p>Contact Number 2: ${brandInfo.contactNumber2}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p>Central Office Address: ${brandInfo.centralOfficeAddress}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p>Service Center Address: ${brandInfo.serviceCenterAddress}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block"> <a href="/brand/update/${brandId}"> Update Info </a> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <c:import url="../../modals/cart.jsp"/>

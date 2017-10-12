@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Create Brand"/>
+    <c:param name="description" value="Create Brand Page"/>
 </c:import>
 
 <body>
@@ -23,27 +23,84 @@
 
     <c:import url="../../includes/top-nav.jsp"/>
 
-    <c:choose>
-        <c:when test="${not empty notCreated}">
-            <p style="color: red;">${notCreated}</p>
-        </c:when>
+    <div class="page-header">
+        <h3> &nbsp; Create Brand </h3>
+    </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <c:choose>
+                        <c:when test="${not empty notCreated}">
+                            <p style="color: red;">${notCreated}</p>
+                        </c:when>
+                        <c:when test="${not empty successfullyCreated}">
+                            <p style="color: green;">${successfullyCreated}</p>
+                            &nbsp;&nbsp;<a href="/brand/create">Create New Brand</a>
+                        </c:when>
+                    </c:choose>
 
-        <c:when test="${not empty successfullyCreated}">
-            <p style="color: green;">${successfullyCreated}</p>
-            &nbsp;&nbsp;<a href="/brand/create">Create New Brand</a>
-        </c:when>
+                    <form:form commandName="brand" method="post" class="form-horizontal">
 
-    </c:choose>
-    <form:form commandName="brand" method="post">
-        <p><span>name: </span><form:input path="name"/></p>
-        <p><span>description: </span><form:textarea path="description"/></p>
-        <p><span>contact number: </span><form:input path="contactNumber"/></p>
-        <p><span>contact number2: </span><form:input path="contactNumber2"/></p>
-        <p><span>central office address: </span><form:input path="centralOfficeAddress"/></p>
-        <p><span>service center address: </span><form:input path="serviceCenterAddress"/></p>
-        <button type="submit">Create Brand</button>
-    </form:form>
+                        <p>
+                        <div class="form-group">
+                            <label class="col-sm-2"> Name: </label>
+                            <form:input path="name" class="col-md-4"/>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class="form-group">
+                            <label class="col-sm-2"> Description: </label>
+                            <form:textarea path="description" class="col-md-4"/>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class="form-group">
+                            <label class="col-sm-2"> Contact Number: </label>
+                            <form:input path="contactNumber" class="col-md-3"/>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class="form-group">
+                            <label class="col-sm-2"> Contact Number 2: </label>
+                            <form:input path="contactNumber2" class="col-md-3"/>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class="form-group">
+                            <label class="col-sm-2"> Central Office Address: </label>
+                            <form:input path="centralOfficeAddress" class="col-md-4"/>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class="form-group">
+                            <label class="col-sm-2"> Service Center Address: </label>
+                            <form:input path="serviceCenterAddress" class="col-md-4"/>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-green"> Create Brand </button>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="reset" class="btn btn-green"> Reset </button>
+                            </div>
+                        </div>
+                        </p>
+
+                    </form:form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <c:import url="../../modals/cart.jsp"/>
 </section>
