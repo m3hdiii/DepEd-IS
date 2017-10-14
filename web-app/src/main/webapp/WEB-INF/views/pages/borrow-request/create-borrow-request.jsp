@@ -23,30 +23,27 @@
 
     <c:import url="../../includes/top-nav.jsp"/>
 
-    <div class="page-header">
-        <h3> Edit </h3>
-    </div>
+    <c:choose>
+        <c:when test="${not empty notCreated}">
+            <p style="color: red;">${notCreated}</p>
+        </c:when>
 
-    <p>
-        JSP location:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        WEB-INF/views/<c:out value="${jspLocation}"/>.jsp
-    </p>
-    <hr>
-    <p>
-        Controller Class:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${controllerClazz}
-    </p>
-    <hr>
-    <p>
-        Method Name:
-    </p>
-    <p style="color: red; font-weight: bold;">
-        ${methodName}
-    </p>
+
+        <c:when test="${not empty successfullyCreated}">
+            <p style="color: green;">${successfullyCreated}</p>
+            &nbsp;&nbsp;<a href="/borrow-request/create">Create New Borrow Request</a>
+        </c:when>
+
+    </c:choose>
+    <form:form commandName="borrowRequest" method="post">
+        <p><span>Description: </span><form:textarea path="description"/></p>
+        <p><span>Request Date: </span><form:input path="requestDate"/></p>
+        <p><span>Approval Date: </span><form:input path="approvalDate"/></p>
+        <p><span>Release Date: </span><form:input path="releaseDate"/></p>
+        <p><span>Borrow Status: </span><form:input path="borrowStatus"/></p>
+        <p><span>Disapproval Message: </span><form:input path="disapprovalMessage"/></p>
+        <button type="submit">Create Borrow Request</button>
+    </form:form>
 
 
     <c:import url="../../modals/cart.jsp"/>

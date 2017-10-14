@@ -24,7 +24,7 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Edit </h3>
+        <h3> Supply List </h3>
     </div>
 
     <p>
@@ -47,6 +47,30 @@
     <p style="color: red; font-weight: bold;">
         ${methodName}
     </p>
+
+    <div class="row">
+        <div class="col col-lg-3"/>
+        <div class="col col-lg-9">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Supply ID</th>
+                    <th>Description</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${supplies}" var="supply">
+                    <tr>
+                        <td>${supply.supplyId}</td>
+                        <td>${supply.description}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <c:import url="../../modals/cart.jsp"/>
 </section>
