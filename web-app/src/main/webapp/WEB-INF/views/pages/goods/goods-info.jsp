@@ -11,7 +11,7 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
+    <c:param name="title" value="Goods Info"/>
     <c:param name="description" value="Goods Information"/>
 </c:import>
 
@@ -27,24 +27,33 @@
         <h3>&nbsp;&nbsp;Information&nbsp;<small>&nbsp;for Goods</small>
         </h3>
     </div>
-    <div class="row">
-        <p>Name: ${goodsInfo.name}</p>
-    </div>
-    <div class="row">
-        <p>Description: ${goodsInfo.description}</p>
-    </div>
-    <div class="row">
-        <p>Item Type: ${goodsInfo.itemType}</p>
-    </div>
-    <div class="row">
-        <p>Threshold: ${goodsInfo.threshold}</p>
-    </div>
 
     <div class="row">
-        <p>Quantity: ${goodsInfo.quantity}</p>
-    </div>
-    <div>
-        <a href="/goods/update/${goodsId}">update this item</a>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-11">
+                        <p> <label class="col-sm-2"> Name: </label> ${goodsInfo.name}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p> <label class="col-sm-2"> Description: </label> ${goodsInfo.description}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p> <label class="col-sm-2"> Item Type: </label> ${goodsInfo.itemType}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p> <label class="col-sm-2"> Threshold: </label> ${goodsInfo.threshold}</p>
+                    </div>
+
+                    <div class="col-md-11">
+                        <p> <label class="col-sm-2"> Quantity: </label> ${goodsInfo.quantity}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-green"> <a href="/goods/update/${goodsId}"> Update Info </a> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <c:import url="../../modals/cart.jsp"/>
