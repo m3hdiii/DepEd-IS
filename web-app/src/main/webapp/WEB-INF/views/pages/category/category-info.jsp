@@ -32,13 +32,13 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-11">
-                        <p>Name: ${categoryInfo.name}</p>
+                        <p> <label class="col-sm-2"> Name: </label> ${categoryInfo.name}</p>
                     </div>
                     <div class="col-md-11">
-                        <p>Description: ${categoryInfo.description}</p>
+                        <p> <label class="col-sm-2"> Description: </label> ${categoryInfo.description}</p>
                     </div>
                     <div class="col-md-11">
-                        <p>Parent Name: ${categoryInfo.parentCategory.name}</p>
+                        <p> <label class="col-sm-2"> Parent Name: </label> ${categoryInfo.parentCategory.name}</p>
                     </div>
                     <div class="col-md-3">
                         <button type="button" class="btn btn-block"> <a href="/category/update/${brandId}"> Update Info </a> </button>

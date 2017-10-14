@@ -32,22 +32,22 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-11">
-                        <p>Name: ${brandInfo.name}</p>
+                        <p> <label class="col-sm-2"> Name: </label> ${brandInfo.name}</p>
                     </div>
                     <div class="col-md-11">
-                        <p>Description: ${brandInfo.description}</p>
+                        <p> <label class="col-sm-2"> Description: </label> ${brandInfo.description}</p>
                     </div>
                     <div class="col-md-11">
-                        <p>Contact Number: ${brandInfo.contactNumber}</p>
+                        <p> <label class="col-sm-2"> Contact Number: </label> ${brandInfo.contactNumber}</p>
                     </div>
                     <div class="col-md-11">
-                        <p>Contact Number 2: ${brandInfo.contactNumber2}</p>
+                        <p> <label class="col-sm-2"> Contact Number 2: </label> ${brandInfo.contactNumber2}</p>
                     </div>
                     <div class="col-md-11">
-                        <p>Central Office Address: ${brandInfo.centralOfficeAddress}</p>
+                        <p> <label class="col-sm-2"> Central Office Address: </label> ${brandInfo.centralOfficeAddress}</p>
                     </div>
                     <div class="col-md-11">
-                        <p>Service Center Address: ${brandInfo.serviceCenterAddress}</p>
+                        <p> <label class="col-sm-2"> Service Center Address: </label> ${brandInfo.serviceCenterAddress}</p>
                     </div>
                     <div class="col-md-3">
                         <button type="button" class="btn btn-block"> <a href="/brand/update/${brandId}"> Update Info </a> </button>

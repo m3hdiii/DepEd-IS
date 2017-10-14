@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Pack Info"/>
+    <c:param name="description" value="Pack Info Page"/>
 </c:import>
 
 <body>
@@ -24,22 +24,30 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Pack Info </h3>
+        <h3> &nbsp; Pack Info </h3>
     </div>
 
     <div class="row">
-        <p>Name: ${packInfo.name}</p>
-    </div>
-    <div class="row">
-        <p>Description: ${packInfo.description}</p>
-    </div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-11">
+                        <p> <label class="col-sm-2"> Name: </label> ${packInfo.name}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p> <label class="col-sm-2"> Description: </label> ${packInfo.description}</p>
+                    </div>
 
-    <div class="row">
-        <p>Pack for the Item: ${packInfo.item.name}</p>
-    </div>
+                    <div class="col-md-11">
+                        <p> <label class="col-sm-2"> Pack for the Item: </label> ${packInfo.item.name}</p>
+                    </div>
 
-    <div>
-        <a href="/pack/update/${packId}">update the Pack</a>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-green"> <a href="/pack/update/${packId}"> Update Info </a> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <c:import url="../../modals/cart.jsp"/>

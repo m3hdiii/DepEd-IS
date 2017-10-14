@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Pack List"/>
+    <c:param name="description" value="Pack List Page"/>
 </c:import>
 
 <body>
@@ -33,23 +33,23 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Associated Item</th>
-                    <th>Edit Section</th>
-                    <th>Remove Section</th>
+                    <th class="col-md-5">Name</th>
+                    <th class="col-md-5">Description</th>
+                    <th class="col-md-5">Associated Item</th>
+                    <th class="col-md-5">Edit Section</th>
+                    <th class="col-md-5">Remove Section</th>
 
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${packs}" var="pack">
                     <tr>
-                        <td>${pack.name}</td>
-                        <td>${pack.description}</td>
-                        <td>${pack.item.name}</td>
-                        <td><a href="/pack/update/${pack.packId}"><img src="${resourceURL}/images/edit.png"
+                        <td class="col-md-2">${pack.name}</td>
+                        <td class="col-md-2">${pack.description}</td>
+                        <td class="col-md-2">${pack.item.name}</td>
+                        <td class="col-md-2"><a href="/pack/update/${pack.packId}"><img src="${resourceURL}/images/edit.png"
                                                                        width="16"/></a></td>
-                        <td><img src="${resourceURL}/images/delete.png" width="16"/></td>
+                        <td class="col-md-2"><img src="${resourceURL}/images/delete.png" width="16"/></td>
                     </tr>
                 </c:forEach>
                 </tbody>
