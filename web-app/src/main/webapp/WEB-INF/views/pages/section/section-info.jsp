@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Edit Section"/>
+    <c:param name="description" value="This page allows the admin to edit an existing section information from the list of sections."/>
 </c:import>
 
 <body>
@@ -22,26 +22,44 @@
 <section class="content">
 
     <c:import url="../../includes/top-nav.jsp"/>
-
-    <div class="page-header">
-        <h3> Edit Section </h3>
-    </div>
-
-    <div class="page-header">
-        <h3> Brand Info </h3>
-    </div>
-
     <div class="row">
-        <p>Name: ${sectionInfo.name}</p>
-    </div>
-    <div class="row">
-        <p>Description: ${sectionInfo.description}</p>
-    </div>
-    <div class="row">
-        <p>Department: ${sectionInfo.department.name}</p>
-    </div>
-    <div>
-        <a href="/section/update/${sectionId}">update the Section</a>
+        <div class="col-lg-12">
+            <div class="panel-heading"><h1>Edit Section</h1></div>
+            <div class="panel panel-defualt">
+                <table class="table no-margn">
+                    <tbody>
+                        <tr>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <p>Name: ${sectionInfo.name}</p>
+                                </div>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <p>Description: ${sectionInfo.description}</p>
+                                </div>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <p>Department: ${sectionInfo.department.name}</p>
+                                </div>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div>
+                                <div class="col-sm-2">
+                                    <a href="/section/update/${sectionId}" class="btn btn-success btn-block">update the Section</a>
+                                </div>
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <c:import url="../../modals/cart.jsp"/>

@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="List of Departments"/>
+    <c:param name="description" value="This page retrieves all the list of existing departments"/>
 </c:import>
 
 <body>
@@ -23,37 +23,36 @@
 
     <c:import url="../../includes/top-nav.jsp"/>
 
-    <div class="page-header">
-        <h3>Department List</h3>
-    </div>
-
     <div class="row">
-        <div class="col col-lg-3"/>
-        <div class="col col-lg-3">
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Department Head</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${departments}" var="department">
+        <div class="col col-lg-12">
+            <div class="panel-heading"><h1>Department List</h1></div>
+            <div class="panel panel-default">
+                <table class="table no-margn">
+                    <thead>
                     <tr>
-                        <td>${department.name}</td>
-                        <td>${department.description}</td>
-                        <td>${department.departmentHead}</td>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Department Head</th>
                     </tr>
-                </c:forEach>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${departments}" var="department">
+                        <tr>
+                            <td>${department.name}</td>
+                            <td>${department.description}</td>
+                            <td>${department.departmentHead}</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <c:import url="../../modals/cart.jsp"/>
+
 </section>
+
 <section class="content">
     <c:import url="../../includes/footer.jsp"/>
 </section>

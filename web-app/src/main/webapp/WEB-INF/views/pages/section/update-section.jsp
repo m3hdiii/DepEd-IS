@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Update Section Info"/>
+    <c:param name="description" value="Update an existing Section Information"/>
 </c:import>
 
 <body>
@@ -34,19 +34,42 @@
         </c:when>
     </c:choose>
 
-
-    <form:form commandName="section" method="post">
-        <p><span>name: </span><form:input path="name"/></p>
-        <p><span>description: </span><form:textarea path="description"/></p>
-        <p><span>department: </span>
-            <form:select path="department.departmentId" items="${departments}" itemValue="departmentId"
-                         itemLabel="name"/>
-        </p>
-        <button type="submit">Update Section</button>
-    </form:form>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel-heading"><h1>Edit Section</h1></div>
+            <hr class="style13"/>
+            <form:form commandName="section" method="post">
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label"><span>name: </span></label>
+                        <form:input path="name"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label"><span>description: </span></label>
+                        <form:textarea path="description"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label"><span>List of Departments: </span></label>
+                        <form:select path="department.departmentId" items="${departments}" itemValue="departmentId"
+                                     itemLabel="name"/>
+                    </div>
+                </div>
+                <div class="row form-group btn-group-sm">
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-success btn-block">Update Section</button>
+                    </div>
+                </div>
+            </form:form>
+        </div>
+    </div>
 
     <c:import url="../../modals/cart.jsp"/>
 </section>
+
 <section class="content">
     <c:import url="../../includes/footer.jsp"/>
 </section>

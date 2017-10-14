@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Update Department Info"/>
+    <c:param name="description" value="Update an existing Department Information"/>
 </c:import>
 
 <body>
@@ -23,9 +23,6 @@
 
     <c:import url="../../includes/top-nav.jsp"/>
 
-    <div class="page-header">
-        <h3> Edit Department</h3>
-    </div>
     <c:choose>
         <c:when test="${not empty notUpdated}">
             <p style="color: red;">${notUpdated}</p>
@@ -39,13 +36,38 @@
 
     </c:choose>
 
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel-heading"><h1>Edit Department<h1/></div>
+            <hr class="style13"/>
+            <form:form commandName="department" method="post">
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label"><span>name: </span></label>
+                        <form:input path="name"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label"><span>description: </span></label>
+                        <form:textarea path="description"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label"><span>Department Head: </span></label>
+                        <form:input path="departmentHead"/>
+                    </div>
+                </div>
+                <div class="row form-group btn-group-sm">
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-success btn-block">Update Department</button>
+                    </div>
+                </div>
+            </form:form>
+        </div>
+    </div>
 
-    <form:form commandName="department" method="post">
-        <p><span>name: </span><form:input path="name"/></p>
-        <p><span>description: </span><form:textarea path="description"/></p>
-        <p><span>Department Head: </span><form:input path="departmentHead"/></p>
-        <button type="submit">Update Department</button>
-    </form:form>
 
     <c:import url="../../modals/cart.jsp"/>
 </section>

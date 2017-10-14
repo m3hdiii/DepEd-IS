@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Create Section"/>
+    <c:param name="description" value="This page allows the user to create a section within a select department it should belong to."/>
 </c:import>
 
 <body>
@@ -35,17 +35,40 @@
         </c:when>
 
     </c:choose>
-    <form:form commandName="section" method="post">
-        <p><span>name: </span><form:input path="name"/></p>
-        <p><span>description: </span><form:textarea path="description"/></p>
-        <p><span>department: </span>
-            <form:select path="department">
-                <form:options items="${departments}" itemValue="departmentId" itemLabel="name"/>
-            </form:select>
-        </p>
-        <button type="submit">Create Section</button>
-    </form:form>
-
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel-heading"><h1>Enter Section Information</h1></div>
+            <hr class="style13"/>
+            <form:form commandName="section" method="post">
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label"><span>name: </span></label>
+                        <form:input path="name"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label"><span>Description: </span></label>
+                        <form:textarea path="description"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label"><span>Choose a Department: </span></label>
+                        <form:select path="department">
+                            <form:options items="${departments}" itemValue="departmentId" itemLabel="name"/>
+                        </form:select>
+                    </div>
+                </div>
+                <div class="row form-group btn-group-sm">
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-success btn-block">Create Section</button>
+                        <button type="reset" class="btn btn-primary btn-block">Reset Fields</button>
+                    </div>
+                </div>
+            </form:form>
+        </div>
+    </div>
     <c:import url="../../modals/cart.jsp"/>
 </section>
 <section class="content">

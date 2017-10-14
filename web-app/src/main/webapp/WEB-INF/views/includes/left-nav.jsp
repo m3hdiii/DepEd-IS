@@ -54,13 +54,25 @@
                 </ul>
             </li>
             -->
-            <li class="has-submenu"><a href="#"></i><span
+            <li class="has-submenu"><a href="#"><span
                     class="nav-label">User Management</span></a>
                 <ul class="list-unstyled">
                     <li><a href="/user/create">Create User</a></li>
                     <li><a href="/user/update/1">Update User Information</a></li>
                     <li><a href="/user/1">View User</a></li>
                     <li><a href="/user/list">List of Users</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu"><a href="#"><span class="nav-label">Deparment & Section Management</span></a>
+                <ul class="list-unstyled">
+                    <li><a href="/department/create">Create Department</a></li>
+                    <li><a href="/section/create">Create Section</a></li>
+                    <li><a href="/department/update/1">Edit Department</a></li>
+                    <li><a href="/section/update/1">Edit Section</a></li>
+                    <li><a href="/department/1">Department Info</a></li>
+                    <li><a href="/section/1">Section Info</a></li>
+                    <li><a href="/department/list">List of Departments</a></li>
+                    <li><a href="/section/list">List of Sections</a></li>
                 </ul>
             </li>
             <li class="has-submenu"><a href="#"> <span class="nav-label">Request Management</span></a>
