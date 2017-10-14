@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Brand List"/>
+    <c:param name="description" value="Brand List Page"/>
 </c:import>
 
 <body>
@@ -24,7 +24,7 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Brand List </h3>
+        <h3> &nbsp; Brand List </h3>
     </div>
 
     <div class="row">
@@ -33,27 +33,26 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Contact Number</th>
-                    <th>Contact Number 2</th>
-                    <th>Contact Office Address</th>
-                    <th>Service Center Address</th>
-                    <th>Creation Date</th>
-
+                    <th class="col-md-5">Name</th>
+                    <th class="col-md-5">Description</th>
+                    <th class="col-md-5">Contact Number</th>
+                    <th class="col-md-5">Contact Number 2</th>
+                    <th class="col-md-5">Contact Office Address</th>
+                    <th class="col-md-5">Service Center Address</th>
+                    <th class="col-md-5">Creation Date</th>
 
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${brands}" var="brand">
                     <tr>
-                        <td>${brand.name}</td>
-                        <td>${brand.description}</td>
-                        <td>${brand.contactNumber}</td>
-                        <td>${brand.contactNumber2}</td>
-                        <td>${brand.centralOfficeAddress}</td>
-                        <td>${brand.serviceCenterAddress}</td>
-                        <td>${brand.creationDate}</td>
+                        <td class="col-md-2">${brand.name}</td>
+                        <td class="col-md-2">${brand.description}</td>
+                        <td class="col-md-2">${brand.contactNumber}</td>
+                        <td class="col-md-2">${brand.contactNumber2}</td>
+                        <td class="col-md-2">${brand.centralOfficeAddress}</td>
+                        <td class="col-md-2">${brand.serviceCenterAddress}</td>
+                        <td class="col-md-2">${brand.creationDate}</td>
                     </tr>
                 </c:forEach>
                 </tbody>

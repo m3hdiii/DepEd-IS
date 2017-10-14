@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Category List"/>
+    <c:param name="description" value="Category List Page"/>
 </c:import>
 
 <body>
@@ -24,27 +24,27 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Category </h3>
+        <h3> &nbsp; Category </h3>
     </div>
 
     <div class="row">
         <div class="col col-lg-3"/>
-        <div class="col col-lg-3">
+        <div class="col col-lg-9">
             <table>
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Parent Category</th>
+                    <th class="col-md-5">Name</th>
+                    <th class="col-md-5">Description</th>
+                    <th class="col-md-5">Parent Category</th>
 
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${categories}" var="category">
                     <tr>
-                        <td>${category.name}</td>
-                        <td>${category.description}</td>
-                        <td>${category.parentCategory.name}</td>
+                        <td class="col-md-2">${category.name}</td>
+                        <td class="col-md-2">${category.description}</td>
+                        <td class="col-md-2">${category.parentCategory.name}</td>
                     </tr>
                 </c:forEach>
                 </tbody>

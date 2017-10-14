@@ -5,7 +5,7 @@
 
     <div class="user text-center">
         <img src="${resourceURL}/images/avtar/user.png" class="img-circle" alt="...">
-        <h4 class="user-name">Empoyee Name Here</h4>
+        <h4 class="user-name">Employee Name Here</h4>
 
         <div class="dropdown user-login">
             <button class="btn btn-xs dropdown-toggle btn-rounded" type="button" data-toggle="dropdown"

@@ -11,8 +11,8 @@
 
 <c:url value="/" var="routePath" scope="request"/>
 <c:import url="../../includes/head.jsp">
-    <c:param name="title" value="EDIT LATER"/>
-    <c:param name="description" value="EDIT LATER PAGE"/>
+    <c:param name="title" value="Category Info"/>
+    <c:param name="description" value="Category Info Page"/>
 </c:import>
 
 <body>
@@ -24,16 +24,28 @@
     <c:import url="../../includes/top-nav.jsp"/>
 
     <div class="page-header">
-        <h3> Category Info </h3>
+        <h3> &nbsp; Category Info </h3>
     </div>
+
     <div class="row">
-        <p>Name: ${categoryInfo.name}</p>
-    </div>
-    <div class="row">
-        <p>Description: ${categoryInfo.description}</p>
-    </div>
-    <div class="row">
-        <p>Parent Name: ${categoryInfo.parentCategory.name}</p>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-11">
+                        <p>Name: ${categoryInfo.name}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p>Description: ${categoryInfo.description}</p>
+                    </div>
+                    <div class="col-md-11">
+                        <p>Parent Name: ${categoryInfo.parentCategory.name}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block"> <a href="/category/update/${brandId}"> Update Info </a> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <c:import url="../../modals/cart.jsp"/>
