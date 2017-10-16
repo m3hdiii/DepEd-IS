@@ -48,16 +48,24 @@
         ${methodName}
     </p>
 
-    <c:forEach items="${itemList}" var="item">
-        <ul>
-            <li>${item.name}</li>
-            <li>${item.description}</li>
-            <li>${item.itemType}</li>
-            <li>${item.visibility}</li>
-            <li>${item.quantity}</li>
-        </ul>
-
-    </c:forEach>
+    <table class="table table-hover">
+        <thead>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Item Type</th>
+            <th>Visibility</th>
+            <th>Quantity</th>
+        </thead>
+        <c:forEach items="${itemList}" var="item">
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.description}</td>
+                <td>${item.itemType}</td>
+                <td>${item.visibility}</td>
+                <td>${item.quantity}</td>
+            </tr>
+        </c:forEach>
+    </table>
 
     <c:import url="../../modals/cart.jsp"/>
 </section>
