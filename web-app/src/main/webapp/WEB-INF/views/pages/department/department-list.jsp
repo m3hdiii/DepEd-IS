@@ -27,7 +27,7 @@
         <div class="col col-lg-12">
             <div class="panel-heading"><h1>Department List</h1></div>
             <div class="panel panel-default">
-                <table class="table no-margn">
+                <table class="table table-hover">
                     <thead>
                     <tr>
                         <th>Name</th>

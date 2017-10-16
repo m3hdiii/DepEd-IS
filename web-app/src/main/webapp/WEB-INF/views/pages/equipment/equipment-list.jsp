@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col col-lg-3"/>
         <div class="col col-lg-3">
-            <table>
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>Name</th>
