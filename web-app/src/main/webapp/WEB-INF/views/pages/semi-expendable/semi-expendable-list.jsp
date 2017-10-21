@@ -31,7 +31,7 @@
 
         <div class="row item-body">
 
-            <c:forEach items="${semiExpendable}" var="semiExpendable">
+            <c:forEach items="${semiExpendables}" var="semiExpendable">
                 <div class='col-xs-3 thumbnail item-content-thumbnail'>
                     <img src="${resourceURL}/images/carousel/1.jpg" alt="1-jpg" width="304px" height="236px">
                     <div class="item-infomation text-center">

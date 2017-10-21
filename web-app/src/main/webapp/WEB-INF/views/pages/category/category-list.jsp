@@ -36,6 +36,8 @@
                     <th class="col-md-5">Name</th>
                     <th class="col-md-5">Description</th>
                     <th class="col-md-5">Parent Category</th>
+                    <th class="col-md-5">Edit Category</th>
+                    <th class="col-md-5">Remove Category</th>
 
                 </tr>
                 </thead>
@@ -45,6 +47,9 @@
                         <td class="col-md-2">${category.name}</td>
                         <td class="col-md-2">${category.description}</td>
                         <td class="col-md-2">${category.parentCategory.name}</td>
+                        <td><a href="/category/update/${category.categoryId}"><img src="${resourceURL}/images/edit.png"
+                                                                                width="16"/></a></td>
+                        <td><img src="${resourceURL}/images/delete.png" width="16"/></td>
                     </tr>
                 </c:forEach>
                 </tbody>

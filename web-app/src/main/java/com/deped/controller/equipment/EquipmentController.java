@@ -3,6 +3,7 @@ package com.deped.controller.equipment;
 import com.deped.controller.AbstractMainController;
 import com.deped.model.Response;
 import com.deped.model.items.equipment.Equipment;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -82,7 +84,9 @@ public class EquipmentController extends AbstractMainController<Equipment, Long>
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        ModelAndView mv = makeHintPage(LIST_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        ResponseEntity<List<Equipment>> response = makeFetchAllRestRequest(BASE_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<Equipment>>() {
+        });
+        ModelAndView mv = listProcessing(response, "equipments", LIST_VIEW_PAGE);
         return mv;
     }
 

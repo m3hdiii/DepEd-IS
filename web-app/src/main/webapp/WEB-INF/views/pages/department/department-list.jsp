@@ -33,6 +33,8 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Department Head</th>
+                        <th>Edit Department</th>
+                        <th>Remove Department</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,6 +43,9 @@
                             <td>${department.name}</td>
                             <td>${department.description}</td>
                             <td>${department.departmentHead}</td>
+                            <td class="col-md-2"><a href="/department/update/${department.departmentId}"><img src="${resourceURL}/images/edit.png"
+                                                                                            width="16"/></a></td>
+                            <td class="col-md-2"><img src="${resourceURL}/images/delete.png" width="16"/></td>
                         </tr>
                     </c:forEach>
                     </tbody>

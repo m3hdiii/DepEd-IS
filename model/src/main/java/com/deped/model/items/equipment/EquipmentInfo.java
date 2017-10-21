@@ -1,6 +1,7 @@
 package com.deped.model.items.equipment;
 
 import com.deped.model.items.Material;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Date;

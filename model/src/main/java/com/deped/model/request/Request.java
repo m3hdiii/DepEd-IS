@@ -3,8 +3,10 @@ package com.deped.model.request;
 
 import com.deped.model.items.semigoods.Item;
 import com.deped.model.account.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,7 +17,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "request")
-public class Request {
+public class Request implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,6 +47,7 @@ public class Request {
     private String disapprovalMessage;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @JsonBackReference
     @JoinTable(name = "item_request", joinColumns = @JoinColumn(name = "request_id"),
             inverseJoinColumns = @JoinColumn(name = "item_id"))
     Set<Item> items = new HashSet<>();

@@ -36,8 +36,8 @@
                     <th class="col-md-5">Name</th>
                     <th class="col-md-5">Description</th>
                     <th class="col-md-5">Associated Item</th>
-                    <th class="col-md-5">Edit Section</th>
-                    <th class="col-md-5">Remove Section</th>
+                    <th class="col-md-5">Edit Pack</th>
+                    <th class="col-md-5">Remove Pack</th>
 
                 </tr>
                 </thead>

@@ -2,7 +2,9 @@ package com.deped.controller.request;
 
 import com.deped.controller.AbstractMainController;
 import com.deped.model.Response;
+import com.deped.model.items.equipment.Equipment;
 import com.deped.model.request.BorrowRequest;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -81,7 +84,9 @@ public class BorrowRequestController extends AbstractMainController<BorrowReques
     @Override
     @RequestMapping(value = RENDER_LIST_MAPPING, method = GET)
     public ModelAndView renderListPage() {
-        ModelAndView mv = makeHintPage(LIST_VIEW_PAGE, this.getClass().getCanonicalName(), Thread.currentThread().getStackTrace()[1].getMethodName());
+        ResponseEntity<List<BorrowRequest>> response = makeFetchAllRestRequest(BASE_NAME, HttpMethod.POST, new ParameterizedTypeReference<List<BorrowRequest>>() {
+        });
+        ModelAndView mv = listProcessing(response, "borrowRequests", LIST_VIEW_PAGE);
         return mv;
     }
 

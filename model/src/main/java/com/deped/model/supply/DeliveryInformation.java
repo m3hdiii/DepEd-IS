@@ -26,5 +26,35 @@ public class DeliveryInformation {
     @Column(name = "delivery_person_contact_nom2")
     private String deliveryPersonContactNumber2;
 
+    public Date getDeliveryDate() {
+        return deliveryDate;
+    }
 
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public String getDeliveryPersonName() {
+        return deliveryPersonName;
+    }
+
+    public void setDeliveryPersonName(String deliveryPersonName) {
+        this.deliveryPersonName = deliveryPersonName;
+    }
+
+    public String getDeliveryPersonContactNumber() {
+        return deliveryPersonContactNumber;
+    }
+
+    public void setDeliveryPersonContactNumber(String deliveryPersonContactNumber) {
+        this.deliveryPersonContactNumber = deliveryPersonContactNumber;
+    }
+
+    public String getDeliveryPersonContactNumber2() {
+        return deliveryPersonContactNumber2;
+    }
+
+    public void setDeliveryPersonContactNumber2(String deliveryPersonContactNumber2) {
+        this.deliveryPersonContactNumber2 = deliveryPersonContactNumber2;
+    }
 }

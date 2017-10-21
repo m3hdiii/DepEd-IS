@@ -40,6 +40,8 @@
                     <th class="col-md-5">Contact Office Address</th>
                     <th class="col-md-5">Service Center Address</th>
                     <th class="col-md-5">Creation Date</th>
+                    <th class="col-md-5">Edit Brand</th>
+                    <th class="col-md-5">Remove Brand</th>
 
                 </tr>
                 </thead>
@@ -53,6 +55,9 @@
                         <td class="col-md-2">${brand.centralOfficeAddress}</td>
                         <td class="col-md-2">${brand.serviceCenterAddress}</td>
                         <td class="col-md-2">${brand.creationDate}</td>
+                        <td><a href="/brand/update/${brand.brandId}"><img src="${resourceURL}/images/edit.png"
+                                                                                width="16"/></a></td>
+                        <td><img src="${resourceURL}/images/delete.png" width="16"/></td>
                     </tr>
                 </c:forEach>
                 </tbody>

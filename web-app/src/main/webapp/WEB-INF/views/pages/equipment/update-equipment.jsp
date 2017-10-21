@@ -52,7 +52,7 @@
             <form:options/>
         </form:select>
 
-        <button type="submit">Create Brand</button>
+        <button type="submit">Update Equipment</button>
     </form:form>
 
     <c:import url="../../modals/cart.jsp"/>

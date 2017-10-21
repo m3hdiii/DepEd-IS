@@ -1,7 +1,7 @@
 package com.deped.model.location.office;
 
 import com.fasterxml.jackson.annotation.*;
-
+import static com.deped.repository.utils.ConstantValues.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -11,7 +11,7 @@ import java.util.Date;
  */
 
 @NamedQueries({
-        @NamedQuery(name = "fetchAllSections", query = "SELECT sec FROM Section sec"),
+        @NamedQuery(name = FETCH_ALL_SECTION, query = "SELECT sec FROM Section sec"),
         @NamedQuery(name = "deleteSectionById", query = "DELETE FROM Section sec WHERE sec.sectionId = :sectionId")
 })
 @Entity

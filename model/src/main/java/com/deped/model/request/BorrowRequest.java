@@ -4,6 +4,7 @@ import com.deped.model.items.equipment.Equipment;
 import com.deped.model.account.User;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +19,7 @@ import java.util.Set;
 })
 @Entity
 @Table(name = "borrow_request")
-public class BorrowRequest {
+public class BorrowRequest implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

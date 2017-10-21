@@ -35,11 +35,13 @@
                     <th>Model Number</th>
                     <th>Color</th>
                     <th>Purchase Price</th>
+                    <th>Edit Equipment</th>
+                    <th>Remove Equipment</th>
 
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${equipment}" var="equipment">
+                <c:forEach items="${equipments}" var="equipment">
                     <tr>
                         <td>${equipment.name}</td>
                         <td>${equipment.description}</td>
@@ -47,6 +49,9 @@
                         <td>${equipment.modelNumber}</td>
                         <td>${equipment.color}</td>
                         <td>${equipment.purchasePrice}</td>
+                        <td><a href="/equipment/update/${equipment.equipmentId}"><img src="${resourceURL}/images/edit.png"
+                                                                                width="16"/></a></td>
+                        <td><img src="${resourceURL}/images/delete.png" width="16"/></td>
                     </tr>
                 </c:forEach>
                 </tbody>

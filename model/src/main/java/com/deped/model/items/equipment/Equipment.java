@@ -1,24 +1,24 @@
 package com.deped.model.items.equipment;
 
 import com.deped.model.supply.Supply;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import static com.deped.repository.utils.ConstantValues.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 
 @NamedQueries({
-        @NamedQuery(
-                name = FETCH_ALL_EQUIPMENTS,
-                query = "SELECT eq FROM Equipment eq"
-        )
+        @NamedQuery(name = FETCH_ALL_EQUIPMENTS, query = "SELECT eq FROM Equipment eq")
 })
 @Entity
 @Table(name = "equipment")
-public class Equipment {
+public class Equipment implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,9 +49,11 @@ public class Equipment {
     @JoinColumn(name = "equipment_info_id")
     private EquipmentInfo equipmentInfo;
 
+
     @ManyToMany
     @JoinTable(name = "supply_equipment", joinColumns = @JoinColumn(name = "equipment_id"),
             inverseJoinColumns = @JoinColumn(name = "supply_id"))
+    @JsonBackReference
     private Set<Supply> supplies = new HashSet<>();
 
     @Column(name = "color")

@@ -40,7 +40,7 @@
 
             <c:when test="${not empty successfullyCreated}">
                 <p style="color: green;">${successfullyCreated}</p>
-                &nbsp;&nbsp;<a href="/pack/create">Create New Pack</a>
+                &nbsp;&nbsp;<a href="/pack/list">Create New Pack</a>
             </c:when>
 
         </c:choose>
